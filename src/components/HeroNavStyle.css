@@ -1,0 +1,30 @@
+.star ul li{
+    list-style: none;
+   
+   padding: 9px;
+   
+
+
+
+
+
+}
+
+.star ul {
+   position: fixed;
+   bottom: 12%;
+   left: 20px;
+
+
+
+}
+
+@media (max-width: 768px) {
+   .star ul {
+      position: fixed; /* Add position: fixed */
+      left: -25px;
+      top: 43%;
+      width: 16%; /* Adjust the width as needed */
+      z-index: -1;
+   }
+}

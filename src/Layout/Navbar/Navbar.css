@@ -1,0 +1,147 @@
+/* Styles for the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+
+  height: 80px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    position: relative;
+    background-color: transparent;
+  }
+
+  body {
+    padding-top: 0;
+  }
+}
+
+.navbar-brand {
+  margin-left: 30px;
+}
+.corner {
+  margin-top: 10px;
+}
+
+.nav-item a {
+  color: rgba(100, 100, 100, 1);
+
+  font-size: 14px;
+  margin: 0 18px;
+  font-weight: 500;
+}
+
+.blackColor {
+  color: #000; /* Black color for the text */
+}
+
+.navDropdown {
+  cursor: pointer;
+}
+
+/* Center-align the button */
+.btn {
+  border-radius: 20px;
+}
+
+/* Styles for the dropdown menus */
+.dropdown-menu {
+  background-color: #f1f1f1;
+}
+
+/* Center text inside the section */
+.text-center {
+  text-align: center;
+}
+
+/* Center text inside h1 and p with separate class names */
+.center-text {
+  text-align: center;
+}
+
+/* Styles for the collapsed navbar */
+.collapse.navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Styles for the navigation links */
+.nav-item {
+  display: inline-block;
+}
+
+.nav-link {
+  font-weight: 600;
+}
+
+/* Styles for the dropdown items */
+.dropdown-item {
+  color: #000; /* Black color for the dropdown items */
+}
+
+.dropdown-divider {
+  background-color: #000; /* Black color for the dropdown divider */
+}
+
+/* Style for the "Contact us" button */
+.btn.btn-dark {
+  border-radius: 20px;
+}
+
+.nav {
+  /* margin-right: 270px;
+  gap: 30px; */
+  font-size: 18px;
+}
+
+.right {
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .nav-item a {
+    padding: 1px 15px;
+    font-size: 14px;
+  }
+
+  .corner {
+    margin-top: 20px;
+  }
+
+  .navbar-brand {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .collapse.navbar-collapse {
+    position: absolute;
+    top: 100%; /* Adjust as needed */
+    right: 0;
+    left: 0;
+    background: white;
+  }
+
+  .btn.btn-dark {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px; /* Adjust as needed */
+  }
+}
+
+@media (max-width: 768px) {
+  .cart {
+    /* Adjust the styles for smaller screens */
+    text-align: left; /* Center the link and image */
+    display: block; /* Make it a block element for full width */
+    margin: 10px; /* Add margin for spacing */
+  }
+
+  .cart img {
+    width: 50px; /* Adjust the image width for smaller screens */
+  }
+}
