@@ -4,6 +4,13 @@
   position: relative;
 }
 
+.spark {
+  max-width: 20%;
+  position: absolute;
+  top: -10%;
+  right: 38%;
+}
+
 .aboutus {
   margin-top: 40px;
   text-align: center;

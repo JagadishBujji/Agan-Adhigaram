@@ -9,7 +9,16 @@ function Aboutus() {
   return (
     <div className={`${classes.about} about`}>
       <div className={`${classes.us}`}>
-        <h1 className={`${classes.aboutus}`}>About Us</h1>
+        <h1 className={`${classes.aboutus}`}>
+          About Us{" "}
+          <span>
+            <img
+              src="./images/Sparkle.svg"
+              alt="heroimg1"
+              className={classes.spark}
+            />
+          </span>
+        </h1>
         <h1 className={`${classes.we}`}>
           {" "}
           Fueling young minds with imagination
@@ -20,7 +29,11 @@ function Aboutus() {
 
       <div className={`${classes.About} row container m-auto`}>
         <div className={`${classes.person1} col-md-6`}>
-          <img src="./images/Dragon.png" alt="heroimg1" className={classes.dragon} />
+          <img
+            src="./images/Dragon.png"
+            alt="heroimg1"
+            className={classes.dragon}
+          />
           <p className={classes.sethuram}>
             Sethu Ram is a first employee and co-founder of
             <br /> Agan Adhigaram publications.
@@ -30,7 +43,11 @@ function Aboutus() {
         </div>
         <div className={`${classes.person2} col-md-6`}>
           <p className={classes.name2}> Ramya</p>
-          <img src="./images/Butterfly.png" alt="heroimg1" className={classes.Butterfly} />
+          <img
+            src="./images/Butterfly.png"
+            alt="heroimg1"
+            className={classes.Butterfly}
+          />
           <img
             src="./images/girl1.png"
             alt="heroimg1"
