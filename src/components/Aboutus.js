@@ -38,7 +38,7 @@ function Aboutus() {
             Sethu Ram is a first employee and co-founder of
             <br /> Agan Adhigaram publications.
           </p>
-          <img src="./images/boy1.png" alt="heroimg1" className={classes.boy} />
+          <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
           <p className={classes.name1}>Sethuram</p>
         </div>
         <div className={`${classes.person2} col-md-6`}>
@@ -49,7 +49,7 @@ function Aboutus() {
             className={classes.Butterfly}
           />
           <img
-            src="./images/girl1.png"
+            src="./images/girl1.svg"
             alt="heroimg1"
             className={classes.boy}
           />

@@ -8,7 +8,7 @@ function Hero() {
     <div>
       <div className="img">
         <img
-          src="./images/Hero.png"
+          src="./images/landingbanner.svg"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimage}

@@ -12,35 +12,35 @@ const Footer = () => {
           <div className={`${classes.socialmedia}`}>
             <a href="">
               <img
-                src="./images/instagram.png"
+                src="./images/instagram.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href="">
               <img
-                src="./images/facebook.png"
+                src="./images/facebook.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href="">
               <img
-                src="./images/linkedin.png"
+                src="./images/linkedin.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href="">
               <img
-                src="./images/X.png"
+                src="./images/X.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href="">
               <img
-                src="./images/youtube.png"
+                src="./images/youtube.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className={`${classes.borderbottom} `}>
             <a href="">
               <img
-                src="./images/Frame.png"
+                src="./images/Frame.svg"
                 alt=""
                 className={classes.logoicon}
               />
