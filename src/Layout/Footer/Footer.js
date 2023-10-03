@@ -9,6 +9,60 @@ const Footer = () => {
             With love, Ramya and Sethu Ram, Chief Believers and Founders,
             <br /> Agan Adhigaram®
           </p>
+          <div className={`${classes.socialmedia}`}>
+            <a href="">
+              <img
+                src="./images/instagram.png"
+                alt=""
+                className={classes.socialmediaicon}
+              />
+            </a>
+            <a href="">
+              <img
+                src="./images/facebook.png"
+                alt=""
+                className={classes.socialmediaicon}
+              />
+            </a>
+            <a href="">
+              <img
+                src="./images/linkedin.png"
+                alt=""
+                className={classes.socialmediaicon}
+              />
+            </a>
+            <a href="">
+              <img
+                src="./images/X.png"
+                alt=""
+                className={classes.socialmediaicon}
+              />
+            </a>
+            <a href="">
+              <img
+                src="./images/youtube.png"
+                alt=""
+                className={classes.socialmediaicon}
+              />
+            </a>
+          </div>
+          <div className={`${classes.borderbottom} `}>
+            <a href="">
+              <img
+                src="./images/Frame.png"
+                alt=""
+                className={classes.logoicon}
+              />
+            </a>
+          </div>
+          <div className={`${classes.links}`}>
+            <a href="">Home</a>
+            <a href="">Contact us</a>
+            <a href="">Books</a>
+            <a href="">About us</a>
+            <a href="">Blog</a>
+          </div>
+          <p className={classes.copyright}>copyright @Agan Adhigaram®.All rights reserved.</p>
         </div>
       </div>
     </>

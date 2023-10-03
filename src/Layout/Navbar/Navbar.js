@@ -98,13 +98,13 @@ function Navbar() {
                 </a>
               </li>
               <a href="#" className="cart">
-                {/* <img
-                  src={cart}
+                <img
+                  src="./images/cart.png"
                   alt="Kittivasal logo"
                   width="30"
                   height="auto"
                   className="d-inline-block align-text-top"
-                /> */}
+                />
               </a>
             </div>{" "}
           </div>
