@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   max-width: 100%;
   height: 80rem;
-
 }
 
 .valuesheading {
@@ -47,7 +46,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
+  padding: 0 100px;
   text-align: center;
 }
 .firsthalf2 {
@@ -60,7 +59,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
+  padding: 0 100px;
   text-align: center;
 }
 
@@ -74,7 +73,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
+  padding: 0 100px;
   text-align: center;
 }
 .firsthalf4 {
@@ -87,7 +86,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 100px;
+  padding: 0 100px;
   text-align: center;
 }
 
