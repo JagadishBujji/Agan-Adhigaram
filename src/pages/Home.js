@@ -1,5 +1,6 @@
 import Aboutus from "../components/Aboutus";
 import Hero from "../components/Hero";
+import Journey from "../components/Journey";
 import Value from "../components/Value";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <Aboutus/>
       {/* <Value/> */}
+      <Journey/>
     </>
   );
 };
