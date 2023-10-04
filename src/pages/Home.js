@@ -10,12 +10,10 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <Aboutus/>
-      <Welcome/>
-      <Author/>
-      <Journey/>
       <Aboutus />
+      <Welcome />
       <Values />
+      <Author />
       <Magical />
       <Journey />
     </>
