@@ -162,7 +162,36 @@
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  
+  .we {
+    font-size: 22px;
+  }
+  .spark {
+    top: -6%;
+    right: 38%;
+    max-width: 8%;
+  }
+  .sethuram {
+    font-size: 12px;
+  }
+  .ramya {
+    font-size: 12px;
+  }
+  .aboutus {
+    font-size: 20px;
+  }
+  .boy {
+    max-width: 60%;
+  }
+  .Butterfly {
+    right: 7%;
+    top: 28%;
+  }
+  .name1 {
+    font-size: 14px;
+  }
+  .name2 {
+    font-size: 14px;
+  }
 }
 
 /* Laptop */
@@ -173,9 +202,21 @@
 @media only screen and (min-width: 1366px) {
 }
 
-/* @media (min-width: 1024px) {
+
+/* Mobile */
+/* @media only screen and (max-width: 767px) {
+
+} */
+
+/* Tablet */
+/* @media only screen and (min-width: 768px) and (max-width: 1023px) {
   
-  .us {
-    height: 50px;
-  }
+} */
+
+/* Laptop */
+/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+} */
+
+/* Larger screens */
+/* @media only screen and (min-width: 1366px) {
 } */

@@ -32,62 +32,66 @@
 
 .greenleaf {
   margin: auto;
-  width: 100%;
-  height: 68rem;
+  height: 450px;
+  margin-top: 60px;
 }
 
 .firsthalf1 {
   background: url("../../public/images/green1.svg");
-  background-position: 10px 120px;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  max-width: 100%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 0 100px;
   text-align: center;
+  height: inherit;
 }
 .firsthalf2 {
   background: url("../../public/images/green2.svg");
-  background-position: 10px 120px;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  max-width: 100%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 0 100px;
   text-align: center;
+  height: inherit;
 }
 
 .firsthalf3 {
   background: url("../../public/images/green3.svg");
-  background-position: 10px;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  max-width: 100%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 0 100px;
   text-align: center;
+  height: inherit;
 }
 .firsthalf4 {
   background: url("../../public/images/green4.svg");
-  background-position: 10px;
+  background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  max-width: 100%;
+  max-width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 0 100px;
   text-align: center;
+  height: inherit;
 }
 
 .valuestitles {
@@ -101,4 +105,20 @@
 .valuessubcontent {
   font-size: 14px;
   color: #fff;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Laptop */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+}
+
+/* Larger screens */
+@media only screen and (min-width: 1366px) {
 }
