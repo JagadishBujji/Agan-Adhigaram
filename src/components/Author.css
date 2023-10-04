@@ -281,6 +281,12 @@ p {
   transform: rotate(-15deg); /* Rotate the image by 45 degrees */
 }
 
+.vai {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 60px;
+}
+
 @media (max-width: 768px) {
   .flower1,
   .flower2,
@@ -295,8 +301,14 @@ p {
   .card2,
   .card3,
   .card4 {
-    margin-left: 40px;
+    width: 200px;
+    height: 250px;
   } */
+
+  .vai{
+    font-size: 20px;
+  }
+
 
   .one {
     width: 85%;

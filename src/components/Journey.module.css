@@ -32,6 +32,13 @@
   flex-direction: column;
 }
 
+.person3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .Squiril {
   max-width: 55%;
 }
@@ -117,9 +124,52 @@
 }
 
 /* Mobile */
-/* @media only screen and (max-width: 767px) {
-
-} */
+@media only screen and (max-width: 767px) {
+  .Journeyus {
+    font-size: 20px;
+  }
+  .Journeywe {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .person1 {
+    display: none;
+  }
+  .person2 {
+    padding-bottom: 30px;
+  }
+  .ant {
+    max-width: 60%;
+    right: 0px;
+    bottom: 15px;
+  }
+  .person3 {
+    display: none;
+  }
+  .Well {
+    max-width: 30%;
+    position: absolute;
+    right: 0px;
+    top: 158px;
+  }
+  .well1 {
+    background: url("../../public/images/Well 2.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 300px;
+    width: 375px;
+    height: 127px;
+  }
+  .spark {
+    max-width: 15%;
+    position: absolute;
+    top: -7%;
+    left: 18%;
+  }
+  .About {
+    padding-top: 0px;
+  }
+}
 
 /* Tablet */
 /* @media only screen and (min-width: 768px) and (max-width: 1023px) {

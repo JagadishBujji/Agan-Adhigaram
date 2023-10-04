@@ -30,11 +30,7 @@ function Author() {
       <div className="container">
         <div className="row">
           <div className="col-sm">
-            <h1
-              style={{ fontSize: "30px", fontWeight: "700", marginTop: "60px" }}
-            >
-              Vaishali BK
-            </h1>
+            <h1 className="vai">Vaishali BK</h1>
             <p>Author</p>
             <div className="card">
               <div className="card-content">
@@ -57,11 +53,7 @@ function Author() {
             />
           </div>
           <div className="col-sm">
-            <h1
-              style={{ fontSize: "30px", fontWeight: "700", marginTop: "60px" }}
-            >
-              Steffi Stanley
-            </h1>
+            <h1 className="vai">Steffi Stanley</h1>
             <p>Illustrator</p>
             <div className="card1">
               <div className="card-content">
@@ -86,9 +78,7 @@ function Author() {
             />
           </div>
           <div className="col-sm">
-            <h1
-              style={{ fontSize: "30px", fontWeight: "700", marginTop: "60px" }}
-            >
+            <h1 className="vai">
               Madurai<br></br> Rama krishanan
             </h1>
             <p>Author</p>
@@ -116,11 +106,7 @@ function Author() {
 
         <div className="row">
           <div className="col-sm">
-            <h1
-              style={{ fontSize: "30px", fontWeight: "700", marginTop: "60px" }}
-            >
-              Ramya
-            </h1>
+            <h1 className="vai">Ramya</h1>
             <p>Author</p>
             <div className="card3">
               <div className="card-content">
@@ -143,11 +129,7 @@ function Author() {
             />
           </div>
           <div className="col-sm">
-            <h1
-              style={{ fontSize: "30px", fontWeight: "700", marginTop: "60px" }}
-            >
-              Sethu Ram
-            </h1>
+            <h1 className="vai">Sethu Ram</h1>
             <p>Illustrator</p>
             <div className="card4">
               <div className="card-content">

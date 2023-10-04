@@ -1,0 +1,145 @@
+.overallmission {
+  position: relative;
+}
+
+/* .welcome {
+  background-image: url("../../public/images/welcome.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 55vw;
+  position: relative;
+} */
+
+.welcome {
+  position: relative;
+  max-width: 100%;
+  height: 55vw;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/images/welcome.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; /* This ensures that the pseudo-element is behind the content of .mission */
+}
+
+.welcomeheaing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+.kamaimg {
+  max-width: 2%;
+  position: absolute;
+  left: 34%;
+  top: 23%;
+}
+
+.paatiimg {
+  max-width: 25%;
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+}
+
+/* .mission {
+  background-image: url("../../public/images/ourmission.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 55vw;
+} */
+
+.mission {
+  position: relative;
+  max-width: 100%;
+  height: 55vw;
+  overflow: hidden; /* Ensure that content doesn't overflow */
+}
+
+.mission::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/images/ourmission.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -150px;
+  z-index: 2; /* This ensures that the pseudo-element is behind the content of .mission */
+}
+
+/* .mission {
+  position: relative;
+  max-width: 100%;
+  height: 55vw;
+}
+
+.mission::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/images/ourmission.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; 
+} */
+
+.welcomeheaing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+.kamaimg {
+  max-width: 2%;
+  position: absolute;
+  left: 34%;
+  top: 23%;
+}
+
+.paatiimg {
+  max-width: 25%;
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+}
