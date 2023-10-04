@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+.explore {
+  padding: 30px 0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.title1 {
+  color: #000;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+.title2 {
+  color: #000;
+  font-size: 40px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.spark {
+  max-width: 8%;
+  position: absolute;
+  top: -22px;
+  right: 351px;
+}
+
+.magicalpara {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.explorebtn {
+  background: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 50px;
+  padding: 10px 0px;
+  padding-left: 10px;
+  border: 2px solid #000;
+}
+
+.overallexpolre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrowouter {
+  background: #000;
+  padding: 12px;
+  margin-left: 15px;
+}
+
+.arrow {
+  max-width: 50%;
+}
+
+.Book {
+  max-width: 70%;
+}
+
+.bookimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

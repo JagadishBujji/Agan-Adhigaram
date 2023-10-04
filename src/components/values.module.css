@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+.Values {
+  background: url("../../public/images/Values.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 80rem;
+}
+
+.valuesheading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 12rem;
+}
+
+.valuetitle {
+  font-size: 32px;
+  color: #000;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #4d4d4d;
+}
+
+.greenleaf {
+  margin: auto;
+  width: 100%;
+  height: 68rem;
+}
+
+.firsthalf1 {
+  background: url("../../public/images/green1.svg");
+  background-position: 10px 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 100px;
+  text-align: center;
+}
+.firsthalf2 {
+  background: url("../../public/images/green2.svg");
+  background-position: 10px 120px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.firsthalf3 {
+  background: url("../../public/images/green3.svg");
+  background-position: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 100px;
+  text-align: center;
+}
+.firsthalf4 {
+  background: url("../../public/images/green4.svg");
+  background-position: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.valuestitles {
+  font-size: 28px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.valuessubcontent {
+  font-size: 14px;
+  color: #fff;
+}

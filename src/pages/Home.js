@@ -2,8 +2,9 @@ import Aboutus from "../components/Aboutus";
 import Author from "../components/Author";
 import Hero from "../components/Hero";
 import Journey from "../components/Journey";
-import Value from "../components/Value";
 import Welcome from "../components/Welcome";
+import Magical from "../components/Magical";
+import Values from "../components/Values";
 
 const Home = () => {
   return (
@@ -12,8 +13,11 @@ const Home = () => {
       <Aboutus/>
       <Welcome/>
       <Author/>
-      {/* <Value/> */}
       <Journey/>
+      <Aboutus />
+      <Values />
+      <Magical />
+      <Journey />
     </>
   );
 };

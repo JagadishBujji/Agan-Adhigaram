@@ -11,7 +11,7 @@ function Navbar() {
         <div className="container-fluid">
           <a href="#" className="navbar-brand">
             <img
-              src="./images/Frame.png"
+              src="./images/Frame.svg"
               alt=" logo"
               width="60"
               height="auto"
@@ -99,7 +99,7 @@ function Navbar() {
               </li>
               <a href="#" className="cart">
                 <img
-                  src="./images/cart.png"
+                  src="./images/cart.svg"
                   alt="Kittivasal logo"
                   width="30"
                   height="auto"

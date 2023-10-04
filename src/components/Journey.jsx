@@ -51,7 +51,7 @@ function Journey() {
             className={classes.ant}
           /></span>
         </div>
-        <div className={`${classes.person2} col-md-4`}>
+        <div className={`${classes.person2} col-5 col-md-4`}>
           <img
             src="./images/Well 2.svg"
             alt="heroimg1"
