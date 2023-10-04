@@ -73,3 +73,40 @@
   color: #000;
   padding-top: 75px;
 }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .footerbg {
+    height: 100%;
+    background-color: #ff8924;
+    background-size: auto;
+  }
+  .copyright {
+    padding-top: 0;
+    font-size: 12px;
+  }
+  .links a {
+    font-size: 12px;
+  }
+  .socialmediaicon {
+    max-width: 35%;
+  }
+  .logoicon {
+    max-width: 10%;
+    left: 0;
+    bottom: 85px;
+  }
+}
+
+/* Tablet */
+/* @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  
+} */
+
+/* Laptop */
+/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+} */
+
+/* Larger screens */
+/* @media only screen and (min-width: 1366px) {
+} */

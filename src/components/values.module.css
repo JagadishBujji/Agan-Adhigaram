@@ -38,7 +38,7 @@
 
 .firsthalf1 {
   background: url("../../public/images/green1.svg");
-  background-position: center;
+  background-position: 10px 50px;
   background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
@@ -94,7 +94,7 @@
   height: inherit;
 }
 
-.valuestitles {
+.valuestitles1 {
   font-size: 28px;
   color: #fff;
   font-family: "Poppins", sans-serif;
@@ -102,13 +102,133 @@
   font-weight: 600;
 }
 
-.valuessubcontent {
+.valuessubcontent1 {
+  font-size: 14px;
+  color: #fff;
+}
+.valuestitles2 {
+  font-size: 28px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.valuessubcontent2 {
+  font-size: 14px;
+  color: #fff;
+}
+.valuestitles3 {
+  font-size: 28px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.valuessubcontent3 {
+  font-size: 14px;
+  color: #fff;
+}
+.valuestitles4 {
+  font-size: 28px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  padding-top: 40px;
+  font-weight: 600;
+}
+
+.valuessubcontent4 {
   font-size: 14px;
   color: #fff;
 }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .Values {
+    height: 125rem;
+  }
+  .valuesheading {
+    padding-top: 5rem;
+  }
+  .valuetitle {
+    font-size: 20px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+  .firsthalf1 {
+    max-width: 100%;
+    padding-left: 20px;
+    background-position: right;
+    background-size: cover;
+  }
+  .greenleaf {
+    padding: 0;
+  }
+  .valuestitles1 {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .valuessubcontent1 {
+    font-size: 14px;
+    text-align: left;
+  }
+  .firsthalf2 {
+    max-width: 100%;
+    padding-right: 20px;
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .valuestitles2 {
+    font-size: 16px;
+    text-align: right;
+    padding-top: 10px;
+  }
+  .valuessubcontent2 {
+    font-size: 14px;
+    text-align: right;
+  }
+  .firsthalf3 {
+    max-width: 100%;
+    padding-left: 20px;
+    background-position: right;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .valuestitles3 {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .valuessubcontent3 {
+    font-size: 12px;
+    text-align: left;
+  }
+  .firsthalf4 {
+    max-width: 100%;
+    padding-right: 20px;
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .valuestitles4 {
+    font-size: 16px;
+    text-align: right;
+    padding-top: 10px;
+  }
+  .valuessubcontent4 {
+    font-size: 14px;
+    text-align: right;
+  }
 }
 
 /* Tablet */

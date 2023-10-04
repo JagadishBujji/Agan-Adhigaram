@@ -112,7 +112,7 @@
     display: none;
   }
   .aboutus {
-    font-size: 14px;
+    font-size: 20px;
   }
   .person1 {
     display: flex;
@@ -125,7 +125,7 @@
   }
   .mobilewe {
     display: block;
-    font-size: 14px;
+    font-size: 22px;
     text-align: center;
     font-weight: 600;
   }

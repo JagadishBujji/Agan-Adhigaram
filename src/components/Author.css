@@ -30,6 +30,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 30px;
   margin-top: 10px;
+  margin: auto;
 }
 
 .card:hover {
@@ -97,6 +98,7 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 30px;
   margin-top: 10px;
+  margin: auto;
 }
 
 .card1:hover {
@@ -146,6 +148,7 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 30px;
   margin-top: 10px;
+  margin: auto;
 }
 
 .card2:hover {
@@ -196,6 +199,7 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 30px;
   margin-top: 10px;
+  margin: auto;
 }
 
 .card3:hover {
@@ -238,6 +242,7 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 30px;
   margin-top: 10px;
+  margin: auto;
 }
 
 .card4:hover {
@@ -285,13 +290,13 @@ p {
     display: none;
   }
 
-  .card,
+  /* .card,
   .card1,
   .card2,
   .card3,
   .card4 {
     margin-left: 40px;
-  }
+  } */
 
   .one {
     width: 85%;

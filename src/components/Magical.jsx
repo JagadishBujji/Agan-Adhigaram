@@ -21,6 +21,10 @@ const Magical = () => {
         Step into the enchanting realm, where imagination knows
         <br /> no bounds and adventures await at every turn!
       </p>
+      <p className={classes.magicalpara2}>
+        Explore the captivating stories woven by our featured authors.Delve into
+        their imaginative worlds, where adventure, mystery, and wonder await.
+      </p>
       <div className={classes.overallexpolre}>
         <button className={classes.explorebtn}>
           Explore Now
