@@ -11,11 +11,11 @@
   height: auto;
 }
 
-.container {
-  justify-content: center; /* Horizontally center content */
+/* .container {
+  justify-content: center; 
   align-items: center;
   margin-right: 50px;
-}
+} */
 
 /* Card.css */
 
@@ -287,6 +287,12 @@ p {
   margin-top: 60px;
 }
 
+.two {
+  text-align: center;
+  max-width: 350px;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
   .flower1,
   .flower2,
@@ -305,10 +311,9 @@ p {
     height: 250px;
   } */
 
-  .vai{
+  .vai {
     font-size: 20px;
   }
-
 
   .one {
     width: 85%;

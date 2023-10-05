@@ -35,13 +35,52 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid m-auto`}>
+        <div className={`${classes.mission} row container m-auto`}>
+          <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
+            <img
+              src="./images/crow.svg"
+              alt="heroimg1"
+              className={classes.crow}
+            />
+          </div>
+          <div className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6`}>
+            <h3 className={`${classes.welcomevision}`}>Our Vision</h3>
+            <h4 className={`${classes.welcomevisiontitle}`}>
+              {" "}
+              We envision a future{" "}
+            </h4>
+            <p className={`${classes.subcontentvision}`}>
+              where children grow up with a deep appreciation for the world
+              around them and the limitless possibilities it holds. Also, our
+              vision is to create captivating stories that celebrate diversity,
+              promote inclusivity, and ignite curiosity.
+            </p>
+          </div>
+        </div>
+        <div className={`${classes.missionfox} row container m-auto`}>
           <div
-            className={`${classes.welcomecolumn} col-sm col-md-6 col-lg-6`}
-          ></div>
-          <div
-            className={`${classes.welcomecolumn} col-sm col-md-6 col-lg-6`}
-          ></div>
+            className={`${classes.welcomecolumn2fox} col-sm col-md-6 col-lg-6`}
+          >
+            <h3 className={`${classes.welcomemissionfox}`}>Our mission</h3>
+            <h4 className={`${classes.welcomevisiontitlefox}`}>
+              {" "}
+              The love for learning{" "}
+            </h4>
+            <p className={`${classes.subcontentvisionfox}`}>
+              begins from the womb. We believe that a child's first interactions
+              with the world are precious opportunities for growth and
+              exploration. By providing interactive board books that engage
+              young minds and encourage curiosity, we aim to nurture the
+              foundation of lifelong learning
+            </p>
+          </div>
+          <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
+            <img
+              src="./images/fox.svg"
+              alt="heroimg1"
+              className={classes.fox}
+            />
+          </div>
         </div>
       </div>
     </>

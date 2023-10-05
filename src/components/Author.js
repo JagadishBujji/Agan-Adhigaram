@@ -14,15 +14,7 @@ function Author() {
         <img className="author" src="./images/author.svg" alt="My Image" />
         <h1 className="one">Authors and Illustrators</h1>
       </div>
-      <p
-        className="two"
-        style={{
-          textAlign: "center",
-          maxWidth: "350px",
-          marginLeft: "480px",
-          fontSize: "14px",
-        }}
-      >
+      <p className="two">
         Meet the magic-makers behind our children's stories and vibrant
         illustrations!
       </p>
