@@ -5,10 +5,10 @@
 }
 
 .author {
-  margin-right: 10px;
-  margin-bottom: 50px;
-  width: 40px;
-  height: auto;
+  position: absolute;
+  top: -20px;
+  left: 393px;
+  max-width: 3%;
 }
 
 /* .container {
@@ -287,10 +287,15 @@ p {
   margin-top: 60px;
 }
 
+.author-overall {
+  position: relative;
+}
+
 .two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  max-width: 350px;
-  font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -316,7 +321,7 @@ p {
   }
 
   .one {
-    width: 85%;
+    width: 100%;
     font-size: 25px;
     margin-top: 20px;
   }

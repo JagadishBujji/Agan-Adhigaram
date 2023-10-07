@@ -3,20 +3,17 @@ import "./Author.css";
 
 function Author() {
   return (
-    <div>
-      <div
-        style={{
-          justifyContent: "center",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <img className="author" src="./images/author.svg" alt="My Image" />
+    <div className="author-overall">
+      <div>
+        <span>
+          <img className="author" src="./images/author.svg" alt="My Image" />
+        </span>
+
         <h1 className="one">Authors and Illustrators</h1>
       </div>
       <p className="two">
-        Meet the magic-makers behind our children's stories and vibrant
-        illustrations!
+        Meet the magic-makers behind our children's stories
+        <br /> and vibrant illustrations!
       </p>
 
       <div className="container">

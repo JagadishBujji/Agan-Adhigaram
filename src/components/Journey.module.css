@@ -156,9 +156,9 @@
     background: url("../../public/images/Well 2.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 300px;
-    width: 375px;
-    height: 127px;
+    background-position: right;
+    width: 100%;
+    height: 120px;
   }
   .spark {
     max-width: 15%;
