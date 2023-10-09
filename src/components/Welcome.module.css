@@ -1,0 +1,345 @@
+.overallmission {
+  position: relative;
+  background-image: url("../../public/images/all.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 1565px;
+}
+
+/* .welcome {
+  background-image: url("../../public/images/welcome.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 55vw;
+  position: relative;
+} */
+
+/* .welcome {
+  position: relative;
+  max-width: 100%;
+  height: 55vw;
+}
+
+.welcome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/images/welcome.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1; 
+} */
+
+.welcomeheaing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 15%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+.kamaimg {
+  max-width: 2%;
+  position: absolute;
+  left: 34%;
+  top: 23%;
+}
+
+.paatiimg {
+  max-width: 25%;
+  position: absolute;
+  right: 0;
+  bottom: 0%;
+}
+
+/* .mission {
+  background-image: url("../../public/images/ourmission.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 55vw;
+} */
+
+/* .mission {
+  position: relative;
+  max-width: 100%;
+  height: 55vw;
+  overflow: hidden; 
+}
+
+.mission::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../public/images/ourmission.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -100px;
+  z-index: -1; 
+} */
+
+.welcomeheaing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10%;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+.kamaimg {
+  max-width: 2%;
+  position: absolute;
+  left: 34%;
+  top: 6%;
+}
+
+.paatiimg {
+  max-width: 25%;
+  position: absolute;
+  right: 14px;
+  top: 125px;
+}
+
+.crow {
+  max-width: 80%;
+  margin: auto;
+  padding-top: 240px;
+}
+
+.welcomecolumn1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcomecolumn2 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.welcomevision {
+  background: #f19e38;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.welcomevisiontitle {
+  font-size: 26px;
+  color: #000;
+  font-weight: 600;
+}
+
+.subcontentvision {
+  font-size: 20px;
+  color: #000;
+  font-weight: 5S00;
+}
+
+.fox {
+  max-width: 50%;
+  /* margin: auto; */
+  padding-top: 240px;
+}
+
+.welcomecolumn1 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.welcomecolumn2fox {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-direction: column;
+  margin-top: 100px;
+  padding: 0px 40px;
+}
+
+.welcomemissionfox {
+  background: #fdf3e2;
+  color: #f19e38;
+  font-size: 26px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.welcomevisiontitlefox {
+  font-size: 26px;
+  color: #000;
+  font-weight: 600;
+}
+
+.subcontentvisionfox {
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+  text-align: end;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .overallmission {
+    background-image: url("../../public/images/mobilebg.svg");
+    width: 100%;
+    height: 150vh;
+    max-width: 100%;
+  }
+  .welcomecolumn{
+    margin-top: 5%;
+  }
+
+  /* .welcome {
+    position: relative;
+    max-width: 100%;
+    height: 85vw;
+  }
+
+  .welcome::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../public/images/mobilewelcomebg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1; 
+  }  */
+  .paatiimg {
+    display: none;
+  }
+
+  .welcomeheaing {
+    font-size: 16px;
+  }
+  .subcontent {
+    font-size: 14px;
+  }
+  .kamaimg {
+    max-width: 2%;
+
+    left: 14%;
+    top: 14%;
+  }
+  /* .mission {
+    position: relative;
+    max-width: 100%;
+    height: 80vh;
+    overflow: hidden;
+  }
+
+  .mission::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../public/images/mobilevision.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -50px;
+    z-index: -1;
+  } */
+  .welcomecolumn1 {
+    display: none;
+  }
+  .welcomecolumn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70%;
+  }
+  .subcontentvision {
+    text-align: center;
+  }
+  .welcomevision {
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .welcomevisiontitle {
+    font-size: 18px;
+  }
+
+  .subcontentvision {
+    font-size: 14px;
+  }
+  .welcomemissionfox {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .welcomevisiontitlefox {
+    font-size: 16px;
+  }
+  .subcontentvisionfox {
+    font-size: 14px;
+    text-align: center;
+  }
+  .welcomecolumn2fox{
+    margin-top: 80px;
+    align-items: center;
+  }
+}
+
+/* Tablet */
+/* @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  
+} */
+
+/* Laptop */
+/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+} */
+
+/* Larger screens */
+/* @media only screen and (min-width: 1366px) {
+} */

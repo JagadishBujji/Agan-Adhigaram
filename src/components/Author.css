@@ -5,17 +5,17 @@
 }
 
 .author {
-  margin-right: 10px;
-  margin-bottom: 50px;
-  width: 40px;
-  height: auto;
+  position: absolute;
+  top: -20px;
+  left: 393px;
+  max-width: 3%;
 }
 
-.container {
-  justify-content: center; /* Horizontally center content */
+/* .container {
+  justify-content: center; 
   align-items: center;
   margin-right: 50px;
-}
+} */
 
 /* Card.css */
 
@@ -289,6 +289,23 @@ p {
     width: 102%;
 }
 
+.vai {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 60px;
+}
+
+.author-overall {
+  position: relative;
+}
+
+.two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .flower1,
   .flower2,
@@ -303,11 +320,16 @@ p {
   .card2,
   .card3,
   .card4 {
-    margin-left: 40px;
+    width: 200px;
+    height: 250px;
   } */
 
+  .vai {
+    font-size: 20px;
+  }
+
   .one {
-    width: 85%;
+    width: 100%;
     font-size: 25px;
     margin-top: 20px;
   }
