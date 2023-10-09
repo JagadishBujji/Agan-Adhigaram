@@ -1,8 +1,8 @@
 import React from "react";
 import "./Author.css";
 
-function Author() {
-  return (
+const Author = () => {
+  return <>
     <div className="author-overall">
       <div>
         <span>
@@ -135,7 +135,9 @@ function Author() {
         </div>
       </div>
     </div>
-  );
+  </>
 }
+
+
 
 export default Author;

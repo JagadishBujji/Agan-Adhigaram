@@ -194,7 +194,7 @@ p {
 }
 
 .flower2 {
-  margin-top: 120px;
+  margin-top: 150px;
 }
 
 .card3 {
@@ -289,6 +289,14 @@ p {
   margin-right: 40px;
   transform: rotate(-15deg); /* Rotate the image by 45 degrees */
 }
+.two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    width: 102%;
+}
 
 .vai {
   font-size: 30px;
@@ -341,5 +349,6 @@ p {
   }
 
   .two {
+
   }
 }
