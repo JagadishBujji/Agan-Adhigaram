@@ -5,6 +5,7 @@ import Journey from "../components/Journey";
 import Welcome from "../components/Welcome";
 import Magical from "../components/Magical";
 import Values from "../components/Values";
+import Testi from "../components/Testi";
 
 const Home = () => {
   return (
