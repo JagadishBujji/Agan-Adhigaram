@@ -85,6 +85,15 @@ p {
   text-overflow: ellipsis;
 }
 
+.col-sm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
 /* Add any additional styles you need */
 
 .card1 {
@@ -289,6 +298,8 @@ p {
 
 .author-overall {
   position: relative;
+  
+  margin-top: 40%;
 }
 
 .two {
