@@ -17,6 +17,7 @@ const Home = () => {
       <DynamicCarousel />
       <Author />
       <Magical />
+      {/* people */}
       <Journey />
     </>
   );

@@ -15,6 +15,12 @@ const DynamicCarousel = () => {
     "./images/gallery1.svg",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
+    "./images/gallery1.svg",
+    "./images/gallery2.svg",
+    "./images/gallery3.svg",
+    "./images/gallery1.svg",
+    "./images/gallery2.svg",
+    "./images/gallery3.svg",
     "",
   ];
   const prev = (current + 2) % 3;
@@ -74,15 +80,14 @@ const DynamicCarousel = () => {
 
           <div className="button-container">
             <div className="button" onClick={goToNext}>
-              <i className="fas fa-angle-left"></i>
+            <i class="fa-solid fa-angle-left"></i>
+            
             </div>
             <div className="button" onClick={goToPrev}>
-              <i className="fas fa-angle-right"></i>
+            <i class="fa-solid fa-angle-right"></i>
             </div>
           </div>
-          <a href="">Grap Yours</a>
         </div>
-       
       </>
     );
   };
@@ -90,6 +95,11 @@ const DynamicCarousel = () => {
   return (
     <>
       <div className="overallcarosuel">
+        <div className="gallerycapturing">
+          <h1>Gallery</h1>
+          <p>Capturing our happiest book-making memories.</p>
+        </div>
+
         <div>{renderCarousel(activeCarousel)}</div>
         <div className="demo1">
           <img
@@ -110,8 +120,10 @@ const DynamicCarousel = () => {
             className="gallery"
           />
         </div>
+        <a href="" className="Grap">
+          Grab Yours
+        </a>
       </div>
-      
     </>
   );
 };

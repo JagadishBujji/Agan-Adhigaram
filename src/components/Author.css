@@ -85,14 +85,12 @@ p {
   text-overflow: ellipsis;
 }
 
-.col-sm{
+.col-sm {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-
-
 
 /* Add any additional styles you need */
 
@@ -289,13 +287,13 @@ p {
   margin-right: 40px;
   transform: rotate(-15deg); /* Rotate the image by 45 degrees */
 }
-.two{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 13px;
-    width: 102%;
+.two {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 13px;
+  width: 102%;
 }
 
 .vai {
@@ -306,8 +304,6 @@ p {
 
 .author-overall {
   position: relative;
-  
-  margin-top: 40%;
 }
 
 .two {
@@ -315,6 +311,7 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -349,6 +346,5 @@ p {
   }
 
   .two {
-
   }
 }
