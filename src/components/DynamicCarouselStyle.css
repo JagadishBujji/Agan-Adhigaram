@@ -108,7 +108,7 @@
   background-position: center;
   background-size: cover;
   background-image: url("../../public/images/gallery.svg");
-  padding-top: 30px;
+  margin-top: 30px;
   padding-bottom: 30px;
   height: 100vh;
   display: flex;
@@ -208,28 +208,37 @@
 
 .fa-angle-right:hover {
   background: #fdf3e2;
-  color: #F19E38;
+  color: #f19e38;
 }
 .fa-angle-left:hover {
   background: #fdf3e2;
-  color: #F19E38;
+  color: #f19e38;
 }
 
+@media (max-width: 768px) {
+  .overallcarosuel {
+    margin-top: 20px;
+    margin-top: 30px;
+    padding-bottom: 30px;
+    height: 80vh;
 
-@media (max-width: 768px){
-  .items .item{
+    margin-bottom: 0%;
+  }
+  .items .item {
     width: 100px;
     height: 100px;
   }
-  .demo1{
+  .demo1 {
     display: none;
   }
-  .gallerycapturing{
-    left: 45px;
+  .gallerycapturing {
+    left: 30px;
     margin-top: 40px;
   }
-  .Grap{
-    width: 25%;
+  .gallerycapturing p {
+    text-align: center;
   }
-
+  .Grap {
+    width: 30%;
+  }
 }

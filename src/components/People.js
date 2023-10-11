@@ -37,35 +37,72 @@ const People = () => {
         {/* <div class="owl-wrapper"> */}
         {/* <div class="loop owl-carousel owl-theme"> */}
         <OwlCarousel className="loop owl-carousel" {...options}>
-          <article class="card">
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+
             <div class="card__content">
-              <h4 class="card__title">
-                <span>Card One</span>
-              </h4>
+              <p>
+                Lorem ipsum dolor sit amet consectet piscing elit, sed do
+                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <p>pavi lovegood,</p>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
 
-          <article class="card">
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
             <div class="card__content">
-              <h4 class="card__title">
-                <span>Card Two</span>
-              </h4>
+              <p>
+                Lorem ipsum dolor sit amet consectet piscing elit, sed do
+                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+              </p>
+            </div>
+            <div className="name peopelcard">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <p>anbu lovegood,</p>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
 
-          <article class="card">
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
             <div class="card__content">
-              <h4 class="card__title">
-                <span>Card Three</span>
-              </h4>
+              <p>
+                Lorem ipsum dolor sit amet consectet piscing elit, sed do
+                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <p>sanja lovegood,</p>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
 
-          <article class="card">
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
             <div class="card__content">
-              <h4 class="card__title">
-                <span>Card Four</span>
-              </h4>
+              <p>
+                Lorem ipsum dolor sit amet consectet piscing elit, sed do
+                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <p>jagad lovegood,</p>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
         </OwlCarousel>
