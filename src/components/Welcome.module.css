@@ -232,8 +232,8 @@
     height: 150vh;
     max-width: 100%;
   }
-  .welcomecolumn{
-    margin-top: 5%;
+  .welcomecolumn {
+    margin-top: 10% !important;
   }
 
   /* .welcome {
@@ -297,7 +297,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 70%;
+    margin-top: 50% !important;
   }
   .subcontentvision {
     text-align: center;
@@ -325,8 +325,8 @@
     font-size: 14px;
     text-align: center;
   }
-  .welcomecolumn2fox{
-    margin-top: 80px;
+  .welcomecolumn2fox {
+    margin-top: 30% !important;
     align-items: center;
   }
 }

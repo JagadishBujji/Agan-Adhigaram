@@ -5,7 +5,7 @@ import classes from "./Hero.module.css";
 
 function Hero() {
   return (
-    <div>
+    <div className={classes.heroall}>
       <div className="img">
         <img
           src="./images/landingbanner.svg"

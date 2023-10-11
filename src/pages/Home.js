@@ -6,6 +6,7 @@ import Welcome from "../components/Welcome";
 import Magical from "../components/Magical";
 import Values from "../components/Values";
 import DynamicCarousel from "../components/DynamicCarousel";
+import People from "../components/People";
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
       <DynamicCarousel />
       <Author />
       <Magical />
-      {/* people */}
+      <People/>
       <Journey />
     </>
   );

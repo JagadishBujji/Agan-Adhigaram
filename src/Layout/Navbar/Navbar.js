@@ -7,7 +7,7 @@ import "./Navbar.css";
 function Navbar() {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light container-fluid">
+      <nav className="navbar navbar-expand-lg  container-fluid fixed-top">
         <div className="container-fluid">
           <a href="#" className="navbar-brand">
             <img

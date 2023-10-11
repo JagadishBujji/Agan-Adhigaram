@@ -72,7 +72,7 @@ const DynamicCarousel = () => {
             >
               <img
                 src={image}
-                className="d-block w-100"
+                className="d-block "
                 alt={`Image ${startIndex + index + 1}`}
               />
             </div>
@@ -80,11 +80,10 @@ const DynamicCarousel = () => {
 
           <div className="button-container">
             <div className="button" onClick={goToNext}>
-            <i class="fa-solid fa-angle-left"></i>
-            
+              <i class="fa-solid fa-angle-left"></i>
             </div>
             <div className="button" onClick={goToPrev}>
-            <i class="fa-solid fa-angle-right"></i>
+              <i class="fa-solid fa-angle-right"></i>
             </div>
           </div>
         </div>

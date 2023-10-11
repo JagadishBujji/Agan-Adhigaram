@@ -11,7 +11,7 @@ const Values = () => {
             <br /> through interactive, high-quality books.
           </p>
         </div>
-        <div className={`${classes.greenleaf} row m-auto container`}>
+        <div className={`${classes.greenleaf} row m-auto container p-0`}>
           <div className={`${classes.firsthalf1} col-md-6`}>
             <div className={classes.Learning}>
               <h4 className={classes.valuestitles1}>Interactive Learning</h4>

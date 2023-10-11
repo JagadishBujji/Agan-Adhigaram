@@ -4,6 +4,10 @@
   margin: 10 auto; /* Center the image horizontally */
 }
 
+.heroall{
+  margin-top: 65px;
+}
+
 /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
 @media (max-width: 768px) {
   .mainimage {

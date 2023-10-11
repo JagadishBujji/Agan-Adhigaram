@@ -19,12 +19,12 @@
 
 /* Card.css */
 
-.card {
+.cardauthor {
   width: 300px;
-  height: 350px;
+  height: 350px !important;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/Vaishali.svg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Vaishali.svg");
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -33,12 +33,13 @@
   margin: auto;
 }
 
-.card:hover {
+.cardauthor:hover {
   transform: scale(1.05); /* Scale up the card on hover */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
 }
 
-.card::before {
+.cardauthor::before {
   content: "";
   position: absolute;
   top: 0;
@@ -54,7 +55,7 @@
   transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
 }
 
-.card:hover::before {
+.cardauthor:hover::before {
   opacity: 1; /* Show the gradient overlay on hover */
 }
 
@@ -69,8 +70,8 @@
   transition: bottom 0.3s ease; /* Smoothly slide the content up on hover */
 }
 
-.card:hover .card-content {
-  bottom: 0; /* Slide the content up on hover */
+.cardauthor:hover .card-content {
+  bottom: 50% !important; /* Slide the content up on hover */
 }
 
 h2 {
@@ -111,6 +112,7 @@ p {
 .card1:hover {
   transform: scale(1.05); /* Scale up the card on hover */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
 }
 
 .card1::before {
@@ -134,7 +136,7 @@ p {
 }
 
 .card1:hover .card-content {
-  bottom: 0; /* Slide the content up on hover */
+  bottom: 50% !important; /* Slide the content up on hover */
 }
 
 .mushroom {
@@ -161,6 +163,7 @@ p {
 .card2:hover {
   transform: scale(1.05); /* Scale up the card on hover */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
 }
 
 .card2::before {
@@ -184,7 +187,7 @@ p {
 }
 
 .card2:hover .card-content {
-  bottom: 0; /* Slide the content up on hover */
+  bottom: 50% !important; /* Slide the content up on hover */
 }
 
 .flower1 {
@@ -212,6 +215,7 @@ p {
 .card3:hover {
   transform: scale(1.05); /* Scale up the card on hover */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
 }
 
 .card3::before {
@@ -235,7 +239,7 @@ p {
 }
 
 .card3:hover .card-content {
-  bottom: 0; /* Slide the content up on hover */
+  bottom: 50% !important; /* Slide the content up on hover */
 }
 
 .card4 {
@@ -255,6 +259,7 @@ p {
 .card4:hover {
   transform: scale(1.05); /* Scale up the card on hover */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
 }
 
 .card4::before {
@@ -278,7 +283,7 @@ p {
 }
 
 .card4:hover .card-content {
-  bottom: 0; /* Slide the content up on hover */
+  bottom: 50% !important; /* Slide the content up on hover */
 }
 
 .flower3 {
@@ -323,14 +328,14 @@ p {
     display: none;
   }
 
-  /* .card,
+  .card,
   .card1,
   .card2,
   .card3,
   .card4 {
-    width: 200px;
-    height: 250px;
-  } */
+    width: 300px;
+    height: 350px !important;
+  }
 
   .vai {
     font-size: 20px;
