@@ -75,7 +75,7 @@ function Navbar() {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="/blog"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""

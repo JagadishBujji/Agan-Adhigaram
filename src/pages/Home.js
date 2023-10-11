@@ -7,19 +7,45 @@ import Magical from "../components/Magical";
 import Values from "../components/Values";
 import DynamicCarousel from "../components/DynamicCarousel";
 import People from "../components/People";
+import classes from "./Home.module.css";
 
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Aboutus />
-      <Welcome />
-      <Values />
-      <DynamicCarousel />
-      <Author />
-      <Magical />
-      <People/>
-      <Journey />
+      <section>
+        <div className={classes.socialfixed}>
+          <a href="/">
+            <img src="/images/Instagram.svg" alt="" className={classes.insta} />
+          </a>
+          <a href="/">
+            <img
+              src="/images/facebook.svg"
+              alt=""
+              className={classes.insta}
+            />
+          </a>
+          <a href="/">
+            <img src="/images/linkedin.svg" alt="" className={classes.insta} />
+          </a>
+          <a href="/">
+            {" "}
+            <img src="/images/X.svg" alt="" className={classes.insta} />
+          </a>
+          <a href="/">
+            {" "}
+            <img src="/images/youtube.svg" alt="" className={classes.insta} />
+          </a>
+        </div>
+        <Hero />
+        <Aboutus />
+        <Welcome />
+        <Values />
+        <DynamicCarousel />
+        <Author />
+        <Magical />
+        <People />
+        <Journey />
+      </section>
     </>
   );
 };

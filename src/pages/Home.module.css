@@ -1,0 +1,24 @@
+.socialfixed {
+  background: transparent;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 2.8rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 8rem 0;
+  /* pointer-events: none; */
+  color: #fff;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.insta{
+    max-width: 100%;
+}
+
+

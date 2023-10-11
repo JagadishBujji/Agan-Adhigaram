@@ -11,7 +11,7 @@ const People = () => {
     autoplayTimeout: 3000,
     autoplaySpeed: 800,
     center: true,
-    items: 1.4,
+    items: 2,
     stagePadding: 15,
     loop: true,
     margin: 15,
@@ -19,6 +19,10 @@ const People = () => {
     animateIn: "slide-down",
     dots: false,
     nav: true,
+    navText: [
+      "<img  src='./images/Arrow - Left Circle.svg'>",
+      "<img  src='./images/Arrow - Right Circle.svg'>",
+    ],
   };
 
   return (

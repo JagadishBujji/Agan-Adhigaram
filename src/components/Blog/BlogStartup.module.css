@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+.startupheading {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  padding: 0 20px;
+  margin: 0 25px;
+}
+.startupheading h1 {
+  text-align: left;
+  font-size: 28px;
+  font-family: "poppins";
+  color: #000;
+  font-weight: bold;
+  margin-top: 10px;
+}
