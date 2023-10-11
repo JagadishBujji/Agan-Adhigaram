@@ -1,11 +1,11 @@
 import React from "react";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 import "./People.css";
-import $ from "jquery";
 
 const People = () => {
-  var $owl = $(".loop");
-
-  $owl.owlCarousel({
+  const options = {
     autoplay: true,
     autoplayHoverPause: true,
     autoplayTimeout: 3000,
@@ -17,12 +17,13 @@ const People = () => {
     margin: 15,
     animateOut: "slide-up",
     animateIn: "slide-down",
-  });
-  
+    dots: false,
+    nav: true,
+  };
 
   return (
     <>
-      <div className=" row container peopleheading">
+      <div className="row container peopleheading">
         <div className="heading">
           <span className="sparakel">
             <img src="./images/author.svg" alt="" />
@@ -33,41 +34,43 @@ const People = () => {
       </div>
 
       <section class="cards">
-        <div class="owl-wrapper">
-          <div class="loop owl-carousel owl-theme">
-            <article class="card">
-              <div class="card__content">
-                <h4 class="card__title">
-                  <span>Card One</span>
-                </h4>
-              </div>
-            </article>
+        {/* <div class="owl-wrapper"> */}
+        {/* <div class="loop owl-carousel owl-theme"> */}
+        <OwlCarousel className="loop owl-carousel" {...options}>
+          <article class="card">
+            <div class="card__content">
+              <h4 class="card__title">
+                <span>Card One</span>
+              </h4>
+            </div>
+          </article>
 
-            <article class="card">
-              <div class="card__content">
-                <h4 class="card__title">
-                  <span>Card Two</span>
-                </h4>
-              </div>
-            </article>
+          <article class="card">
+            <div class="card__content">
+              <h4 class="card__title">
+                <span>Card Two</span>
+              </h4>
+            </div>
+          </article>
 
-            <article class="card">
-              <div class="card__content">
-                <h4 class="card__title">
-                  <span>Card Three</span>
-                </h4>
-              </div>
-            </article>
+          <article class="card">
+            <div class="card__content">
+              <h4 class="card__title">
+                <span>Card Three</span>
+              </h4>
+            </div>
+          </article>
 
-            <article class="card">
-              <div class="card__content">
-                <h4 class="card__title">
-                  <span>Card Four</span>
-                </h4>
-              </div>
-            </article>
-          </div>
-        </div>
+          <article class="card">
+            <div class="card__content">
+              <h4 class="card__title">
+                <span>Card Four</span>
+              </h4>
+            </div>
+          </article>
+        </OwlCarousel>
+        {/* </div> */}
+        {/* </div> */}
       </section>
     </>
   );
