@@ -20,31 +20,45 @@ const BlogCarosuel = () => {
     dots: false,
     nav: true,
     navText: [
-      "<img  src='./images/Arrow - Left Circle.svg'>",
-      "<img  src='./images/Arrow - Right Circle.svg'>",
+      "<i class='fa-solid fa-angle-left'></i>",
+      "<i class='fa-solid fa-angle-right'></i>",
     ],
   };
 
   return (
     <>
       <section class={`${classes.cards}`}>
-        <OwlCarousel className="loop owl-carousel" {...options}>
-          <div className={`${classes.startupcard} card startupcard row`}>
+        <img
+          src="./images/Ornamentblog.svg"
+          alt=""
+          className={classes.Ornamentblog2}
+        />
+        <OwlCarousel className="loop owl-carousel " {...options}>
+          <div
+            className={`${classes.startupcard} card startupcard row container-fluid`}
+          >
             <div className={`${classes.firsthalf} col-md-6`}>
-              {" "}
               <img src="./images/blog.svg" alt="" className={classes.blogimg} />
             </div>
             <div className={`${classes.secondhalf} col-md-6`}>
               <div className={`${classes.author}`}>
-                <img src="" alt="" />
+                <img
+                  src="./images/test.svg"
+                  alt=""
+                  className={classes.testimg}
+                />
                 <p>AKILA KANNADASAN</p>
-                <img src="" alt="" />
+                <img
+                  src="./images/thehindu.svg"
+                  alt=""
+                  className={classes.hinduimg}
+                />
               </div>
-              <h3>
+              <h3 className={classes.blogtitle}>
                 Agan Adhigaram presents popular stories as boardbooks with
                 interactive features ideal for little fingers
               </h3>
-              <p>
+              <p className={classes.blogcontent}>
                 The popular story of the grandma who sold vadai now has an
                 interesting twist. Perhaps one of the most narrated, reproduced,
                 and illustrated Tamil children’s stories of all time, it is now
@@ -54,7 +68,9 @@ const BlogCarosuel = () => {
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
-              <a href="">Read More </a>
+              <a href="" className={classes.readmore}>
+                Read More <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
           <div className={`${classes.startupcard} card startupcard row`}>
@@ -64,15 +80,23 @@ const BlogCarosuel = () => {
             </div>
             <div className={`${classes.secondhalf} col-md-6`}>
               <div className={`${classes.author}`}>
-                <img src="" alt="" />
-                <p>jaga KANNADASAN</p>
-                <img src="" alt="" />
+                <img
+                  src="./images/test.svg"
+                  alt=""
+                  className={classes.testimg}
+                />
+                <p>AKILA KANNADASAN</p>
+                <img
+                  src="./images/thehindu.svg"
+                  alt=""
+                  className={classes.hinduimg}
+                />
               </div>
-              <h3>
+              <h3 className={classes.blogtitle}>
                 Agan Adhigaram presents popular stories as boardbooks with
                 interactive features ideal for little fingers
               </h3>
-              <p>
+              <p className={classes.blogcontent}>
                 The popular story of the grandma who sold vadai now has an
                 interesting twist. Perhaps one of the most narrated, reproduced,
                 and illustrated Tamil children’s stories of all time, it is now
@@ -82,7 +106,9 @@ const BlogCarosuel = () => {
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
-              <a href="">Read More </a>
+              <a href="" className={classes.readmore}>
+                Read More <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
           <div className={`${classes.startupcard} card startupcard row`}>
@@ -92,15 +118,23 @@ const BlogCarosuel = () => {
             </div>
             <div className={`${classes.secondhalf} col-md-6`}>
               <div className={`${classes.author}`}>
-                <img src="" alt="" />
-                <p>sanjay KANNADASAN</p>
-                <img src="" alt="" />
+                <img
+                  src="./images/test.svg"
+                  alt=""
+                  className={classes.testimg}
+                />
+                <p>AKILA KANNADASAN</p>
+                <img
+                  src="./images/thehindu.svg"
+                  alt=""
+                  className={classes.hinduimg}
+                />
               </div>
-              <h3>
+              <h3 className={classes.blogtitle}>
                 Agan Adhigaram presents popular stories as boardbooks with
                 interactive features ideal for little fingers
               </h3>
-              <p>
+              <p className={classes.blogcontent}>
                 The popular story of the grandma who sold vadai now has an
                 interesting twist. Perhaps one of the most narrated, reproduced,
                 and illustrated Tamil children’s stories of all time, it is now
@@ -110,7 +144,9 @@ const BlogCarosuel = () => {
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
-              <a href="">Read More </a>
+              <a href="" className={classes.readmore}>
+                Read More <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
           <div className={`${classes.startupcard} card startupcard row`}>
@@ -120,15 +156,23 @@ const BlogCarosuel = () => {
             </div>
             <div className={`${classes.secondhalf} col-md-6`}>
               <div className={`${classes.author}`}>
-                <img src="" alt="" />
-                <p>bujji KANNADASAN</p>
-                <img src="" alt="" />
+                <img
+                  src="./images/test.svg"
+                  alt=""
+                  className={classes.testimg}
+                />
+                <p>AKILA KANNADASAN</p>
+                <img
+                  src="./images/thehindu.svg"
+                  alt=""
+                  className={classes.hinduimg}
+                />
               </div>
-              <h3>
+              <h3 className={classes.blogtitle}>
                 Agan Adhigaram presents popular stories as boardbooks with
                 interactive features ideal for little fingers
               </h3>
-              <p>
+              <p className={classes.blogcontent}>
                 The popular story of the grandma who sold vadai now has an
                 interesting twist. Perhaps one of the most narrated, reproduced,
                 and illustrated Tamil children’s stories of all time, it is now
@@ -138,10 +182,17 @@ const BlogCarosuel = () => {
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
-              <a href="">Read More </a>
+              <a href="" className={classes.readmore}>
+                Read More <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </div>
           </div>
         </OwlCarousel>
+        <img
+          src="./images/Ornamentblog.svg"
+          alt=""
+          className={classes.Ornamentblog}
+        />
       </section>
     </>
   );

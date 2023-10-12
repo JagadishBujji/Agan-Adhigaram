@@ -11,9 +11,10 @@
 .home {
   font-size: 18px;
   font-family: "poppins";
-  font-weight: 600;
+  font-weight: 500;
   color: #f19e38;
   text-decoration: none;
+  margin-right: 5px;
 }
 
 .slash {

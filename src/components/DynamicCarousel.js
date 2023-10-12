@@ -80,10 +80,10 @@ const DynamicCarousel = () => {
 
           <div className="button-container">
             <div className="button" onClick={goToNext}>
-              <i class="fa-solid fa-angle-left"></i>
+              <i class="fa-solid fa-angle-left left"></i>
             </div>
             <div className="button" onClick={goToPrev}>
-              <i class="fa-solid fa-angle-right"></i>
+              <i class="fa-solid fa-angle-right righticon"></i>
             </div>
           </div>
         </div>

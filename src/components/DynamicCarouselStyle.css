@@ -192,7 +192,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 }
+
 
 .fa-angle-right {
   color: #fff;
@@ -207,12 +209,12 @@
 }
 
 .fa-angle-right:hover {
-  background: #fdf3e2;
-  color: #f19e38;
+  background: #f19e38;
+  color: #fdf3e2;
 }
 .fa-angle-left:hover {
-  background: #fdf3e2;
-  color: #f19e38;
+  background: #f19e38;
+  color: #fdf3e2;
 }
 
 @media (max-width: 768px) {

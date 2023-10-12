@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 .peopleheading {
   display: flex;
   justify-content: center;
@@ -50,8 +52,9 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  padding: 4em 0;
+  padding: 2em 0;
   background-color: #fefefe;
+  margin-bottom: 5%;
 }
 
 .startupcard {
@@ -65,17 +68,37 @@
   transform: scale(0.87);
   transition: transform 0.4s 0.5s ease-out, opacity 1s ease;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); */
+  box-shadow: none;
+  outline: none;
+  border: none;
+  position: relative;
+  /* background: url(../../../public/images/Ornamentblog.svg);
+  background-position: 4% 33px;
+  background-size: inherit;
+  background-repeat: no-repeat;
+  height: inherit; */
 }
 
 .blogimg {
-  max-width: 65%;
-  border-radius: 20px;
+  max-width: 80%;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: #DBE3ED 0px 1px 0px;
 }
 .firsthalf {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+.blogcardimg {
+  position: absolute;
+}
+
+.blogornament {
+  max-width: 10%;
+}
+
 .active .startupcard {
   /* box-shadow: 0 0px 1em rgba(0, 0, 0, 0.2); */
   /* transform: box-shadow 0.3s ease, transform 0.1s 0.4s ease-in,
@@ -217,6 +240,102 @@
   margin-left: 10px;
 }
 
+.author {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.author p {
+  margin-bottom: 0;
+  margin-right: 5px;
+  font-family: "poppins";
+  font-size: 14px;
+}
+
+.readmore {
+  padding: 10px;
+  background: #ff8924;
+  color: #fff;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.blogtitle {
+  font-size: 22px;
+  font-family: "poppins";
+  text-align: left;
+  color: #05222e;
+}
+
+.blogcontent {
+  font-size: 16px;
+  font-family: "poppins";
+  color: #666666;
+  text-align: left;
+}
+
+/* .fa-arrow-right{
+  margin-right: 5px;
+} */
+
+.testimg {
+  max-width: 8%;
+  margin-right: 10px;
+}
+.hinduimg {
+  max-width: 20%;
+  margin-right: 10px;
+}
+
+.Ornamentblog {
+  max-width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: -85px;
+}
+
+.Ornamentblog2 {
+  max-width: 100%;
+  position: absolute;
+  left: 16px;
+  top: -2px;
+}
+
+.owl-pre .leftone {
+  color: #fff;
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+  /* padding: 11px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.owl-next .rightone {
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  background-color: #d2d2d2;
+  border-radius: 50%;
+  /* padding: 11px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightone:hover {
+  background: #fdf3e2;
+  color: #f19e38;
+}
+.leftone:hover {
+  background: #fdf3e2;
+  color: #f19e38;
+}
+/* 
 @-webkit-keyframes slide-down {
   0% {
     opacity: 0;
@@ -226,9 +345,9 @@
     opacity: 1;
     transform: translate3d(0, 0%, 0);
   }
-}
+} */
 
-@keyframes slide-down {
+/* @keyframes slide-down {
   0% {
     opacity: 0;
     transform: translate3d(0, -120%, 0);
@@ -237,8 +356,8 @@
     opacity: 1;
     transform: translate3d(0, 0%, 0);
   }
-}
-@-webkit-keyframes slide-up {
+} */
+/* @-webkit-keyframes slide-up {
   0% {
     opacity: 1;
     transform: translate3d(0, 0%, 0);
@@ -247,7 +366,7 @@
     opacity: 0;
     transform: translate3d(0, -120%, 0);
   }
-}
+} */
 @keyframes slide-up {
   0% {
     opacity: 1;

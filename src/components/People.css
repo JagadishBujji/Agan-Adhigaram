@@ -59,9 +59,9 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .active .card {
-  box-shadow: 0 0px 1em rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 0px 1em rgba(0, 0, 0, 0.2);
   transform: box-shadow 0.3s ease, transform 0.1s 0.4s ease-in,
-    opacity 0.4s ease;
+    opacity 0.4s ease; */
 }
 .card__content {
   display: flex;
@@ -97,7 +97,7 @@
   transform: scale(1);
 }
 .center .card:hover {
-  box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 0 8px 16px -5px rgba(0, 0, 0, 0.4); */
 }
 .fa-quote-left {
   font-size: 60px;
