@@ -179,6 +179,7 @@
   .valuessubcontent1 {
     font-size: 14px;
     text-align: left;
+    padding: 0;
   }
   .firsthalf2 {
     max-width: 100%;
@@ -197,6 +198,7 @@
   .valuessubcontent2 {
     font-size: 14px;
     text-align: right;
+    padding: 0;
   }
   .firsthalf3 {
     max-width: 100%;
@@ -215,6 +217,7 @@
   .valuessubcontent3 {
     font-size: 12px;
     text-align: left;
+    padding: 0;
   }
   .firsthalf4 {
     max-width: 100%;
@@ -233,6 +236,7 @@
   .valuessubcontent4 {
     font-size: 14px;
     text-align: right;
+    padding: 0;
   }
 }
 
@@ -246,4 +250,9 @@
 
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
+}
+@media only screen and (min-width: 2560px) {
+  .Values {
+    height: 180rem;
+  }
 }

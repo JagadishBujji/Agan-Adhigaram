@@ -4,12 +4,40 @@
   margin: 10 auto; /* Center the image horizontally */
 }
 
-.heroall{
+.heroall {
   margin-top: 65px;
 }
 
 /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 767px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+}
+
+/* Laptop */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+}
+
+/* Larger screens */
+@media only screen and (min-width: 1366px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+}
+
+@media only screen and (min-width: 2560px) {
   .mainimage {
     width: 100%; /* Make the image fill the width of the viewport */
   }

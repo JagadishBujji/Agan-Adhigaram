@@ -3,8 +3,14 @@ import React from "react";
 // import cart from "../images/cart.png";
 
 import "./Navbar.css";
+import { useState } from "react";
 
 function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
   return (
     <div>
       <nav className="navbar navbar-expand-lg  container-fluid fixed-top">
@@ -20,10 +26,11 @@ function Navbar() {
           </a>
 
           <button
+            onClick={toggleMenu}
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#myNavBar"
+            data-bs-target="#myNavBar1"
             aria-controls="myNavBar"
             aria-expanded="false"
             aria-label="Toggle navigation"
@@ -32,12 +39,14 @@ function Navbar() {
           </button>
 
           <div
-            className="collapse navbar-collapse justify-content-centera"
-            id="myNavBar"
+            className={`collapse navbar-collapse justify-content-center${
+              isMenuOpen ? " show" : ""
+            }`}
+            id="myNavBar1"
           >
             <ul className="navbar-nav m-auto">
               <li className="nav-item dropdown">
-                <a href="#" className="blackColor nav-link  " data-bs-toggle="">
+                <a href="/" className="blackColor nav-link  " data-bs-toggle="">
                   Home
                 </a>
               </li>

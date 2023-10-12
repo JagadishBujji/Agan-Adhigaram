@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
       <section>
-        <div className={classes.socialfixed}>
+        {/* <div className={classes.socialfixed}>
           <a href="/">
             <img src="/images/Instagram.svg" alt="" className={classes.insta} />
           </a>
@@ -35,7 +35,7 @@ const Home = () => {
             {" "}
             <img src="/images/youtube.svg" alt="" className={classes.insta} />
           </a>
-        </div>
+        </div> */}
         <Hero />
         <Aboutus />
         <Welcome />

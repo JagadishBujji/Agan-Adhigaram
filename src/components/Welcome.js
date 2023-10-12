@@ -35,7 +35,7 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container m-auto`}>
+        <div className={`${classes.mission} row container-fluid m-auto`}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             <img
               src="./images/crow.svg"
@@ -71,7 +71,7 @@ function Welcome() {
               with the world are precious opportunities for growth and
               exploration. By providing interactive board books that engage
               young minds and encourage curiosity, we aim to nurture the
-              foundation of lifelong learning
+              foundation of lifelong
             </p>
           </div>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>

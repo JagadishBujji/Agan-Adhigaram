@@ -221,7 +221,7 @@
 .subcontentvisionfox {
   font-size: 20px;
   color: #000;
-  font-weight: 500;
+  /* font-weight: 500; */
   text-align: end;
 }
 
@@ -298,7 +298,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50% !important;
+    margin-top: 40% !important;
   }
   .subcontentvision {
     text-align: center;
@@ -327,20 +327,151 @@
     text-align: center;
   }
   .welcomecolumn2fox {
-    margin-top: 30% !important;
+    margin-top: 20% !important;
     align-items: center;
+    margin: auto;
   }
 }
 
 /* Tablet */
-/* @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  
-} */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .overallmission {
+    height: 1390px;
+  }
+  .crow {
+    padding-top: 200px;
+  }
+  .welcomevision {
+    font-size: 28px;
+  }
+}
 
 /* Laptop */
-/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
-} */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .overallmission {
+    height: 1724px;
+  }
+  .crow {
+    max-width: 100%;
+    width: 60%;
+    /* height: -webkit-fill-available; */
+    padding-top: 350px;
+  }
+  .welcomevision {
+    font-size: 26px;
+  }
+}
 
 /* Larger screens */
-/* @media only screen and (min-width: 1366px) {
-} */
+@media only screen and (min-width: 1366px) {
+  .overallmission {
+    height: 1955px;
+  }
+  .crow {
+    max-width: 100%;
+    width: 65%;
+    /* height: -webkit-fill-available; */
+    padding-top: 400px;
+  }
+  .welcomevision {
+    width: 25%;
+    font-size: 30px;
+  }
+  .welcomeheaing {
+    font-size: 30px;
+  }
+  .subcontent {
+    font-size: 20px;
+  }
+  .paatiimg {
+    right: 100px;
+    top: 282px;
+  }
+  .welcomevisiontitle {
+    font-size: 34px;
+  }
+  .subcontentvision {
+    font-size: 26px;
+  }
+  .welcomemissionfox {
+    width: 27%;
+    font-size: 30px;
+  }
+  .welcomevisiontitlefox {
+    font-size: 34px;
+  }
+  .subcontentvisionfox {
+    font-size: 26px;
+  }
+  .welcomecolumn2fox {
+    padding-top: 15%;
+  }
+  .missionfox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .fox {
+    max-width: 100%;
+    /* margin: auto; */
+    width: 60%;
+    padding-top: 200px;
+  }
+}
+@media only screen and (min-width: 2560px) {
+  .overallmission {
+    height: 3500px;
+  }
+  .crow {
+    max-width: 100%;
+    width: 65%;
+    /* height: -webkit-fill-available; */
+    padding-top: 750px;
+  }
+  .welcomevision {
+    width: 28%;
+    font-size: 60px;
+  }
+  .welcomeheaing {
+    font-size: 50px;
+  }
+  .subcontent {
+    font-size: 36px;
+  }
+  .paatiimg {
+    right: 174px;
+    top: 659px;
+  }
+  .welcomevisiontitle {
+    font-size: 60px;
+  }
+  .subcontentvision {
+    font-size: 50px;
+  }
+  .welcomemissionfox {
+    width: 28%;
+    font-size: 60px;
+  }
+  .welcomevisiontitlefox {
+    font-size: 60px;
+  }
+  .subcontentvisionfox {
+    font-size: 50px;
+  }
+  .welcomecolumn2fox {
+    padding-top: 15%;
+  }
+  .missionfox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .fox {
+    max-width: 100%;
+    /* margin: auto; */
+    width: 62%;
+    padding-top: 240px;
+  }
+}
