@@ -62,7 +62,7 @@ function Navbar() {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="books"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
@@ -84,7 +84,7 @@ function Navbar() {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="/blog"
+                  href="blog"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""

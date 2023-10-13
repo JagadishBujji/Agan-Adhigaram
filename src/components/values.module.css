@@ -250,6 +250,9 @@
 
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
+  .Values {
+    height: 105rem;
+  }
 }
 @media only screen and (min-width: 2560px) {
   .Values {

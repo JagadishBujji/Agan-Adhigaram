@@ -3,6 +3,7 @@ import DashboardLayout from "./Layout/dashboard/DashBoardLayout";
 
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
+import Books from "./pages/Books";
 
 export default function Router() {
   const routes = useRoutes([
@@ -12,8 +13,12 @@ export default function Router() {
       children: [
         { path: "/", element: <Home /> },
         {
-          path: "/blog",
+          path: "blog",
           element: <Blog />,
+        },
+        {
+          path: "books",
+          element: <Books />,
         },
       ],
     },

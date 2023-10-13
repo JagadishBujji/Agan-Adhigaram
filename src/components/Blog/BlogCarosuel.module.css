@@ -261,6 +261,7 @@
   color: #fff;
   border-radius: 20px;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .blogtitle {
@@ -423,5 +424,21 @@
   }
   .sparakel {
     left: 0;
+  }
+  .blogimg{
+    max-width: 100%;
+    margin-bottom: 10%;
+  }
+  .blogtitle{
+    font-size: 14px;
+  }
+  .blogcontent{
+    font-size: 12px;
+  }
+  .readmore{
+    font-size: 12px;
+  }
+  .cards{
+    margin-bottom: 30%;
   }
 }

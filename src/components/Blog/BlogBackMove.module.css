@@ -32,3 +32,16 @@
   color: #f19e38;
   text-decoration: none;
 }
+
+@media only screen and (max-width: 767px) {
+  .home {
+    font-size: 12px;
+  }
+  .slash {
+    font-size: 12px;
+  }
+  .backblog {
+    font-size: 12px;
+  }
+  
+}
