@@ -10,6 +10,10 @@
   
 }
 
+.sub{
+  background: #FDF3E2;
+}
+
 .footercontent {
   display: flex;
   justify-content: center;

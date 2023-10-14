@@ -62,7 +62,9 @@ const Footer = () => {
             <a href="">About us</a>
             <a href="">Blog</a>
           </div>
-          <p className={classes.copyright}>copyright @Agan Adhigaram®.All rights reserved.</p>
+          <p className={classes.copyright}>
+            copyright @Agan Adhigaram®.All rights reserved.
+          </p>
         </div>
       </div>
     </>
