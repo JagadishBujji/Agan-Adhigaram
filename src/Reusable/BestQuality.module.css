@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+.overallbest {
+  background: #fdf3e2;
+  padding: 30px 0;
+}
+
+.bestquailty1 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.Quickicon {
+  max-width: 15%;
+  margin-bottom: 10px;
+}
+
+.titlebest {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  color: #000;
+
+}
+
+.contentbest {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+}

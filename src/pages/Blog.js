@@ -8,7 +8,7 @@ const Blog = () => {
   return (
     <>
       <BlogHeading />
-      <BlogBackMove />
+      <BlogBackMove move="Blog" />
       <BlogStartup />
       <BlogCarosuel/>
       <Author/>

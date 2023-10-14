@@ -1,10 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
 
+.movebackmove {
+  background: linear-gradient(
+    90deg,
+    #fbf7fc 22.24%,
+    rgba(251, 247, 252, 0) 100%
+  );
+}
+
 .moveback {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 0 20px;
+  padding: 20px 20px;
   margin: 0 25px;
 }
 
@@ -43,5 +51,4 @@
   .backblog {
     font-size: 12px;
   }
-  
 }

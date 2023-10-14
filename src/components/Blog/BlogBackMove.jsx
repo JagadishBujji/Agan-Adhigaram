@@ -1,18 +1,19 @@
-import classes from "./BlogBackMove.module.css"
+import classes from "./BlogBackMove.module.css";
 
-
-const BlogBackMove = () => {
+const BlogBackMove = (props) => {
   return (
     <>
-      <div className={classes.moveback}>
-        <a href="" className={classes.home}>
-          Home
-        </a>
-        <span className={classes.slash}>/</span>
-        <a href="" className={classes.backblog}>
-          Blog
-        </a>
-      </div>
+      <section className={classes.movebackmove}>
+        <div className={classes.moveback}>
+          <a href="" className={classes.home}>
+            Home
+          </a>
+          <span className={classes.slash}>/</span>
+          <a href="" className={classes.backblog}>
+            {props.move}
+          </a>
+        </div>
+      </section>
     </>
   );
 };
