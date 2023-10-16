@@ -1,5 +1,6 @@
 import BasicSelect from "../../Reusable/BasicSelect";
 import Select from "../../Reusable/BasicSelect";
+import BookItems from "./BookItems";
 import classes from "./BooksAndFilters.module.css";
 
 const BooksAndFilters = () => {
@@ -28,13 +29,27 @@ const BooksAndFilters = () => {
           <div className={`${classes.Bookshowcase}  col-md-9`}>
             <h1 className={`${classes.booksheading}`}>Books</h1>
             <div className={`${classes.Bookshowcaseheading}`}>
-              <p className={classes.interpara}>interactive books with push, pull and slide mechanisms !</p>
+              <p className={classes.interpara}>
+                interactive books with push, pull and slide mechanisms !
+              </p>
               <div className={`${classes.filtersbooks}`}>
                 <BasicSelect />
-                <img src="./images/ic_gridView.svg" alt="" className={classes.gridviewimgs} />
-                <img src="./images/ic_listView.svg" alt="" className={classes.gridlistimgs}/>
+                <img
+                  src="./images/ic_gridViewnormal.svg"
+                  alt=""
+                  className={classes.gridviewimgs}
+                />
+                {/* src="./images/ic_gridView.svg" */}
+
+                <img
+                  src="./images/ic_listView.svg"
+                  alt=""
+                  className={classes.gridlistimgs}
+                />
+                {/* src="./images/ic_listVieworange.svg" */}
               </div>
             </div>
+            <BookItems />
           </div>
         </div>
       </section>

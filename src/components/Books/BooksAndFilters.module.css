@@ -15,7 +15,7 @@
 
 .Bookfilters {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: start;
   flex-direction: column;
 }
@@ -89,7 +89,7 @@
   padding: 12px;
 }
 
-.filtersbooks{
+.filtersbooks {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,4 +111,9 @@
 
 .gridviewimgs {
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.gridlistimgs{
+  cursor: pointer;
 }
