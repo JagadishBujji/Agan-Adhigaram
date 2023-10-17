@@ -4,7 +4,7 @@ import classes from "./Testimonials.module.css";
 const Testimonials = () => {
   return (
     <>
-      <div className={`${classes.Testimonials} row container`}>
+      <div className={`${classes.Testimonials} row container-fluid m-auto`}>
         <div className={`${classes.testcontant} col-md-4`}>
           <h3 className={classes.Testtitle}>Testimonials</h3>
           <p>
