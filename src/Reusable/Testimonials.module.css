@@ -1,4 +1,13 @@
-.Testimonials{
-    background: #fdf3e2;
-    padding: 50px;
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+.Testimonials {
+  background: #fdf3e2;
+  padding: 50px;
+}
+
+.Testtitle {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #000;
 }

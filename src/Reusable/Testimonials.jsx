@@ -5,7 +5,7 @@ const Testimonials = () => {
   return (
     <>
       <div className={`${classes.Testimonials} row container-fluid m-auto`}>
-        <div className={`${classes.testcontant} col-md-4`}>
+        <div className={`${classes.testcontant} col-md-6`}>
           <h3 className={classes.Testtitle}>Testimonials</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -13,7 +13,7 @@ const Testimonials = () => {
           </p>
           <GroupAvatars />
         </div>
-        <div className={`${classes.testcontant} col-md-8`}></div>
+        <div className={`${classes.testcontant} col-md-6`}></div>
       </div>
     </>
   );
