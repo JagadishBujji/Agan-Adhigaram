@@ -1,0 +1,57 @@
+/* Pagination.module.css */
+.pagination {
+    font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.PageNumber {
+  background: #000 !important;
+}
+
+/* Define styles for your links */
+.suivant {
+  background-color: #fdf3e2;
+  color: #f19e38;
+  padding: 20px ;
+  text-decoration: none;
+  border-radius: 0.4em;
+  margin: 0px 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Define hover styles for links */
+.suivant:hover {
+  background-color: #f19e38;
+  color: #fdf3e2;
+}
+.nombre {
+  background-color: #fdf3e2;
+  color: #f19e38;
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 0.4em;
+  margin: 0px 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Define hover styles for links */
+.nombre:hover {
+  background-color: #f19e38;
+  color: #fff;
+}
+
+/* Define styles for .nombre and .suivant under the media query */
+@media screen and (max-width: 959px) {
+  .suivant {
+    /* display: none; */
+  }
+  .suivant {
+    flex-grow: 1;
+  }
+}

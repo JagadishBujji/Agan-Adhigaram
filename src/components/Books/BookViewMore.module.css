@@ -1,3 +1,25 @@
-.viewbook {
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
 
+.BookViewMore {
+  padding: 30px;
+}
+
+.maybe {
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+
+.viewmore{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #F19E38;
+}
+
+.arrow{
+    margin-left: 10px;
+    color: #F19E38;
 }

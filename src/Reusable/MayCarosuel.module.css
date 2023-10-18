@@ -1,0 +1,66 @@
+.caroimg {
+  max-width: 70%;
+  border-radius: 10px;
+}
+
+.carosuelslider {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.carosuelcardimage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carosuelcardcontent {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.humorous {
+  padding: 10px;
+  background: #fdf3e2;
+  color: #f19e38;
+  font-size: 16px;
+  display: inline;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+}
+
+.namevadai {
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 5px;
+}
+
+.ram {
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  color: #a1a1a1;
+}
+
+.amount {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #f19e38;
+}
+
+.strickout {
+  color: #5f5f5f;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.slick-arrow .slick-prev{
+    background: #000;
+}

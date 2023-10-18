@@ -1,6 +1,7 @@
 import BasicSelect from "../../Reusable/BasicSelect";
 import Select from "../../Reusable/BasicSelect";
 import BookItems from "./BookItems";
+import BookListView from "./BookListView";
 import classes from "./BooksAndFilters.module.css";
 
 const BooksAndFilters = () => {
@@ -49,7 +50,8 @@ const BooksAndFilters = () => {
                 {/* src="./images/ic_listVieworange.svg" */}
               </div>
             </div>
-            <BookItems />
+            {/* <BookItems /> */}
+            <BookListView />
           </div>
         </div>
       </section>
