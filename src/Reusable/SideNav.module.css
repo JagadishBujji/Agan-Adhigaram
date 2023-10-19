@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
-
-.overallbook {
-  padding: 20px 7px;
-  margin: 0 25px;
+.Bookfilters {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
 }
 
 .fil {
@@ -11,20 +11,6 @@
   font-family: "Poppins", sans-serif;
   color: #000;
   margin-bottom: 40px;
-}
-
-.Bookfilters {
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-direction: column;
-}
-
-.Bookshowcaseheading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
 }
 
 .category {
@@ -96,50 +82,80 @@
   align-items: center;
 }
 
-.booksheading {
-  font-size: 34px;
-  font-weight: bold;
-  font-family: "Poppins", sans-serif;
-  color: #000;
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1300;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
 
-.interpara {
-  /* margin: 0; */
-  color: #000;
-  font-size: 12px;
-  font-family: "Poppins", sans-serif;
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-.gridviewimgs {
-  margin-right: 10px;
-  cursor: pointer;
-  max-width: 18%;
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-.gridlistimgs {
-  cursor: pointer;
-  max-width: 18%;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  color: #f19e38;
+  /* margin-left: 50px; */
+  padding: 10px;
 }
 
+/* Add a class for the open state */
+.open {
+  width: 280px;
+  padding: 20px;
+}
 
-/* Mobile */
-@media only screen and (max-width: 767px) {
-  .Bookfilters{
-    display: none;
+/* Media query for small screens */
+@media screen and (max-height: 767px) {
+  .sidenav {
+    padding-top: 15px;
   }
-  .Bookshowcaseheading{
-    flex-direction: column;
+  .sidenav a {
+    font-size: 18px;
+  }
+  .openButton {
+    display: block;
+    font-size: 18px;
+    color: #f19e38;
   }
 }
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .openButton {
+    display: none;
+  }
 }
 
 /* Laptop */
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .openButton {
+    display: none;
+  }
 }
 
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
+  .openButton {
+    display: none;
+  }
 }

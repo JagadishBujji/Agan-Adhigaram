@@ -8,7 +8,7 @@ const BooksAndFilters = () => {
   return (
     <>
       <section className={`${classes.overallbook}`}>
-        <div className={`${classes.BooksAndFilters} row container-fluid`}>
+        <div className={`${classes.BooksAndFilters} row container-fluid m-auto`}>
           <div className={`${classes.Bookfilters}  col-md-3`}>
             <h1 className={classes.fil}>Filters</h1>
             <div className={`${classes.category}`}>
@@ -50,8 +50,8 @@ const BooksAndFilters = () => {
                 {/* src="./images/ic_listVieworange.svg" */}
               </div>
             </div>
-            {/* <BookItems /> */}
-            <BookListView />
+            <BookItems />
+            {/* <BookListView /> */}
           </div>
         </div>
       </section>

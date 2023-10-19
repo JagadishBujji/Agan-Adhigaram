@@ -23,3 +23,26 @@
     margin-left: 10px;
     color: #F19E38;
 }
+
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .viewmore{
+    font-size: 12px;
+  }
+  .maybe{
+    font-size: 14px !important;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+}
+
+/* Laptop */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+}
+
+/* Larger screens */
+@media only screen and (min-width: 1366px) {
+}

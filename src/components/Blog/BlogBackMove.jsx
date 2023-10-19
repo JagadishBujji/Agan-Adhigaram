@@ -1,6 +1,14 @@
+import SideNav from "../../Reusable/SideNav";
 import classes from "./BlogBackMove.module.css";
 
 const BlogBackMove = (props) => {
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
   return (
     <>
       <section className={classes.movebackmove}>
@@ -13,6 +21,8 @@ const BlogBackMove = (props) => {
             {props.move}
           </a>
         </div>
+
+        <SideNav className={classes.side}/>
       </section>
     </>
   );

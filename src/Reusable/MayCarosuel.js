@@ -25,15 +25,11 @@ export default class MayCarosuel extends Component {
         {
           breakpoint: 767,
           settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-          },
-        },
-        {
-          breakpoint: 300,
-          settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
+            arrow: false,
+            nextArrow: false,
+            prevArrow: false,
           },
         },
       ],
@@ -70,6 +66,8 @@ export default class MayCarosuel extends Component {
         />
       );
     }
+
+    const isMobile = window.innerWidth <= 767;
     return (
       <div className={`${classes.carosuelslider} container`}>
         <Slider {...settings}>
