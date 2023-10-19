@@ -4,6 +4,7 @@ import DashboardLayout from "./Layout/dashboard/DashBoardLayout";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Books from "./pages/Books";
+import BooksDesc from "./pages/BooksDesc";
 
 export default function Router() {
   const routes = useRoutes([
@@ -19,6 +20,10 @@ export default function Router() {
         {
           path: "books",
           element: <Books />,
+        },
+        {
+          path: "books/:id",
+          element: <BooksDesc />,
         },
       ],
     },

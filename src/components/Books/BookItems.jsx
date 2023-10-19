@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./BookItems.module.css";
 
 const BookItems = () => {
+  // const navigate = useNavigate();
+
   return (
     <>
       <div className={`${classes.bookitems} row `}>
         <div className={`${classes.items} col-md-4`}>
-          <Link to="">
+          <Link to="/books/1" className={classes.openbookitems}>
             <div className={classes.allimgicon}>
               <img
                 src="./images/vadai.png"
@@ -29,7 +31,7 @@ const BookItems = () => {
           </Link>
         </div>
         <div className={`${classes.items} col-md-4`}>
-          <Link to="">
+          <Link to="/books/2" className={classes.openbookitems}>
             <div className={classes.allimgicon}>
               <img
                 src="./images/ibook.png"
@@ -53,7 +55,7 @@ const BookItems = () => {
           </Link>
         </div>
         <div className={`${classes.items} col-md-4`}>
-          <Link to="">
+          <Link to="/books/2" className={classes.openbookitems}>
             <div className={classes.allimgicon}>
               <img
                 src="./images/babybook.png"
