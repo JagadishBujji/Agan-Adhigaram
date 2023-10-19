@@ -125,6 +125,27 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .vadaiimage {
+    padding: 20px;
+  }
+  .Humorous{
+    font-size: 14px;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  .list2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .bookramdec{
+    text-align: center;
+  }
+  .vadai {
+    text-align: center;
+  }
 }
 
 /* Tablet */
@@ -138,4 +159,3 @@
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
 }
-

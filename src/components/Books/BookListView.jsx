@@ -44,14 +44,14 @@ const BookListView = () => {
           </div>
         </div>
         <div className={`${classes.listview} row container-fluid `}>
-          <div className={`${classes.list1} col-3`}>
+          <div className={`${classes.list1} col-md-3`}>
             <img
               src="./images/placeholderlistview.svg"
               alt=""
               className={`${classes.vadaiimage}`}
             />
           </div>
-          <div className={`${classes.list2} col-6`}>
+          <div className={`${classes.list2} col-md-6`}>
             <h4 className={classes.Humorous}>Humorous</h4>
             <h2 className={classes.vadai}>I</h2>
             <p className={classes.bookram}>Ramya - Sethu Ram</p>
@@ -64,7 +64,7 @@ const BookListView = () => {
               nulla pariatur.{" "}
             </p>
           </div>
-          <div className={`${classes.list3} col-3`}>
+          <div className={`${classes.list3} col-md-3`}>
             <p className={classes.amount}>₹ 499</p>
             <div className={classes.amountstrickout}>
               <p className={classes.strickout}>₹599</p>
@@ -81,14 +81,14 @@ const BookListView = () => {
           </div>
         </div>
         <div className={`${classes.listview} row container-fluid `}>
-          <div className={`${classes.list1} col-3`}>
+          <div className={`${classes.list1} col-md-3`}>
             <img
               src="./images/placeholderlistview.svg"
               alt=""
               className={`${classes.vadaiimage}`}
             />
           </div>
-          <div className={`${classes.list2} col-6`}>
+          <div className={`${classes.list2} col-md-6`}>
             <h4 className={classes.Humorous}>Humorous</h4>
             <h2 className={classes.vadai}>Kadai Veedhi Kalakalakkum</h2>
             <p className={classes.bookram}>Ramya - Sethu Ram</p>
@@ -101,7 +101,7 @@ const BookListView = () => {
               nulla pariatur.{" "}
             </p>
           </div>
-          <div className={`${classes.list3} col-3`}>
+          <div className={`${classes.list3} col-md-3`}>
             <p className={classes.amount}>₹ 499</p>
             <div className={classes.amountstrickout}>
               <p className={classes.strickout}>₹599</p>

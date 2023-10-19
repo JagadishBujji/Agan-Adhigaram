@@ -21,4 +21,10 @@
     max-width: 70%;
 }
 
+@media only screen and (max-width: 767px){
+  .socialfixed{
+    display: none;
+  }
+}
+
 
