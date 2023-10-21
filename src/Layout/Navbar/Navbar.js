@@ -5,7 +5,7 @@ import React from "react";
 import "./Navbar.css";
 import { useState } from "react";
 
-function Navbar() {
+function Navbar(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -17,7 +17,8 @@ function Navbar() {
         <div className="container-fluid">
           <a href="#" className="navbar-brand">
             <img
-              src="./images/Frame.svg"
+              src=// "./images/Frame.svg"
+              {props.logo}
               alt=" logo"
               width="60"
               height="auto"

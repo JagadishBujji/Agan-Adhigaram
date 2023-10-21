@@ -1,0 +1,37 @@
+.titlebook {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.details {
+  background-color: #4d4d4d;
+  list-style-type: none;
+  padding-left: 0;
+  width: 30%;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.details li {
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+.details2 {
+  background-color: #fcf8fd;
+  list-style-type: none;
+  padding-left: 0;
+  width: 70%;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.details2 li {
+  padding: 15px 45px;
+  color: #4d4d4d;
+  font-size: 14px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}

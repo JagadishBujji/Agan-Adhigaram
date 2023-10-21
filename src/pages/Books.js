@@ -15,7 +15,12 @@ const Books = () => {
         <BooksAndFilters />
         <BookViewMore />
         <Testimonials />
-        <BestQuality />
+        <BestQuality
+          quick="./images/Quick.svg"
+          Secure="./images/Secure.svg"
+          Best="./images/bestquality.svg"
+          Return="./images/return.svg"
+        />
         <Subscribe
           circleimg="./images/circleElement (1).svg"
           circle1="./images/circleElement.svg"

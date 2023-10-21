@@ -1,0 +1,122 @@
+.bookheading {
+  font-size: 22px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.ramya {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+.bookimg {
+  max-width: 5%;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.ramyasethuram {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+.Vadai {
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+.amount {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.addedbtn {
+  padding: 0 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Available {
+  padding: 0 20px;
+}
+
+.amount1 {
+  font-size: 24px;
+  color: #f19e38;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+}
+
+.amount2 {
+  color: #636363;
+  text-decoration: line-through;
+  font-size: 14px;
+  margin-left: 20px;
+}
+
+.amountpercentage {
+  background: #ff7a00;
+  padding: 0 6px;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+.Available {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  font-weight: 500;
+}
+
+.wishlist {
+  background-color: #f19e38;
+  border-radius: 5px;
+  border: none;
+  margin-left: 15px;
+  padding: 5px;
+  color: #fff;
+}
+
+.heart {
+  color: #fff;
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+.qty {
+  background: #fdf3e2;
+  padding: 5px 25px;
+  border-radius: 5px;
+}
+
+.minus {
+  font-size: 14px;
+  color: #f19e38;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.count {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+
+.plus {
+  font-size: 14px;
+  color: #f19e38;
+  margin-left: 10px;
+  cursor: pointer;
+}

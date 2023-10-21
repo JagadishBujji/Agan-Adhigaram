@@ -1,13 +1,16 @@
 import classes from "./BestQuality.module.css";
 
-const BestQuality = () => {
+const BestQuality = (props) => {
   return (
     <>
       <section className={`${classes.overallbest} `}>
         <div className={`${classes.bestmain} row container m-auto`}>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
             <img
-              src="./images/Quick.svg"
+              src={
+                // "./images/Quick.svg"x
+                props.quick
+              }
               alt=""
               className={classes.Quickicon}
             />
@@ -19,7 +22,10 @@ const BestQuality = () => {
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
             <img
-              src="./images/Secure.svg"
+              src={
+                // "./images/Secure.svg"
+                props.Secure
+              }
               alt=""
               className={classes.Quickicon}
             />
@@ -31,7 +37,10 @@ const BestQuality = () => {
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
             <img
-              src="./images/bestquality.svg"
+              src={
+                // "./images/bestquality.svg"
+                props.Best
+              }
               alt=""
               className={classes.Quickicon}
             />
@@ -43,7 +52,9 @@ const BestQuality = () => {
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
             <img
-              src="./images/return.svg"
+              src={ // "./images/return.svg"
+                props.Return
+              }
               alt=""
               className={classes.Quickicon}
             />

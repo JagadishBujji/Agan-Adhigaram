@@ -5,7 +5,7 @@ import Navbar from "../Navbar/Navbar";
 const DashBoardLayout = () => {
   return (
     <>
-      <Navbar />
+      <Navbar logo="./images/Frame.svg" />
       <Outlet />
       <Footer />
     </>
