@@ -1,15 +1,11 @@
 import classes from "./Subscribe.module.css";
 
-const Subscribe = () => {
+const Subscribe = (props) => {
   return (
     <>
       <div className={`${classes.Subscribe} row container-fluid m-auto`}>
         <div className={`${classes.sub1} col-md-6`}>
-          <img
-            src="./images/circleElement (1).svg"
-            alt=""
-            className={classes.circleimg}
-          />
+          <img src={props.circleimg} alt="" className={classes.circleimg} />
           <h2 className={classes.newsletter}>
             Subscribe our newsletter
             <br /> for newest books updates
@@ -25,7 +21,7 @@ const Subscribe = () => {
               />
               <button className={classes.submit}>Subscribe</button>
               <img
-                src="./images/circleElement.svg"
+                src={props.circle1}
                 alt=""
                 className={classes.circleElement}
               />

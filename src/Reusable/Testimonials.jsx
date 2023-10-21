@@ -1,4 +1,5 @@
 import GroupAvatars from "./GroupAvatars";
+import TestimoninalCarosuel from "./TestimonialCarosuel";
 import classes from "./Testimonials.module.css";
 
 const Testimonials = () => {

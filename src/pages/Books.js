@@ -16,7 +16,10 @@ const Books = () => {
         <BookViewMore />
         <Testimonials />
         <BestQuality />
-        <Subscribe />
+        <Subscribe
+          circleimg="./images/circleElement (1).svg"
+          circle1="./images/circleElement.svg"
+        />
       </div>
     </>
   );
