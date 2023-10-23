@@ -1,9 +1,10 @@
+import RelatedBooks from "../../Reusable/RelatedBooks";
 import classes from "./BookDetails.module.css";
 
 const BookDetails = () => {
   return (
     <>
-      <section>
+      <section className={classes.bookdetailoverall}>
         <div className={`${classes.bookdetail} row container-fluid m-auto`}>
           <div className={`${classes.bookdetailhalf} col-md-9`}>
             <h4 className={classes.headingdetails}>Details</h4>
@@ -33,7 +34,7 @@ const BookDetails = () => {
             </div>
           </div>
           <div className={`${classes.bookdetailcard} col-md-3`}>
-            
+            <RelatedBooks />
           </div>
         </div>
       </section>

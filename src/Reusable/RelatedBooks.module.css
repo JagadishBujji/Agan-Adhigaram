@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  justify-content: flex-start;
+  align-items: end;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  box-shadow: #8d28ad 0px 1px 4px -1px, #8d28ad 0px 0px 0px 0px;
+}
+
+.kadi {
+  max-width: 40%;
+  border-radius: 10px;
+}
+
+.contant {
+  margin-left: 10px;
+}
+
+.realtedbooktitle {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #000;
+}
+
+.booktitle {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #000;
+}
+
+.amount {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #f19e38;
+}
+
+.view {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: #f19e38;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.arrow{
+    margin-left: 5px;
+}
