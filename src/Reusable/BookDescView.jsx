@@ -29,9 +29,9 @@ const BookDescView = () => {
               <span className={classes.count}>0</span>
               <i className={`${classes.plus} fa-solid fa-plus`}></i>
             </div>
-            <button className={classes.wishlist}>
+            <a href="wishlist" className={classes.wishlist}>
               <i className={`${classes.heart} fa-regular fa-heart`}></i>WISHLIST
-            </button>
+            </a>
           </div>
           <p className={classes.Available}>
             Also Available On{" "}

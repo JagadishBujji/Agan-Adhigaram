@@ -1,0 +1,59 @@
+.item {
+  margin-bottom: 10%;
+}
+
+.wishlistheading {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 20px;
+  margin: 0 25px;
+}
+
+.wish {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.items {
+  font-size: 28px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+
+.noitem {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}
+.additem {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.sadfox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 0;
+}
+
+.bookbtn {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  background: #f19e38;
+  color: #fdf3e2;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.fox {
+  max-width: 50%;
+  margin: auto;
+}

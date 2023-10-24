@@ -6,7 +6,7 @@ const RelatedBooks = () => {
       <section>
         <h3 className={classes.realtedbooktitle}>Related books</h3>
         <div className={`${classes.card}`}>
-          <img src="../images/rama.svg" alt=" " className={classes.kadi} />
+          <img src="../images/babybook.png" alt=" " className={classes.kadi} />
           <div className={classes.contant}>
             {" "}
             <p className={classes.booktitle}>Kadai veedhi ka..</p>
@@ -22,7 +22,7 @@ const RelatedBooks = () => {
           </div>
         </div>
         <div className={`${classes.card}`}>
-          <img src="../images/rama.svg" alt=" " className={classes.kadi} />
+          <img src="../images/vadai.png" alt=" " className={classes.kadi} />
           <div className={classes.contant}>
             {" "}
             <p className={classes.booktitle}>Kadai veedhi ka..</p>

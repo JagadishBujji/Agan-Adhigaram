@@ -5,6 +5,8 @@ import Home from "./pages/Home";
 import Blog from "./pages/Blog";
 import Books from "./pages/Books";
 import BooksDesc from "./pages/BooksDesc";
+import WishList from "./pages/WishList";
+import CheckOut from "./pages/CheckOut";
 
 export default function Router() {
   const routes = useRoutes([
@@ -24,6 +26,14 @@ export default function Router() {
         {
           path: "books/:id",
           element: <BooksDesc />,
+        },
+        {
+          path: "books/wishlist",
+          element: <WishList />,
+        },
+        {
+          path: "books/checkout",
+          element: <CheckOut />,
         },
       ],
     },
