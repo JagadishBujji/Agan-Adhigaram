@@ -1,0 +1,87 @@
+.CheckOutTable {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  background: #f19e38;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.tablehead1 {
+  width: 30%;
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.tablehead2 {
+  width: 15%;
+  margin-bottom: 0;
+  padding: 10px;
+}
+.tablehead3 {
+  width: 15%;
+  margin-bottom: 0;
+  padding: 10px;
+}
+.tablehead4 {
+  width: 15%;
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.CheckOutTablerow {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  background: #fdf3e2;
+  color: #f19e38;
+  font-family: "Poppins", sans-serif;
+  width: 70%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* .CheckOutoversize {
+  overflow-y: scroll;
+  max-height: 300px;
+  
+} */
+
+.tableheadrow1 {
+  width: 30%;
+  margin-bottom: 0;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+}
+
+.tableheadrow2 {
+  width: 15%;
+  margin-bottom: 0;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+}
+.tableheadrow3 {
+  width: 15%;
+  margin-bottom: 0;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+}
+.tableheadrow4 {
+  width: 13%;
+  margin-bottom: 0;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  text-align: left;
+}

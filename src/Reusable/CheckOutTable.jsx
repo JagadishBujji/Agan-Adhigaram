@@ -3,50 +3,20 @@ import classes from "./CheckOutTable.module.css";
 const CheckOutTable = () => {
   return (
     <>
-      <div className={`${classes.tablecheck} container table-responsive py-5`}>
-        <table className="table table-bordered table-hover">
-          <thead className="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-          </tbody>
-        </table>
+      <div className={`${classes.CheckOutTable}  container`}>
+        <p className={classes.tablehead1}>Item</p>
+        <p className={classes.tablehead2}>Quantity</p>
+        <p className={classes.tablehead3}>Price</p>
+        <p className={classes.tablehead4}>Total Price</p>
       </div>
+      {/* <section className={classes.CheckOutoversize}> */}
+      <div className={`${classes.CheckOutTablerow}  container`}>
+        <p className={classes.tableheadrow1}>1</p>
+        <p className={classes.tableheadrow2}>5</p>
+        <p className={classes.tableheadrow3}>₹ 500</p>
+        <p className={classes.tableheadrow4}>₹ 1500</p>
+      </div>
+      {/* </section> */}
     </>
   );
 };

@@ -17,8 +17,8 @@ function Navbar(props) {
         <div className="container-fluid">
           <a href="#" className="navbar-brand">
             <img
-              src=// "./images/Frame.svg"
-              {props.logo}
+              src="./images/Frame.svg"
+              // {props.logo}
               alt=" logo"
               width="60"
               height="auto"
@@ -98,7 +98,7 @@ function Navbar(props) {
             <div className="corner">
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="checkout"
                   className="right "
                   role="button"
                   data-bs-toggle=""
@@ -107,7 +107,7 @@ function Navbar(props) {
                   Cart
                 </a>
               </li>
-              <a href="#" className="cart">
+              <a href="" className="cart">
                 <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"
