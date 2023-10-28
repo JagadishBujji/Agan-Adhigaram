@@ -67,6 +67,7 @@
 /* Styles for the navigation links */
 .nav-item {
   display: inline-block;
+  
 }
 
 .nav-link {
@@ -102,6 +103,9 @@
 
 /* Media query for responsiveness */
 @media (max-width: 768px) {
+  .nav-item {
+    width: 100%;
+  }
   .nav-item a {
     padding: 1px 15px;
     font-size: 14px;

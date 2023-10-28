@@ -98,7 +98,7 @@ function Navbar(props) {
             <div className="corner">
               <li className="nav-item dropdown">
                 <a
-                  href="checkout"
+                  href="books/checkout"
                   className="right "
                   role="button"
                   data-bs-toggle=""
@@ -107,7 +107,7 @@ function Navbar(props) {
                   Cart
                 </a>
               </li>
-              <a href="" className="cart">
+              <a href="books/wishlist" className="cart">
                 <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"

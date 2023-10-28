@@ -1,7 +1,7 @@
 .summary {
   background: url(../../../public/images/background.svg);
   /* background-color: #fdf3e2; */
-  /* background-position: center; */
+ 
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 50px;
@@ -120,3 +120,17 @@
   background-size: contain;
   height: inherit;
 } */
+
+/* mobile */
+
+@media only screen and (max-width: 767px){
+  .summary{
+    width: 100%;
+    padding: 40px;
+    background-position: center;
+  }
+  .promocodeinput{
+    width: 85%;
+    margin-bottom: 20px;
+  }
+}

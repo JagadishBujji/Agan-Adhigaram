@@ -3,10 +3,11 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
+  height: 100%;
+  width: 100%;
 }
 
-
-.bookdetailoverall{
+.bookdetailoverall {
   margin-top: 10%;
   margin-bottom: 10%;
 }
@@ -17,6 +18,7 @@
   padding-left: 0;
   width: 30%;
   border-radius: 10px 0px 0px 10px;
+  height: inherit;
 }
 
 .details li {
@@ -32,6 +34,7 @@
   padding-left: 0;
   width: 70%;
   border-radius: 0px 10px 10px 0px;
+  height: inherit;
 }
 
 .details2 li {
@@ -40,4 +43,14 @@
   font-size: 14px;
   text-align: left;
   font-family: "Poppins", sans-serif;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .bookdetailhalf {
+    margin-bottom: 10%;
+  }
+  .details2 li {
+    padding: 19px 45px;
+  }
 }

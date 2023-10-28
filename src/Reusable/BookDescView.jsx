@@ -4,7 +4,7 @@ const BookDescView = () => {
   return (
     <>
       <div className={`${classes.BookDescView} row container-fluid m-auto`}>
-        <div className={`${classes.BookDescView} col-md-5`}>
+        <div className={`${classes.BookDescView1} col-md-5`}>
           <h3 className={classes.bookheading}>Vadai Pochae</h3>
           <div className={classes.ramya}>
             <img src="../images/rama.svg" alt="" className={classes.bookimg} />
@@ -44,7 +44,40 @@ const BookDescView = () => {
             </a>
           </p>
         </div>
-        <div className={`${classes.BookDescView} col-md-7`}></div>
+        <div className={`${classes.BookDescView2} col-md-7`}>
+          <div className={`${classes.bookdescimg} row`}>
+            <div className={`${classes.bookdescimg1} col-md-6`}></div>
+            <div className={`${classes.bookdescimg2} col-md-4`}></div>
+          </div>
+          <img src="../images/vadai.png" alt="" className={classes.imgbook} />
+          <img
+            src="../images/vadaibook.png"
+            alt=""
+            className={classes.imgbook2}
+          />
+          <div className={classes.imgrow}>
+            <img
+              src="../images/smallvadibook.svg"
+              alt=""
+              className={classes.imgrowbook}
+            />
+            <img
+              src="../images/vadaileaf.svg"
+              alt=""
+              className={classes.imgrowbook}
+            />
+            <img
+              src="../images/backvadipostion.svg"
+              alt=""
+              className={classes.imgrowbook}
+            />
+            <img
+              src="../images/frontvadaipostion.svg"
+              alt=""
+              className={classes.imgrowbook}
+            />
+          </div>
+        </div>
       </div>
     </>
   );

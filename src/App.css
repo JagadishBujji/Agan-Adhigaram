@@ -1,0 +1,16 @@
+.fa-ticket {
+  color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 15px;
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+  .dropdown {
+    padding: 10px;
+  }
+  .dropdown:active {
+    background: #f19e38;
+  }
+}

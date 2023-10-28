@@ -85,3 +85,37 @@
   font-family: "Poppins", sans-serif;
   text-align: left;
 }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .CheckOutTable {
+    width: 100%;
+  }
+  .tablehead1 {
+    width: 20%;
+  }
+  .tablehead2 {
+    width: 20%;
+  }
+  .tablehead3 {
+    width: 20%;
+  }
+  .tablehead4 {
+    width: 30%;
+  }
+  .CheckOutTablerow {
+    width: 100%;
+  }
+  .tableheadrow1 {
+    width: 20%;
+  }
+  .tableheadrow2 {
+    width: 20%;
+  }
+  .tableheadrow3 {
+    width: 30%;
+  }
+  .tableheadrow4 {
+    width: 30%;
+  }
+}

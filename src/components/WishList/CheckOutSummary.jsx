@@ -14,7 +14,7 @@ const CheckOutSummary = () => {
             <p className={classes.shoppingcode}>Have a coupon code?</p>
             <from className={classes.text}>
               {/* <i className={`${classes.ticket} fa-solid fa-ticket`}></i> */}
-              <i className={`${classes.ticket} fa-solid fa-ticket-simple`}></i>
+              <i className="fa-solid fa-ticket"></i>
              
               {/* <img src="" alt=" " /> */}
               <input

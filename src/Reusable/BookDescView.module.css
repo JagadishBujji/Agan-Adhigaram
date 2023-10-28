@@ -121,3 +121,78 @@
   margin-left: 10px;
   cursor: pointer;
 }
+
+.BookDescView2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.imgrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.imgbook {
+  max-width: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.imgbook2 {
+  max-width: 36%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.imgrowbook {
+  max-width: 85%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .bookheading {
+    padding: 0;
+    font-size: 18px;
+  }
+  .ramya {
+    padding: 0;
+    font-size: 18px;
+  }
+  .Vadai {
+    padding: 0;
+    font-size: 14px;
+  }
+  .amount {
+    padding: 0;
+  }
+  .addedbtn {
+    padding: 0;
+  }
+  .Available{
+    padding: 0;
+  }
+  .BookDescView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .imgbook {
+    max-width: 40%;
+    margin-right: 10px;
+  }
+  .imgbook2 {
+    max-width: 43%;
+  }
+  .imgrowbook {
+    max-width: 95%;
+    margin-left: 15px;
+  }
+  .BookDescView2 {
+    margin-bottom: 5%;
+  }
+}

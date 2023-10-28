@@ -1,3 +1,9 @@
 .BooksDesc {
   margin-top: 8%;
 }
+
+@media only screen and (max-width: 767px) {
+  .BooksDesc {
+    margin-top: 20%;
+  }
+}

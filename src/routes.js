@@ -28,7 +28,7 @@ export default function Router() {
           element: <BooksDesc />,
         },
         {
-          path: "wishlist",
+          path: "books/wishlist",
           element: <WishList />,
         },
         {
