@@ -44,7 +44,7 @@ const TestimonialCarousel = () => {
             </p>
             <h2>Princy, Web Developer</h2>
             <h2>Book lover</h2>
-            <img src="https://dummyimage.com/150" alt="picture" />
+            {/* <img src="https://dummyimage.com/150" alt="picture" /> */}
           </label>
         ))}
       </div>

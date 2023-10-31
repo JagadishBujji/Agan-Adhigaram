@@ -7,6 +7,7 @@ import Books from "./pages/Books";
 import BooksDesc from "./pages/BooksDesc";
 import WishList from "./pages/WishList";
 import CheckOut from "./pages/CheckOut";
+import AuthorAndIllustrator from "./pages/AuthorAndIllustrator";
 
 export default function Router() {
   const routes = useRoutes([
@@ -15,6 +16,10 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: "/", element: <Home /> },
+        {
+          path: "author-illustrator",
+          element: <AuthorAndIllustrator />,
+        },
         {
           path: "blog",
           element: <Blog />,

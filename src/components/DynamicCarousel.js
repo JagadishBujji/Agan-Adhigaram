@@ -95,7 +95,7 @@ const DynamicCarousel = () => {
     <>
       <div className="overallcarosuel">
         <div className="gallerycapturing">
-          <h1>Gallery</h1>
+          <h1 id="gallery">Gallery</h1>
           <p>Capturing our happiest book-making memories.</p>
         </div>
 

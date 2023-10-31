@@ -10,35 +10,38 @@ const Footer = () => {
             <br /> Agan Adhigaram®
           </p>
           <div className={`${classes.socialmedia}`}>
-            <a href="">
+            <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
               <img
                 src="./images/instagram.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="">
+            <a href=" https://www.facebook.com/Aganadhigaram" target="_blank">
               <img
                 src="./images/facebook.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="">
+            <a
+              href=" https://www.linkedin.com/in/agan-adhigaram-7b6911292/"
+              target="_blank"
+            >
               <img
                 src="./images/linkedin.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="">
+            <a href="https://twitter.com/AganAdhigaram" target="_blank">
               <img
                 src="./images/X.svg"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="">
+            <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank">
               <img
                 src="./images/youtube.svg"
                 alt=""
@@ -56,11 +59,11 @@ const Footer = () => {
             </a>
           </div>
           <div className={`${classes.links}`}>
-            <a href="">Home</a>
+            <a href="/">Home</a>
             <a href="">Contact us</a>
             <a href="">Books</a>
-            <a href="">About us</a>
-            <a href="">Blog</a>
+            <a href="#aboutus">About us</a>
+            <a href="blog">Blog</a>
           </div>
           <p className={classes.copyright}>
             copyright @Agan Adhigaram®.All rights reserved.

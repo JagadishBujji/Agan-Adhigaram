@@ -7,7 +7,7 @@ import classes from "./Aboutus.module.css";
 
 function Aboutus() {
   return (
-    <div className={`${classes.about} about`}>
+    <div className={`${classes.about} about`} id="aboutus">
       <div className={`${classes.us}`}>
         <h1 className={`${classes.aboutus}`}>
           About Us{" "}

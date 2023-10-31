@@ -52,16 +52,31 @@ function Navbar(props) {
                 </a>
               </li>
               <li className="nav-item dropdown">
-                <a href="#" className="blackColor nav-link  " data-bs-toggle="">
+                <a
+                  href="#aboutus"
+                  className="blackColor nav-link  "
+                  data-bs-toggle=""
+                >
                   About Us
                 </a>
               </li>
               <li className="nav-item dropdown">
-                <a href="#" className="blackColor nav-link  " data-bs-toggle="">
+                <a href="#gallery" className="blackColor nav-link  " data-bs-toggle="">
                   Gallery
                 </a>
               </li>
               <li className="nav-item dropdown">
+                <a
+                  href="author-illustrator"
+                  className="nav-link "
+                  role="button"
+                  data-bs-toggle=""
+                  aria-expanded="false"
+                >
+                  Authors and Illustrators
+                </a>
+              </li>
+              {/* <li className="nav-item dropdown">
                 <a
                   href="books"
                   className="nav-link "
@@ -71,8 +86,47 @@ function Navbar(props) {
                 >
                   Books
                 </a>
+              </li> */}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Books
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="https://amzn.eu/d/1yoJQiR"
+                      target="_blank"
+                    >
+                      Vadai Pochae
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="https://amzn.eu/d/aZDzE8G"
+                      target="_blank"
+                    >
+                      I
+                    </a>
+                  </li>
+                  {/* <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Something else here
+                    </a>
+                  </li> */}
+                </ul>
               </li>
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   href="#"
                   className="nav-link "
@@ -82,7 +136,7 @@ function Navbar(props) {
                 >
                   Events
                 </a>
-              </li>
+              </li> */}
               <li className="nav-item dropdown">
                 <a
                   href="blog"
@@ -98,7 +152,8 @@ function Navbar(props) {
             <div className="corner">
               <li className="nav-item dropdown">
                 <a
-                  href="books/checkout"
+                  href=""
+                  // books/checkout
                   className="right "
                   role="button"
                   data-bs-toggle=""

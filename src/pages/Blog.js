@@ -11,7 +11,7 @@ const Blog = () => {
       <BlogBackMove move="Blog" />
       <BlogStartup />
       <BlogCarosuel/>
-      <Author/>
+      {/* <Author/> */}
     </>
   );
 };

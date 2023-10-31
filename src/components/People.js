@@ -48,13 +48,14 @@ const People = () => {
 
             <div class="card__content">
               <p>
-                Lorem ipsum dolor sit amet consectet piscing elit, sed do
-                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+                Tamil publishing startup Agan Adhigaram presents popular stories
+                as Board books, with interactive features such as sliders and
+                flaps designed for little hands.{" "}
               </p>
             </div>
             <div className="name">
               <img src="./images/avatar.svg" alt="" className="avatar" />
-              <p>pavi lovegood,</p>
+              <p>The Hindu</p>
               <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
@@ -65,13 +66,17 @@ const People = () => {
             </div>
             <div class="card__content">
               <p>
-                Lorem ipsum dolor sit amet consectet piscing elit, sed do
-                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+                இதுபோன்று ஊடாடு (Interactive) புத்தகங்களை மிகச் சிறு வயதிலேயே
+                குழந்தைங்களுக்கு அறிமுகப்படுத்தலாமா எனத் தயங்கி
+                நிற்பவர்களுக்கும் பரிந்துரைக்கிறேன்”{" "}
               </p>
             </div>
             <div className="name peopelcard">
               <img src="./images/avatar.svg" alt="" className="avatar" />
-              <p>anbu lovegood,</p>
+              <div className="nameofpeople">
+                <p>Ms. Asmitha,</p>
+                <p>Entrepreneur and a mother of 2 years old, Chennai </p>
+              </div>
               <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
@@ -82,13 +87,19 @@ const People = () => {
             </div>
             <div class="card__content">
               <p>
-                Lorem ipsum dolor sit amet consectet piscing elit, sed do
-                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+                “This book is a standalone to other stories because of the twist
+                in the end. The last page in this interactive book was very
+                clever and Nathan didn't expect the wheel mechanism to give a
+                twist in the story. Also, get this book and introduce them to
+                thirukkural.”{" "}
               </p>
             </div>
             <div className="name">
               <img src="./images/avatar.svg" alt="" className="avatar" />
-              <p>sanja lovegood,</p>
+              <div className="nameofpeople">
+                <p>Ms. Karen, Nathan,</p>
+                <p>Blogger and kids book reviewer, Chennai . </p>
+              </div>
               <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
@@ -99,13 +110,126 @@ const People = () => {
             </div>
             <div class="card__content">
               <p>
-                Lorem ipsum dolor sit amet consectet piscing elit, sed do
-                eiusmod tempor incidi ut labore et dolore magna aliqua.{" "}
+                “It is one of a kind that I have seen in my language. There are
+                not many interactive books like this. It's such a great
+                initiative from Agan Adhigaram. I am truly inspired by your
+                venture into bringing Tamizh our mudhan mozhi to the forefront.”{" "}
               </p>
             </div>
             <div className="name">
               <img src="./images/avatar.svg" alt="" className="avatar" />
-              <p>jagad lovegood,</p>
+              <div className="nameofpeople">
+                <p>Ms. Suganya kumar,</p>
+                <p>Mother, Doctor and Entrepreneur. </p>
+              </div>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
+            </div>
+          </article>
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="card__content">
+              <p>
+                “An interactive board book that is breaking barriers with its
+                creative pull the tab & turn the gear features. Vada Poche
+                provides a modern take on a classic Tamil fable.”{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <div className="nameofpeople">
+                <p>Chittu kuruvi books,</p>
+                <p>Bookstore, Canada</p>
+              </div>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
+            </div>
+          </article>
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="card__content">
+              <p>
+                “I absolutely love the book. I am SO happy to see an interactive
+                Tamil children's book of great quality and cute, attractive
+                illustrations. And there is a clever twist to the story at the
+                end as well.”{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <div className="nameofpeople">
+                <p> Ms. Vanitha,</p>
+                <p>Author, Vaaranam books, Australia</p>
+              </div>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
+            </div>
+          </article>
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="card__content">
+              <p>
+                “After a long search, ended up getting this amazing book in
+                tamil, penning down the beauty of tamil literature in a
+                picturesque way. My toddler loved the front cover page and
+                colourful details in it. It’s worth buy.”{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <div className="nameofpeople">
+                <p> Ms. Nangai,</p>
+                <p>Mother of 2.5 years old, Belgium</p>
+              </div>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
+            </div>
+          </article>
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="card__content">
+              <p>
+                “Very Colourful Potrayal of Five Landscapes of Tamil regions in
+                an Interactive way for Kids and few Adults as well. This clearly
+                depicts the Landscapes, People, Culture, Work, Animals, Birds,
+                etc. My daughter was delighted to have it. Especially after
+                'Vada Poche', this book is so satisfying. Will be watching this
+                space for more such books from Agan Adhigaram publications.”{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <div className="nameofpeople">
+                <p> Mr. Silambaran,</p>
+                <p>Father of 3 years old, Chennai</p>
+              </div>
+              <img src="./images/spotify.svg" alt="" className="spofity" />
+            </div>
+          </article>
+          <article class="card peopelcard">
+            <div>
+              <i class="fa-solid fa-quote-left"></i>
+            </div>
+            <div class="card__content">
+              <p>
+                “Very Colourful Potrayal of Five Landscapes of Tamil regions in
+                an Interactive way for Kids and few Adults as well. This clearly
+                depicts the Landscapes, People, Culture, Work, Animals, Birds,
+                etc. My daughter was delighted to have it. Especially after
+                'Vada Poche', this book is so satisfying. Will be watching this
+                space for more such books from Agan Adhigaram publications.”{" "}
+              </p>
+            </div>
+            <div className="name">
+              <img src="./images/avatar.svg" alt="" className="avatar" />
+              <div className="nameofpeople">
+                <p> Ms. Nivedha,</p>
+                <p>Doctor and mother, Ranipet</p>
+              </div>
               <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
