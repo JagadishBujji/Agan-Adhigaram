@@ -103,8 +103,8 @@
   align-items: center;
   text-align: center;
   margin-top: 10%;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 26px;
+  font-weight: 900;
 }
 
 .subcontent {
@@ -113,13 +113,13 @@
   align-items: center;
   text-align: center;
   margin-top: 5%;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .kamaimg {
   max-width: 2%;
   position: absolute;
-  left: 34%;
+  left: 32%;
   top: 6%;
 }
 
