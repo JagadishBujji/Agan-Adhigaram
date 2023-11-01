@@ -13,7 +13,7 @@ const BookDetails = () => {
                 <li>Book Title</li>
                 <li>Author</li>
                 <li>Illustrator</li>
-                <li>Ediiton Language</li>
+                <li>Edition Language</li>
                 <li>Book Format</li>
                 <li>Date Published</li>
                 <li>Publisher</li>
