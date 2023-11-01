@@ -61,7 +61,11 @@ function Navbar(props) {
                 </a>
               </li>
               <li className="nav-item dropdown">
-                <a href="#gallery" className="blackColor nav-link  " data-bs-toggle="">
+                <a
+                  href="#gallery"
+                  className="blackColor nav-link  "
+                  data-bs-toggle=""
+                >
                   Gallery
                 </a>
               </li>
@@ -76,7 +80,7 @@ function Navbar(props) {
                   Authors and Illustrators
                 </a>
               </li>
-              {/* <li className="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
                   href="books"
                   className="nav-link "
@@ -86,8 +90,8 @@ function Navbar(props) {
                 >
                   Books
                 </a>
-              </li> */}
-              <li class="nav-item dropdown">
+              </li>
+              {/* <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
                   href="#"
@@ -116,16 +120,8 @@ function Navbar(props) {
                       I
                     </a>
                   </li>
-                  {/* <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Something else here
-                    </a>
-                  </li> */}
                 </ul>
-              </li>
+              </li> */}
               {/* <li className="nav-item dropdown">
                 <a
                   href="#"
