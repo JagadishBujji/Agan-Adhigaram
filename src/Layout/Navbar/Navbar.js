@@ -4,6 +4,8 @@ import React from "react";
 
 import "./Navbar.css";
 import { useState } from "react";
+import LoginModal from "../../Reusable/LoginModal";
+import SignupModal from "../../Reusable/SignupModal";
 
 function Navbar(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -167,6 +169,8 @@ function Navbar(props) {
                   className="d-inline-block align-text-top"
                 />
               </a>
+              <LoginModal />
+              <SignupModal />
             </div>{" "}
           </div>
         </div>
