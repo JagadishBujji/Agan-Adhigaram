@@ -6,6 +6,7 @@ import "./Navbar.css";
 import { useState } from "react";
 import LoginModal from "../../Reusable/LoginModal";
 import SignupModal from "../../Reusable/SignupModal";
+import ProfileMenu from "../../Reusable/ProfileMenu";
 
 function Navbar(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -171,6 +172,7 @@ function Navbar(props) {
               </a>
               <LoginModal />
               <SignupModal />
+              <ProfileMenu/>
             </div>{" "}
           </div>
         </div>

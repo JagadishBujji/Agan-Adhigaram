@@ -8,6 +8,8 @@ import BooksDesc from "./pages/BooksDesc";
 import WishList from "./pages/WishList";
 import CheckOut from "./pages/CheckOut";
 import AuthorAndIllustrator from "./pages/AuthorAndIllustrator";
+import ProfilePage from "./pages/ProfilePage";
+import OrdersPage from "./pages/OrdersPage";
 
 export default function Router() {
   const routes = useRoutes([
@@ -39,6 +41,14 @@ export default function Router() {
         {
           path: "books/checkout",
           element: <CheckOut />,
+        },
+        {
+          path: "profile",
+          element: <ProfilePage />,
+        },
+        {
+          path: "orders",
+          element: <OrdersPage/>,
         },
       ],
     },
