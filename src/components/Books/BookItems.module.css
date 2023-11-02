@@ -16,11 +16,12 @@
   flex-direction: column;
 }
 
-.booktitle {
+.bookgenre {
   margin-top: 10px;
   color: #f19e38;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
+  text-transform: capitalize;
 }
 
 .bookbigtitle {
@@ -102,7 +103,7 @@
   font-size: 20px;
 }
 
-.openbookitems{
+.openbookitems {
   text-decoration: none;
 }
 
