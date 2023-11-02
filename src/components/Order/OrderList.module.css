@@ -1,0 +1,68 @@
+.pro {
+  padding: 50px 20px;
+}
+
+.orderimage {
+  max-width: 50%;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.cardview {
+  padding: 10px;
+}
+
+.date {
+  margin-left: 5px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.mulitorders {
+  margin-top: 40px;
+}
+
+.placed {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: "Poppins", sans-serif;
+  text-align: justify;
+}
+
+.author {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin-left: 10px;
+  text-align: justify;
+  margin-bottom: 0;
+}
+
+.price {
+  color: #f19e38;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.qty {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px;
+  display: inline-block;
+  background: #fdf3e2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.number {
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px;
+}
