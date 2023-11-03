@@ -7,6 +7,11 @@ import { useState } from "react";
 import LoginModal from "../../Reusable/LoginModal";
 import SignupModal from "../../Reusable/SignupModal";
 import ProfileMenu from "../../Reusable/ProfileMenu";
+import { IconButton } from "@mui/material";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 function Navbar(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,6 +19,16 @@ function Navbar(props) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    "& .MuiBadge-badge": {
+      right: -3,
+      top: 13,
+      border: `2px solid ${theme.palette.background.paper}`,
+      padding: "0 4px",
+      background: "#000"
+    },
+  }));
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg  container-fluid fixed-top">
@@ -162,17 +177,22 @@ function Navbar(props) {
                 </a>
               </li>
               <a href="books/wishlist" className="cart">
-                <img
+                {/* <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"
                   width="30"
                   height="auto"
                   className="d-inline-block align-text-top"
-                />
+                /> */}
+                <IconButton aria-label="cart">
+                  <StyledBadge badgeContent={4} sx={{ color: "#f19e38" }}>
+                    <ShoppingCartIcon />
+                  </StyledBadge>
+                </IconButton>
               </a>
               <LoginModal />
               <SignupModal />
-              <ProfileMenu/>
+              <ProfileMenu />
             </div>{" "}
           </div>
         </div>
