@@ -28,6 +28,11 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 4,
+  "@media (max-width: 768px)": {
+    width: 400,
+    maxHeight: "450px",
+    overflowY: "scroll",
+  },
 };
 
 const login = {
@@ -85,7 +90,7 @@ export default function LoginModal() {
             Login
           </Typography>
           <Grid container>
-            <Grid md={12}>
+            <Grid md={12} xs={12}>
               <TextField
                 fullWidth
                 id="outlined-basic"
@@ -96,7 +101,7 @@ export default function LoginModal() {
                 sx={{ mb: 2 }}
               />
             </Grid>
-            <Grid md={12}>
+            <Grid md={12} xs={12}>
               <FormControl sx={{ mb: 2, width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Create Password

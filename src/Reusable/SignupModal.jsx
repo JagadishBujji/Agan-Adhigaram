@@ -26,6 +26,11 @@ const style = {
   borderRadius: "10px",
   boxShadow: 24,
   p: 4,
+  "@media (max-width: 768px)": {
+    width: 400,
+    maxHeight: "450px",
+    overflowY: "scroll",
+  },
 };
 
 const signup = {
@@ -90,7 +95,7 @@ export default function SignupModal() {
           </Typography>
 
           <Grid container>
-            <Grid md={6}>
+            <Grid md={6} xs={12}>
               <TextField
                 fullWidth
                 id="outlined-basic1"
@@ -99,10 +104,16 @@ export default function SignupModal() {
                 name="name"
                 type="text"
                 className="name"
-                sx={{ mb: 2, width: "90%" }}
+                sx={{
+                  mb: 2,
+                  width: "90%",
+                  "@media (max-width: 768px)": {
+                    width: "100%",
+                  },
+                }}
               />
             </Grid>
-            <Grid md={6}>
+            <Grid md={6} xs={12}>
               <TextField
                 fullWidth
                 id="outlined-basic"
@@ -116,7 +127,7 @@ export default function SignupModal() {
             </Grid>
           </Grid>
           <Grid container>
-            <Grid md={12}>
+            <Grid md={12} xs={12}>
               <TextField
                 fullWidth
                 id="outlined-basic"
@@ -128,7 +139,7 @@ export default function SignupModal() {
                 sx={{ mb: 2 }}
               />
             </Grid>
-            <Grid md={12}>
+            <Grid md={12} xs={12}>
               <TextField
                 id="outlined-multiline-static"
                 label="Address"
@@ -137,8 +148,17 @@ export default function SignupModal() {
                 sx={{ mb: 2, width: "100%" }}
               />
             </Grid>
-            <Grid md={6}>
-              <FormControl sx={{ mb: 2, width: "90%" }} variant="outlined">
+            <Grid md={6} xs={12}>
+              <FormControl
+                sx={{
+                  mb: 2,
+                  width: "90%",
+                  "@media (max-width: 768px)": {
+                    width: "100%",
+                  },
+                }}
+                variant="outlined"
+              >
                 <InputLabel htmlFor="outlined-adornment-password">
                   Create Password
                 </InputLabel>
@@ -161,7 +181,7 @@ export default function SignupModal() {
                 />
               </FormControl>
             </Grid>
-            <Grid md={6}>
+            <Grid md={6} xs={12}>
               <FormControl sx={{ mb: 2, width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Confirm Password

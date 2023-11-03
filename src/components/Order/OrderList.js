@@ -19,6 +19,15 @@ const Order = () => {
       color: "#f19e38",
     },
   };
+  const stack = {
+    "@media (max-width: 768px)": {
+      display: "flex",
+      justifyContent: "start",
+      alignItems: "start",
+      flexDirection: "column",
+    },
+  };
+
   return (
     <>
       <Stack className={`${classes.pro} container`}>
@@ -27,6 +36,7 @@ const Order = () => {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
+            sx={stack}
           >
             <p className={classes.placed}>
               <b>Order Placed :</b>
