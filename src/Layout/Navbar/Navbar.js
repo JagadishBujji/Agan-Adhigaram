@@ -179,8 +179,8 @@ function Navbar(props) {
                   Cart
                 </a>
               </li> */}
-              <a href="books/wishlist" className="cart">
-                {/* <img
+              {/* <a href="books/wishlist" className="cart"> */}
+              {/* <img
               </li> */}
               <a href="/books/wishlist" className="cart">
                 {/* <img
