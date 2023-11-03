@@ -12,8 +12,11 @@ import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../store/userSlice";
 
 function Navbar(props) {
+  const { isAuthenticated, userDetail } = useSelector(selectUser);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -178,6 +181,9 @@ function Navbar(props) {
               </li> */}
               <a href="books/wishlist" className="cart">
                 {/* <img
+              </li> */}
+              <a href="/books/wishlist" className="cart">
+                {/* <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"
                   width="30"
@@ -190,11 +196,15 @@ function Navbar(props) {
                   </StyledBadge>
                 </IconButton>
               </a>
-              <LoginModal />
-              <SignupModal />
-              {/* when login the website then only we want to view */}
-              {/* <ProfileMenu />  */}
-            </div>{" "}
+              {isAuthenticated ? (
+                <ProfileMenu userDetail={userDetail} />
+              ) : (
+                <>
+                  <LoginModal />
+                  <SignupModal />
+                </>
+              )}
+            </div>
           </div>
         </div>
       </nav>

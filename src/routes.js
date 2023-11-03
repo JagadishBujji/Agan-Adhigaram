@@ -1,4 +1,5 @@
-import { useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import DashboardLayout from "./Layout/dashboard/DashBoardLayout";
 
 import Home from "./pages/Home";
@@ -10,8 +11,45 @@ import CheckOut from "./pages/CheckOut";
 import AuthorAndIllustrator from "./pages/AuthorAndIllustrator";
 import ProfilePage from "./pages/ProfilePage";
 import OrdersPage from "./pages/OrdersPage";
+import { login, logout, selectIsAuthenticated } from "./store/userSlice";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./services/firebase";
+import { getUserById } from "./api/user";
+import { errorNotification } from "./utils/notifications";
 
 export default function Router() {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const { uid } = user;
+        console.log("uid", uid);
+        getUserById(uid, (result) => {
+          console.log("userdetail: ", result);
+          if (result.success) {
+            dispatch(login(result.data));
+          } else {
+            errorNotification(result.err.message);
+          }
+        });
+      } else {
+        dispatch(logout());
+      }
+      // Set authChecked to true once authentication state is checked
+      setAuthChecked(true);
+    });
+
+    // Clean up the subscription
+    return unsubscribe;
+  }, []);
+
+  const AuthenticatedRoute = ({ element, ...rest }) =>
+    isAuthenticated ? element : <Navigate to="/" />;
+
   const routes = useRoutes([
     {
       path: "/",
@@ -36,22 +74,34 @@ export default function Router() {
         },
         {
           path: "books/wishlist",
-          element: <WishList />,
+          element: <AuthenticatedRoute element={<WishList />} key="cart" />,
         },
         {
           path: "books/checkout",
-          element: <CheckOut />,
+          element: <AuthenticatedRoute element={<CheckOut />} key="cart" />,
         },
         {
           path: "profile",
-          element: <ProfilePage />,
+          element: (
+            <AuthenticatedRoute element={<ProfilePage />} key="profile" />
+            // <ProfilePage />
+          ),
         },
         {
           path: "orders",
-          element: <OrdersPage/>,
+          element: (
+            <AuthenticatedRoute element={<OrdersPage />} key="orders" />
+            // <OrdersPage />
+          ),
         },
       ],
     },
   ]);
+
+  // Wait until auth state is checked before rendering routes
+  if (!authChecked) {
+    return <div>Loading...</div>;
+  }
+
   return routes;
 }

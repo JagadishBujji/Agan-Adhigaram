@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -17,6 +17,13 @@ import {
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./LoginModal.css";
+import { isValidEmail, isValidPassword } from "../utils/validator";
+import { errorNotification, successNotification } from "../utils/notifications";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../services/firebase";
+import { getUserById } from "../api/user";
+import { useDispatch } from "react-redux";
+import { login } from "../store/userSlice";
 
 const style = {
   position: "absolute",
@@ -35,7 +42,7 @@ const style = {
   },
 };
 
-const login = {
+const loginModalBtn = {
   border: "1px solid #f19e38",
   color: "#f19e38",
   fontSize: "14px",
@@ -66,21 +73,68 @@ const loginbtn = {
 // };
 
 export default function LoginModal() {
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [userCred, setUserCred] = useState({
+    email: "",
+    password: "",
+  });
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserCred((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  };
+
+  const closeModal = () => {
+    setOpen(false);
+    setUserCred({
+      email: "",
+      password: "",
+    });
+  };
+
+  const handleLogin = () => {
+    const { email, password } = userCred;
+    if (isValidEmail(email) && isValidPassword(password)) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log("userCredential: ", userCredential);
+          console.log("userCredential.user: ", userCredential.user);
+          const { uid } = userCredential.user;
+          getUserById(uid, (result) => {
+            console.log("userdetail: ", result);
+            if (result.success) {
+              dispatch(login(result.data));
+              successNotification(result.message);
+              closeModal();
+            } else {
+              errorNotification(result.err.message);
+            }
+          }); // async/await, promise-then, callback
+        })
+        .catch((e) => {
+          errorNotification(e.code);
+        });
+    } else {
+      errorNotification("Invalid Email/Password");
+    }
   };
 
   return (
     <div>
-      <Button onClick={handleOpen} sx={login}>
+      <Button onClick={handleOpen} sx={loginModalBtn}>
         Login
       </Button>
       <Modal
@@ -100,19 +154,24 @@ export default function LoginModal() {
                 id="outlined-basic"
                 label="Email"
                 variant="outlined"
-                name="mail"
-                type="mail"
+                name="email"
+                type="email"
                 sx={{ mb: 2 }}
+                value={userCred.email}
+                onChange={handleInputChange}
               />
             </Grid>
             <Grid md={12} xs={12}>
               <FormControl sx={{ mb: 2, width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
-                  Create Password
+                  Password
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
+                  name="password"
                   type={showPassword ? "text" : "password"}
+                  value={userCred.password}
+                  onChange={handleInputChange}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -125,7 +184,7 @@ export default function LoginModal() {
                       </IconButton>
                     </InputAdornment>
                   }
-                  label="Create Password"
+                  label="Password"
                 />
               </FormControl>
             </Grid>
@@ -145,7 +204,9 @@ export default function LoginModal() {
               Forgot password?
             </Link>
           </Stack>
-          <Button sx={loginbtn}>Login</Button>
+          <Button sx={loginbtn} onClick={handleLogin}>
+            Login
+          </Button>
         </Box>
       </Modal>
     </div>

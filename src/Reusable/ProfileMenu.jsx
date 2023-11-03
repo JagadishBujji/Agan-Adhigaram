@@ -13,8 +13,9 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import Logout from "@mui/icons-material/Logout";
+import { logout } from "../api/auth";
 
-export default function ProfileMenu() {
+export default function ProfileMenu({ userDetail }) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -23,6 +24,11 @@ export default function ProfileMenu() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    handleClose();
+    logout();
   };
 
   return (
@@ -37,7 +43,9 @@ export default function ProfileMenu() {
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}>
+              {userDetail?.name[0].toLocaleUpperCase() || "A"}
+            </Avatar>
           </IconButton>
         </Tooltip>
       </Box>
@@ -79,16 +87,18 @@ export default function ProfileMenu() {
         <MenuItem
           onClick={() => {
             handleClose();
-            navigate("/profile")
+            navigate("/profile");
           }}
         >
           <Avatar /> Profile
         </MenuItem>
 
-        <MenuItem onClick={() => {
+        <MenuItem
+          onClick={() => {
             handleClose();
-            navigate("/orders")
-          }}>
+            navigate("/orders");
+          }}
+        >
           <FormatListBulletedIcon sx={{ mr: 1 }} /> Orders
         </MenuItem>
 
@@ -99,7 +109,7 @@ export default function ProfileMenu() {
           Settings
         </MenuItem>
 
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
