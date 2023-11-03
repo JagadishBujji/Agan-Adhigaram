@@ -154,3 +154,26 @@
   color: #f19e38;
   font-size: 14px;
 }
+
+@media (max-width: 768px) {
+  .testimonials .item {
+    width: 250px;
+  }
+  .testimonials .item p {
+    color: #5f5f5f;
+    font-size: 12px;
+  }
+  .testimonials .item h2 {
+    font-size: 12px;
+  }
+  .testimonials {
+    margin-top: 20px;
+    min-height: 250px;
+  }
+  .previous {
+    top: 36%;
+  }
+  .next {
+    top: 36%;
+  }
+}

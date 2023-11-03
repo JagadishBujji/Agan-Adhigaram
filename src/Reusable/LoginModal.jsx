@@ -43,6 +43,9 @@ const login = {
   marginLeft: "10px",
   marginRight: "10px",
   fontFamily: "'Poppins', sans-serif",
+  "@media (max-width: 768px)": {
+    marginBottom: "10px",
+  },
 };
 const loginbtn = {
   border: "1px solid #f19e38",
