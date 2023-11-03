@@ -1,7 +1,13 @@
 import RelatedBooks from "../../Reusable/RelatedBooks";
 import classes from "./BookDetails.module.css";
 
-const BookDetails = () => {
+const BookDetails = ({book}) => {
+  // console.log("inside bookdesc view", book.images[1]);
+  const options = { 
+    day: '2-digit', 
+    month: '2-digit', 
+    year: 'numeric' 
+  };
   return (
     <>
       <section className={classes.bookdetailoverall}>
@@ -21,15 +27,15 @@ const BookDetails = () => {
                 <li>Reading Age</li>
               </ul>
               <ul className={classes.details2}>
-                <li>Vadai pochae</li>
-                <li>Ramya - Sethuram</li>
-                <li> Ida Bernice</li>
-                <li>Tamil</li>
-                <li> Interactive board book</li>
-                <li>August 10th 2022</li>
-                <li>Agan Adhigaram</li>
-                <li>10</li>
-                <li>6 months  to 6 years</li>
+                <li>{book.title}</li>
+                <li>{book.author}</li>
+                <li> {book.illustrator}</li>
+                <li>{book.language}</li>
+                <li> {book.book_format}</li>
+                <li>{new Date(book.date_published).toLocaleString('en-IN',options)}</li>
+                <li>{book.publisher}</li>
+                <li>{book.pages}</li>
+                <li>{book.reading_age}</li>
               </ul>
             </div>
           </div>

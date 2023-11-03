@@ -1,27 +1,29 @@
+import { Avatar, AvatarGroup } from "@mui/material";
 import classes from "./BookDescView.module.css";
+// import {}
 
-const BookDescView = () => {
+const BookDescView = ({ book }) => {
+  // console.log("inside bookdesc view", book.images[1]);
   return (
     <>
       <div className={`${classes.BookDescView} row container-fluid m-auto`}>
         <div className={`${classes.BookDescView1} col-md-5`}>
-          <h3 className={classes.bookheading}>Vadai Pochae</h3>
+          <h3 className={classes.bookheading}>{book.title}</h3>
           <div className={classes.ramya}>
-            <img src="../images/rama.svg" alt="" className={classes.bookimg} />
-            <p className={classes.ramyasethuram}>Ramya - Sethuram</p>
+            <AvatarGroup max={2}>
+              <Avatar alt="" src="../images/ramya.svg" />
+              <Avatar alt="Travis Howard" src="../images/sethu.svg" />
+            </AvatarGroup>
+
+            <p className={classes.ramyasethuram}>{book.author}</p>
           </div>
-          <p className={classes.Vadai}>
-            "வடை போச்சே" (Vadai Pochae) is the classic story with twisted end. 
-            This beautifully illustrated and humorous book with interactive
-            mechanisms like push, pull and slides invites children on an
-            interactive journey. It helps to enhance their hand-eye
-            coordination, fine motor skills, cognitive abilities, and
-            vocabulary.
-          </p>
+          <p className={classes.Vadai}>{book.description}</p>
           <div className={classes.amount}>
-            <p className={classes.amount1}>₹ 499</p>
-            <p className={classes.amount2}>₹599</p>
-            <p className={classes.amountpercentage}>5%</p>
+            <p className={classes.amount1}>₹{book.discounted_price}</p>
+            <p className={classes.amount2}>₹{book.mrp_price}</p>
+            <p className={classes.amountpercentage}>
+              {book.discount_percentage}%
+            </p>
           </div>
           <div className={classes.addedbtn}>
             <div className={classes.qty}>
@@ -49,33 +51,13 @@ const BookDescView = () => {
             <div className={`${classes.bookdescimg1} col-md-6`}></div>
             <div className={`${classes.bookdescimg2} col-md-4`}></div>
           </div>
-          <img src="../images/vadai.png" alt="" className={classes.imgbook} />
-          <img
-            src="../images/vadaibook.png"
-            alt=""
-            className={classes.imgbook2}
-          />
+          <img src={book.images[0]} alt="" className={classes.imgbook} />
+          <img src={book.images[1]} alt="" className={classes.imgbook2} />
           <div className={classes.imgrow}>
-            <img
-              src="../images/smallvadibook.svg"
-              alt=""
-              className={classes.imgrowbook}
-            />
-            <img
-              src="../images/vadaileaf.svg"
-              alt=""
-              className={classes.imgrowbook}
-            />
-            <img
-              src="../images/backvadipostion.svg"
-              alt=""
-              className={classes.imgrowbook}
-            />
-            <img
-              src="../images/frontvadaipostion.svg"
-              alt=""
-              className={classes.imgrowbook}
-            />
+            <img src={book.images[2]} alt="" className={classes.imgrowbook} />
+            <img src={book.images[3]} alt="" className={classes.imgrowbook} />
+            <img src={book.images[4]} alt="" className={classes.imgrowbook} />
+            <img src={book.images[5]} alt="" className={classes.imgrowbook} />
           </div>
         </div>
       </div>

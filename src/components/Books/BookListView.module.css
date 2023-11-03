@@ -31,6 +31,7 @@
   border-radius: 10px;
   font-family: "Poppins", sans-serif;
   margin-bottom: 10px;
+  text-transform: capitalize;
 }
 
 .vadai {
@@ -66,6 +67,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.openbookitems {
+  text-decoration: none;
+  
 }
 
 .strickout {
