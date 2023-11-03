@@ -25,7 +25,7 @@ function Navbar(props) {
       top: 13,
       border: `2px solid ${theme.palette.background.paper}`,
       padding: "0 4px",
-      background: "#000"
+      background: "#000",
     },
   }));
 
@@ -164,10 +164,10 @@ function Navbar(props) {
               </li>
             </ul>
             <div className="corner">
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   href=""
-                  // books/checkout
+                  books/checkout
                   className="right "
                   role="button"
                   data-bs-toggle=""
@@ -175,7 +175,7 @@ function Navbar(props) {
                 >
                   Cart
                 </a>
-              </li>
+              </li> */}
               <a href="books/wishlist" className="cart">
                 {/* <img
                   src="./images/cart.svg"
@@ -192,7 +192,8 @@ function Navbar(props) {
               </a>
               <LoginModal />
               <SignupModal />
-              <ProfileMenu />
+              {/* when login the website then only we want to view */}
+              {/* <ProfileMenu />  */}
             </div>{" "}
           </div>
         </div>

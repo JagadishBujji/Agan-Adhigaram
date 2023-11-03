@@ -40,11 +40,12 @@ const login = {
   color: "#f19e38",
   fontSize: "14px",
   fontWeight: 500,
-  marginLeft: "10px",
-  marginRight: "10px",
+
   fontFamily: "'Poppins', sans-serif",
   "@media (max-width: 768px)": {
     marginBottom: "10px",
+    marginLeft: "10px",
+    marginRight: "10px",
   },
 };
 const loginbtn = {

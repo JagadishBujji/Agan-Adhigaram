@@ -1,7 +1,7 @@
 /* Styles for the navigation bar */
 .navbar {
   width: 100%;
-  background-color: #ffffff7d;
+  background-color: #ddddddb5;
   z-index: 1000;
   height: 80px;
 }
@@ -123,11 +123,10 @@
   }
 
   .corner {
-    margin-top: 20px;
+    padding: 0px 35px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
   }
 
   .navbar-brand {
