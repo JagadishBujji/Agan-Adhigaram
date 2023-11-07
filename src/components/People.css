@@ -113,7 +113,7 @@
 }
 
 .card__content p {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .owl-item:nth-of-type(1n) .peopelcard {
@@ -258,10 +258,10 @@
     font-size: 20px;
   }
   .name p {
-    font-size: 12px;
+    font-size: 8px;
   }
   .card__content p {
-    font-size: 16px;
+    font-size: 8px;
   }
   .spofity {
     max-width: 20%;

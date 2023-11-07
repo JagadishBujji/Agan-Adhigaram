@@ -6,7 +6,7 @@ const Author = () => {
     <div className="author-overall">
       <div>
         <span>
-          <img className="author" src="./images/author.svg" alt="My Image" />
+          <img className="author" src="./images/Bhavya.jpg" alt="My Image" />
         </span>
 
         <h1 className="one">Authors and Illustrators</h1>
@@ -19,7 +19,7 @@ const Author = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm">
-            <h1 className="vai">Vaishali BK</h1>
+            <h1 className="vai">Bhavya</h1>
             <p>Author</p>
             <div className="card cardauthor">
               <div className="card-content">
