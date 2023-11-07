@@ -103,6 +103,24 @@
   font-size: 20px;
 }
 
+.cartshopping1 {
+  position: absolute;
+  bottom: 15px;
+  right: 34px;
+  background: #fff;
+  color: #f19e38;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.count {
+  padding: 5px;
+}
+
 .openbookitems {
   text-decoration: none;
 }
