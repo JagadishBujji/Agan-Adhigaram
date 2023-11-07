@@ -56,13 +56,18 @@ const loginModalBtn = {
   },
 };
 const loginbtn = {
-  border: "1px solid #f19e38",
-  color: "#f19e38",
+  // border: "1px solid #f19e38",
+  color: "#fff",
   fontSize: "14px",
   fontWeight: 500,
-
+  background: "#f19e38",
   fontFamily: "'Poppins', sans-serif",
   width: "100%",
+  "&:hover": {
+    background: "#f19e38",
+    color: "#fff",
+    fontsize: "18px",
+  },
 };
 
 // const forgot = {

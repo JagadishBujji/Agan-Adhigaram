@@ -1,4 +1,14 @@
 import * as React from "react";
+import { useState } from "react";
+import {
+  isValidEmail,
+  isValidPassword,
+  isValidAddress,
+  isValidPhoneNumber,
+  isValidName,
+} from "../utils/validator";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 import {
   FormControl,
   Grid,
@@ -15,6 +25,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "./SignupModal.css";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { errorNotification, successNotification } from "../utils/notifications";
+import { async } from "q";
 
 const style = {
   position: "absolute",
@@ -66,16 +79,93 @@ const Signupbtn = {
 // };
 
 export default function SignupModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [signUpDetails, setSignUpDetails] = useState({
+    name: "",
+    email: "",
+    phonenumber: "",
+    address: "",
+    createPassword: "",
+    confirmPassword: "",
+  });
+  console.log("testing for name", signUpDetails);
+  const auth = getAuth();
+  const collection = "users";
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setSignUpDetails((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSignUP = () => {
+    const {
+      name,
+      email,
+      phonenumber,
+      address,
+      confirmPassword,
+      createPassword,
+    } = signUpDetails;
+
+    if (
+      isValidName(name) &&
+      isValidEmail(email) &&
+      isValidPhoneNumber(phonenumber) &&
+      isValidAddress(address) &&
+      isValidPassword(createPassword) &&
+      isValidPassword(confirmPassword) &&
+      createPassword === confirmPassword
+    ) {
+      createUserWithEmailAndPassword(auth, email, createPassword)
+        .then(async (userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log("user1", user);
+          const { uid } = userCredential.user;
+          const docRef = doc(db, collection, uid);
+          await setDoc(docRef, {
+            name,
+            phone: phonenumber,
+            address,
+            email,
+            role: "consumer",
+          });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          errorNotification(errorCode);
+        });
+    } else {
+      !isValidName(name) && errorNotification("Invalid Name");
+
+      !isValidEmail(email) && errorNotification("Invalid Email");
+
+      !isValidPhoneNumber(phonenumber) &&
+        errorNotification("Invalid Phone Number");
+      !isValidAddress(address) && errorNotification("Invalid Address");
+      !isValidPassword(createPassword) &&
+        errorNotification("Invalid CreatePassword");
+      !isValidPassword(confirmPassword) &&
+        errorNotification("Invalid ConfirmPassword");
+      !(createPassword === confirmPassword) &&
+        errorNotification("Password doesn't match");
+    }
   };
 
   return (
@@ -104,6 +194,8 @@ export default function SignupModal() {
                 name="name"
                 type="text"
                 className="name"
+                value={signUpDetails.name}
+                onChange={handleInputChange}
                 sx={{
                   mb: 2,
                   width: "90%",
@@ -121,6 +213,8 @@ export default function SignupModal() {
                 variant="outlined"
                 name="email"
                 type="email"
+                value={signUpDetails.email}
+                onChange={handleInputChange}
                 className="email"
                 sx={{ mb: 2 }}
               />
@@ -135,6 +229,8 @@ export default function SignupModal() {
                 variant="outlined"
                 name="phonenumber"
                 type="tel"
+                value={signUpDetails.phonenumber}
+                onChange={handleInputChange}
                 className="phone"
                 sx={{ mb: 2 }}
               />
@@ -145,6 +241,9 @@ export default function SignupModal() {
                 label="Address"
                 multiline
                 rows={3}
+                name="address"
+                value={signUpDetails.address}
+                onChange={handleInputChange}
                 sx={{ mb: 2, width: "100%" }}
               />
             </Grid>
@@ -165,6 +264,9 @@ export default function SignupModal() {
                 <OutlinedInput
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
+                  name="createPassword"
+                  value={signUpDetails.createPassword}
+                  onChange={handleInputChange}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -189,6 +291,9 @@ export default function SignupModal() {
                 <OutlinedInput
                   id="outlined-adornment-password"
                   type={showPassword ? "text" : "password"}
+                  name="confirmPassword"
+                  value={signUpDetails.confirmPassword}
+                  onChange={handleInputChange}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
@@ -206,7 +311,9 @@ export default function SignupModal() {
               </FormControl>
             </Grid>
           </Grid>
-          <Button sx={Signupbtn}>Sign up</Button>
+          <Button sx={Signupbtn} onClick={handleSignUP}>
+            Sign up
+          </Button>
         </Box>
       </Modal>
     </div>
