@@ -21,7 +21,7 @@ const Author = () => {
           <div className="col-sm">
             <h1 className="vai">Bhavya</h1>
             <p>Author</p>
-            <div className="card cardauthor">
+            <div className="cardauthor">
               <div className="card-content">
                 <p>
                   This is some card content that will overflow when hovered.This
