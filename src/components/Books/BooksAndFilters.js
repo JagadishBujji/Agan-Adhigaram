@@ -111,7 +111,16 @@ const BooksAndFilters = () => {
             ) : books.length === 0 ? (
               <p>No Data Found!!!</p>
             ) : viewType === "grid" ? (
-              <BookItems books={books} />
+              <div className={`${classes.bookitems} row`}>
+                {books.map((book) => (
+                  <div key={book.id}>
+                    <BookItems book={book} />
+                    <div className={classes.load}>
+                      <button className={classes.loadmore}>Load more</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             ) : (
               <BookListView books={books} />
             )}

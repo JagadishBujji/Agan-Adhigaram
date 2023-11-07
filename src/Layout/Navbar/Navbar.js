@@ -1,22 +1,24 @@
-import React from "react";
 // import logo from "../images/Frame.png";
 // import cart from "../images/cart.png";
-
-import "./Navbar.css";
-import { useState } from "react";
-import LoginModal from "../../Reusable/LoginModal";
-import SignupModal from "../../Reusable/SignupModal";
-import ProfileMenu from "../../Reusable/ProfileMenu";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
-
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useSelector } from "react-redux";
+
+import LoginModal from "../../Reusable/LoginModal";
+import SignupModal from "../../Reusable/SignupModal";
+import ProfileMenu from "../../Reusable/ProfileMenu";
 import { selectUser } from "../../store/userSlice";
+
+import "./Navbar.css";
+import { selectCartSize } from "../../store/cartSlice";
 
 function Navbar(props) {
   const { isAuthenticated, userDetail } = useSelector(selectUser);
+  const cartSize = useSelector(selectCartSize);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -103,7 +105,7 @@ function Navbar(props) {
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="books"
+                  href="/books"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
@@ -156,7 +158,7 @@ function Navbar(props) {
               </li> */}
               <li className="nav-item dropdown">
                 <a
-                  href="blog"
+                  href="/blog"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
@@ -182,7 +184,7 @@ function Navbar(props) {
               {/* <a href="books/wishlist" className="cart"> */}
               {/* <img
               </li> */}
-              <a href="/books/wishlist" className="cart">
+              <Link to="/checkout" className="cart">
                 {/* <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"
@@ -191,11 +193,14 @@ function Navbar(props) {
                   className="d-inline-block align-text-top"
                 /> */}
                 <IconButton aria-label="cart">
-                  <StyledBadge badgeContent={4} sx={{ color: "#f19e38" }}>
+                  <StyledBadge
+                    badgeContent={cartSize}
+                    sx={{ color: "#f19e38" }}
+                  >
                     <ShoppingCartIcon />
                   </StyledBadge>
                 </IconButton>
-              </a>
+              </Link>
               {isAuthenticated ? (
                 <ProfileMenu userDetail={userDetail} />
               ) : (

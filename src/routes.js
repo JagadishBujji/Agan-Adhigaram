@@ -32,15 +32,17 @@ export default function Router() {
           console.log("userdetail: ", result);
           if (result.success) {
             dispatch(login(result.data));
+            // Set authChecked to true once authentication state is checked
+            setAuthChecked(true);
           } else {
             errorNotification(result.err.message);
           }
         });
       } else {
         dispatch(logout());
+        // Set authChecked to true once authentication state is checked
+        setAuthChecked(true);
       }
-      // Set authChecked to true once authentication state is checked
-      setAuthChecked(true);
     });
 
     // Clean up the subscription
@@ -73,11 +75,11 @@ export default function Router() {
           element: <BooksDesc />,
         },
         {
-          path: "books/wishlist",
-          element: <AuthenticatedRoute element={<WishList />} key="cart" />,
+          path: "wishlist",
+          element: <AuthenticatedRoute element={<WishList />} key="wishlist" />,
         },
         {
-          path: "books/checkout",
+          path: "checkout",
           element: <AuthenticatedRoute element={<CheckOut />} key="cart" />,
         },
         {

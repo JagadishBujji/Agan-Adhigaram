@@ -2,7 +2,6 @@ import BestQuality from "../Reusable/BestQuality";
 import Subscribe from "../Reusable/Subscribe";
 import Testimonials from "../Reusable/Testimonials";
 import BlogBackMove from "../components/Blog/BlogBackMove";
-import BookListView from "../components/Books/BookListView";
 import BookViewMore from "../components/Books/BookViewMore";
 import BooksAndFilters from "../components/Books/BooksAndFilters";
 import classes from "./Books.module.css";

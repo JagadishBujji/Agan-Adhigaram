@@ -1,91 +1,84 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from "./BookItems.module.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addItem,
+  addItemQty,
+  removeItemQty,
+  selectCartItems,
+} from "../../store/cartSlice";
 
-const BookItems = ({ books }) => {
-  // const navigate = useNavigate();
+const BookItems = ({ book }) => {
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector(selectCartItems);
+  const [noOfItems, setNoOfItems] = useState(0);
+
+  useEffect(() => {
+    const item = cartItems.find((item) => item.id === book.id);
+    if (item) {
+      setNoOfItems(item.qty);
+    } else {
+      setNoOfItems(0);
+    }
+  }, [cartItems, book.id]);
+
+  const handleAddCartItem = () => {
+    dispatch(addItem(book));
+  };
+
+  const handleAddItemQty = () => {
+    dispatch(addItemQty(book));
+  };
+
+  const handleRemoveItemQty = () => {
+    dispatch(removeItemQty(book));
+  };
 
   return (
     <>
-      <div className={`${classes.bookitems} row`}>
-        {books.map((book) => (
-          <div className={`${classes.items} col-md-4`} key={book.id}>
-            <div className={classes.allimgicon}>
-              <Link
-                to={`/books/${book.id}`}
-                state={book}
-                className={classes.openbookitems}
-              >
-                <img src={book.images[0]} alt="" className={classes.bookimg} />
-              </Link>
-              <div className={classes.favheart}>
-                <i className={`${classes.heart} fa-regular fa-heart`}></i>
+      <div className={`${classes.items} col-md-4`} key={book.id}>
+        <div className={classes.allimgicon}>
+          <Link
+            to={`/books/${book.id}`}
+            state={book}
+            className={classes.openbookitems}
+          >
+            <img src={book.images[0]} alt="" className={classes.bookimg} />
+          </Link>
+          <div className={classes.favheart}>
+            <i className={`${classes.heart} fa-regular fa-heart`}></i>
+            {noOfItems === 0 ? (
+              <i
+                className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
+                onClick={handleAddCartItem}
+              ></i>
+            ) : (
+              <div className={[classes.cartshopping]}>
                 <i
-                  className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
+                  className={`${classes.minus} fa-solid fa-minus`}
+                  onClick={handleRemoveItemQty}
+                ></i>
+                <span className={classes.count}>{noOfItems}</span>
+                <i
+                  className={`${classes.plus} fa-solid fa-plus`}
+                  onClick={handleAddItemQty}
                 ></i>
               </div>
-            </div>
-            <h5 className={classes.bookgenre}>{book.genre}</h5>
-            <h2 className={classes.bookbigtitle}>{book.title}</h2>
-            <p className={classes.namebookauthor}>{book.author}</p>
-            <p className={classes.bookprice}>
-              ₹{book.discounted_price}
-              <span className={classes.bookcancel}>₹${book.mrp_price}</span>
-            </p>
+            )}
           </div>
-        ))}
-
-        {/* <div className={`${classes.items} col-md-4`}>
-          <Link to="/books/2" className={classes.openbookitems}>
-            <div className={classes.allimgicon}>
-              <img
-                src="./images/ibook.png"
-                alt=""
-                className={classes.bookimg}
-              />
-              <div className={classes.favheart}>
-                <i className={`${classes.heart} fa-regular fa-heart`}></i>
-                <i
-                  className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
-                ></i>
-              </div>
-            </div>
-
-            <h5 className={classes.booktitle}>Humorous</h5>
-            <h2 className={classes.bookbigtitle}>I</h2>
-            <p className={classes.namebookauthor}>Ramya - Steffi Stanley</p>
-            <p className={classes.bookprice}>
-              ₹499<span className={classes.bookcancel}>₹599</span>
-            </p>
-          </Link>
         </div>
-        <div className={`${classes.items} col-md-4`}>
-          <Link to="/books/2" className={classes.openbookitems}>
-            <div className={classes.allimgicon}>
-              <img
-                src="./images/babybook.png"
-                alt=""
-                className={classes.bookimg}
-              />
-              <div className={classes.favheart}>
-                <i className={`${classes.heart} fa-regular fa-heart`}></i>
-                <i
-                  className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
-                ></i>
-              </div>
-            </div>
-            <h5 className={classes.booktitle}>Humorous</h5>
-            <h2 className={classes.bookbigtitle}>Kadai Veedhi kalakalakkum</h2>
-            <p className={classes.namebookauthor}>Ramya - Bhavya Desai</p>
-            <p className={classes.bookprice}>
-              ₹499<span className={classes.bookcancel}>₹599</span>
-            </p>
-          </Link>
-        </div> */}
+        <h5 className={classes.bookgenre}>{book.genre}</h5>
+        <h2 className={classes.bookbigtitle}>{book.title}</h2>
+        <p className={classes.namebookauthor}>{book.author}</p>
+        <p className={classes.bookprice}>
+          ₹{book.discounted_price}
+          <span className={classes.bookcancel}>₹${book.mrp_price}</span>
+        </p>
       </div>
-      <div className={classes.load}>
+      {/* <div className={classes.load}>
         <button className={classes.loadmore}>Load more</button>
-      </div>
+      </div> */}
     </>
   );
 };

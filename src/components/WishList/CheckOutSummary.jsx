@@ -1,6 +1,18 @@
+import { useMemo } from "react";
 import classes from "./CheckOutSummary.module.css";
 
-const CheckOutSummary = () => {
+const CheckOutSummary = ({ cartItems }) => {
+  const delivery = 100;
+
+  const discount = 0;
+
+  const subtotal = useMemo(() => {
+    return cartItems.reduce((total, item) => total + item.total_price, 0);
+  }, [cartItems]);
+
+  const total = useMemo(() => subtotal + delivery, [subtotal]);
+
+  // console.log(subtotal, total);
   return (
     <>
       <div className={`${classes.summary}  container`}>
@@ -11,12 +23,9 @@ const CheckOutSummary = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-            <p className={classes.shoppingcode}>Have a coupon code?</p>
+            {/* <p className={classes.shoppingcode}>Have a coupon code?</p>
             <from className={classes.text}>
-              {/* <i className={`${classes.ticket} fa-solid fa-ticket`}></i> */}
               <i className="fa-solid fa-ticket"></i>
-             
-              {/* <img src="" alt=" " /> */}
               <input
                 type="text"
                 placeholder="Enter promo code here"
@@ -25,25 +34,27 @@ const CheckOutSummary = () => {
               <button className={classes.btncode}>
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
-            </from>
+            </from> */}
           </div>
           <div className={`${classes.CheckOutSummary2} col-md-6`}>
             <div className={`${classes.total}`}>
               <p className={classes.subtotal}>Subtotal</p>
-              <p className={classes.amount}>₹ 0</p>
+              <p className={classes.amount}>₹ {subtotal}</p>
             </div>
-            <div className={`${classes.total}`}>
-              <p className={classes.subtotal}>Discount</p>
-              <p className={classes.amount}>₹ 0</p>
-            </div>
+            {discount !== 0 && (
+              <div className={`${classes.total}`}>
+                <p className={classes.subtotal}>Discount</p>
+                <p className={classes.amount}>₹ 0</p>
+              </div>
+            )}
             <div className={`${classes.total}`}>
               <p className={classes.subtotal}>delivery</p>
-              <p className={classes.amount}>₹ 0</p>
+              <p className={classes.amount}>₹ {delivery}</p>
             </div>
             <hr />
             <div className={`${classes.total}`}>
               <p className={classes.subtotal}>Total</p>
-              <p className={classes.amount}>₹ 0</p>
+              <p className={classes.amount}>₹ {total}</p>
             </div>
             <button className={classes.checkoutbtn}>Checkout</button>
             <a href="" className={classes.Continue}>
