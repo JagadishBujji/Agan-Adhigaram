@@ -54,7 +54,7 @@ const BookItems = ({ book }) => {
                 onClick={handleAddCartItem}
               ></i>
             ) : (
-              <div className={[classes.cartshopping]}>
+              <div className={[classes.cartshopping1]}>
                 <i
                   className={`${classes.minus} fa-solid fa-minus`}
                   onClick={handleRemoveItemQty}

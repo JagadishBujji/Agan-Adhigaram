@@ -47,6 +47,7 @@ const loginModalBtn = {
   color: "#f19e38",
   fontSize: "14px",
   fontWeight: 500,
+  margin: "0 10px",
 
   fontFamily: "'Poppins', sans-serif",
   "@media (max-width: 768px)": {
