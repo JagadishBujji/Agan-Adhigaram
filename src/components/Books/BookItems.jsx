@@ -47,7 +47,7 @@ const BookItems = ({ book }) => {
             <img src={book.images[0]} alt="" className={classes.bookimg} />
           </Link>
           <div className={classes.favheart}>
-            <i className={`${classes.heart} fa-regular fa-heart`}></i>
+            {/* <i className={`${classes.heart} fa-regular fa-heart`}></i> */}
             {noOfItems === 0 ? (
               <i
                 className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
@@ -73,7 +73,7 @@ const BookItems = ({ book }) => {
         <p className={classes.namebookauthor}>{book.author}</p>
         <p className={classes.bookprice}>
           ₹{book.discounted_price}
-          <span className={classes.bookcancel}>₹${book.mrp_price}</span>
+          <span className={classes.bookcancel}>₹{book.mrp_price}</span>
         </p>
       </div>
       {/* <div className={classes.load}>

@@ -1,4 +1,7 @@
 import * as React from "react";
+import { useSelector } from "react-redux";
+import { collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../services/firebase";
 import {
   Box,
   Button,
@@ -16,9 +19,27 @@ import { Stack } from "@mui/system";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import classes from "./Profile.module.css";
+import { selectUser } from "../../store/userSlice";
+import {
+  isValidName,
+  isValidAddress,
+  isValidPassword,
+  isValidPhoneNumber,
+} from "../../utils/validator";
+import { errorNotification } from "../../utils/notifications";
 
 const Profile = () => {
   const [showPassword, setShowPassword] = React.useState(false);
+  const [disableEdit, setdisableEdit] = React.useState(true);
+  const { userDetail } = useSelector(selectUser);
+  const [editedValues, setEditedValues] = React.useState({
+    name: userDetail.name,
+    phone: userDetail.phone,
+    address: userDetail.address,
+  });
+  const { id, email } = userDetail;
+
+  const docRef = doc(db, "users", id);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -58,6 +79,35 @@ const Profile = () => {
     },
   };
 
+  const handleEditValues = (e) => {
+    const { name, value } = e.target;
+    setEditedValues((prev) => {
+      return {
+        ...editedValues,
+        [name]: value,
+      };
+    });
+  };
+
+  const { name, address, phone } = editedValues;
+
+  async function saveChanges() {
+    await updateDoc(docRef, { name, phone, address });
+    setdisableEdit(true);
+  }
+
+  const handleSaveChanges = () => {
+    const { name, address, phone } = editedValues;
+
+    !isValidName(name)
+      ? errorNotification("Invalid Name")
+      : !isValidPhoneNumber(phone)
+      ? errorNotification("Invalid phone")
+      : !isValidAddress(address)
+      ? errorNotification("Invalid Address ")
+      : saveChanges();
+  };
+
   return (
     <>
       <Stack className={`${classes.pro} container`}>
@@ -72,7 +122,12 @@ const Profile = () => {
               Profile
             </Typography>
             <IconButton aria-label="Edit">
-              <EditIcon sx={{ color: "#f19e38" }} />
+              {disableEdit && (
+                <EditIcon
+                  sx={{ color: "#f19e38" }}
+                  onClick={() => setdisableEdit(false)}
+                />
+              )}
             </IconButton>
           </Stack>
           <Grid container spacing={2} sx={profilehalf}>
@@ -80,7 +135,10 @@ const Profile = () => {
               <TextField
                 fullWidth
                 id="outlined-basic1"
-                label="Name"
+                // label="Name"
+                disabled={disableEdit}
+                onChange={(e) => handleEditValues(e)}
+                value={editedValues.name}
                 variant="outlined"
                 name="name"
                 type="text"
@@ -92,7 +150,9 @@ const Profile = () => {
               <TextField
                 fullWidth
                 id="outlined-basic1"
-                label="Email"
+                // label="Email"
+                value={userDetail.email}
+                disabled
                 variant="outlined"
                 name="mail"
                 type="mail"
@@ -104,9 +164,12 @@ const Profile = () => {
               <TextField
                 fullWidth
                 id="outlined-basic1"
-                label="Phone Number"
+                // label="Phone Number"
+                value={editedValues.phone}
+                onChange={(e) => handleEditValues(e)}
+                disabled={disableEdit}
                 variant="outlined"
-                name="mail"
+                name="phone"
                 type="mail"
                 className="name"
                 sx={{ mb: 2 }}
@@ -115,26 +178,36 @@ const Profile = () => {
             <Grid item md={12} xs={12}>
               <TextField
                 id="outlined-multiline-static"
-                label="Address"
+                // label="Address"
+                value={editedValues.address}
+                onChange={(e) => handleEditValues(e)}
+                disabled={disableEdit}
                 multiline
+                name="address"
                 rows={3}
                 sx={{ mb: 2, width: "100%" }}
               />
             </Grid>
           </Grid>
-          <Stack
-            spacing={2}
-            direction="row"
-            justifyContent="end"
-            alignItems="end"
-          >
-            <Button variant="contained" sx={save}>
-              Save Changes
-            </Button>
-            <Button variant="outlined" sx={Cancel}>
-              Cancel
-            </Button>
-          </Stack>
+          {!disableEdit && (
+            <Stack
+              spacing={2}
+              direction="row"
+              justifyContent="end"
+              alignItems="end"
+            >
+              <Button variant="contained" sx={save} onClick={handleSaveChanges}>
+                Save Changes
+              </Button>
+              <Button
+                variant="outlined"
+                sx={Cancel}
+                onClick={(prev) => setdisableEdit(prev)}
+              >
+                Cancel
+              </Button>
+            </Stack>
+          )}
         </Box>
         <Box marginTop="30px">
           <Stack
@@ -151,7 +224,7 @@ const Profile = () => {
             </IconButton>
           </Stack>
           <Grid container spacing={2} sx={sechalf}>
-            <Grid item md={6} xs={12}>
+            {/* <Grid item md={6} xs={12}>
               <FormControl sx={{ mb: 1, width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
                   Current Password
@@ -174,8 +247,8 @@ const Profile = () => {
                   label="Current Password"
                 />
               </FormControl>
-            </Grid>
-            <Grid item md={6} xs={12}>
+            </Grid> */}
+            <Grid item md={12} xs={12}>
               <FormControl sx={{ mb: 1, width: "100%" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">
                   New Password

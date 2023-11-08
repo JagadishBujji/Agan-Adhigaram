@@ -115,15 +115,23 @@ const BooksAndFilters = () => {
                 {books.map((book) => (
                   <div key={book.id}>
                     <BookItems book={book} />
-                    <div className={classes.load}>
-                      <button className={classes.loadmore}>Load more</button>
-                    </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <BookListView books={books} />
+              <div className={`${classes.bookitems} row`}>
+                {books.map((book)=>(
+                <div key={book.id}>
+                <BookListView book={book} />
+                </div>
+              ))}
+              </div>
+
+              
             )}
+            <div className={classes.load}>
+              <button className={classes.loadmore}>Load more</button>
+            </div>
           </div>
         </div>
       </section>

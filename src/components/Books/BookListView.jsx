@@ -1,15 +1,49 @@
-import { Stack } from "@mui/material";
+import { useEffect ,useState} from "react";
 import { Link } from "react-router-dom";
-import classes from "./BookListView.module.css";
-import UsePagination from "../../Reusable/UsePagination";
+import { useDispatch,useSelector } from "react-redux";
+import { Stack } from "@mui/material";
 
-const BookListView = ({ books }) => {
- 
+import UsePagination from "../../Reusable/UsePagination";
+import {
+  addItem,
+  addItemQty,
+  removeItemQty,
+  selectCartItems,
+} from "../../store/cartSlice";
+import classes from "./BookListView.module.css";
+
+
+
+const BookListView = ({ book }) => {
+ const dispatch=useDispatch();
+ const { cartItems } = useSelector(selectCartItems);
+ const [noOfItems, setNoOfItems] = useState(0);
+ useEffect(() => {
+  const item = cartItems.find((item) => item.id === book.id);
+  if (item) {
+    setNoOfItems(item.qty);
+  } else {
+    setNoOfItems(0);
+  }
+  console.log("item",item)
+}, [cartItems, book.id]);
+
+const handleAddCartItem = () => {
+  dispatch(addItem(book));
+};
+
+const handleAddItemQty = () => {
+  dispatch(addItemQty(book));
+};
+
+const handleRemoveItemQty = () => {
+  dispatch(removeItemQty(book));
+};
 
   return (
     <>
       <section className={`${classes.listcard}`}>
-        {books.map((book) => (
+       
           <div
             className={`${classes.listview} row container-fluid  `}
             key={book.id}
@@ -48,16 +82,32 @@ const BookListView = ({ books }) => {
                 </p>
               </div>
               <div className={classes.checkout}>
-                <i className={`${classes.cart} fa-solid fa-cart-shopping`}></i>
-
-                <button className={classes.wishlist}>
+                {/* <i className={`${classes.cart} fa-solid fa-cart-shopping`}></i> */}
+                  {noOfItems === 0 ?(
+                     <i
+                     className={`${classes.cart} fa-solid fa-cart-shopping`}
+                     onClick={handleAddCartItem}
+                   ></i>
+                  ) : ( <div className={[classes.cartshopping]}>
+                    <i
+                      className={`${classes.minus} fa-solid fa-minus`}
+                      onClick={handleRemoveItemQty}
+                    ></i>
+                    <span className={classes.count}>{noOfItems}</span>
+                    <i
+                      className={`${classes.plus} fa-solid fa-plus`}
+                      onClick={handleAddItemQty}
+                    ></i>
+                  </div>)
+                  }
+                {/* <button className={classes.wishlist}>
                   <i className={`${classes.heart} fa-regular fa-heart`}></i>
                   WISHLIST
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
-        ))}
+       
 
         {/* <div className={`${classes.listview} row container-fluid `}>
           <div className={`${classes.list1} col-md-3`}>
@@ -134,7 +184,7 @@ const BookListView = ({ books }) => {
             </div>
           </div>
         </div> */}
-        <UsePagination />
+        {/* <UsePagination /> */}
       </section>
     </>
   );

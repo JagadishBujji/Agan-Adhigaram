@@ -1,16 +1,71 @@
 import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { collection, addDoc, doc } from "firebase/firestore";
+import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
+import { Link } from "react-router-dom";
+import { db } from "../../services/firebase";
 
 const CheckOutSummary = ({ cartItems }) => {
+  const { userDetail } = useSelector(selectUser);
+  const { address, email, id, name, phone } = userDetail;
+  
+
   const delivery = 100;
-
+  console.log("cartItems", cartItems);
   const discount = 0;
-
+  //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
+  //ordered_timestamp,price_tax,status,tax_percentage,total_item_price,total_price,total_qty,
+  //userDetails:{address,email,id,name,phone}
   const subtotal = useMemo(() => {
     return cartItems.reduce((total, item) => total + item.total_price, 0);
   }, [cartItems]);
-
   const total = useMemo(() => subtotal + delivery, [subtotal]);
+
+  const addDataToOrdersCollection = async () => {
+    let ordered_books = [];
+    let test = cartItems.map((item) => {
+      console.log("item", item);
+      let temp = {
+        author: item.author,
+        book_id: item.book_id,
+        genre: item.genre,
+        qty: item.qty,
+        title: item.title,
+        total_price: item.total_price,
+        item_price:item.discount_percentage
+      };
+      ordered_books.push(temp);
+    });
+    let ordered_timestamp = new Date().getTime();
+    const tryTest= {
+      delivery_charge: 0,
+    logistics: "",
+    order_id: "",
+    ordered_books,
+    ordered_timestamp,
+    price_tax: "",
+    status: "booked",
+    tax_percentage:0,
+    total_item_price: subtotal,
+    total_price:  total ,
+    total_qty: "",
+    userDetail: { address, email, id, name, phone },
+  }
+  console.log("tryTest",tryTest)
+    // const docRef = await addDoc(collection(db, "orders"), 
+    //  );
+  };
+
+ 
+  const handleCheckoutButton = () => {
+    addDataToOrdersCollection();
+    // const confomationPrompt = prompt("Do you have to proceed?");
+    // if (confomationPrompt.toLowerCase() === "yes") {
+    //   console.log("success")
+     
+    // }
+  };
 
   // console.log(subtotal, total);
   return (
@@ -56,10 +111,17 @@ const CheckOutSummary = ({ cartItems }) => {
               <p className={classes.subtotal}>Total</p>
               <p className={classes.amount}>₹ {total}</p>
             </div>
-            <button className={classes.checkoutbtn}>Checkout</button>
-            <a href="" className={classes.Continue}>
+            <button
+              className={classes.checkoutbtn}
+              onClick={handleCheckoutButton}
+            >
+              Checkout
+            </button>
+            <Link to="/books" className={classes.Continue}>
+              {/* <a href="" > */}
               Continue Shopping
-            </a>
+              {/* </a> */}
+            </Link>
           </div>
         </div>
       </div>
