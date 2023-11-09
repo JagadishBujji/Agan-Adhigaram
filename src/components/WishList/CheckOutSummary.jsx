@@ -9,7 +9,7 @@ import { db } from "../../services/firebase";
 const CheckOutSummary = ({ cartItems }) => {
   const { userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
-  console.log("email from details",email)
+  
 
   const delivery = 100;
   console.log("cartItems", cartItems);
@@ -54,8 +54,8 @@ const CheckOutSummary = ({ cartItems }) => {
     total_qty: "",
     userDetail: { address, email, id, name, phone },
   }
-  console.log("tryTest",tryTest)
-    const docRef = await addDoc(collection(db, "orders"),tryTest);
+  
+     await addDoc(collection(db, "orders"),tryTest);
   };
 
  
