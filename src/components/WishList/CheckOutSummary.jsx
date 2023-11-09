@@ -9,7 +9,6 @@ import { db } from "../../services/firebase";
 const CheckOutSummary = ({ cartItems }) => {
   const { userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
-  
 
   const delivery = 100;
   console.log("cartItems", cartItems);
@@ -33,37 +32,35 @@ const CheckOutSummary = ({ cartItems }) => {
         qty: item.qty,
         title: item.title,
         total_price: item.total_price,
-        item_price:item.discount_percentage
+        item_price: item.discount_percentage,
       };
       ordered_books.push(temp);
     });
     let ordered_timestamp = new Date().getTime();
-    const tryTest= {
+    const tryTest = {
       delivery_charge: 0,
-    logistics: "",
-    order_id: "",
-    ordered_books,
-    ordered_timestamp,
-    price_tax: "",
-    status: "booked",
-    tax_percentage:0,
-    total_item_price: subtotal,
-    total_price:  total ,
-    total_qty: "",
-    userDetail: { address, email, id, name, phone },
-  }
-  console.log("tryTest",tryTest)
-    // const docRef = await addDoc(collection(db, "orders"), 
+      logistics: "",
+      order_id: "",
+      ordered_books,
+      ordered_timestamp,
+      price_tax: "",
+      status: "booked",
+      tax_percentage: 0,
+      total_item_price: subtotal,
+      total_price: total,
+      total_qty: "",
+      userDetail: { address, email, id, name, phone },
+    };
+    console.log("tryTest", tryTest);
+    // const docRef = await addDoc(collection(db, "orders"),
     //  );
   };
 
- 
   const handleCheckoutButton = () => {
     addDataToOrdersCollection();
     // const confomationPrompt = prompt("Do you have to proceed?");
     // if (confomationPrompt.toLowerCase() === "yes") {
     //   console.log("success")
-     
     // }
   };
 
