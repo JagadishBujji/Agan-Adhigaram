@@ -1,18 +1,24 @@
 import { useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { collection, addDoc, doc } from "firebase/firestore";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { db } from "../../services/firebase";
+import {
+  errorNotification,
+  successNotification,
+} from "../../utils/notifications";
+import { clearCart } from "../../store/cartSlice";
 
 const CheckOutSummary = ({ cartItems }) => {
-  const { userDetail } = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
-  
 
   const delivery = 100;
-  console.log("cartItems", cartItems);
+
   const discount = 0;
   //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
   //ordered_timestamp,price_tax,status,tax_percentage,total_item_price,total_price,total_qty,
@@ -24,48 +30,58 @@ const CheckOutSummary = ({ cartItems }) => {
 
   const addDataToOrdersCollection = async () => {
     let ordered_books = [];
-     cartItems.forEach((item) => {
-      console.log("item", item);
+    cartItems.forEach((item) => {
       let temp = {
+        id: item.id,
         author: item.author,
-        book_id: item.book_id,
         genre: item.genre,
         qty: item.qty,
         title: item.title,
+        item_price: item.discounted_price,
         total_price: item.total_price,
-        item_price:item.discount_percentage
+        book_format: item.book_format,
       };
       ordered_books.push(temp);
-     
     });
-    console.log("ordered_books",ordered_books)
+
     let ordered_timestamp = new Date().getTime();
-    const tryTest= {
-      delivery_charge: 0,
-    logistics: "",
-    order_id: "",
-    ordered_books,
-    ordered_timestamp,
-    price_tax: "",
-    status: "booked",
-    tax_percentage:0,
-    total_item_price: subtotal,
-    total_price:  total ,
-    total_qty: "",
-    userDetail: { address, email, id, name, phone },
-  }
-  
-     await addDoc(collection(db, "orders"),tryTest);
+    const order = {
+      delivery_charge: delivery,
+      logistics: "",
+      order_id: "",
+      ordered_books,
+      ordered_timestamp,
+      price_tax: 0,
+      status: "booked",
+      tax_percentage: 0,
+      total_item_price: subtotal,
+      total_price: total,
+      total_qty: ordered_books.length,
+      userDetail: { address, email, id, name, phone },
+    };
+
+    // console.log("order: ", order, userDetail);
+
+    try {
+      await addDoc(collection(db, "orders"), order);
+      dispatch(clearCart());
+      successNotification("Order placed successfully!");
+      navigate("/orders");
+    } catch (e) {
+      errorNotification(e.message);
+    }
   };
 
- 
   const handleCheckoutButton = () => {
-    addDataToOrdersCollection();
-    // const confomationPrompt = prompt("Do you have to proceed?");
-    // if (confomationPrompt.toLowerCase() === "yes") {
-    //   console.log("success")
-     
-    // }
+    if (isAuthenticated) {
+      let text = "Are you sure to proceed?";
+      if (window.confirm(text) === true) {
+        addDataToOrdersCollection();
+      }
+    } else {
+      // show login modal
+      errorNotification("Please login to complete this order!!!");
+    }
   };
 
   // console.log(subtotal, total);

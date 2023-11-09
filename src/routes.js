@@ -17,6 +17,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./services/firebase";
 import { getUserById } from "./api/user";
 import { errorNotification } from "./utils/notifications";
+import { setCartItems } from "./store/cartSlice";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ export default function Router() {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      const cartItems = localStorage.getItem("cartItems");
+      dispatch(setCartItems(JSON.parse(cartItems)));
+
       if (user) {
         const { uid } = user;
         console.log("uid", uid);
@@ -80,7 +84,7 @@ export default function Router() {
         },
         {
           path: "checkout",
-          element: <AuthenticatedRoute element={<CheckOut />} key="cart" />,
+          element: <CheckOut />,
         },
         {
           path: "profile",

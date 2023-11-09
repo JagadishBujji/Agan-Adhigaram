@@ -153,6 +153,25 @@
   cursor: pointer;
 }
 
+.addBtn {
+  background-color: #f19e38;
+  border-radius: 5px;
+  border: none;
+  margin-left: 15px;
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* .addBtn:hover {
+  background-color: #f19e38;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  text-decoration: none;
+} */
+
 @media only screen and (max-width: 767px) {
   .bookheading {
     padding: 0;
@@ -172,7 +191,7 @@
   .addedbtn {
     padding: 0;
   }
-  .Available{
+  .Available {
     padding: 0;
   }
   .BookDescView {

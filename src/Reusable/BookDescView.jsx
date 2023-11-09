@@ -1,8 +1,40 @@
-import { Avatar, AvatarGroup } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Avatar, AvatarGroup, Button } from "@mui/material";
 import classes from "./BookDescView.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addItem,
+  addItemQty,
+  removeItemQty,
+  selectCartItems,
+} from "../store/cartSlice";
 // import {}
 
 const BookDescView = ({ book }) => {
+  const dispatch = useDispatch();
+  const { cartItems } = useSelector(selectCartItems);
+  const [noOfItems, setNoOfItems] = useState(0);
+
+  useEffect(() => {
+    const item = cartItems.find((item) => item.id === book.id);
+    if (item) {
+      setNoOfItems(item.qty);
+    } else {
+      setNoOfItems(0);
+    }
+  }, [cartItems, book.id]);
+
+  const handleAddCartItem = () => {
+    dispatch(addItem(book));
+  };
+
+  const handleAddItemQty = () => {
+    dispatch(addItemQty(book));
+  };
+
+  const handleRemoveItemQty = () => {
+    dispatch(removeItemQty(book));
+  };
   // console.log("inside bookdesc view", book.images[1]);
   return (
     <>
@@ -26,14 +58,35 @@ const BookDescView = ({ book }) => {
             </p>
           </div>
           <div className={classes.addedbtn}>
-            <div className={classes.qty}>
-              <i className={`${classes.minus} fa-solid fa-minus`}></i>
-              <span className={classes.count}>0</span>
-              <i className={`${classes.plus} fa-solid fa-plus`}></i>
-            </div>
-            <a href="wishlist" className={classes.wishlist}>
+            {noOfItems === 0 ? (
+              <Button
+                sx={{
+                  backgroundColor: "#f19e38",
+                  "&:hover": {
+                    backgroundColor: "#ffae58", // Change the background color on hover
+                  },
+                }}
+                variant="contained"
+                onClick={handleAddCartItem}
+              >
+                Add
+              </Button>
+            ) : (
+              <div className={classes.qty}>
+                <i
+                  className={`${classes.minus} fa-solid fa-minus`}
+                  onClick={handleRemoveItemQty}
+                ></i>
+                <span className={classes.count}>{noOfItems}</span>
+                <i
+                  className={`${classes.plus} fa-solid fa-plus`}
+                  onClick={handleAddItemQty}
+                ></i>
+              </div>
+            )}
+            {/* <a href="wishlist" className={classes.wishlist}>
               <i className={`${classes.heart} fa-regular fa-heart`}></i>WISHLIST
-            </a>
+            </a> */}
           </div>
           <p className={classes.Available}>
             Also Available On{" "}
@@ -65,4 +118,4 @@ const BookDescView = ({ book }) => {
   );
 };
 
-export default BookDescView;
+export default React.memo(BookDescView);
