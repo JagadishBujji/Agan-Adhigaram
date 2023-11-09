@@ -9,7 +9,7 @@ import { db } from "../../services/firebase";
 const CheckOutSummary = ({ cartItems }) => {
   const { userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
-  
+  console.log("email from details",email)
 
   const delivery = 100;
   console.log("cartItems", cartItems);
@@ -24,7 +24,7 @@ const CheckOutSummary = ({ cartItems }) => {
 
   const addDataToOrdersCollection = async () => {
     let ordered_books = [];
-    let test = cartItems.map((item) => {
+     cartItems.forEach((item) => {
       console.log("item", item);
       let temp = {
         author: item.author,
@@ -36,7 +36,9 @@ const CheckOutSummary = ({ cartItems }) => {
         item_price:item.discount_percentage
       };
       ordered_books.push(temp);
+     
     });
+    console.log("ordered_books",ordered_books)
     let ordered_timestamp = new Date().getTime();
     const tryTest= {
       delivery_charge: 0,
@@ -53,8 +55,7 @@ const CheckOutSummary = ({ cartItems }) => {
     userDetail: { address, email, id, name, phone },
   }
   console.log("tryTest",tryTest)
-    // const docRef = await addDoc(collection(db, "orders"), 
-    //  );
+    const docRef = await addDoc(collection(db, "orders"),tryTest);
   };
 
  
