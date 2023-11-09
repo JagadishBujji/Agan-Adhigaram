@@ -39,11 +39,12 @@ const TestimonialCarousel = () => {
             key={`testimonial-${i}`}
           >
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt.
+              Tamil publishing startup Agan Adhigaram presents popular stories
+              as Board books, with interactive features such as sliders and
+              flaps designed for little hands
             </p>
             <h2>Princy, Web Developer</h2>
-            <h2>Book lover</h2>
+            <h2>The Hindu</h2>
             {/* <img src="https://dummyimage.com/150" alt="picture" /> */}
           </label>
         ))}
