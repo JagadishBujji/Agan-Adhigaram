@@ -38,7 +38,7 @@ const Magical = () => {
         </button>
       </div>
       <div className={classes.bookimg}>
-        <img src="./images/Book.svg" alt="heroimg1" className={classes.Book} />
+        <img src="./images/book.svg" alt="heroimg1" className={classes.Book} />
       </div>
     </>
   );
