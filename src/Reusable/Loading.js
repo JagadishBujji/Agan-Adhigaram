@@ -15,6 +15,12 @@ const Loading = () => {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
+            "@media (max-width: 768px)": {
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              textAlign: "center",
+            },
           }}
           loop
           autoplay
