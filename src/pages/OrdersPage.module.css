@@ -1,11 +1,28 @@
 .order {
-    margin-top: 8%;
+  margin-top: 8%;
+}
+
+.load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadmore {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  background: #fdf3e2;
+  color: #f19e38;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 2%;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+  .order {
+    margin-top: 25%;
   }
-  
-  /* Mobile */
-  @media only screen and (max-width: 767px) {
-    .order {
-      margin-top: 25%;
-    }
-  }
-  
+}

@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  limit,
+  startAfter,
+  orderBy,
+} from "firebase/firestore";
 
 import { db } from "../../services/firebase";
 
@@ -8,22 +16,49 @@ import Select from "../../Reusable/BasicSelect";
 import BookItems from "./BookItems";
 import BookListView from "./BookListView";
 
+import { warningNotification } from "../../utils/notifications";
+
 import classes from "./BooksAndFilters.module.css";
 
 const BooksAndFilters = () => {
+  const pageLimit = 10;
   const [books, setBooks] = useState(null);
   const [viewType, setViewType] = useState("grid");
+  const [sort, setSort] = useState("new");
+  const [lastDocument, setLastDocument] = useState(null);
+  const [showLoadMore, setShowLoadMore] = useState(false);
 
   useEffect(() => {
     const getPublishedBooks = async () => {
       const booksRef = collection(db, "books");
 
-      const bookQuery = query(booksRef, where("status", "==", "published"));
+      let bookQuery = query(
+        booksRef,
+        where("status", "==", "published"),
+        limit(pageLimit)
+      );
+
+      if (sort === "new") {
+        bookQuery = query(
+          booksRef,
+          where("status", "==", "published"),
+          orderBy("date_published", "desc"),
+          limit(pageLimit)
+        );
+      } else {
+        bookQuery = query(
+          booksRef,
+          where("status", "==", "published"),
+          orderBy("date_published", "asc"),
+          limit(pageLimit)
+        );
+      }
 
       const querySnapshot = await getDocs(bookQuery);
 
       if (querySnapshot.empty) {
         setBooks([]);
+        setShowLoadMore(false);
       } else {
         const bookArr = [];
         querySnapshot.forEach((doc) => {
@@ -34,6 +69,15 @@ const BooksAndFilters = () => {
         });
         console.log("books: ", bookArr);
         setBooks(bookArr);
+
+        // If there are more documents, update the lastDocument state
+        const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+        setLastDocument(lastVisible);
+        if (querySnapshot.size < pageLimit) {
+          setShowLoadMore(false);
+        } else {
+          setShowLoadMore(true);
+        }
       }
     };
 
@@ -46,7 +90,50 @@ const BooksAndFilters = () => {
     }
 
     getPublishedBooks();
-  }, []);
+  }, [sort]);
+
+  const loadMoreBooks = async () => {
+    const booksRef = collection(db, "books");
+
+    let bookQuery;
+
+    if (lastDocument) {
+      bookQuery = query(
+        booksRef,
+        where("status", "==", "published"),
+        startAfter(lastDocument),
+        limit(pageLimit)
+      );
+    }
+
+    const querySnapshot = await getDocs(bookQuery);
+
+    if (querySnapshot.empty) {
+      warningNotification("No more orders!!!");
+      setShowLoadMore(false);
+    } else {
+      setBooks((prevState) => {
+        const bookArr = [...prevState];
+        querySnapshot.forEach((doc) => {
+          bookArr.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+
+        return [...bookArr];
+      });
+
+      // If there are more documents, update the lastDocument state
+      const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+      setLastDocument(lastVisible);
+      if (querySnapshot.size < pageLimit) {
+        setShowLoadMore(false);
+      } else {
+        setShowLoadMore(true);
+      }
+    }
+  };
 
   const handleChangeViewType = (type) => {
     setViewType(type);
@@ -84,7 +171,10 @@ const BooksAndFilters = () => {
                 interactive books with push, pull and slide mechanisms !
               </p>
               <div className={`${classes.filtersbooks}`}>
-                <BasicSelect />
+                <BasicSelect
+                  value={sort}
+                  changeSortValue={(value) => setSort(value)}
+                />
                 <img
                   src={`./images/${
                     viewType === "grid" ? "ic_gridView" : "ic_gridViewnormal"
@@ -120,18 +210,20 @@ const BooksAndFilters = () => {
               </div>
             ) : (
               <div className={`${classes.bookitems} row`}>
-                {books.map((book)=>(
-                <div key={book.id}>
-                <BookListView book={book} />
-                </div>
-              ))}
+                {books.map((book) => (
+                  <div key={book.id}>
+                    <BookListView book={book} />
+                  </div>
+                ))}
               </div>
-
-              
             )}
-            <div className={classes.load}>
-              <button className={classes.loadmore}>Load more</button>
-            </div>
+            {showLoadMore && (
+              <div className={classes.load}>
+                <button className={classes.loadmore} onClick={loadMoreBooks}>
+                  Load more
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
