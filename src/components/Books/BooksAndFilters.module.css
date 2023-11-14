@@ -154,6 +154,9 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
+  .bookitems {
+    padding: 0 20px;
+  }
 }
 
 /* Tablet */

@@ -30,11 +30,13 @@ const Order = ({ order }) => {
     },
   };
   const stack = {
+    marginTop: "10px",
     "@media (max-width: 768px)": {
       display: "flex",
       justifyContent: "start",
       alignItems: "start",
       flexDirection: "column",
+      marginTop: "10px",
     },
   };
 
@@ -42,7 +44,7 @@ const Order = ({ order }) => {
     <>
       <Stack className={`${classes.pro} container`}>
         <Card className={classes.cardview}>
-          <Stack
+          {/* <Stack
             direction="row"
             justifyContent="space-between"
             alignItems="center"
@@ -69,8 +71,8 @@ const Order = ({ order }) => {
               <b>ORDER ID:</b>
               <span className={classes.date}>{id}</span>
             </p>
-          </Stack>
-          <Divider sx={{ borderColor: "#000" }} />
+          </Stack> */}
+          {/* <Divider sx={{ borderColor: "#000" }} /> */}
           {ordered_books.map((book) => (
             <Grid container sx={{ mt: 2 }} key={book.id}>
               <Grid
@@ -94,6 +96,7 @@ const Order = ({ order }) => {
                   <b>Qty :</b>
                   <span className={classes.number}>{book.qty}</span>
                 </p>
+
                 <Stack spacing={2} direction="row" sx={{ ml: 1 }}>
                   <Button
                     variant="contained"
@@ -115,6 +118,48 @@ const Order = ({ order }) => {
               </Grid>
             </Grid>
           ))}
+          <Divider sx={{ borderColor: "#000", mt: 1 }} />
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            flexWrap="wrap"
+            sx={stack}
+          >
+            <p className={classes.placed}>
+              <b>Order Placed :</b>
+              <span className={classes.date}>
+                {new Date(ordered_timestamp).toLocaleDateString(
+                  "en-US",
+                  options
+                )}
+              </span>
+            </p>
+            <p className={classes.placed}>
+              <b>Total Amount :</b>
+              <span className={classes.date}>₹ {total_price}</span>
+            </p>
+            <p className={classes.placed}>
+              <b>Shipping to :</b>
+              <span className={classes.date}>{userDetail.name}</span>
+            </p>
+            <p className={classes.placed}>
+              <b>ORDER ID:</b>
+              <span className={classes.date}>{id}</span>
+            </p>
+            <p className={classes.placed}>
+              <b>Delivery Charge:</b>
+              <span className={classes.date}>₹ 100</span>
+            </p>
+            <p className={classes.placed}>
+              <b>Tax Price:</b>
+              <span className={classes.date}>₹ 100 (5%)</span>
+            </p>
+            <p className={classes.placed}>
+              <b>Total Price:</b>
+              <span className={classes.date}>₹ 100</span>
+            </p>
+          </Stack>
         </Card>
       </Stack>
     </>

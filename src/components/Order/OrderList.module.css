@@ -67,11 +67,27 @@
   margin-left: 10px;
 }
 
+.deliverycharge{
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px;
+}
+
+.tax{
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  margin-left: 10px; 
+}
+
 @media (max-width: 768px) {
   .title {
     margin-top: 20px;
     font-size: 16px;
   }
+  .pro {
+    padding: 10px 25px;
+  }
+  
   .author {
     font-size: 12px;
   }

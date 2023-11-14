@@ -18,6 +18,7 @@ import { auth } from "./services/firebase";
 import { getUserById } from "./api/user";
 import { errorNotification } from "./utils/notifications";
 import { setCartItems } from "./store/cartSlice";
+import Loading from "./Reusable/Loading";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -106,7 +107,11 @@ export default function Router() {
 
   // Wait until auth state is checked before rendering routes
   if (!authChecked) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   return routes;
