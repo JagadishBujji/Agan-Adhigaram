@@ -1,5 +1,5 @@
-import * as React from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import {
@@ -26,57 +26,68 @@ import {
   isValidPassword,
   isValidPhoneNumber,
 } from "../../utils/validator";
-import { errorNotification } from "../../utils/notifications";
+import {
+  errorNotification,
+  successNotification,
+} from "../../utils/notifications";
+import { getAuth, updatePassword } from "firebase/auth";
+import { logout } from "../../api/auth";
+
+const save = {
+  background: "#f19e38",
+  color: "#fff",
+  fontSize: "16px",
+  "&:hover": {
+    background: "#f19e38",
+    color: "#fff",
+  },
+};
+const Cancel = {
+  border: "1px solid #f19e38",
+  color: "#f19e38",
+  fontSize: "16px",
+  "&:hover": {
+    border: "1px solid #f19e38",
+    color: "#f19e38",
+  },
+};
+
+const profilehalf = {
+  padding: "0 50px",
+  "@media (max-width: 768px)": {
+    padding: "0",
+  },
+};
+const sechalf = {
+  padding: "0 50px",
+  "@media (max-width: 768px)": {
+    padding: "0",
+  },
+};
 
 const Profile = () => {
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [disableEdit, setdisableEdit] = React.useState(true);
+  const dispatch = useDispatch();
   const { userDetail } = useSelector(selectUser);
-  const [editedValues, setEditedValues] = React.useState({
+  const { id } = userDetail;
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCPassword, setShowCPassword] = useState(false);
+  const [disableProfileEdit, setDisableProfileEdit] = useState(true);
+  const [disableSettingsEdit, setDisableSettingsEdit] = useState(true);
+  const [editedValues, setEditedValues] = useState({
     name: userDetail.name,
     phone: userDetail.phone,
     address: userDetail.address,
   });
-  const { id, email } = userDetail;
-
-  const docRef = doc(db, "users", id);
+  const [pwd, setPwd] = useState("");
+  const [cpwd, setCpwd] = useState("");
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
+  const handleClickShowCPassword = () => setShowCPassword((show) => !show);
+
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
-  };
-
-  const save = {
-    background: "#f19e38",
-    color: "#fff",
-    fontSize: "16px",
-    "&:hover": {
-      background: "#f19e38",
-      color: "#fff",
-    },
-  };
-  const Cancel = {
-    border: "1px solid #f19e38",
-    color: "#f19e38",
-    fontSize: "16px",
-    "&:hover": {
-      border: "1px solid #f19e38",
-      color: "#f19e38",
-    },
-  };
-
-  const profilehalf = {
-    padding: "0 50px",
-    "@media (max-width: 768px)": {
-      padding: "0",
-    },
-  };
-  const sechalf = {
-    padding: "0 50px",
-    "@media (max-width: 768px)": {
-      padding: "0",
-    },
   };
 
   const handleEditValues = (e) => {
@@ -92,8 +103,9 @@ const Profile = () => {
   const { name, address, phone } = editedValues;
 
   async function saveChanges() {
+    const docRef = doc(db, "users", id);
     await updateDoc(docRef, { name, phone, address });
-    setdisableEdit(true);
+    setDisableProfileEdit(true);
   }
 
   const handleSaveChanges = () => {
@@ -106,6 +118,45 @@ const Profile = () => {
       : !isValidAddress(address)
       ? errorNotification("Invalid Address ")
       : saveChanges();
+  };
+
+  const updateUserPassword = () => {
+    if (!isValidPassword(pwd)) {
+      errorNotification(
+        "Invalid, Password must be 6 characters or more in length"
+      );
+      return;
+    }
+    if (pwd !== cpwd) {
+      errorNotification(
+        "Invalid, Password must be 6 characters or more in length"
+      );
+      return;
+    }
+
+    console.log("updateUserPassword", isValidPassword, pwd, cpwd);
+    const auth = getAuth();
+
+    const user = auth.currentUser;
+    console.log("user: ", user);
+
+    updatePassword(user, pwd)
+      .then(() => {
+        successNotification("Password updated successfully!!!");
+        setDisableSettingsEdit(true);
+        setPwd("");
+        setCpwd("");
+      })
+      .catch((error) => {
+        errorNotification(error.message);
+        console.log("updateUserPassword error: ", error.message);
+        setPwd("");
+        setCpwd("");
+        if (error.code === "auth/requires-recent-login") {
+          // logout the user
+          dispatch(logout);
+        }
+      });
   };
 
   return (
@@ -121,14 +172,14 @@ const Profile = () => {
             <Typography id="modal-modal-profile" variant="h4" component="h2">
               Profile
             </Typography>
-            <IconButton aria-label="Edit">
-              {disableEdit && (
+            {disableProfileEdit && (
+              <IconButton aria-label="Edit">
                 <EditIcon
                   sx={{ color: "#f19e38" }}
-                  onClick={() => setdisableEdit(false)}
+                  onClick={() => setDisableProfileEdit(false)}
                 />
-              )}
-            </IconButton>
+              </IconButton>
+            )}
           </Stack>
           <Grid container spacing={2} sx={profilehalf}>
             <Grid item md={12} xs={12}>
@@ -136,7 +187,7 @@ const Profile = () => {
                 fullWidth
                 id="outlined-basic1"
                 // label="Name"
-                disabled={disableEdit}
+                disabled={disableProfileEdit}
                 onChange={(e) => handleEditValues(e)}
                 value={editedValues.name}
                 variant="outlined"
@@ -167,7 +218,7 @@ const Profile = () => {
                 // label="Phone Number"
                 value={editedValues.phone}
                 onChange={(e) => handleEditValues(e)}
-                disabled={disableEdit}
+                disabled={disableProfileEdit}
                 variant="outlined"
                 name="phone"
                 type="mail"
@@ -181,7 +232,7 @@ const Profile = () => {
                 // label="Address"
                 value={editedValues.address}
                 onChange={(e) => handleEditValues(e)}
-                disabled={disableEdit}
+                disabled={disableProfileEdit}
                 multiline
                 name="address"
                 rows={3}
@@ -189,7 +240,7 @@ const Profile = () => {
               />
             </Grid>
           </Grid>
-          {!disableEdit && (
+          {!disableProfileEdit && (
             <Stack
               spacing={2}
               direction="row"
@@ -202,7 +253,7 @@ const Profile = () => {
               <Button
                 variant="outlined"
                 sx={Cancel}
-                onClick={(prev) => setdisableEdit(prev)}
+                onClick={() => setDisableProfileEdit(true)}
               >
                 Cancel
               </Button>
@@ -219,9 +270,14 @@ const Profile = () => {
             <Typography id="modal-modal-profile" variant="h4" component="h2">
               Settings
             </Typography>
-            <IconButton aria-label="Edit">
-              <EditIcon sx={{ color: "#f19e38" }} />
-            </IconButton>
+            {disableSettingsEdit && (
+              <IconButton
+                aria-label="Edit"
+                onClick={() => setDisableSettingsEdit(false)}
+              >
+                <EditIcon sx={{ color: "#f19e38" }} />
+              </IconButton>
+            )}
           </Stack>
           <Grid container spacing={2} sx={sechalf}>
             {/* <Grid item md={6} xs={12}>
@@ -255,10 +311,14 @@ const Profile = () => {
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
+                  disabled={disableSettingsEdit}
                   type={showPassword ? "text" : "password"}
+                  value={pwd}
+                  onChange={(e) => setPwd(e.target.value)}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
+                        disabled={disableSettingsEdit}
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
@@ -279,16 +339,20 @@ const Profile = () => {
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
+                  type={showCPassword ? "text" : "password"}
+                  disabled={disableSettingsEdit}
+                  value={cpwd}
+                  onChange={(e) => setCpwd(e.target.value)}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
+                        disabled={disableSettingsEdit}
                         aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
+                        onClick={handleClickShowCPassword}
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
                       >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                        {showCPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   }
@@ -297,19 +361,33 @@ const Profile = () => {
               </FormControl>
             </Grid>
           </Grid>
-          <Stack
-            spacing={2}
-            direction="row"
-            justifyContent="end"
-            alignItems="end"
-          >
-            <Button variant="contained" sx={save}>
-              Save Changes
-            </Button>
-            <Button variant="outlined" sx={Cancel}>
-              Cancel
-            </Button>
-          </Stack>
+          {!disableSettingsEdit && (
+            <Stack
+              spacing={2}
+              direction="row"
+              justifyContent="end"
+              alignItems="end"
+            >
+              <Button
+                variant="contained"
+                sx={save}
+                onClick={updateUserPassword}
+              >
+                Update Password
+              </Button>
+              <Button
+                variant="outlined"
+                sx={Cancel}
+                onClick={() => {
+                  setDisableSettingsEdit(true);
+                  setPwd("");
+                  setCpwd("");
+                }}
+              >
+                Cancel
+              </Button>
+            </Stack>
+          )}
         </Box>
       </Stack>
     </>

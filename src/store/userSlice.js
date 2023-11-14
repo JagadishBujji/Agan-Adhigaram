@@ -10,6 +10,8 @@ const initialState = {
     role: "",
   },
   isAuthenticated: false,
+  sort: "",
+  filter: "",
 };
 
 export const userSlice = createSlice({

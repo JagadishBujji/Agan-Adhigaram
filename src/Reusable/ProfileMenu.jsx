@@ -102,12 +102,12 @@ export default function ProfileMenu({ userDetail }) {
           <FormatListBulletedIcon sx={{ mr: 1 }} /> Orders
         </MenuItem>
 
-        <MenuItem onClick={handleClose}>
+        {/* <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
-        </MenuItem>
+        </MenuItem> */}
 
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
