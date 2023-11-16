@@ -165,6 +165,7 @@
   margin-bottom: 10px;
   z-index: 2;
   position: relative;
+  cursor: pointer;
 }
 
 .gallery::after {
@@ -216,6 +217,8 @@
   background: #f19e38;
   color: #fdf3e2;
 }
+
+
 
 @media (max-width: 768px) {
   .overallcarosuel {

@@ -15,7 +15,7 @@ const DynamicCarousel = () => {
     "./images/gallery1.svg",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
-    "./images/gallery1.svg",
+    "./images/Website illustration.png",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
     "./images/gallery1.svg",
@@ -103,25 +103,25 @@ const DynamicCarousel = () => {
         <div className="demo1">
           <img
             onClick={() => handleCarouselChange(1)}
-            src="/images/awards.jpg"
+            src="/images/Awards.svg"
             className="gallery"
           />
 
           <img
             onClick={() => handleCarouselChange(2)}
-            src="/images/events.jpg"
+            src="/images/Events.svg"
             className="gallery"
           />
 
           <img
             onClick={() => handleCarouselChange(3)}
-            src="/images/books.jpg"
+            src="/images/Books.svg"
             className="gallery"
           />
         </div>
-        <a href="" className="Grap">
+        {/* <a href="" className="Grap">
           Grab Yours
-        </a>
+        </a> */}
       </div>
     </>
   );
