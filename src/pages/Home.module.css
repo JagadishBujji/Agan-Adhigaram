@@ -2,7 +2,7 @@
   background: transparent;
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: 60px;
   left: 2.8rem;
   display: -webkit-box;
   display: -webkit-flex;

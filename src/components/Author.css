@@ -66,12 +66,21 @@
   width: 100%;
   padding: 20px;
   color: #fff;
-  max-height: 100px; /* Set a fixed height for the scrollable content */
+  max-height: 180px; /* Set a fixed height for the scrollable content */
   transition: bottom 0.3s ease; /* Smoothly slide the content up on hover */
 }
 
 .cardauthor:hover .card-content {
   bottom: 50% !important; /* Slide the content up on hover */
+}
+
+.authorcontent {
+  max-height: 300px;
+  overflow-y: scroll;
+  font-size: 14px;
+}
+.authorcontent::-webkit-scrollbar {
+  display: none;
 }
 
 h2 {
