@@ -24,7 +24,7 @@
   height: 350px;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/Bhavya.jpg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Ida\ Bernice.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -151,7 +151,7 @@ p {
   height: 350px;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/rama.svg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Bhavya.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -187,6 +187,179 @@ p {
 }
 
 .card2:hover .card-content {
+  bottom: 50% !important; /* Slide the content up on hover */
+}
+
+.rama {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../public/images/rama.svg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin: auto;
+}
+
+.rama:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
+}
+
+.rama::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0; /* Initially hide the gradient overlay */
+  transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
+}
+
+.rama:hover::before {
+  opacity: 1; /* Show the gradient overlay on hover */
+}
+
+.rama:hover .card-content {
+  bottom: 50% !important; /* Slide the content up on hover */
+}
+.niranjan {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../public/images/rama.svg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin: auto;
+}
+
+.niranjan:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
+}
+
+.niranjan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0; /* Initially hide the gradient overlay */
+  transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
+}
+
+.niranjan:hover::before {
+  opacity: 1; /* Show the gradient overlay on hover */
+}
+
+.niranjan:hover .card-content {
+  bottom: 50% !important; /* Slide the content up on hover */
+}
+.vaishali {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../public/images/Vaishali_Author.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin: auto;
+}
+
+.vaishali:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
+}
+
+.vaishali::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0; /* Initially hide the gradient overlay */
+  transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
+}
+
+.vaishali:hover::before {
+  opacity: 1; /* Show the gradient overlay on hover */
+}
+
+.vaishali:hover .card-content {
+  bottom: 50% !important; /* Slide the content up on hover */
+}
+.Gowthami {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../public/images/Gowthami_Illustrator.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  margin-top: 10px;
+  margin: auto;
+}
+
+.Gowthami:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow on hover */
+  filter: grayscale(1);
+}
+
+.Gowthami::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  opacity: 0; /* Initially hide the gradient overlay */
+  transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
+}
+
+.Gowthami:hover::before {
+  opacity: 1; /* Show the gradient overlay on hover */
+}
+
+.Gowthami:hover .card-content {
   bottom: 50% !important; /* Slide the content up on hover */
 }
 

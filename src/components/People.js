@@ -56,7 +56,7 @@ const People = () => {
             <div className="name">
               <img src="./images/avatar.svg" alt="" className="avatar" />
               <p>The Hindu</p>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
 
@@ -77,7 +77,7 @@ const People = () => {
                 <p>Ms. Asmitha,</p>
                 <p>Entrepreneur and a mother of 2 years old, Chennai </p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
 
@@ -100,7 +100,7 @@ const People = () => {
                 <p>Ms. Karen, Nathan,</p>
                 <p>Blogger and kids book reviewer, Chennai . </p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
 
@@ -122,7 +122,7 @@ const People = () => {
                 <p>Ms. Suganya kumar,</p>
                 <p>Mother, Doctor and Entrepreneur. </p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
           <article class="card peopelcard">
@@ -142,7 +142,7 @@ const People = () => {
                 <p>Chittu kuruvi books,</p>
                 <p>Bookstore, Canada</p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
           <article class="card peopelcard">
@@ -163,7 +163,7 @@ const People = () => {
                 <p> Ms. Vanitha,</p>
                 <p>Author, Vaaranam books, Australia</p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
           <article class="card peopelcard">
@@ -184,7 +184,7 @@ const People = () => {
                 <p> Ms. Nangai,</p>
                 <p>Mother of 2.5 years old, Belgium</p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
           <article class="card peopelcard">
@@ -207,7 +207,7 @@ const People = () => {
                 <p> Mr. Silambaran,</p>
                 <p>Father of 3 years old, Chennai</p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
+             
             </div>
           </article>
           <article class="card peopelcard">
@@ -230,7 +230,6 @@ const People = () => {
                 <p> Ms. Nivedha,</p>
                 <p>Doctor and mother, Ranipet</p>
               </div>
-              <img src="./images/spotify.svg" alt="" className="spofity" />
             </div>
           </article>
         </OwlCarousel>
