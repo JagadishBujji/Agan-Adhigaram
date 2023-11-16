@@ -13,7 +13,6 @@ function Hero() {
           float={"center"}
           className={classes.mainimage}
         />
-
         <Heronav />
       </div>
     </div>
