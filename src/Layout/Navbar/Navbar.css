@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 /* Styles for the navigation bar */
 .navbar {
   width: 100%;
   background-color: #ddddddb5;
   z-index: 1000;
   height: 80px;
+  /* font-family: "Poppins", sans-serif; */
 }
 @media (max-width: 768px) {
   .navbar {
@@ -29,7 +32,7 @@
 
 .right {
   color: rgba(100, 100, 100, 1);
-
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin: 0 18px;
   font-weight: 500;
@@ -37,7 +40,7 @@
 
 .nav-item .nav-link {
   color: rgba(100, 100, 100, 1);
-
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   margin: 0 18px;
   font-weight: 500;

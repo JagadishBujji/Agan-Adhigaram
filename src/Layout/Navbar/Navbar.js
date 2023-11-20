@@ -44,7 +44,7 @@ function Navbar(props) {
               // {props.logo}
               alt=" logo"
               width="60"
-              height="auto"
+              height="60"
               className="d-inline-block align-text-top"
             />
           </a>

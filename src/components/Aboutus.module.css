@@ -17,6 +17,7 @@
   color: #f19e38;
   font-size: 30px;
   font-weight: 500;
+  font-family: "Poppins", sans-serif;
 }
 
 .person1 {
@@ -88,6 +89,7 @@
   text-align: center;
   font-size: 40px;
   font-weight: 600;
+  font-family: "Poppins", sans-serif;
 }
 
 .row {
@@ -209,21 +211,28 @@
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
   .aboutus {
     font-size: 40px;
+    font-family: "Poppins", sans-serif;
   }
   .we {
     font-size: 30px;
+    font-family: "Poppins", sans-serif;
+    margin-top: 25px;
   }
   .sethuram {
     font-size: 16px;
+    font-family: "Poppins", sans-serif;
   }
   .name1 {
     font-size: 20px;
+    font-family: "Poppins", sans-serif;
   }
   .name2 {
     font-size: 20px;
+    font-family: "Poppins", sans-serif;
   }
   .ramya {
     font-size: 16px;
+    font-family: "Poppins", sans-serif;
   }
 }
 
@@ -231,45 +240,58 @@
 @media only screen and (min-width: 1366px) {
   .aboutus {
     font-size: 50px;
+    font-family: "Poppins", sans-serif;
   }
   .we {
     font-size: 40px;
+    font-family: "Poppins", sans-serif;
   }
   .sethuram {
     font-size: 18px;
+    font-family: "Poppins", sans-serif;
   }
   .name1 {
     font-size: 22px;
+    font-family: "Poppins", sans-serif;
   }
   .name2 {
     font-size: 22px;
+    font-family: "Poppins", sans-serif;
   }
   .ramya {
     font-size: 18px;
+    font-family: "Poppins", sans-serif;
   }
 }
 
 @media only screen and (min-width: 2560px) {
   .aboutus {
     font-size: 80px;
+    font-family: "Poppins", sans-serif;
   }
   .we {
     font-size: 50px;
+    font-family: "Poppins", sans-serif;
   }
   .sethuram {
     font-size: 24px;
+    font-family: "Poppins", sans-serif;
   }
   .name1 {
     font-size: 26px;
+    font-family: "Poppins", sans-serif;
   }
   .name2 {
     font-size: 26px;
+    font-family: "Poppins", sans-serif;
   }
   .ramya {
     font-size: 24px;
+    font-family: "Poppins", sans-serif;
   }
   .dragon {
     left: 20%;
+    
   }
   .Butterfly {
     right: 26%;

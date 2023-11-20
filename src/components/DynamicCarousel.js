@@ -119,9 +119,9 @@ const DynamicCarousel = () => {
             className="gallery"
           />
         </div>
-        {/* <a href="" className="Grap">
+        <a href="" className="Grap">
           Grab Yours
-        </a> */}
+        </a>
       </div>
     </>
   );
