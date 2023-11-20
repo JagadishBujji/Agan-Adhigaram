@@ -19,6 +19,7 @@ import BookListView from "./BookListView";
 import { warningNotification } from "../../utils/notifications";
 
 import classes from "./BooksAndFilters.module.css";
+import DropDownBook from "../../Reusable/DropDownBook";
 
 const BooksAndFilters = () => {
   const pageLimit = 10;
@@ -148,12 +149,12 @@ const BooksAndFilters = () => {
         >
           <div className={`${classes.Bookfilters}  col-md-3`}>
             <h1 className={classes.fil}>Filters</h1>
-            <div className={`${classes.category}`}>
+            {/* <div className={`${classes.category}`}>
               <h1>Categories</h1>
               <i class="fa-solid fa-chevron-down"></i>
-            </div>
+            </div> */}
 
-            <a href="" className={`${classes.Loadmore}`}>
+            {/* <a href="" className={`${classes.Loadmore}`}>
               <i class="fa-solid fa-plus"></i> Load More
             </a>
             <a href="" className={`${classes.refine}`}>
@@ -162,7 +163,8 @@ const BooksAndFilters = () => {
             <a href="" className={`${classes.filter}`}>
               {" "}
               Reset Filter
-            </a>
+            </a> */}
+            <DropDownBook />
           </div>
           <div className={`${classes.Bookshowcase}  col-md-9`}>
             <h1 className={`${classes.booksheading}`}>Books</h1>
