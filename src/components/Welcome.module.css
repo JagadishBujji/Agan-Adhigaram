@@ -392,57 +392,57 @@
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
   .overallmission {
-    /* height: 1955px; */
+    height: 1660px;
   }
   .crow {
     max-width: 100%;
-    width: 65%;
+    width: 70%;
     /* height: -webkit-fill-available; */
-    padding-top: 400px;
+    padding-top: 35%;
   }
   .welcomevision {
-    width: 25%;
-    font-size: 30px;
+    width: 30%;
+    font-size: 28px;
     font-family: "Poppins", sans-serif;
   }
   .welcomeheaing {
-    font-size: 34px;
+    font-size: 40px;
     font-family: "Poppins", sans-serif;
   }
   .kamaimg {
-    left: 30%;
+    left: 26%;
   }
   .subcontent {
     font-size: 20px;
     font-family: "Poppins", sans-serif;
   }
   .paatiimg {
-    right: 100px;
-    top: 282px;
+    right: 40px;
+    top: 170px;
   }
   .welcomevisiontitle {
     font-size: 34px;
     font-family: "Poppins", sans-serif;
   }
   .subcontentvision {
-    font-size: 26px;
+    font-size: 24px;
     font-family: "Poppins", sans-serif;
   }
   .welcomemissionfox {
-    width: 30%;
-    font-size: 30px;
+    width: 35%;
+    font-size: 28px;
     font-family: "Poppins", sans-serif;
   }
   .welcomevisiontitlefox {
-    font-size: 34px;
-    font-family: "Poppins", sans-serif;
-  }
-  .subcontentvisionfox {
     font-size: 26px;
     font-family: "Poppins", sans-serif;
   }
+  .subcontentvisionfox {
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+  }
   .welcomecolumn2fox {
-    padding-top: 15%;
+    padding-top: 5%;
   }
   .missionfox {
     display: flex;
@@ -454,7 +454,7 @@
     max-width: 100%;
     /* margin: auto; */
     width: 60%;
-    padding-top: 200px;
+    padding-top: 20%;
   }
 }
 @media only screen and (min-width: 2560px) {

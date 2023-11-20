@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 .one {
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: 700;
+  font-family: "Poppins", sans-serif;
 }
 
 .author {
@@ -78,6 +81,7 @@
   max-height: 300px;
   overflow-y: scroll;
   font-size: 14px;
+  font-family: "Poppins", sans-serif;
 }
 .authorcontent::-webkit-scrollbar {
   display: none;
@@ -90,6 +94,7 @@ h2 {
 
 p {
   margin: 10px 0;
+  font-size: 18px;
 
   /* overflow: hidden; */
   text-overflow: ellipsis;
@@ -479,14 +484,17 @@ p {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 13px;
+  font-size: 16px;
   width: 102%;
+  font-family: "Poppins", sans-serif;
 }
 
 .vai {
   font-size: 30px;
   font-weight: 700;
   margin-top: 60px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 .author-overall {
@@ -522,12 +530,14 @@ p {
 
   .vai {
     font-size: 20px;
+    font-family: "Poppins", sans-serif;
   }
 
   .one {
     width: 100%;
     font-size: 25px;
     margin-top: 20px;
+    font-family: "Poppins", sans-serif;
   }
   .author {
     display: none;

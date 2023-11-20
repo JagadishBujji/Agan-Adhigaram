@@ -260,20 +260,29 @@
 
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
+  .valuesheading {
+    padding-top: 7rem;
+  }
   .Values {
     height: 100rem;
   }
   .valuessubcontent1 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .valuessubcontent2 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .valuessubcontent3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .valuessubcontent4 {
-    font-size: 14px;
+    font-size: 16px;
+  }
+  .valuetitle {
+    font-size: 40px;
+  }
+  .firsthalf1_ {
+    background-position: 10px !important;
   }
 }
 @media only screen and (min-width: 2560px) {
