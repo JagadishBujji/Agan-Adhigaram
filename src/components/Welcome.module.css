@@ -246,9 +246,10 @@
 @media only screen and (max-width: 767px) {
   .overallmission {
     background-image: url("../../public/images/mobilebg.svg");
-    width: 100%;
-    height: 150vh;
-    max-width: 100%;
+    /* width: 100%; */
+    background-position: center;
+    background-size: cover;
+    height: 60rem;
   }
   .welcomecolumn {
     margin-top: 10% !important;
@@ -283,6 +284,7 @@
   .subcontent {
     font-size: 14px;
     font-family: "Poppins", sans-serif;
+    line-height: 30px;
   }
   .kamaimg {
     max-width: 2%;
@@ -317,7 +319,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40% !important;
+    margin-top: 6% !important;
   }
   .subcontentvision {
     text-align: center;

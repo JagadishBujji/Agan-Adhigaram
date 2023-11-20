@@ -11,8 +11,8 @@ const People = () => {
     autoplayTimeout: 3000,
     autoplaySpeed: 800,
     center: true,
-    items: 2,
-    stagePadding: 15,
+    items: 1.5,
+    stagePadding: 5,
     loop: true,
     margin: 15,
     animateOut: "slide-up",
@@ -23,6 +23,7 @@ const People = () => {
       "<img  src='./images/Arrow - Left Circle.svg'>",
       "<img  src='./images/Arrow - Right Circle.svg'>",
     ],
+    outerWidth: 100
   };
 
   return (

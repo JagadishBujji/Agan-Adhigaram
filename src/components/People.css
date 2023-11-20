@@ -295,4 +295,11 @@
   .sparakel {
     left: 0;
   }
+  .peopleheading h1{
+    font-size: 24px;
+  }
+  .peopleheading p{
+    font-size: 18px;
+  }
+  
 }

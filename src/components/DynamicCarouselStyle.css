@@ -223,39 +223,58 @@
 @media (max-width: 768px) {
   .overallcarosuel {
     margin-top: 20px;
-    margin-top: 30px;
+    margin-top: 50px;
     padding-bottom: 30px;
-    height: 80vh;
-
-    margin-bottom: 0%;
+    height: 50rem;
+    overflow: hidden;
+    margin-bottom: 29%;
   }
   .items .item {
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 250px;
   }
   .demo1 {
     display: none;
   }
   .gallerycapturing {
     left: 30px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
+    top: 0;
   }
   .gallerycapturing p {
     text-align: center;
+    font-size: 18px;
   }
   .Grap {
     width: 30%;
+    /* display: none; */
+    bottom: 0;
+    color: #000;
+  }
+  .items {
+    top: 40%;
+  }
+  .item.prev {
+    transform: translate(-134%, 43%) scale(0.8);
+  }
+  .item.next {
+    transform: translate(33%, 43%) scale(0.8);
+  }
+  .items .button-container{
+    transform: translate(-50%, 0%);
+  }
+  #gallery{
+    font-size: 24px;
   }
 }
 
-@media only screen and (min-width: 1366px){
-  .gallerycapturing{
+@media only screen and (min-width: 1366px) {
+  .gallerycapturing {
     top: -50%;
   }
-  #gallery{
+  #gallery {
     font-size: 40px;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
   }
-
 }

@@ -535,7 +535,7 @@ p {
 
   .one {
     width: 100%;
-    font-size: 25px;
+    font-size: 24px;
     margin-top: 20px;
     font-family: "Poppins", sans-serif;
   }
@@ -544,5 +544,12 @@ p {
   }
 
   .two {
+    font-size: 14px;
+  }
+  .font{
+    font-size: 16px;
+  }
+  .authorcontent{
+    font-size: 16px;
   }
 }

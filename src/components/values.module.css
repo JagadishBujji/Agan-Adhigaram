@@ -167,7 +167,7 @@
     padding-top: 5rem;
   }
   .valuetitle {
-    font-size: 20px;
+    font-size: 24px;
   }
   .subtitle {
     font-size: 14px;
@@ -185,11 +185,14 @@
     font-size: 16px;
     text-align: left;
     padding-top: 10px;
+    padding-left: 0;
+    
   }
   .valuessubcontent1 {
     font-size: 14px;
     text-align: left;
     padding: 0;
+    margin-right: 100px;
   }
   .firsthalf2 {
     max-width: 100%;
@@ -209,6 +212,7 @@
     font-size: 14px;
     text-align: right;
     padding: 0;
+    margin-left: 100px;
   }
   .firsthalf3 {
     max-width: 100%;
@@ -228,6 +232,7 @@
     font-size: 12px;
     text-align: left;
     padding: 0;
+    margin-right: 100px;
   }
   .firsthalf4 {
     max-width: 100%;
@@ -247,6 +252,7 @@
     font-size: 14px;
     text-align: right;
     padding: 0;
+    margin-left: 100px;
   }
 }
 
