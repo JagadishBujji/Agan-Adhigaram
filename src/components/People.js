@@ -11,7 +11,7 @@ const People = () => {
     autoplayTimeout: 3000,
     autoplaySpeed: 800,
     center: true,
-    items: 1.5,
+    items: 1.8,
     stagePadding: 5,
     loop: true,
     margin: 15,
