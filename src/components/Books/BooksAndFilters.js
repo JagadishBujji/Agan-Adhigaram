@@ -202,11 +202,11 @@ const BooksAndFilters = () => {
               <p>No Data Found!!!</p>
             ) : viewType === "grid" ? (
               <div className={`${classes.bookitems} row`}>
-                {books.map((book) => (
-                  <div key={book.id}>
-                    <BookItems book={book} />
-                  </div>
-                ))}
+                {/* {books.map((book) => ( */}
+                {/* <div key={book.id}> */}
+                <BookItems books={books} />
+                {/* </div> */}
+                {/* ))} */}
               </div>
             ) : (
               <div className={`${classes.bookitems} row`}>
