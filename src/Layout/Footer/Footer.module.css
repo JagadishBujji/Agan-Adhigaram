@@ -112,8 +112,11 @@
 } */
 
 /* Larger screens */
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1440px) {
   .footercontent {
-    padding-top: 3%;
+    padding-top: 10%;
+  }
+  .logoicon {
+    bottom: 11.5rem;
   }
 }

@@ -14,32 +14,33 @@ function isValidPassword(password) {
   return passwordRegex.test(password);
 }
 
-function isValidName(name){
+function isValidName(name) {
   //Name contains letter and space(no space in beginning and ending)
   const nameRegex = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
 
   //Test the name against the regex pattern
-  return nameRegex.test(name)
+  return nameRegex.test(name);
 }
 
-function isValidPhoneNumber(phoneNumber){
+function isValidPhoneNumber(phoneNumber) {
   // contains only 10 digit number
   const phoneNumberRegex = /^\d{10}$/;
 
   //Test the Phone number against the regex pattern
-  return phoneNumberRegex.test(phoneNumber)
+  return phoneNumberRegex.test(phoneNumber);
 }
 
-function isValidAddress(address){
-  
+function isValidAddress(address) {
   const addressRegex = /^[a-zA-Z0-9\s\/.,#'-]+$/;
 
-
   //Test the address against the regex pattern
-  return addressRegex.test(address)
+  return addressRegex.test(address);
 }
 
-
-
-
-export { isValidEmail, isValidPassword ,isValidAddress,isValidPhoneNumber,isValidName};
+export {
+  isValidEmail,
+  isValidPassword,
+  isValidAddress,
+  isValidPhoneNumber,
+  isValidName,
+};

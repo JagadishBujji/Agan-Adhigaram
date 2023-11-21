@@ -2,7 +2,7 @@
 
 .Values {
   background: url("../../public/images/Values.svg");
-  background-position: bottom;
+  background-position: 0px 80%;
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100%;
@@ -40,7 +40,7 @@
 
 .firsthalf1 {
   background: url("../../public/images/green3.svg");
-  background-position: 10px 41px;
+  /* background-position: 10px 41px; */
   background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
@@ -186,7 +186,6 @@
     text-align: left;
     padding-top: 10px;
     padding-left: 0;
-    
   }
   .valuessubcontent1 {
     font-size: 14px;
@@ -265,12 +264,12 @@
 }
 
 /* Larger screens */
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1440px) {
   .valuesheading {
     padding-top: 7rem;
   }
   .Values {
-    height: 100rem;
+    height: 95rem;
   }
   .valuessubcontent1 {
     font-size: 16px;
@@ -289,6 +288,9 @@
   }
   .firsthalf1_ {
     background-position: 10px !important;
+  }
+  .items .button-container {
+    top: 50px;
   }
 }
 @media only screen and (min-width: 2560px) {

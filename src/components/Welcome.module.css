@@ -392,9 +392,9 @@
 }
 
 /* Larger screens */
-@media only screen and (min-width: 1366px) {
+@media only screen and (min-width: 1440px) {
   .overallmission {
-    height: 1660px;
+    height: 1750px;
   }
   .crow {
     max-width: 100%;

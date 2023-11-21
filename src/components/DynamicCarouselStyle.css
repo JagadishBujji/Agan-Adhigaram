@@ -260,17 +260,18 @@
   .item.next {
     transform: translate(33%, 43%) scale(0.8);
   }
-  .items .button-container{
+  .items .button-container {
     transform: translate(-50%, 0%);
+    top: 50px !important;
   }
-  #gallery{
+  #gallery {
     font-size: 24px;
   }
 }
 
 @media only screen and (min-width: 1366px) {
   .gallerycapturing {
-    top: -50%;
+    top: -40%;
   }
   #gallery {
     font-size: 40px;
