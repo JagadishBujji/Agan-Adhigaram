@@ -28,60 +28,9 @@ const BooksAndFilters = () => {
   const [sort, setSort] = useState("new");
   const [lastDocument, setLastDocument] = useState(null);
   const [showLoadMore, setShowLoadMore] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("all genre");
 
   useEffect(() => {
-    const getPublishedBooks = async () => {
-      const booksRef = collection(db, "books");
-
-      let bookQuery = query(
-        booksRef,
-        where("status", "==", "published"),
-        limit(pageLimit)
-      );
-
-      if (sort === "new") {
-        bookQuery = query(
-          booksRef,
-          where("status", "==", "published"),
-          orderBy("date_published", "desc"),
-          limit(pageLimit)
-        );
-      } else {
-        bookQuery = query(
-          booksRef,
-          where("status", "==", "published"),
-          orderBy("date_published", "asc"),
-          limit(pageLimit)
-        );
-      }
-
-      const querySnapshot = await getDocs(bookQuery);
-
-      if (querySnapshot.empty) {
-        setBooks([]);
-        setShowLoadMore(false);
-      } else {
-        const bookArr = [];
-        querySnapshot.forEach((doc) => {
-          bookArr.push({
-            id: doc.id,
-            ...doc.data(),
-          });
-        });
-        console.log("books: ", bookArr);
-        setBooks(bookArr);
-
-        // If there are more documents, update the lastDocument state
-        const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
-        setLastDocument(lastVisible);
-        if (querySnapshot.size < pageLimit) {
-          setShowLoadMore(false);
-        } else {
-          setShowLoadMore(true);
-        }
-      }
-    };
-
     const view = localStorage.getItem("viewType"); // if not, null will be there
     if (view) {
       setViewType(view);
@@ -89,7 +38,95 @@ const BooksAndFilters = () => {
       localStorage.setItem("viewType", "grid");
       setViewType("grid");
     }
+  }, []);
 
+  const getPublishedBooks = async () => {
+    console.log("selectedItem: ", selectedItem);
+    const booksRef = collection(db, "books");
+
+    let bookQuery = query(
+      booksRef,
+      where("status", "==", "published"),
+      where("is_available", "==", true),
+      limit(pageLimit)
+    );
+
+    if (selectedItem !== "all genre") {
+      bookQuery = query(
+        booksRef,
+        where("status", "==", "published"),
+        where("is_available", "==", true),
+        where("genre", "==", selectedItem),
+        limit(pageLimit)
+      );
+    }
+
+    if (sort === "new") {
+      bookQuery = query(
+        booksRef,
+        where("status", "==", "published"),
+        where("is_available", "==", true),
+        orderBy("date_published", "desc"),
+        limit(pageLimit)
+      );
+      if (selectedItem !== "all genre") {
+        bookQuery = query(
+          booksRef,
+          where("status", "==", "published"),
+          where("is_available", "==", true),
+          where("genre", "==", selectedItem),
+          orderBy("date_published", "desc"),
+          limit(pageLimit)
+        );
+      }
+    } else {
+      bookQuery = query(
+        booksRef,
+        where("status", "==", "published"),
+        where("is_available", "==", true),
+        orderBy("date_published", "asc"),
+        limit(pageLimit)
+      );
+      if (selectedItem !== "all genre") {
+        bookQuery = query(
+          booksRef,
+          where("status", "==", "published"),
+          where("is_available", "==", true),
+          where("genre", "==", selectedItem),
+          orderBy("date_published", "asc"),
+          limit(pageLimit)
+        );
+      }
+    }
+
+    const querySnapshot = await getDocs(bookQuery);
+
+    if (querySnapshot.empty) {
+      setBooks([]);
+      setShowLoadMore(false);
+    } else {
+      const bookArr = [];
+      querySnapshot.forEach((doc) => {
+        bookArr.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      console.log("books: ", bookArr);
+      setBooks(bookArr);
+
+      // If there are more documents, update the lastDocument state
+      const lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+      setLastDocument(lastVisible);
+      if (querySnapshot.size < pageLimit) {
+        setShowLoadMore(false);
+      } else {
+        setShowLoadMore(true);
+      }
+    }
+  };
+
+  useEffect(() => {
     getPublishedBooks();
   }, [sort]);
 
@@ -102,9 +139,20 @@ const BooksAndFilters = () => {
       bookQuery = query(
         booksRef,
         where("status", "==", "published"),
+        where("is_available", "==", true),
         startAfter(lastDocument),
         limit(pageLimit)
       );
+      if (selectedItem !== "all genre") {
+        bookQuery = query(
+          booksRef,
+          where("status", "==", "published"),
+          where("is_available", "==", true),
+          where("genre", "==", selectedItem),
+          startAfter(lastDocument),
+          limit(pageLimit)
+        );
+      }
     }
 
     const querySnapshot = await getDocs(bookQuery);
@@ -141,6 +189,10 @@ const BooksAndFilters = () => {
     localStorage.setItem("viewType", type);
   };
 
+  const search = () => {
+    getPublishedBooks();
+  };
+
   return (
     <>
       <section className={`${classes.overallbook}`}>
@@ -164,7 +216,11 @@ const BooksAndFilters = () => {
               {" "}
               Reset Filter
             </a> */}
-            <DropDownBook />
+            <DropDownBook
+              search={search}
+              selectedItem={selectedItem}
+              setSelectedItem={setSelectedItem}
+            />
           </div>
           <div className={`${classes.Bookshowcase}  col-md-9`}>
             <h1 className={`${classes.booksheading}`}>Books</h1>
@@ -204,11 +260,7 @@ const BooksAndFilters = () => {
               <p>No Data Found!!!</p>
             ) : viewType === "grid" ? (
               <div className={`${classes.bookitems} row`}>
-                {/* {books.map((book) => ( */}
-                {/* <div key={book.id}> */}
                 <BookItems books={books} />
-                {/* </div> */}
-                {/* ))} */}
               </div>
             ) : (
               <div className={`${classes.bookitems} row`}>

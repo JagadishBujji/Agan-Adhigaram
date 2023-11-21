@@ -71,7 +71,7 @@ const BookCard = ({ book }) => {
       <h2 className={classes.bookbigtitle}>{book.title}</h2>
       <p className={classes.namebookauthor}>{book.author}</p>
       <p className={classes.bookprice}>
-        ₹{book.discounted_price}
+        ₹{book.discount_price}
         <span className={classes.bookcancel}>₹{book.mrp_price}</span>
       </p>
     </div>

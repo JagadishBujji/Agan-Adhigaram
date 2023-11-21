@@ -37,7 +37,7 @@ const CheckOutSummary = ({ cartItems }) => {
         genre: item.genre,
         qty: item.qty,
         title: item.title,
-        item_price: item.discounted_price,
+        item_price: item.discount_price,
         total_price: item.total_price,
         book_format: item.book_format,
       };

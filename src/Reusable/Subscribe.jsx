@@ -13,7 +13,7 @@ const Subscribe = (props) => {
         </div>
         <div className={`${classes.sub2} col-md-6`}>
           <div className={classes.fromcontrol}>
-            <from>
+            <form>
               <input
                 type="email"
                 placeholder="Type your email here"
@@ -25,7 +25,7 @@ const Subscribe = (props) => {
                 alt=""
                 className={classes.circleElement}
               />
-            </from>
+            </form>
           </div>
         </div>
       </div>
