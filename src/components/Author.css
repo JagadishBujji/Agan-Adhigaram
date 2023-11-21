@@ -27,7 +27,7 @@
   height: 350px;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/Ida\ Bernice.jpg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Bhavya.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -80,7 +80,7 @@
 .authorcontent {
   max-height: 300px;
   overflow-y: scroll;
-  font-size: 14px;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
 }
 .authorcontent::-webkit-scrollbar {
@@ -165,7 +165,7 @@ p {
   height: 350px;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/Bhavya.jpg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Ida\ Bernice.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

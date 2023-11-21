@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DynamicCarouselStyle.css";
+import classes from "./values.module.css";
 
 const DynamicCarousel = () => {
   const [activeCarousel, setActiveCarousel] = useState(1);
@@ -93,12 +94,13 @@ const DynamicCarousel = () => {
 
   return (
     <>
+      <div className={classes.valuesheading}>
+        <h1 className={classes.valuetitle}>Gallery</h1>
+        <p className={classes.subtitle}>
+          Capturing our happiest book-making memories.
+        </p>
+      </div>
       <div className="overallcarosuel">
-        <div className="gallerycapturing">
-          <h1 id="gallery">Gallery</h1>
-          <p>Capturing our happiest book-making memories.</p>
-        </div>
-
         <div>{renderCarousel(activeCarousel)}</div>
         <div className="demo1">
           <img

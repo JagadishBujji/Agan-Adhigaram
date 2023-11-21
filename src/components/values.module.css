@@ -261,6 +261,13 @@
 
 /* Laptop */
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .firsthalf1 {
+    background-position: 10px 41px;
+  }
+  .Values {
+    background-position: 0px 71%;
+    height: 75rem;
+  }
 }
 
 /* Larger screens */

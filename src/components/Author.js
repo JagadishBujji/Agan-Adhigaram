@@ -24,26 +24,41 @@ const Author = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm">
-              <h1 className="vai">Ida Bernice</h1>
+              <h1 className="vai">Bhavya Desai</h1>
               <p>Illustrator</p>
               <div className="cardauthor">
                 <div className="card-content">
-                  <h6>Book: Vadai pochae</h6>
+                  <h6>Book: Kadai Veedhi Kala Kalakkum</h6>
                   <p className="authorcontent">
-                    A talented comic illustrator – she is the weaver of visual
-                    tales that come alive on the pages. When she is not giving
-                    life to characters and stories, you'll find her immersed in
-                    the world of handcrafted wonders. Her love for socializing
-                    and partying is infectious, a reminder that life is meant to
-                    be celebrated. Friends flock to her for a guaranteed good
-                    time, as her vibrant energy lights up any room she enters.
+                    Bhavya Desai is a Chennai-based Illustrator. He brings
+                    illustrations to life with dynamics that breathe humor into
+                    each stroke. His greatest muse is the world itself – every
+                    nook and cranny holds inspiration. People of all kinds come
+                    alive through his art, as he observes and documents them
+                    with the keen eye of a true artist, with a mischievous touch
+                    that ignites instant smiles. His creations are a burst of
+                    humor that lingers long after the first chuckle.
                     <p className="font">
-                      In a world where each passion fuels another, she brings a
-                      unique blend of creativity, sociability, and zest for
-                      life. So, here's to the illustrator, handcraft
-                      extraordinaire, social butterfly, cat whisperer, and
-                      globetrotter – a true embodiment of a life lived
-                      colourfully and passionately.
+                      But that's not where the magic ends. Each visit to his
+                      work is a treasure hunt, a journey that unveils new
+                      details with every glance. A man of action, he lives his
+                      art with a contagious passion. His creativity knows no
+                      limits, and his energy is boundless.
+                    </p>
+                    <p className="font">
+                      When he's not crafting masterpieces, you might find him on
+                      sketch crawls, where his imagination takes flight with a
+                      bunch of people. A true artist, he imparts his wisdom
+                      through workshops, sharing his knowledge of digital
+                      illustration with budding talents. Also, you can see his
+                      work colors the walls of significant places, infusing them
+                      with his trademark style.
+                    </p>
+                    <p className="font">
+                      From drawing everyday sketches of people to brewing a
+                      perfect cup of coffee, his skills are as diverse as they
+                      are impressive. His heart is large enough to embrace the
+                      world, as evident in his love for both cats and dogs.
                     </p>
                   </p>
                 </div>
@@ -103,41 +118,26 @@ const Author = () => {
               />
             </div>
             <div className="col-sm">
-              <h1 className="vai">Bhavya Desai</h1>
+              <h1 className="vai"> Ida Bernice</h1>
               <p>Illustrator</p>
               <div className="card2">
                 <div className="card-content">
-                  <h6>Book: Kadai Veedhi Kala Kalakkum</h6>
+                  <h6>Book: Vadai pochae </h6>
                   <p className="authorcontent">
-                    Bhavya Desai is a Chennai-based Illustrator. He brings
-                    illustrations to life with dynamics that breathe humor into
-                    each stroke. His greatest muse is the world itself – every
-                    nook and cranny holds inspiration. People of all kinds come
-                    alive through his art, as he observes and documents them
-                    with the keen eye of a true artist, with a mischievous touch
-                    that ignites instant smiles. His creations are a burst of
-                    humor that lingers long after the first chuckle.
+                    A talented comic illustrator – she is the weaver of visual
+                    tales that come alive on the pages. When she is not giving
+                    life to characters and stories, you'll find her immersed in
+                    the world of handcrafted wonders. Her love for socializing
+                    and partying is infectious, a reminder that life is meant to
+                    be celebrated. Friends flock to her for a guaranteed good
+                    time, as her vibrant energy lights up any room she enters.
                     <p className="font">
-                      But that's not where the magic ends. Each visit to his
-                      work is a treasure hunt, a journey that unveils new
-                      details with every glance. A man of action, he lives his
-                      art with a contagious passion. His creativity knows no
-                      limits, and his energy is boundless.
-                    </p>
-                    <p className="font">
-                      When he's not crafting masterpieces, you might find him on
-                      sketch crawls, where his imagination takes flight with a
-                      bunch of people. A true artist, he imparts his wisdom
-                      through workshops, sharing his knowledge of digital
-                      illustration with budding talents. Also, you can see his
-                      work colors the walls of significant places, infusing them
-                      with his trademark style.
-                    </p>
-                    <p className="font">
-                      From drawing everyday sketches of people to brewing a
-                      perfect cup of coffee, his skills are as diverse as they
-                      are impressive. His heart is large enough to embrace the
-                      world, as evident in his love for both cats and dogs.
+                      In a world where each passion fuels another, she brings a
+                      unique blend of creativity, sociability, and zest for
+                      life. So, here's to the illustrator, handcraft
+                      extraordinaire, social butterfly, cat whisperer, and
+                      globetrotter – a true embodiment of a life lived
+                      colourfully and passionately.
                     </p>
                   </p>
                 </div>
@@ -273,7 +273,7 @@ const Author = () => {
                       media sphere by storm, capturing hearts with their brevity
                       and power.
                     </p>
-                    <p className="font"> 
+                    <p className="font">
                       In essence, he is a constellation of talents, a guiding
                       star that inspires, entertains, educates, and connects.
                     </p>
