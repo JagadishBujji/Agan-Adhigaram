@@ -1,13 +1,45 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import classes from "./Subscribe.module.css";
 import { isValidEmail } from "../utils/validator";
+import { errorNotification, successNotification } from "../utils/notifications";
 
 const Subscribe = ({ circleimg, circle1 }) => {
   const [email, setEmail] = useState("");
 
   const subscribeToNewsletter = () => {
     const isValid = isValidEmail(email);
-    console.log("email: ", email, isValid);
+    if (isValid) {
+      const templateParams = {
+        from_name: "Agan-Adhigaram-Newsletter",
+        to_name: "Agan Adhigaram Newsletter",
+        message: `Newsletter email to be subscribed: ${email}`,
+        reply_to: "way2thinkqueries@gmail.com",
+      };
+      // console.log("email: ", email, isValid);
+      emailjs
+        .send(
+          "service_oqj0u95",
+          "template_vm0im08",
+          templateParams,
+          "D2kbT-B5keOM5qWXb"
+        )
+        .then(
+          function (response) {
+            // console.log("SUCCESS!", response.status, response.text);
+            successNotification(
+              "Thank you for registering newletter with us!!!"
+            );
+            setEmail("");
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        )
+        .catch((e) => console.log(e));
+    } else {
+      errorNotification("Invalid Email, please enter valid email address");
+    }
   };
 
   return (
