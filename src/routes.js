@@ -19,6 +19,7 @@ import { getUserById } from "./api/user";
 import { errorNotification } from "./utils/notifications";
 import { setCartItems } from "./store/cartSlice";
 import Loading from "./Reusable/Loading";
+import ContactUs from "./pages/ContactUs";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -100,6 +101,10 @@ export default function Router() {
             <AuthenticatedRoute element={<OrdersPage />} key="orders" />
             // <OrdersPage />
           ),
+        },
+        {
+          path: "contact-us",
+          element: <ContactUs />,
         },
       ],
     },

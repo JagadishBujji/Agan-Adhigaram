@@ -22,7 +22,7 @@ const BlogBackMove = (props) => {
           </a>
         </div>
 
-        <SideNav className={classes.side}/>
+        {/* <SideNav className={classes.side}/> */}
       </section>
     </>
   );

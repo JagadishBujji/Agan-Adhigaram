@@ -1,0 +1,10 @@
+.Contactus {
+    margin-top: 8%;
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .Contactus {
+      margin-top: 20%;
+    }
+  }
+  

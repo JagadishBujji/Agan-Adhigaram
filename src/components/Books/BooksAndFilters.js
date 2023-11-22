@@ -20,6 +20,7 @@ import { warningNotification } from "../../utils/notifications";
 
 import classes from "./BooksAndFilters.module.css";
 import DropDownBook from "../../Reusable/DropDownBook";
+import SideNav from "../../Reusable/SideNav";
 
 const BooksAndFilters = () => {
   const pageLimit = 10;
@@ -252,6 +253,12 @@ const BooksAndFilters = () => {
                   onClick={() => handleChangeViewType("list")}
                 />
                 {/* src="./images/ic_listVieworange.svg" */}
+                <SideNav
+                  className={classes.side}
+                  search={search}
+                  selectedItem={selectedItem}
+                  setSelectedItem={setSelectedItem}
+                />
               </div>
             </div>
             {books === null ? (

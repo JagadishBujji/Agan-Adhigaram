@@ -35,7 +35,7 @@
 .item.active {
   opacity: 1;
   z-index: 99;
-  box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 30px -35px rgba(0, 0, 0, 0.75);
 }
 
 .item.prev {
@@ -222,16 +222,16 @@
 
 @media (max-width: 768px) {
   .overallcarosuel {
-    margin-top: 20px;
-    margin-top: 50px;
+    margin-top: 65px;
     padding-bottom: 30px;
-    height: 50rem;
+    /* height: 52rem; */
     overflow: hidden;
-    margin-bottom: 29%;
+    margin-bottom: 16%;
+    background: #fff;
   }
   .items .item {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
   }
   .demo1 {
     display: none;
@@ -252,7 +252,7 @@
     color: #000;
   }
   .items {
-    top: 40%;
+    top: 23%;
   }
   .item.prev {
     transform: translate(-134%, 43%) scale(0.8);
@@ -261,7 +261,7 @@
     transform: translate(33%, 43%) scale(0.8);
   }
   .items .button-container {
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -20%);
     top: 50px !important;
   }
   #gallery {
