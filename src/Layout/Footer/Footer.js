@@ -60,8 +60,8 @@ const Footer = () => {
           </div>
           <div className={`${classes.links}`}>
             <a href="/">Home</a>
-            <a href="">Contact us</a>
-            <a href="">Books</a>
+            <a href="contact-us">Contact us</a>
+            <a href="books">Books</a>
             <a href="#aboutus">About us</a>
             <a href="blog">Blog</a>
           </div>
