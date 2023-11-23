@@ -12,17 +12,17 @@ const Subscribe = ({ circleimg, circle1 }) => {
     if (isValid) {
       const templateParams = {
         from_name: "Agan-Adhigaram-Newsletter",
-        to_name: "Agan Adhigaram Newsletter",
+        to_name: "Agan Adhigaram",
         message: `Newsletter email to be subscribed: ${email}`,
-        reply_to: "way2thinkqueries@gmail.com",
+        reply_to: "aganadhigaram@gmail.com",
       };
       // console.log("email: ", email, isValid);
       emailjs
         .send(
-          "service_oqj0u95",
-          "template_vm0im08",
+          "agan-adhigaram-gmail", //"service_oqj0u95",
+          "agan-adhigaram-template", // "template_vm0im08",
           templateParams,
-          "D2kbT-B5keOM5qWXb"
+          "X998DiJQe-3yW7KbL" // D2kbT-B5keOM5qWXb
         )
         .then(
           function (response) {
