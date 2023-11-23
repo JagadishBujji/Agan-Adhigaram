@@ -13,10 +13,10 @@ const DynamicCarousel = () => {
   };
 
   const images = [
-    "./images/gallery1.svg",
+    "./images/VPxSIMZ-18.jpg",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
-    "./images/i.jpeg",
+    "./images/I.png",
     "./images/vadai.jpeg",
     "./images/vadai2.jpeg",
     "./images/VPxSIMZ-3.jpg",

@@ -193,13 +193,17 @@ const ContactUsFrom = () => {
                       ></textarea>
                     </div>
                   </div>
-                  <div class="single-input-fieldsbtn">
-                    <input
+                  
+                    {/* <input
                       type="button"
                       value="Send Now"
+                      className="sendnow"
                       onClick={submitHandler}
-                    />
-                  </div>
+                    /> */}
+                    <button onClick={submitHandler} className="sendnow">
+                      Send Now
+                    </button>
+                  
                 </div>
               </div>
             </div>

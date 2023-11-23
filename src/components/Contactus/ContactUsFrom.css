@@ -66,14 +66,23 @@ input::placeholder {
   opacity: 1; /* Firefox */
 }
 
-.contant-details{
+.contant-details {
   margin-bottom: 5%;
 }
 
-.contactfrom{
+.contactfrom {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 20px;
   margin-bottom: 5%;
+}
+
+.sendnow {
+  background: #fda40b;
+  color: #000;
+  width: 25%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
 
 .contact-page-form input {
