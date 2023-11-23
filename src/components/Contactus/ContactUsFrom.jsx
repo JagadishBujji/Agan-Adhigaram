@@ -1,6 +1,86 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import {
+  isValidEmail,
+  isValidName,
+  isValidPhoneNumber,
+} from "../../utils/validator";
+import {
+  errorNotification,
+  successNotification,
+} from "../../utils/notifications";
 import "./ContactUsFrom.css";
 
 const ContactUsFrom = () => {
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const onChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setContact((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const submitHandler = () => {
+    if (!isValidName(contact.name)) {
+      errorNotification("Invalid Name");
+    } else if (!isValidEmail(contact.email)) {
+      errorNotification("Invalid Email");
+    } else if (!isValidPhoneNumber(contact.phone)) {
+      errorNotification("Invalid - Please enter 10 digit mobile number");
+    } else if (contact.subject === "") {
+      errorNotification("Invalid - Subject should not be empty");
+    } else if (contact.message === "") {
+      errorNotification("Invalid - Message should not be empty");
+    } else {
+      console.log("contact: ", contact);
+      const templateParams = {
+        from_name: "Agan-Adhigaram-Contactus",
+        to_name: "Agan Adhigaram",
+        reply_to: "aganadhigaram@gmail.com",
+        name: contact.name,
+        email: contact.email,
+        phone: contact.phone,
+        subject: contact.phone,
+        message: contact.message,
+      };
+      // console.log("email: ", email, isValid);
+      emailjs
+        .send(
+          "agan-adhigaram-gmail", //"service_oqj0u95",
+          "agan-adhigaram-contactus", // "template_vm0im08",
+          templateParams,
+          "X998DiJQe-3yW7KbL" // D2kbT-B5keOM5qWXb
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            successNotification(
+              "Thank you for registering newletter with us!!!"
+            );
+            setContact({
+              name: "",
+              email: "",
+              phone: "",
+              subject: "",
+              message: "",
+            });
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        )
+        .catch((e) => console.log(e));
+    }
+  };
+
   return (
     <>
       <section class="contact-page-sec">
@@ -53,58 +133,74 @@ const ContactUsFrom = () => {
             <div class="col-md-8">
               <div class="contact-page-form" method="post">
                 <h2>Get in Touch</h2>
-                <form action="contact-mail.php" method="post">
-                  <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="single-input-field">
-                        <input
-                          type="text"
-                          placeholder="Your Name"
-                          name="name"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="single-input-field">
-                        <input
-                          type="email"
-                          placeholder="E-mail"
-                          name="email"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="single-input-field">
-                        <input
-                          type="text"
-                          placeholder="Phone Number"
-                          name="phone"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                      <div class="single-input-field">
-                        <input
-                          type="text"
-                          placeholder="Subject"
-                          name="subject"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-md-12 message-input">
-                      <div class="single-input-field">
-                        <textarea
-                          placeholder="Write Your Message"
-                          name="message"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <div class="single-input-fieldsbtn">
-                      <input type="submit" value="Send Now" />
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-input-field">
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        name="name"
+                        onChange={onChangeHandler}
+                        value={contact.name}
+                        required
+                      />
                     </div>
                   </div>
-                </form>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-input-field">
+                      <input
+                        type="email"
+                        placeholder="E-mail"
+                        name="email"
+                        onChange={onChangeHandler}
+                        value={contact.email}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-input-field">
+                      <input
+                        type="text"
+                        placeholder="Phone Number"
+                        name="phone"
+                        onChange={onChangeHandler}
+                        value={contact.phone}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="single-input-field">
+                      <input
+                        type="text"
+                        placeholder="Subject"
+                        name="subject"
+                        onChange={onChangeHandler}
+                        value={contact.subject}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-12 message-input">
+                    <div class="single-input-field">
+                      <textarea
+                        placeholder="Write Your Message"
+                        name="message"
+                        onChange={onChangeHandler}
+                        value={contact.message}
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div class="single-input-fieldsbtn">
+                    <input
+                      type="button"
+                      value="Send Now"
+                      onClick={submitHandler}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-4">
