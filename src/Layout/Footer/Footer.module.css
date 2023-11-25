@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 .footerbg {
   background: url("../../../public/images/Footer.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+
+.footerbg_orange {
+  background: url("../../../public/images/Footerbg\ \(2\).svg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

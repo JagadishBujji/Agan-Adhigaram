@@ -1,9 +1,18 @@
+import { useLocation } from "react-router-dom";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  // console.log("path", pathname, pathname.includes("books"));
   return (
     <>
-      <div className={`${classes.footerbg} container-fluid`}>
+      <div
+        className={`${
+          pathname.includes("books")
+            ? classes.footerbg_orange
+            : classes.footerbg
+        } container-fluid`}
+      >
         <div className={`${classes.footercontent} container`}>
           <p className={`${classes.footerpara1}`}>
             With love, Ramya and Sethu Ram, Chief Believers and Founders,

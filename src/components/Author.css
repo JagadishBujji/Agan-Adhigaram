@@ -153,6 +153,27 @@ p {
   bottom: 50% !important; /* Slide the content up on hover */
 }
 
+.Addmore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Author {
+  background: #f19e38;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 30px;
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mushroom {
   width: 70%;
   height: auto;
@@ -546,10 +567,10 @@ p {
   .two {
     font-size: 14px;
   }
-  .font{
+  .font {
     font-size: 16px;
   }
-  .authorcontent{
+  .authorcontent {
     font-size: 16px;
   }
 }

@@ -26,14 +26,15 @@ const DynamicCarousel = () => {
   ];
   const prev = (current + 2) % 3;
   const next = (current + 1) % 3;
+  
   const goToPrev = () => {
     setCurrent(prev);
-    rotateImages();
+    // rotateImages();
   };
 
   const goToNext = () => {
     setCurrent(next);
-    rotateImages();
+    // rotateImages();
   };
   const rotateImages = () => {
     setImageSequence((prevSequence) => {

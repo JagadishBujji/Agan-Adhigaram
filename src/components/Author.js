@@ -28,7 +28,6 @@ const Author = () => {
               <p>Illustrator</p>
               <div className="cardauthor">
                 <div className="card-content">
-                  <h6>Book: Kadai Veedhi Kala Kalakkum</h6>
                   <p className="authorcontent">
                     Bhavya Desai is a Chennai-based Illustrator. He brings
                     illustrations to life with dynamics that breathe humor into
@@ -76,7 +75,6 @@ const Author = () => {
               <p>Illustrator</p>
               <div className="card1">
                 <div className="card-content">
-                  <h6>Book: I</h6>
                   <p className="authorcontent">
                     Beyond her role as a dedicated software developer in
                     Chennai, Steffi is a true artisan at heart. Her affair with
@@ -122,7 +120,6 @@ const Author = () => {
               <p>Illustrator</p>
               <div className="card2">
                 <div className="card-content">
-                  <h6>Book: Vadai pochae </h6>
                   <p className="authorcontent">
                     A talented comic illustrator – she is the weaver of visual
                     tales that come alive on the pages. When she is not giving
@@ -146,7 +143,7 @@ const Author = () => {
             <div className="col-sm">
               <img
                 className="flower2"
-                src="./images/flower2.svg"
+                src="./images/Flower2.svg"
                 alt="My Image"
               />
             </div>
@@ -284,7 +281,7 @@ const Author = () => {
             <div className="col-sm">
               <img
                 className="flower2"
-                src="./images/flower2.svg"
+                src="./images/Flower2.svg"
                 alt="My Image"
               />
             </div>
@@ -404,12 +401,17 @@ const Author = () => {
             <div className="col-sm">
               <img
                 className="flower2"
-                src="./images/flower2.svg"
+                src="./images/Flower2.svg"
                 alt="My Image"
               />
             </div>
           </div>
         </div>
+      </div>
+      <div className="Addmore">
+        <a href="author-illustrator" className="Author">
+          More.......
+        </a>
       </div>
     </>
   );
