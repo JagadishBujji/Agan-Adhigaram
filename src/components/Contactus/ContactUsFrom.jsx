@@ -48,7 +48,7 @@ const ContactUsFrom = () => {
         name: contact.name,
         email: contact.email,
         phone: contact.phone,
-        subject: contact.phone,
+        subject: contact.subject,
         message: contact.message,
       };
       // console.log("email: ", email, isValid);
