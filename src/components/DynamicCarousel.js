@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DynamicCarouselStyle.css";
 import classes from "./values.module.css";
 
 const DynamicCarousel = () => {
-  const [activeCarousel, setActiveCarousel] = useState(1);
+  const [activeCarousel, setActiveCarousel] = useState("awards");
   const [current, setCurrent] = useState(0);
-  const [imageSequence, setImageSequence] = useState([0, 1, 2]);
 
   const handleCarouselChange = (carouselNumber) => {
     setActiveCarousel(carouselNumber);
+    setCurrent(0);
   };
 
-  const images = [
+  const awards = [
     "./images/VPxSIMZ-18.jpg",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
@@ -22,70 +22,81 @@ const DynamicCarousel = () => {
     "./images/VPxSIMZ-3.jpg",
     "./images/ibook.png",
     "./images/gallery3.svg",
-    "",
+    "./images/gallery3.svg",
   ];
-  const prev = (current + 2) % 3;
-  const next = (current + 1) % 3;
-  
+
+  const events = [
+    "./images/I.png",
+    "./images/gallery3.svg",
+    "./images/gallery2.svg",
+    "./images/gallery3.svg",
+    "./images/vadai.jpeg",
+    "./images/vadai2.jpeg",
+    "./images/VPxSIMZ-3.jpg",
+    "./images/VPxSIMZ-18.jpg",
+    "./images/ibook.png",
+    "./images/gallery3.svg",
+  ];
+
+  const books = [
+    "./images/vadai.jpeg",
+    "./images/VPxSIMZ-18.jpg",
+    "./images/gallery2.svg",
+    "./images/gallery3.svg",
+    "./images/I.png",
+    "./images/vadai2.jpeg",
+    "./images/VPxSIMZ-3.jpg",
+    "./images/ibook.png",
+    "./images/gallery3.svg",
+    "./images/gallery3.svg",
+  ];
+  const prev = (current - 1 + awards.length) % awards.length;
+  const next = (current + 1) % awards.length;
+
   const goToPrev = () => {
     setCurrent(prev);
-    // rotateImages();
   };
 
   const goToNext = () => {
     setCurrent(next);
-    // rotateImages();
-  };
-  const rotateImages = () => {
-    setImageSequence((prevSequence) => {
-      const newSequence = [prevSequence[1], prevSequence[2], prevSequence[0]];
-      return newSequence;
-    });
   };
 
-  const renderCarousel = (carouselNumber) => {
-    let startIndex, endIndex;
-    let carouselInterval = null;
+  const renderCarousel = (type) => {
+    let ui = null;
+    let imagesArray = [];
 
-    if (carouselNumber === 1) {
-      startIndex = 0;
-      endIndex = startIndex + 3;
-
-      carouselInterval = 5000;
+    if (type === "awards") {
+      imagesArray = awards;
+    } else if (type === "events") {
+      imagesArray = events;
     } else {
-      startIndex = (carouselNumber - 1) * 3;
-      endIndex = startIndex + 3;
+      imagesArray = books;
     }
 
-    const slicedImages = images.slice(
-      startIndex,
-      Math.min(endIndex, images.length)
-    );
+    const prevIndex = (current - 1 + imagesArray.length) % imagesArray.length;
+    const nextIndex = (current + 1) % imagesArray.length;
+
+    ui = imagesArray.map((image, index) => (
+      <div
+        key={index}
+        className={`item ${index === current ? "active" : ""} ${
+          index === prevIndex ? "prev" : ""
+        } ${index === nextIndex ? "next" : ""} `}
+      >
+        <img src={image} className="d-block " alt={image} />
+      </div>
+    ));
 
     return (
       <>
         <div className="items">
-          {slicedImages.map((image, index) => (
-            <div
-              key={index}
-              className={`item ${index === current ? "active" : ""} ${
-                index === prev ? "prev" : ""
-              } ${index === next ? "next" : ""} `}
-            >
-              <img
-                src={image}
-                className="d-block "
-                alt={`Image ${startIndex + index + 1}`}
-              />
-            </div>
-          ))}
-
+          {ui}
           <div className="button-container">
             <div className="button" onClick={goToNext}>
-              <i class="fa-solid fa-angle-left left"></i>
+              <i className="fa-solid fa-angle-left left"></i>
             </div>
             <div className="button" onClick={goToPrev}>
-              <i class="fa-solid fa-angle-right righticon"></i>
+              <i className="fa-solid fa-angle-right righticon"></i>
             </div>
           </div>
         </div>
@@ -105,21 +116,24 @@ const DynamicCarousel = () => {
         <div>{renderCarousel(activeCarousel)}</div>
         <div className="demo1">
           <img
-            onClick={() => handleCarouselChange(1)}
+            onClick={() => handleCarouselChange("awards")}
             src="/images/Awards.svg"
             className="gallery"
+            alt="awards"
           />
 
           <img
-            onClick={() => handleCarouselChange(2)}
+            onClick={() => handleCarouselChange("events")}
             src="/images/Events.svg"
             className="gallery"
+            alt="events"
           />
 
           <img
-            onClick={() => handleCarouselChange(3)}
+            onClick={() => handleCarouselChange("books")}
             src="/images/Books.svg"
             className="gallery"
+            alt="books"
           />
         </div>
         <a href="" className="Grap">
