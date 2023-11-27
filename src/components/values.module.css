@@ -283,10 +283,11 @@
 /* Larger screens */
 @media only screen and (min-width: 1440px) {
   .valuesheading {
-    padding-top: 7rem;
+    padding-top: 0rem;
   }
   .Values {
-    height: 95rem;
+    height: 75rem;
+    background-position: 0 -550px;
   }
   .valuessubcontent1 {
     font-size: 16px;
