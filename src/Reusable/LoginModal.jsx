@@ -24,6 +24,7 @@ import { auth } from "../services/firebase";
 import { getUserById } from "../api/user";
 import { useDispatch } from "react-redux";
 import { login } from "../store/userSlice";
+import SignupModal from "./SignupModal";
 
 const style = {
   position: "absolute",
@@ -213,6 +214,10 @@ export default function LoginModal() {
           <Button sx={loginbtn} onClick={handleLogin}>
             Login
           </Button>
+          
+             <SignupModal />
+             
+            
         </Box>
       </Modal>
     </div>

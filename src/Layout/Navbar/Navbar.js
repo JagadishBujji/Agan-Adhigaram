@@ -206,7 +206,7 @@ function Navbar(props) {
               ) : (
                 <>
                   <LoginModal />
-                  <SignupModal />
+                  
                 </>
               )}
             </div>
