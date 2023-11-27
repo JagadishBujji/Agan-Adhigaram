@@ -47,18 +47,19 @@ const style = {
 };
 
 const signup = {
-  background: "#f19e38",
-  color: "#fff",
-  fontsize: "14px",
+  // background: "#f19e38",
+  color: "#f19e38",
+  marginTop:"5px",
+  fontSize: "9px",
   fontweight: 800,
   fontfamily: "'Poppins', sans-serif",
-  "&:hover": {
-    background: "#f19e38",
-    color: "#fff",
-    fontsize: "14px",
-    fontweight: 500,
-    fontfamily: "'Poppins', sans-serif",
-  },
+  // "&:hover": {
+  //   // background: "#f19e38",
+  //   color: "#fff",
+  //   fontsize: "14px",
+  //   fontweight: 500,
+  //   fontfamily: "'Poppins', sans-serif",
+  // },
 };
 
 const Signupbtn = {
@@ -171,7 +172,7 @@ export default function SignupModal() {
   return (
     <div>
       <Button onClick={handleOpen} sx={signup}>
-        Sign up
+        Need new Account? Sign up
       </Button>
       <Modal
         open={open}
@@ -312,7 +313,7 @@ export default function SignupModal() {
             </Grid>
           </Grid>
           <Button sx={Signupbtn} onClick={handleSignUP}>
-            Sign up
+         Sign up
           </Button>
         </Box>
       </Modal>
