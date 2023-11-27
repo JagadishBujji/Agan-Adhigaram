@@ -15,28 +15,44 @@ const Home = () => {
       <section>
         <div className={classes.socialfixed}>
           <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
-            <img src="/images/Instagram.svg" alt="" className={classes.insta} />
+            <img
+              src="/images/Black Insta.svg"
+              alt=""
+              className={classes.insta}
+            />
           </a>
           <a href=" https://www.facebook.com/Aganadhigaram" target="_blank">
-            <img src="/images/facebook.svg" alt="" className={classes.insta} />
+            <img
+              src="/images/Black Facebook.svg"
+              alt=""
+              className={classes.insta}
+            />
           </a>
           <a
             href=" https://www.linkedin.com/in/agan-adhigaram-7b6911292/"
             target="_blank"
           >
-            <img src="/images/linkedin.svg" alt="" className={classes.insta} />
+            <img
+              src="/images/Black linkedin.svg"
+              alt=""
+              className={classes.insta}
+            />
           </a>
           <a href="https://twitter.com/AganAdhigaram" target="_blank">
             {" "}
-            <img src="/images/X.svg" alt="" className={classes.insta} />
+            <img src="/images/Black X.svg" alt="" className={classes.insta} />
           </a>
           <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank">
             {" "}
-            <img src="/images/youtube.svg" alt="" className={classes.insta} />
+            <img
+              src="/images/Black youtube.svg"
+              alt=""
+              className={classes.insta}
+            />
           </a>
         </div>
         <Hero />
-        <Aboutus  />
+        <Aboutus />
         <Welcome />
         <Values />
         <DynamicCarousel />

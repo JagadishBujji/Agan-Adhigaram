@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 .bookitems {
   margin-top: 50px;
   padding: 0 50px;
@@ -101,6 +103,7 @@
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .cartshopping1 {
@@ -115,6 +118,7 @@
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .count {
@@ -140,13 +144,14 @@
     bottom: 40px;
     font-size: 12px;
   }
-  .cartshopping1{
+  .cartshopping1 {
     bottom: 41px;
   }
   .heart {
     font-size: 12px;
     bottom: 40px;
     left: 35px;
+    font-family: "Poppins", sans-serif;
   }
 
   .items {

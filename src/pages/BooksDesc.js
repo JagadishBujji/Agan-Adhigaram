@@ -13,13 +13,12 @@ const BooksDesc = () => {
   let { state } = useLocation();
   const [book, setBook] = useState(null);
   const { id } = useParams();
-  // console.log("book in books desc: ", state, id);
+  console.log("book in books desc: ", state, id);
 
   useEffect(() => {
     const fetchData = async () => {
       const docRef = doc(db, "books", id);
       const docSnap = await getDoc(docRef);
-      console.log("fetchData");
       if (docSnap.exists()) {
         setBook(docSnap.data()); //use State
       } else {
@@ -31,7 +30,7 @@ const BooksDesc = () => {
     } else {
       fetchData();
     }
-  }, []);
+  }, [id, state]);
 
   return (
     <>

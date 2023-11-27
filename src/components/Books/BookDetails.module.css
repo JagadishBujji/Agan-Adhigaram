@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
 .titlebook {
   display: flex;
   justify-content: flex-start;
@@ -36,6 +38,7 @@
   border-radius: 0px 10px 10px 0px;
   height: inherit;
   text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
 }
 
 .details2 li {
@@ -50,8 +53,10 @@
 @media only screen and (max-width: 767px) {
   .bookdetailhalf {
     margin-bottom: 10%;
+    font-family: "Poppins", sans-serif;
   }
   .details2 li {
     padding: 19px 45px;
+    font-family: "Poppins", sans-serif;
   }
 }

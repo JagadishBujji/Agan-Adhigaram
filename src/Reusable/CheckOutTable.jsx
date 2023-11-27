@@ -39,7 +39,7 @@ const CheckOutTable = ({ cartItems }) => {
               ></i>
             </div>
             {/* <p className={classes.tableheadrow2}>{item.qty}</p> */}
-            <p className={classes.tableheadrow3}>₹ {item.discounted_price}</p>
+            <p className={classes.tableheadrow3}>₹ {item.discount_price}</p>
             <p className={classes.tableheadrow4}>₹ {item.total_price}</p>
           </div>
         ))}

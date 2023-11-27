@@ -16,8 +16,8 @@ export const cartSlice = createSlice({
         const updatedNewItem = {
           ...newItem,
           qty: 1,
-          discounted_price: newItem.discounted_price || newItem.item_price, // from orders page
-          total_price: newItem.discounted_price || newItem.item_price, // item_price - from orders page
+          discount_price: newItem.discount_price || newItem.item_price, // from orders page
+          total_price: newItem.discount_price || newItem.item_price, // item_price - from orders page
         };
         state.cartItems.push(updatedNewItem);
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
@@ -38,7 +38,7 @@ export const cartSlice = createSlice({
       if (index !== -1) {
         state.cartItems[index].qty += 1;
         state.cartItems[index].total_price =
-          state.cartItems[index].qty * state.cartItems[index].discounted_price;
+          state.cartItems[index].qty * state.cartItems[index].discount_price;
 
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       }
@@ -64,8 +64,7 @@ export const cartSlice = createSlice({
           // };
           state.cartItems[index].qty -= 1;
           state.cartItems[index].total_price =
-            state.cartItems[index].qty *
-            state.cartItems[index].discounted_price;
+            state.cartItems[index].qty * state.cartItems[index].discount_price;
         }
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       }

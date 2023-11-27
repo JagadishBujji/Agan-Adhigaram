@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DynamicCarouselStyle.css";
+import classes from "./values.module.css";
 
 const DynamicCarousel = () => {
   const [activeCarousel, setActiveCarousel] = useState(1);
@@ -12,27 +13,28 @@ const DynamicCarousel = () => {
   };
 
   const images = [
-    "./images/gallery1.svg",
+    "./images/VPxSIMZ-18.jpg",
     "./images/gallery2.svg",
     "./images/gallery3.svg",
-    "./images/gallery1.svg",
-    "./images/gallery2.svg",
-    "./images/gallery3.svg",
-    "./images/gallery1.svg",
-    "./images/gallery2.svg",
+    "./images/I.png",
+    "./images/vadai.jpeg",
+    "./images/vadai2.jpeg",
+    "./images/VPxSIMZ-3.jpg",
+    "./images/ibook.png",
     "./images/gallery3.svg",
     "",
   ];
   const prev = (current + 2) % 3;
   const next = (current + 1) % 3;
+  
   const goToPrev = () => {
     setCurrent(prev);
-    rotateImages();
+    // rotateImages();
   };
 
   const goToNext = () => {
     setCurrent(next);
-    rotateImages();
+    // rotateImages();
   };
   const rotateImages = () => {
     setImageSequence((prevSequence) => {
@@ -93,29 +95,30 @@ const DynamicCarousel = () => {
 
   return (
     <>
+      <div className={classes.valuesheading}>
+        <h1 className={classes.valuetitle}>Gallery</h1>
+        <p className={classes.subtitle}>
+          Capturing our happiest book-making memories.
+        </p>
+      </div>
       <div className="overallcarosuel">
-        <div className="gallerycapturing">
-          <h1 id="gallery">Gallery</h1>
-          <p>Capturing our happiest book-making memories.</p>
-        </div>
-
         <div>{renderCarousel(activeCarousel)}</div>
         <div className="demo1">
           <img
             onClick={() => handleCarouselChange(1)}
-            src="/images/awards.jpg"
+            src="/images/Awards.svg"
             className="gallery"
           />
 
           <img
             onClick={() => handleCarouselChange(2)}
-            src="/images/events.jpg"
+            src="/images/Events.svg"
             className="gallery"
           />
 
           <img
             onClick={() => handleCarouselChange(3)}
-            src="/images/books.jpg"
+            src="/images/Books.svg"
             className="gallery"
           />
         </div>

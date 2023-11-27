@@ -12,7 +12,7 @@ const Books = () => {
       <div className={classes.booksmain}>
         <BlogBackMove move="Books" />
         <BooksAndFilters />
-        <BookViewMore />
+        {/* <BookViewMore /> */}
         <Testimonials />
         <BestQuality
           quick="./images/Quick.svg"

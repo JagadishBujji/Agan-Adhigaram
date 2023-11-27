@@ -127,7 +127,7 @@
 /* Media query for small screens */
 @media screen and (max-height: 767px) {
   .sidenav {
-    padding-top: 15px;
+    padding-top: 80px;
   }
   .sidenav a {
     font-size: 18px;
@@ -138,6 +138,10 @@
     color: #f19e38;
     padding: 0 20px;
   }
+  .open{
+    width: 320px;
+  }
+
 }
 
 /* Tablet */

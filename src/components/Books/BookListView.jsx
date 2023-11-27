@@ -71,7 +71,7 @@ const BookListView = ({ book }) => {
             </Link>
           </div>
           <div className={`${classes.list3} col-md-3`}>
-            <p className={classes.amount}>₹{book.discounted_price}</p>
+            <p className={classes.amount}>₹{book.discount_price}</p>
             <div className={classes.amountstrickout}>
               <p className={classes.strickout}>₹{book.mrp_price}</p>
               <p className={classes.percentage}>{book.discount_percentage}%</p>

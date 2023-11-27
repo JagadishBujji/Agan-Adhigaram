@@ -1,11 +1,52 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import classes from "./Subscribe.module.css";
+import { isValidEmail } from "../utils/validator";
+import { errorNotification, successNotification } from "../utils/notifications";
 
-const Subscribe = (props) => {
+const Subscribe = ({ circleimg, circle1 }) => {
+  const [email, setEmail] = useState("");
+
+  const subscribeToNewsletter = () => {
+    const isValid = isValidEmail(email);
+    if (isValid) {
+      const templateParams = {
+        from_name: "Agan-Adhigaram-Newsletter",
+        to_name: "Agan Adhigaram",
+        message: `Newsletter email to be subscribed: ${email}`,
+        reply_to: "aganadhigaram@gmail.com",
+      };
+      // console.log("email: ", email, isValid);
+      emailjs
+        .send(
+          "agan-adhigaram-gmail", //"service_oqj0u95",
+          "agan-adhigaram-template", // "template_vm0im08",
+          templateParams,
+          "X998DiJQe-3yW7KbL" // D2kbT-B5keOM5qWXb
+        )
+        .then(
+          function (response) {
+            // console.log("SUCCESS!", response.status, response.text);
+            successNotification(
+              "Thank you for registering newletter with us!!!"
+            );
+            setEmail("");
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        )
+        .catch((e) => console.log(e));
+    } else {
+      errorNotification("Invalid Email, please enter valid email address");
+    }
+  };
+
   return (
     <>
       <div className={`${classes.Subscribe} row container-fluid m-auto`}>
         <div className={`${classes.sub1} col-md-6`}>
-          <img src={props.circleimg} alt="" className={classes.circleimg} />
+          <img src={circleimg} alt="circleimg" className={classes.circleimg} />
           <h2 className={classes.newsletter}>
             Subscribe our newsletter
             <br /> for newest books updates
@@ -13,19 +54,21 @@ const Subscribe = (props) => {
         </div>
         <div className={`${classes.sub2} col-md-6`}>
           <div className={classes.fromcontrol}>
-            <from>
-              <input
-                type="email"
-                placeholder="Type your email here"
-                className={classes.emailinput}
-              />
-              <button className={classes.submit}>Subscribe</button>
-              <img
-                src={props.circle1}
-                alt=""
-                className={classes.circleElement}
-              />
-            </from>
+            <input
+              type="email"
+              placeholder="Type your email here"
+              className={classes.emailinput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button className={classes.submit} onClick={subscribeToNewsletter}>
+              Subscribe
+            </button>
+            <img
+              src={circle1}
+              alt="circle1"
+              className={classes.circleElement}
+            />
           </div>
         </div>
       </div>

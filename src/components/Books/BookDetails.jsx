@@ -1,12 +1,12 @@
 import RelatedBooks from "../../Reusable/RelatedBooks";
 import classes from "./BookDetails.module.css";
 
-const BookDetails = ({book}) => {
+const BookDetails = ({ book }) => {
   // console.log("inside bookdesc view", book.images[1]);
-  const options = { 
-    day: '2-digit', 
-    month: '2-digit', 
-    year: 'numeric' 
+  const options = {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
   };
   return (
     <>
@@ -29,10 +29,15 @@ const BookDetails = ({book}) => {
               <ul className={classes.details2}>
                 <li>{book.title}</li>
                 <li>{book.author}</li>
-                <li> {book.illustrator}</li>
+                <li>{book.illustrator}</li>
                 <li>{book.language}</li>
-                <li> {book.book_format}</li>
-                <li>{new Date(book.date_published).toLocaleString('en-IN',options)}</li>
+                <li>{book.book_format}</li>
+                <li>
+                  {new Date(book.date_published).toLocaleString(
+                    "en-IN",
+                    options
+                  )}
+                </li>
                 <li>{book.publisher}</li>
                 <li>{book.pages}</li>
                 <li>{book.reading_age}</li>
@@ -40,7 +45,9 @@ const BookDetails = ({book}) => {
             </div>
           </div>
           <div className={`${classes.bookdetailcard} col-md-3`}>
-            <RelatedBooks />
+            {book?.related_books && (
+              <RelatedBooks relatedBooks={book?.related_books} />
+            )}
           </div>
         </div>
       </section>
