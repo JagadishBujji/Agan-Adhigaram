@@ -76,10 +76,11 @@ function Welcome() {
           </div>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             <img
-              src="./images/fox.svg"
+              src="./images/Nari-2.gif"
               alt="heroimg1"
               className={classes.fox}
             />
+            
           </div>
         </div>
       </div>

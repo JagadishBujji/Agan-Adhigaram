@@ -190,9 +190,13 @@
 }
 
 .fox {
-  max-width: 50%;
+  /* max-width: 50%; */
   /* margin: auto; */
-  padding-top: 30%;
+  /* padding-top: 30%; */
+  max-width: 100%;
+  width: 100%;
+  /* margin: auto; */
+  padding-top: 5%;
 }
 
 .welcomecolumn1 {
@@ -455,7 +459,7 @@
   .fox {
     max-width: 100%;
     /* margin: auto; */
-    width: 60%;
+    width: 100%;
     padding-top: 20%;
   }
 }

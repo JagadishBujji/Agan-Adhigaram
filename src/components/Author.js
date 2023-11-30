@@ -410,7 +410,7 @@ const Author = () => {
       </div>
       <div className="Addmore">
         <a href="author-illustrator" className="Author">
-          More.......
+          View More
         </a>
       </div>
     </>
