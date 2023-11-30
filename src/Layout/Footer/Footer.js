@@ -16,7 +16,9 @@ const Footer = () => {
         <div className={`${classes.footercontent} container`}>
           <p className={`${classes.footerpara1}`}>
             With love, Ramya and Sethu Ram, Chief Believers and Founders,
-            <br /> Agan Adhigaram®
+            <br /> Agan Adhigaram® <a href="">Terms and Condition</a>{" "}
+            <span className={`${classes.and}`}>and</span>
+            <a href="">Privacy Policy</a>
           </p>
           <div className={`${classes.socialmedia}`}>
             <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
@@ -74,6 +76,7 @@ const Footer = () => {
             <a href="#aboutus">About us</a>
             <a href="blog">Blog</a>
           </div>
+
           <p className={classes.copyright}>
             copyright @Agan Adhigaram®.All rights reserved.
           </p>

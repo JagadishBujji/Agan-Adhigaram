@@ -288,7 +288,7 @@ const Author = () => {
           </div>
           <div className="row">
             <div className="col-sm">
-              <h1 className="vai">Niranjan</h1>
+              <h1 className="Niranjan">Niranjan</h1>
               <p>Ilustrator</p>
               <div className="card8 niranjan">
                 <div className="card-content">
@@ -410,7 +410,7 @@ const Author = () => {
       </div>
       <div className="Addmore">
         <a href="author-illustrator" className="Author">
-          View More
+          See More
         </a>
       </div>
     </>

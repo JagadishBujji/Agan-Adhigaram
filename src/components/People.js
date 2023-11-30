@@ -3,6 +3,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "./People.css";
+import { Avatar } from "@mui/material";
 
 const People = () => {
   const options = {
@@ -23,7 +24,7 @@ const People = () => {
       "<img  src='./images/Arrow - Left Circle.svg'>",
       "<img  src='./images/Arrow - Right Circle.svg'>",
     ],
-    outerWidth: 100
+    outerWidth: 100,
   };
 
   return (
@@ -55,9 +56,9 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt=""  /> */}
+              <Avatar sx={{ mr: 1 }}>T</Avatar>
               <p>The Hindu</p>
-             
             </div>
           </article>
 
@@ -73,12 +74,12 @@ const People = () => {
               </p>
             </div>
             <div className="name peopelcard">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>A</Avatar>
               <div className="nameofpeople">
                 <p>Ms. Asmitha,</p>
                 <p>Entrepreneur and a mother of 2 years old, Chennai </p>
               </div>
-             
             </div>
           </article>
 
@@ -96,12 +97,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>K</Avatar>
               <div className="nameofpeople">
                 <p>Ms. Karen, Nathan,</p>
                 <p>Blogger and kids book reviewer, Chennai . </p>
               </div>
-             
             </div>
           </article>
 
@@ -118,12 +119,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>S</Avatar>
               <div className="nameofpeople">
                 <p>Ms. Suganya kumar,</p>
                 <p>Mother, Doctor and Entrepreneur. </p>
               </div>
-             
             </div>
           </article>
           <article class="card peopelcard">
@@ -138,12 +139,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>C</Avatar>
               <div className="nameofpeople">
                 <p>Chittu kuruvi books,</p>
                 <p>Bookstore, Canada</p>
               </div>
-             
             </div>
           </article>
           <article class="card peopelcard">
@@ -159,12 +160,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>V</Avatar>
               <div className="nameofpeople">
                 <p> Ms. Vanitha,</p>
                 <p>Author, Vaaranam books, Australia</p>
               </div>
-             
             </div>
           </article>
           <article class="card peopelcard">
@@ -180,12 +181,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>N</Avatar>
               <div className="nameofpeople">
                 <p> Ms. Nangai,</p>
                 <p>Mother of 2.5 years old, Belgium</p>
               </div>
-             
             </div>
           </article>
           <article class="card peopelcard">
@@ -203,12 +204,12 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>S</Avatar>
               <div className="nameofpeople">
                 <p> Mr. Silambaran,</p>
                 <p>Father of 3 years old, Chennai</p>
               </div>
-             
             </div>
           </article>
           <article class="card peopelcard">
@@ -226,7 +227,8 @@ const People = () => {
               </p>
             </div>
             <div className="name">
-              <img src="./images/avatar.svg" alt="" className="avatar" />
+              {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
+              <Avatar sx={{ mr: 1 }}>N</Avatar>
               <div className="nameofpeople">
                 <p> Ms. Nivedha,</p>
                 <p>Doctor and mother, Ranipet</p>

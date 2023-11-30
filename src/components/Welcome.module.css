@@ -182,7 +182,7 @@
 }
 
 .subcontentvision {
-  font-size: 22px;
+  font-size: 18px;
   color: #000;
   font-weight: 500;
   font-family: "Poppins", sans-serif;
@@ -238,7 +238,7 @@
 }
 
 .subcontentvisionfox {
-  font-size: 22px;
+  font-size: 18px;
   color: #000;
   /* font-weight: 500; */
   text-align: end;
@@ -249,14 +249,15 @@
 /* Mobile */
 @media only screen and (max-width: 767px) {
   .overallmission {
-    background-image: url("../../public/images/mobilebg.svg");
+    background-image: url("../../public/images/fottermobileview2.svg");
     /* width: 100%; */
     background-position: center;
     background-size: cover;
     height: 60rem;
   }
   .welcomecolumn {
-    margin-top: 10% !important;
+    margin-top: 0% !important;
+    /* margin-top: 10% !important; */
   }
 
   /* .welcome {
@@ -332,6 +333,7 @@
     font-size: 16px;
     padding: 5px;
     font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
   }
 
   .welcomevisiontitle {
@@ -340,7 +342,7 @@
   }
 
   .subcontentvision {
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Poppins", sans-serif;
   }
   .welcomemissionfox {
@@ -353,12 +355,14 @@
     font-family: "Poppins", sans-serif;
   }
   .subcontentvisionfox {
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Poppins", sans-serif;
     text-align: center;
   }
   .welcomecolumn2fox {
-    margin-top: 20% !important;
+    margin-top: 14% !important;
+    /* margin-top: 0% !important; */
+
     align-items: center;
     margin: auto;
   }

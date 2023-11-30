@@ -50,10 +50,14 @@ function Welcome() {
               We envision a future{" "}
             </h4>
             <p className={`${classes.subcontentvision}`}>
-              where children grow up with a deep appreciation for the world
-              around them and the limitless possibilities it holds. Also, our
-              vision is to create captivating stories that celebrate diversity,
-              promote inclusivity, and ignite curiosity.
+              We envision a vibrant space with our interactive books in Tamil to
+              redefine the early learning landscape. Through our innovative
+              picture books, we playfully carry forward the tales that shaped
+              our ancestors' childhoods. Our vision is to seamlessly narrate
+              these stories to suit the preferences of the new generation by
+              providing a unique social connection for the exploration of
+              heritage, language, and tradition in an engaging and memorable
+              way.
             </p>
           </div>
         </div>
@@ -67,11 +71,12 @@ function Welcome() {
               The love for learning{" "}
             </h4>
             <p className={`${classes.subcontentvisionfox}`}>
-              begins from the womb. We believe that a child's first interactions
-              with the world are precious opportunities for growth and
-              exploration. By providing interactive board books that engage
-              young minds and encourage curiosity, we aim to nurture the
-              foundation of lifelong
+              The love for learning begins in the womb. We believe that a
+              child's first interactions with books are precious opportunities
+              for growth and exploration. Central to our mission is the creation
+              of a unique familial bond through our books, fostering moments of
+              connection, joy, and shared exploration within the loving embrace
+              of storytelling.
             </p>
           </div>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
@@ -80,7 +85,6 @@ function Welcome() {
               alt="heroimg1"
               className={classes.fox}
             />
-            
           </div>
         </div>
       </div>

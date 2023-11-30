@@ -273,7 +273,7 @@ p {
   height: 350px;
   position: relative;
   overflow: hidden;
-  background-image: url("../../public/images/rama.svg"); /* Replace with your image URL */
+  background-image: url("../../public/images/Niranjan.jpg"); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -538,6 +538,9 @@ p {
   .mushroom,
   .hidden-on-mobile {
     display: none;
+  }
+  .Author {
+    width: 30%;
   }
 
   /* .card,
