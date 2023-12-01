@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+    margin-bottom: 60px; 
+    font-weight: 500;
+    /* color:rgb(58, 56, 56); */
+    
+}
+.container{
+    margin-top:130px;
+    font-family: poppins;
+}
+h4{
+    margin-bottom: 15px;
+    color:#f19e38;  
+}
+p{
+    text-align: justify;
+    margin-bottom: 25px;
+    font-size: 15px
+}
+

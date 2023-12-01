@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from "./Footer.module.css";
 
 const Footer = () => {
@@ -16,9 +16,10 @@ const Footer = () => {
         <div className={`${classes.footercontent} container`}>
           <p className={`${classes.footerpara1}`}>
             With love, Ramya and Sethu Ram, Chief Believers and Founders,
-            <br /> Agan Adhigaram® <a href="">Terms and Condition</a>{" "}
+            <br /> Agan Adhigaram® <a href="terms-and-condition">Terms and Condition</a>{" "}
             <span className={`${classes.and}`}>and</span>
-            <a href="">Privacy Policy</a>
+            <a href="privacy-policy">Privacy Policy</a> 
+            {/* <Link to="/privacy-policy">Privacy Policy</Link> */}
           </p>
           <div className={`${classes.socialmedia}`}>
             <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">

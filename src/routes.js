@@ -20,6 +20,9 @@ import { errorNotification } from "./utils/notifications";
 import { setCartItems } from "./store/cartSlice";
 import Loading from "./Reusable/Loading";
 import ContactUs from "./pages/ContactUs";
+import PrivacyPolicy from "./Layout/Footer/PrivacyPolicy";
+import TeamsCondition from "./Layout/Footer/TeamsCondition";
+
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -105,6 +108,14 @@ export default function Router() {
         {
           path: "contact-us",
           element: <ContactUs />,
+        },
+        {
+          path:"privacy-policy",
+          element:<PrivacyPolicy />,
+        },
+        {
+          path:"terms-and-condition",
+          element:<TeamsCondition />,
         },
       ],
     },
