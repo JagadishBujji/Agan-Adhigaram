@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Author.css";
+import { useLocation, useParams } from "react-router-dom";
 
 const Author = () => {
+  const location = useLocation();
+  let seeMore;
+
   return (
     <>
+      {(seeMore = location.pathname === "/author-illustrator" ? true : false)}
+      {console.log("from author", location.pathname)}
       <div className="author-overall">
         <div>
           <span>
@@ -14,7 +20,7 @@ const Author = () => {
             />
           </span>
 
-          <h1 className="one">Authors and Illustrators</h1>
+          <h1 className="one">Creators </h1>
         </div>
         <p className="two">
           Meet the magic-makers behind our children's stories
@@ -222,7 +228,11 @@ const Author = () => {
               </div>{" "}
             </div>
           </div>
-          <div className="row">
+
+          {/* remaining authors - it will show only in authors page, not in main page*/}
+          { seeMore && 
+                <>
+                     <div className="row">
             <div className="col-sm">
               <img
                 className="flower1"
@@ -405,7 +415,9 @@ const Author = () => {
                 alt="My Image"
               />
             </div>
-          </div>
+          </div></>
+        }
+          {/* end of remaining authors */}
         </div>
       </div>
       <div className="Addmore">

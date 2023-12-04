@@ -43,7 +43,7 @@ function Aboutus() {
             <br /> Agan Adhigaram publications.
           </p>
           <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
-          <p className={classes.name1}>Sethuram</p>
+          <p className={classes.name1}>Sethu Ram</p>
         </div>
         <div className={`${classes.person2} col-md-6`}>
           <p className={classes.name2}> Ramya</p>

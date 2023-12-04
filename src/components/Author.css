@@ -58,6 +58,8 @@
   transition: opacity 0.3s ease; /* Smoothly show/hide the gradient overlay */
 }
 
+
+
 .cardauthor:hover::before {
   opacity: 1; /* Show the gradient overlay on hover */
 }
@@ -73,6 +75,7 @@
   transition: bottom 0.3s ease; /* Smoothly slide the content up on hover */
 }
 
+
 .cardauthor:hover .card-content {
   bottom: 50% !important; /* Slide the content up on hover */
 }
@@ -82,6 +85,7 @@
   overflow-y: scroll;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
+
 }
 .authorcontent::-webkit-scrollbar {
   display: none;
@@ -530,6 +534,7 @@ p {
   text-align: center;
   width: 100%;
 }
+
 
 @media (max-width: 768px) {
   .flower1,

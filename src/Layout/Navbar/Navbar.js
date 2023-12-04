@@ -100,7 +100,7 @@ function Navbar(props) {
                   data-bs-toggle=""
                   aria-expanded="false"
                 >
-                  Authors and Illustrators
+                  Creators
                 </a>
               </li>
               <li className="nav-item dropdown">

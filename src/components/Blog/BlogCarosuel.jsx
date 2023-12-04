@@ -64,7 +64,7 @@ const BlogCarosuel = () => {
                 and illustrated Tamil children’s stories of all time, it is now
                 available as an interactive boardbook.Agan Adhigaram, a
                 publishing startup by Chengalpattu-based husband-and-wife duo
-                Ramya Karthikeyan and D Sethuram, has brought out this story
+                Ramya Karthikeyan and D Sethu Ram, has brought out this story
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
@@ -102,7 +102,7 @@ const BlogCarosuel = () => {
                 and illustrated Tamil children’s stories of all time, it is now
                 available as an interactive boardbook.Agan Adhigaram, a
                 publishing startup by Chengalpattu-based husband-and-wife duo
-                Ramya Karthikeyan and D Sethuram, has brought out this story
+                Ramya Karthikeyan and D Sethu ram, has brought out this story
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
@@ -140,7 +140,7 @@ const BlogCarosuel = () => {
                 and illustrated Tamil children’s stories of all time, it is now
                 available as an interactive boardbook.Agan Adhigaram, a
                 publishing startup by Chengalpattu-based husband-and-wife duo
-                Ramya Karthikeyan and D Sethuram, has brought out this story
+                Ramya Karthikeyan and D Sethu Ram, has brought out this story
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>
@@ -178,7 +178,7 @@ const BlogCarosuel = () => {
                 and illustrated Tamil children’s stories of all time, it is now
                 available as an interactive boardbook.Agan Adhigaram, a
                 publishing startup by Chengalpattu-based husband-and-wife duo
-                Ramya Karthikeyan and D Sethuram, has brought out this story
+                Ramya Karthikeyan and D Sethu Ram, has brought out this story
                 with push, pull, and slide mechanisms aimed at helping little
                 fingers develop the pincer grasp.{" "}
               </p>

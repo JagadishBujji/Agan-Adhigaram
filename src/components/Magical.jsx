@@ -26,7 +26,8 @@ const Magical = () => {
         their imaginative worlds, where adventure, mystery, and wonder await.
       </p>
       <div className={classes.overallexpolre}>
-        <button className={classes.explorebtn}>
+     <a href="/books">
+     <button className={classes.explorebtn} >
           Explore Now
           <span className={classes.arrowouter}>
             <img
@@ -36,6 +37,7 @@ const Magical = () => {
             />
           </span>{" "}
         </button>
+     </a>
       </div>
       <div className={classes.bookimg}>
         <img src="./images/book.svg" alt="heroimg1" className={classes.Book} />

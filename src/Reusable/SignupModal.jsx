@@ -50,7 +50,7 @@ const signup = {
   // background: "#f19e38",
   color: "#f19e38",
   marginTop:"5px",
-  fontSize: "9px",
+  fontSize: "12px",
   fontweight: 800,
   fontfamily: "'Poppins', sans-serif",
   // "&:hover": {
@@ -171,8 +171,8 @@ export default function SignupModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen} sx={signup}>
-        Need new Account? Sign up
+      <Button onClick={handleOpen} sx={signup}  >
+      Create New Account? 
       </Button>
       <Modal
         open={open}

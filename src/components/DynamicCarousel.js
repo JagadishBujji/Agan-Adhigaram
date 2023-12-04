@@ -82,6 +82,7 @@ const DynamicCarousel = () => {
         className={`item ${index === current ? "active" : ""} ${
           index === prevIndex ? "prev" : ""
         } ${index === nextIndex ? "next" : ""} `}
+        id="gallery" 
       >
         <img src={image} className="d-block " alt={image} />
       </div>
@@ -89,9 +90,9 @@ const DynamicCarousel = () => {
 
     return (
       <>
-        <div className="items">
+        <div className="items" >
           {ui}
-          <div className="button-container">
+          <div className="button-container" >
             <div className="button" onClick={goToNext}>
               <i className="fa-solid fa-angle-left left"></i>
             </div>
@@ -136,7 +137,7 @@ const DynamicCarousel = () => {
             alt="books"
           />
         </div>
-        <a href="" className="Grap">
+        <a href="/books" className="Grap">
           Grab Yours
         </a>
       </div>
