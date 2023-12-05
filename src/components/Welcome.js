@@ -17,10 +17,13 @@ function Welcome() {
               />
               Welcome to Agan Adhigaram®
             </h3>
-            <p className={`${classes.subcontent}`}>
+            <p className={`${classes.subcontent}`} style={{textAlign:"justify"}}>
               We craft books like toys that they can play with. When a book
+              <br />
               becomes a toy, it transforms learning into a joyful experience.
+              <br />
               Children engage with the stories, flipping pages with excitement,
+              <br />
               and in doing so, they're not just reading; they're playing.
             </p>
             <span>
