@@ -230,193 +230,212 @@ const Author = () => {
           </div>
 
           {/* remaining authors - it will show only in authors page, not in main page*/}
-          { seeMore && 
-                <>
-                     <div className="row">
-            <div className="col-sm">
-              <img
-                className="flower1"
-                src="./images/flower1.svg"
-                alt="My Image"
-              />
-            </div>
-            <div className="col-sm">
-              <h1 className="vai">Madurai Ramakrishnan</h1>
-              <p>Author</p>
-              <div className="card2 rama">
-                <div className="card-content">
-                  <p className="authorcontent">
-                    Madurai Rama krishanan is a motivational speaker, who
-                    possesses the rare gift of igniting flames of inspiration
-                    within hearts by his Tamil proficiency. His words are not
-                    just spoken; they're life-affirming sparks that set minds on
-                    fire with determination and purpose.
-                    <p className="font">
-                      A writer and lyricist, he crafts verses that transcend
-                      language, touching souls with their depth and resonance.
-                      His pen dances across pages, weaving stories that capture
-                      the essence of life's myriad emotions.
-                    </p>
-                    <p className="font">
-                      In the realm of guidance, he steps in as a life counselor,
-                      extending a compassionate hand to those in need. His
-                      wisdom becomes a guiding light for those navigating
-                      through the challenges of life.
-                    </p>
-                    <p className="font">
-                      A Tamil researcher, he dives deep into the richness of the
-                      language, unearthing treasures that connect past, present,
-                      and future. His dedication to preserving and understanding
-                      Tamil culture is commendable.
-                    </p>
-                    <p className="font">
-                      Venturing into the world of entertainment, he's also a VJ
-                      – a charismatic host who infuses shows with his energy and
-                      charm, connecting with audiences and leaving a lasting
-                      impression.
-                    </p>
-                    <p className="font">
-                      His collection of one-minute stories has taken the social
-                      media sphere by storm, capturing hearts with their brevity
-                      and power.
-                    </p>
-                    <p className="font">
-                      In essence, he is a constellation of talents, a guiding
-                      star that inspires, entertains, educates, and connects.
-                    </p>
-                  </p>
+          {seeMore && (
+            <>
+              <div className="row">
+                <div className="col-sm">
+                  <img
+                    className="flower1"
+                    src="./images/flower1.svg"
+                    alt="My Image"
+                  />
                 </div>
-              </div>{" "}
-            </div>
-            <div className="col-sm">
-              <img
-                className="flower2"
-                src="./images/Flower2.svg"
-                alt="My Image"
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm">
-              <h1 className="Niranjan">Niranjan</h1>
-              <p>Ilustrator</p>
-              <div className="card8 niranjan">
-                <div className="card-content">
-                  <p className="authorcontent">
-                    This is some card content that will overflow when
-                    hovered.This is some card content that will overflow when
-                    hovered.This is some card content that will overflow when
-                    hovered.This is some card content that will overflow when
-                    hovered.This is some card content that will overflow when
-                    hovered.This is some card content that will overflow when
-                    hovered.
-                  </p>
+                <div className="col-sm">
+                  <h1 className="vai">Madurai Ramakrishnan</h1>
+                  <p>Author</p>
+                  <div className="card2 rama">
+                    <div className="card-content">
+                      <p className="authorcontent">
+                        Madurai Rama krishanan is a motivational speaker, who
+                        possesses the rare gift of igniting flames of
+                        inspiration within hearts by his Tamil proficiency. His
+                        words are not just spoken; they're life-affirming sparks
+                        that set minds on fire with determination and purpose.
+                        <p className="font">
+                          A writer and lyricist, he crafts verses that transcend
+                          language, touching souls with their depth and
+                          resonance. His pen dances across pages, weaving
+                          stories that capture the essence of life's myriad
+                          emotions.
+                        </p>
+                        <p className="font">
+                          In the realm of guidance, he steps in as a life
+                          counselor, extending a compassionate hand to those in
+                          need. His wisdom becomes a guiding light for those
+                          navigating through the challenges of life.
+                        </p>
+                        <p className="font">
+                          A Tamil researcher, he dives deep into the richness of
+                          the language, unearthing treasures that connect past,
+                          present, and future. His dedication to preserving and
+                          understanding Tamil culture is commendable.
+                        </p>
+                        <p className="font">
+                          Venturing into the world of entertainment, he's also a
+                          VJ – a charismatic host who infuses shows with his
+                          energy and charm, connecting with audiences and
+                          leaving a lasting impression.
+                        </p>
+                        <p className="font">
+                          His collection of one-minute stories has taken the
+                          social media sphere by storm, capturing hearts with
+                          their brevity and power.
+                        </p>
+                        <p className="font">
+                          In essence, he is a constellation of talents, a
+                          guiding star that inspires, entertains, educates, and
+                          connects.
+                        </p>
+                      </p>
+                    </div>
+                  </div>{" "}
+                </div>
+                <div className="col-sm">
+                  <img
+                    className="flower2"
+                    src="./images/Flower2.svg"
+                    alt="My Image"
+                  />
                 </div>
               </div>
-            </div>
-            <div className="col-sm">
-              <img
-                className="flower3"
-                src="./images/flower3.svg"
-                alt="My Image"
-              />
-            </div>
-            <div className="col-sm">
-              <h1 className="vai">Vaishali</h1>
-              <p>Author</p>
-              <div className="card6 vaishali">
-                <div className="card-content">
-                  <p className="authorcontent">
-                    Vaishali BK is a children’s book author and teacher,
-                    crafting stories that ignite young imaginations and sow
-                    seeds of inspiration. She is also a beacon of positive
-                    discipline, guiding parents with wisdom and strategies that
-                    build strong, loving connections within families.
-                    <p className="font">
-                      Her passion for fostering a love of reading shines through
-                      her workshops, where she empowers parents with insights on
-                      raising avid readers and fostering a world of imagination
-                      and knowledge. Adding to her arsenal of skills, she's an
-                      Assistant in the Montessori community, instilling the
-                      principles of self-directed learning and holistic
-                      development in the young hearts she guides
-                    </p>
-                    <p className="font">
-                      A lover of plants, she understands the beauty of nurturing
-                      growth, whether it's in the minds of children or the
-                      foliage in her care. She shares her insights, inspiring
-                      change and empowerment through her words on the social
-                      media platforms.
-                    </p>
-                    <p className="font">
-                      With every role she takes on, she paints a picture of
-                      dedication, compassion, and empowerment, leaving a lasting
-                      impact on the lives she touches.
-                    </p>
-                  </p>
+              <div className="row">
+                <div className="col-sm">
+                  <h1 className="Niranjan">Niranjan</h1>
+                  <p>Ilustrator</p>
+                  <div className="card8 niranjan">
+                    <div className="card-content">
+                      <p className="authorcontent">
+                        Niranjan is a master of fine arts hailing from the
+                        picturesque town of Mayiladuthurai, Tamil Nadu. With a
+                        profound passion for the arts, he has crafted a colorful
+                        portfolio that reflects his creative brilliance and a
+                        deep connection to his roots.
+                        <p className="font">
+                          Specializing in illustrative works, he has beautifully
+                          adorned Tamil rhymes on YouTube by Poo Pattu, bringing
+                          joy to young audiences with his native touch. His
+                          ability to bring stories to life with vibrant visuals
+                          adds joy to the world of children's entertainment.
+                        </p>
+                        <p className="font">
+                          Beyond his artistic endeavors, Niranjan is
+                          characterized by his humility, kindness and unwavering
+                          dedication to the work he takes on. Passionately
+                          engaged in every project, he strives to create not
+                          just art but experiences that leave a lasting
+                          impression. In his leisure time, he loves to read
+                          books and play games with his squad.
+                        </p>
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>{" "}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm">
-              <img
-                className="flower1"
-                src="./images/flower1.svg"
-                alt="My Image"
-              />
-            </div>
-            <div className="col-sm">
-              <h1 className="vai">Gowthami Maruthupandian</h1>
-              <p>Illustrator</p>
-              <div className="card9 Gowthami">
-                <div className="card-content">
-                  <p className="authorcontent">
-                    Gowthami is a talented multi-style illustrator and Graphic
-                    Designer lives in Australia. From a young age, her curiosity
-                    and keen artistic eye paved the way for a journey filled
-                    with creativity and innovation.
-                    <p className="font">
-                      Having honed her skills as a freelancer for several years,
-                      she has now taken her passion to new heights. As the proud
-                      owner of "Vivids and Pastels," a design studio that
-                      specializes in children's book illustrations, branding,
-                      and graphic design, she has carved a niche for herself in
-                      the world of visual artistry.
-                    </p>
-                    <p className="font">
-                      Her dedication to thinking outside the box and presenting
-                      ideas in a vividly creative manner is nothing short of
-                      inspiring.
-                    </p>
-                    <p className="font">
-                      Whether you're seeking fresh ideas to bring your dream
-                      brand to life, looking to rebrand with a creative touch,
-                      or yearning to infuse your stories with captivating
-                      illustrations, Gowthami is the creative wizard you've been
-                      searching for. She will transform your ideas into vibrant
-                      realities and make vision breathe life with her magic
-                      touch.
-                    </p>
-                    <p className="font">
-                      Her dreams are like the colors on her palette, each one
-                      adding depth and vibrancy to her life. With eyes that see
-                      beyond the horizon, she envisions worlds yet to be
-                      discovered.
-                    </p>
-                  </p>
+                <div className="col-sm">
+                  <img
+                    className="flower3"
+                    src="./images/flower3.svg"
+                    alt="My Image"
+                  />
                 </div>
-              </div>{" "}
-            </div>
-            <div className="col-sm">
-              <img
-                className="flower2"
-                src="./images/Flower2.svg"
-                alt="My Image"
-              />
-            </div>
-          </div></>
-        }
+                <div className="col-sm">
+                  <h1 className="vai">Vaishali</h1>
+                  <p>Author</p>
+                  <div className="card6 vaishali">
+                    <div className="card-content">
+                      <p className="authorcontent">
+                        Vaishali BK is a children’s book author and teacher,
+                        crafting stories that ignite young imaginations and sow
+                        seeds of inspiration. She is also a beacon of positive
+                        discipline, guiding parents with wisdom and strategies
+                        that build strong, loving connections within families.
+                        <p className="font">
+                          Her passion for fostering a love of reading shines
+                          through her workshops, where she empowers parents with
+                          insights on raising avid readers and fostering a world
+                          of imagination and knowledge. Adding to her arsenal of
+                          skills, she's an Assistant in the Montessori
+                          community, instilling the principles of self-directed
+                          learning and holistic development in the young hearts
+                          she guides
+                        </p>
+                        <p className="font">
+                          A lover of plants, she understands the beauty of
+                          nurturing growth, whether it's in the minds of
+                          children or the foliage in her care. She shares her
+                          insights, inspiring change and empowerment through her
+                          words on the social media platforms.
+                        </p>
+                        <p className="font">
+                          With every role she takes on, she paints a picture of
+                          dedication, compassion, and empowerment, leaving a
+                          lasting impact on the lives she touches.
+                        </p>
+                      </p>
+                    </div>
+                  </div>{" "}
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm">
+                  <img
+                    className="flower1"
+                    src="./images/flower1.svg"
+                    alt="My Image"
+                  />
+                </div>
+                <div className="col-sm">
+                  <h1 className="vai">Gowthami Maruthupandian</h1>
+                  <p>Illustrator</p>
+                  <div className="card9 Gowthami">
+                    <div className="card-content">
+                      <p className="authorcontent">
+                        Gowthami is a talented multi-style illustrator and
+                        Graphic Designer lives in Australia. From a young age,
+                        her curiosity and keen artistic eye paved the way for a
+                        journey filled with creativity and innovation.
+                        <p className="font">
+                          Having honed her skills as a freelancer for several
+                          years, she has now taken her passion to new heights.
+                          As the proud owner of "Vivids and Pastels," a design
+                          studio that specializes in children's book
+                          illustrations, branding, and graphic design, she has
+                          carved a niche for herself in the world of visual
+                          artistry.
+                        </p>
+                        <p className="font">
+                          Her dedication to thinking outside the box and
+                          presenting ideas in a vividly creative manner is
+                          nothing short of inspiring.
+                        </p>
+                        <p className="font">
+                          Whether you're seeking fresh ideas to bring your dream
+                          brand to life, looking to rebrand with a creative
+                          touch, or yearning to infuse your stories with
+                          captivating illustrations, Gowthami is the creative
+                          wizard you've been searching for. She will transform
+                          your ideas into vibrant realities and make vision
+                          breathe life with her magic touch.
+                        </p>
+                        <p className="font">
+                          Her dreams are like the colors on her palette, each
+                          one adding depth and vibrancy to her life. With eyes
+                          that see beyond the horizon, she envisions worlds yet
+                          to be discovered.
+                        </p>
+                      </p>
+                    </div>
+                  </div>{" "}
+                </div>
+                <div className="col-sm">
+                  <img
+                    className="flower2"
+                    src="./images/Flower2.svg"
+                    alt="My Image"
+                  />
+                </div>
+              </div>
+            </>
+          )}
           {/* end of remaining authors */}
         </div>
       </div>
