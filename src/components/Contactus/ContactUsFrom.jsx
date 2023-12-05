@@ -94,8 +94,11 @@ const ContactUsFrom = () => {
                   </div>
                   <div class="contact-info-text">
                     <h2>address</h2>
-                    <span>1215 Lorem Ipsum, Ch 176080 </span>
-                    <span>Chandigarh , INDIA</span>
+                    <span>
+                      Agan Adhigaram publishing house, No. 35, Gandhi salai,
+                      Chengalpattu – 603002,
+                    </span>
+                    <span>Tamil Nadu</span>
                   </div>
                 </div>
               </div>
@@ -108,8 +111,8 @@ const ContactUsFrom = () => {
                   </div>
                   <div class="contact-info-text">
                     <h2>E-mail</h2>
-                    <span>info@LoremIpsum.com</span>
-                    <span>yourmail@gmail.com</span>
+                    <span>books@aganadhigaram.com</span>
+                    <span>aganadhigaram@gmail.com</span>
                   </div>
                 </div>
               </div>
@@ -122,8 +125,7 @@ const ContactUsFrom = () => {
                   </div>
                   <div class="contact-info-text">
                     <h2>Phone Number</h2>
-                    <span>+91 1234567890</span>
-                    <span>+91 1234567890</span>
+                    <span>+91 9363123828</span>
                   </div>
                 </div>
               </div>

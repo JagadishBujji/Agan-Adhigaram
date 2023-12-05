@@ -9,8 +9,8 @@ const Testimonials = () => {
         <div className={`${classes.testcontant} col-md-6`}>
           <h3 className={classes.Testtitle}>Testimonials</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua
+            Our Readers love us! See what they're saying about their experiences
+            with our products and services.
           </p>
           <GroupAvatars />
         </div>

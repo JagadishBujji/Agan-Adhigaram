@@ -4,8 +4,8 @@ import "./PrivacyPolicy.css";
 const PrivacyPolicy = () => {
   return (
     <div>
-      <Container maxWidth="md" className="container">
-        <h1>Privacy Policy</h1>
+      <Container maxWidth="md" className="privacy">
+        <h1 className="pri">Privacy Policy</h1>
         <h4>Privacy Policy</h4>
         <p>
           The website www.aganadhigaram .com ("Website") is owned and operated
@@ -80,13 +80,32 @@ const PrivacyPolicy = () => {
           your passwords and/or any account information.{" "}
         </p>
         <h4>Hyperlinks</h4>
-        <p>The Website provides links to other websites (“Sites”), which are not in our control. Users acknowledge that Agan Adhigaram Publishing house® does not endorse these Sites (even if they pop up in a frame) or any links contained in them. In addition, we are not responsible for any content or the privacy policies of these Sites, or for any data collected on you by them.</p>
+        <p>
+          The Website provides links to other websites (“Sites”), which are not
+          in our control. Users acknowledge that Agan Adhigaram Publishing
+          house® does not endorse these Sites (even if they pop up in a frame)
+          or any links contained in them. In addition, we are not responsible
+          for any content or the privacy policies of these Sites, or for any
+          data collected on you by them.
+        </p>
 
         <h4>Governing Law</h4>
-        <p>This Agreement has been executed and delivered in India, and its interpretations, validity and performance shall be construed and enforced in accordance with the laws of India, and shall be subject to the jurisdiction of the High Court in Chennai.</p>
+        <p>
+          This Agreement has been executed and delivered in India, and its
+          interpretations, validity and performance shall be construed and
+          enforced in accordance with the laws of India, and shall be subject to
+          the jurisdiction of the High Court in Chennai.
+        </p>
 
         <h4>Disclaimer</h4>
-        <p>Users’ access to the Website is at their own risk. This Website is provided by Agan Adhigaram Publishing house® on an "as is" and "as available" basis. To the full extent permissible by applicable law, cyber site disclaims all warranties, express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose and non-infringement.</p>
+        <p>
+          Users’ access to the Website is at their own risk. This Website is
+          provided by Agan Adhigaram Publishing house® on an "as is" and "as
+          available" basis. To the full extent permissible by applicable law,
+          cyber site disclaims all warranties, express or implied, including,
+          but not limited to, implied warranties of merchantability, fitness for
+          a particular purpose and non-infringement.
+        </p>
       </Container>
     </div>
   );

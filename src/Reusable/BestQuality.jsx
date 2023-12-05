@@ -16,8 +16,8 @@ const BestQuality = (props) => {
             />
             <h3 className={classes.titlebest}>Quick Delivery</h3>
             <p className={classes.contentbest}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Discover joyful reading with our fast and reliable delivery
+              services, bringing convenience to your doorstep.
             </p>
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
@@ -31,8 +31,8 @@ const BestQuality = (props) => {
             />
             <h3 className={classes.titlebest}>Secure Payment</h3>
             <p className={classes.contentbest}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Shop with confidence, knowing your transactions are safeguarded
+              with our secure and encrypted payment system.
             </p>
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
@@ -46,13 +46,14 @@ const BestQuality = (props) => {
             />
             <h3 className={classes.titlebest}>Best Quality</h3>
             <p className={classes.contentbest}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Experience excellence with our commitment to delivering the finest
+              quality products.
             </p>
           </div>
           <div className={`${classes.bestquailty1} col-md-3 col-lg-3`}>
             <img
-              src={ // "./images/return.svg"
+              src={
+                // "./images/return.svg"
                 props.Return
               }
               alt=""
@@ -60,8 +61,8 @@ const BestQuality = (props) => {
             />
             <h3 className={classes.titlebest}>Return Guarantee</h3>
             <p className={classes.contentbest}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Shop risk-free with our hassle-free return guarantee, ensuring
+              your satisfaction is our top priority.
             </p>
           </div>
         </div>

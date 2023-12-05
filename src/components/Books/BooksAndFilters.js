@@ -226,9 +226,7 @@ const BooksAndFilters = () => {
           <div className={`${classes.Bookshowcase}  col-md-9`}>
             <h1 className={`${classes.booksheading}`}>Books</h1>
             <div className={`${classes.Bookshowcaseheading}`}>
-              <p className={classes.interpara}>
-                interactive books with push, pull and slide mechanisms !
-              </p>
+              <p className={classes.interpara}>Gift the joy of Reading!</p>
               <div className={`${classes.filtersbooks}`}>
                 <BasicSelect
                   value={sort}

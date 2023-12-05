@@ -39,7 +39,7 @@ function Aboutus() {
             className={classes.dragon}
           />
           <p className={classes.sethuram}>
-            Sethu Ram is a first employee and co-founder of
+            Sethu Ram is a Creative director and co-founder of
             <br /> Agan Adhigaram publications.
           </p>
           <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
@@ -58,10 +58,9 @@ function Aboutus() {
             className={classes.boy}
           />
           <p className={classes.ramya}>
-            Ramya is the chief believer and co-founder of
+            Ramya is the Publishing director and co-founder of
             <br />
             Agan Adhigaram publications.
-            
           </p>
         </div>
       </div>
