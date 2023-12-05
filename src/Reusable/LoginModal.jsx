@@ -154,6 +154,35 @@ export default function LoginModal() {
           <Typography id="modal-modal-title" variant="h4" component="h2">
             Login
           </Typography>
+          <Stack
+            direction="row"
+            justifyContent="space-around"
+            alignItems="center"
+            mb={2}
+          >
+            <a
+              href="https://www.facebook.com/"
+              className="facebooklink"
+              target="_blank"
+            >
+              <img src="./images/facebook.png" alt="" className="facebook" />
+            </a>
+            <a
+              href="https://accounts.google.com/v3/signin/identifier?hl=en-gb&ifkv=ASKXGp2RgVfjRJrNXC3fG72rtTTUc_MMfXlYJvdK3nF-TsiIdpmnApC7DGyHyja_uF0xuFnmQzrw&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S688583639%3A1701781129051920&theme=glif"
+              className="facebooklink"
+              target="_blank"
+            >
+              <img src="./images/google.png" alt="" className="facebook" />
+            </a>
+            <a
+              href="https://www.icloud.com/?s=Iseo"
+              className="facebooklink"
+              target="_blank"
+            >
+              <img src="./images/apple.png" alt="" className="facebook" />
+            </a>
+          </Stack>
+          <p className="or">Or</p>
           <Grid container>
             <Grid md={12} xs={12}>
               <TextField
@@ -214,10 +243,8 @@ export default function LoginModal() {
           <Button sx={loginbtn} onClick={handleLogin}>
             Login
           </Button>
-          
-             <SignupModal />
-             
-            
+
+          <SignupModal />
         </Box>
       </Modal>
     </div>

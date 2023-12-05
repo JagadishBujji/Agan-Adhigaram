@@ -49,7 +49,7 @@ const style = {
 const signup = {
   // background: "#f19e38",
   color: "#f19e38",
-  marginTop:"5px",
+  marginTop: "5px",
   fontSize: "12px",
   fontweight: 800,
   fontfamily: "'Poppins', sans-serif",
@@ -171,8 +171,8 @@ export default function SignupModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen} sx={signup}  >
-      Create New Account? 
+      <Button onClick={handleOpen} sx={signup}>
+        Create New Account?
       </Button>
       <Modal
         open={open}
@@ -313,7 +313,7 @@ export default function SignupModal() {
             </Grid>
           </Grid>
           <Button sx={Signupbtn} onClick={handleSignUP}>
-         Sign up
+            Sign up
           </Button>
         </Box>
       </Modal>

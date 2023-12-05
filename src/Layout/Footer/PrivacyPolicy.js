@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
     <div>
       <Container maxWidth="md" className="privacy">
         <h1 className="pri">Privacy Policy</h1>
-        <h4>Privacy Policy</h4>
+        <h4 className="poi">Privacy Policy</h4>
         <p>
           The website www.aganadhigaram .com ("Website") is owned and operated
           by Agan Adhigaram Publishing house®. We are aware that
@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
           this Policy. Agan Adhigaram Publishing house® may revise the Policy at
           any time without notice to anyone.
         </p>
-        <h4>Sign-up</h4>
+        <h4 className="poi">Sign-up</h4>
         <p>
           In order to shop on the Website, you could sign in as a Guest user. Or
           you could create an account by completing the registration process,
@@ -36,7 +36,7 @@ const PrivacyPolicy = () => {
           electronic newsletters at any time by following the instructions
           contained at the end of every newsletter.
         </p>
-        <h4>Information collected</h4>
+        <h4 className="poi">Information collected</h4>
         <p>
           The Website collects personally identifiable information about you
           only during the Sign-up process: your name, email address, mailing
@@ -45,7 +45,7 @@ const PrivacyPolicy = () => {
           when personal information may be shared with third parties, and will
           be able to prevent the sharing of this information.
         </p>
-        <h4>Use of information collected</h4>
+        <h4 className="poi">Use of information collected</h4>
         <p>
           The Website uses information for two general purposes: 1) to provide
           better service to users and ensure on-time deliveries of orders and 2)
@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
           information under law or litigation, for national security or law
           enforcement, or for other issues of public importance.
         </p>
-        <h4>Protection of Information</h4>
+        <h4 className="poi">Protection of Information</h4>
         <p>
           We use a secure server that encrypts all information you put in when
           sending it to us. This server is kept in a protected environment and
@@ -79,7 +79,7 @@ const PrivacyPolicy = () => {
           in mind that you are solely responsible for maintaining the secrecy of
           your passwords and/or any account information.{" "}
         </p>
-        <h4>Hyperlinks</h4>
+        <h4 className="poi">Hyperlinks</h4>
         <p>
           The Website provides links to other websites (“Sites”), which are not
           in our control. Users acknowledge that Agan Adhigaram Publishing
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
           data collected on you by them.
         </p>
 
-        <h4>Governing Law</h4>
+        <h4 className="poi">Governing Law</h4>
         <p>
           This Agreement has been executed and delivered in India, and its
           interpretations, validity and performance shall be construed and
@@ -97,7 +97,7 @@ const PrivacyPolicy = () => {
           the jurisdiction of the High Court in Chennai.
         </p>
 
-        <h4>Disclaimer</h4>
+        <h4 className="poi">Disclaimer</h4>
         <p>
           Users’ access to the Website is at their own risk. This Website is
           provided by Agan Adhigaram Publishing house® on an "as is" and "as

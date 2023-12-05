@@ -17,7 +17,7 @@ function Welcome() {
               />
               Welcome to Agan Adhigaram®
             </h3>
-            <p className={`${classes.subcontent}`} style={{textAlign:"justify"}}>
+            <p className={`${classes.subcontent}`} style={{textAlign:"center"}}>
               We craft books like toys that they can play with. When a book
               <br />
               becomes a toy, it transforms learning into a joyful experience.
