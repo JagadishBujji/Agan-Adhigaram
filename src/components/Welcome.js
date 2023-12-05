@@ -18,13 +18,10 @@ function Welcome() {
               Welcome to Agan Adhigaram®
             </h3>
             <p className={`${classes.subcontent}`}>
-              your gateway to a world of captivating imagination and joyful
-              learning in children's
-              <br /> lives. Our journey began with a shared vision: to create a
-              world where every child
-              <br /> embarks on a joyful learning journey from the earliest
-              moments, while fostering a<br />
-              balanced relationship with technology.
+              We craft books like toys that they can play with. When a book
+              becomes a toy, it transforms learning into a joyful experience.
+              Children engage with the stories, flipping pages with excitement,
+              and in doing so, they're not just reading; they're playing.
             </p>
             <span>
               <img

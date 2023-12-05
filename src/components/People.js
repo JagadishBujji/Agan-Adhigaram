@@ -63,7 +63,7 @@ const People = () => {
               <p>The Hindu</p>
              </div>
              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
            
           </article>
@@ -90,7 +90,7 @@ const People = () => {
               </div>
               </div>
               {/* <br /> */}
-              <Rating name="read-only" value={5} readOnly style={{color:"black"}} />
+              <Rating name="read-only" value={5} readOnly style={{color:"white"}} />
             </div>
             
             
@@ -118,7 +118,7 @@ const People = () => {
                 <p>Blogger and kids book reviewer, Chennai . </p>
               </div>
              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
 
@@ -143,7 +143,7 @@ const People = () => {
                 <p>Mother, Doctor and Entrepreneur. </p>
               </div>
               </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -166,7 +166,7 @@ const People = () => {
                 <p>Bookstore, Canada</p>
               </div>
               </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -190,7 +190,7 @@ const People = () => {
                 <p>Author, Vaaranam books, Australia</p>
               </div>
              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -214,7 +214,7 @@ const People = () => {
                 <p>Mother of 2.5 years old, Belgium</p>
               </div>
               </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -240,7 +240,7 @@ const People = () => {
                 <p>Father of 3 years old, Chennai</p>
               </div>
               </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -266,7 +266,7 @@ const People = () => {
                 <p>Doctor and mother, Ranipet</p>
               </div>
              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'black'}} />
+              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
         </OwlCarousel>

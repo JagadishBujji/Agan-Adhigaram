@@ -137,7 +137,7 @@ const DynamicCarousel = () => {
             alt="books"
           />
         </div>
-        <a href="/books" className="Grap">
+        <a href="/" className="Grap">
           Grab Yours
         </a>
       </div>
