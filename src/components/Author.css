@@ -83,7 +83,7 @@
 .authorcontent {
   max-height: 300px;
   overflow-y: scroll;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Poppins", sans-serif;
 
 }
@@ -579,6 +579,6 @@ p {
     font-size: 16px;
   }
   .authorcontent {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
