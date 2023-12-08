@@ -17,7 +17,10 @@ function Welcome() {
               />
               Welcome to Agan Adhigaram®
             </h3>
-            <p className={`${classes.subcontent}`} style={{textAlign:"center"}}>
+            <p
+              className={`${classes.subcontent}`}
+              style={{ textAlign: "center" }}
+            >
               We craft books like toys that they can play with. When a book
               <br />
               becomes a toy, it transforms learning into a joyful experience.
@@ -37,11 +40,27 @@ function Welcome() {
         </div>
         <div className={`${classes.mission} row container-fluid m-auto`}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
-            <img
+            {/* <img
               src="./images/crow.svg"
               alt="heroimg1"
               className={classes.crow}
-            />
+            /> */}
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+
+            <dotlottie-player
+              src="https://lottie.host/3fc80cda-2fc7-4d44-8d58-312fc8461981/RGUijNcTfO.json"
+              background="transparent"
+              speed="1"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+              loop
+              autoplay
+            ></dotlottie-player>
           </div>
           <div className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6`}>
             <h3 className={`${classes.welcomevision}`}>Our Vision</h3>

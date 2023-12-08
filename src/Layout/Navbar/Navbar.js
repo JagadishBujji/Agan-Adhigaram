@@ -40,11 +40,11 @@ function Navbar(props) {
         <div className="container-fluid">
           <a href="#" className="navbar-brand">
             <img
-              src="./images/Frame.svg"
+              src="./images/Logo_Agan.png"
               // {props.logo}
               alt=" logo"
               width="60"
-              height="60"
+              height="80"
               className="d-inline-block align-text-top"
             />
           </a>
@@ -206,7 +206,6 @@ function Navbar(props) {
               ) : (
                 <>
                   <LoginModal />
-                  
                 </>
               )}
             </div>

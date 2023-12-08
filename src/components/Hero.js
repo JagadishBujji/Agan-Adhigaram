@@ -13,6 +13,12 @@ function Hero() {
           float={"center"}
           className={classes.mainimage}
         />
+        <img
+          src="./images/Website illustration for mobile.png"
+          alt="heroimg1"
+          float={"center"}
+          className={classes.mainimagemobile}
+        />
         <Heronav />
       </div>
     </div>

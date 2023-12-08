@@ -57,15 +57,19 @@ const People = () => {
             </div>
             <div className="name">
               {/* <img src="./images/avatar.svg" alt=""  /> */}
-             <div className="icon" >
-             <Avatar sx={{ mr: 1 }}>T</Avatar>
-             <div className="">
-              <p>The Hindu</p>
-             </div>
-             </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
+              <div className="icon">
+                <Avatar sx={{ mr: 1 }}>T</Avatar>
+                <div className="">
+                  <p>The Hindu</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
+              </div>
             </div>
-           
           </article>
 
           <article class="card peopelcard">
@@ -82,18 +86,20 @@ const People = () => {
             <div className="name peopelcard">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
               <div className="icon">
-              <Avatar sx={{ mr: 1 }}>A</Avatar>
-              <div className="nameofpeople">
-                <p>Ms. Asmitha,</p>
-                <p>Entrepreneur and a mother of 2 years old, Chennai </p>
-               
-              </div>
+                <Avatar sx={{ mr: 1 }}>A</Avatar>
+                <div className="nameofpeople">
+                  <p>Ms. Asmitha,</p>
+                  <p>Entrepreneur and a mother of 2 years old, Chennai </p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
               {/* <br /> */}
-              <Rating name="read-only" value={5} readOnly style={{color:"white"}} />
             </div>
-            
-            
           </article>
 
           <article class="card peopelcard">
@@ -111,14 +117,19 @@ const People = () => {
             </div>
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
-             <div className="icon">
-             <Avatar sx={{ mr: 1 }}>K</Avatar>
-              <div className="nameofpeople">
-                <p>Ms. Karen, Nathan,</p>
-                <p>Blogger and kids book reviewer, Chennai . </p>
+              <div className="icon">
+                <Avatar sx={{ mr: 1 }}>K</Avatar>
+                <div className="nameofpeople">
+                  <p>Ms. Karen, Nathan,</p>
+                  <p>Blogger and kids book reviewer, Chennai . </p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-             </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
 
@@ -137,13 +148,18 @@ const People = () => {
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
               <div className="icon">
-              <Avatar sx={{ mr: 1 }}>S</Avatar>
-              <div className="nameofpeople">
-                <p>Ms. Suganya kumar,</p>
-                <p>Mother, Doctor and Entrepreneur. </p>
+                <Avatar sx={{ mr: 1 }}>S</Avatar>
+                <div className="nameofpeople">
+                  <p>Ms. Suganya kumar,</p>
+                  <p>Mother, Doctor and Entrepreneur. </p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -160,13 +176,18 @@ const People = () => {
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
               <div className="icon">
-              <Avatar sx={{ mr: 1 }}>C</Avatar>
-              <div className="nameofpeople">
-                <p>Chittu kuruvi books,</p>
-                <p>Bookstore, Canada</p>
+                <Avatar sx={{ mr: 1 }}>C</Avatar>
+                <div className="nameofpeople">
+                  <p>Chittu kuruvi books,</p>
+                  <p>Bookstore, Canada</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -183,14 +204,19 @@ const People = () => {
             </div>
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
-             <div className="icon">
-             <Avatar sx={{ mr: 1 }}>V</Avatar>
-              <div className="nameofpeople">
-                <p> Ms. Vanitha,</p>
-                <p>Author, Vaaranam books, Australia</p>
+              <div className="icon">
+                <Avatar sx={{ mr: 1 }}>V</Avatar>
+                <div className="nameofpeople">
+                  <p> Ms. Vanitha,</p>
+                  <p>Author, Vaaranam books, Australia</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-             </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -208,13 +234,18 @@ const People = () => {
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
               <div className="icon">
-              <Avatar sx={{ mr: 1 }}>N</Avatar>
-              <div className="nameofpeople">
-                <p> Ms. Nangai,</p>
-                <p>Mother of 2.5 years old, Belgium</p>
+                <Avatar sx={{ mr: 1 }}>N</Avatar>
+                <div className="nameofpeople">
+                  <p> Ms. Nangai,</p>
+                  <p>Mother of 2.5 years old, Belgium</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -234,13 +265,18 @@ const People = () => {
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
               <div className="icon">
-              <Avatar sx={{ mr: 1 }}>S</Avatar>
-              <div className="nameofpeople">
-                <p> Mr. Silambaran,</p>
-                <p>Father of 3 years old, Chennai</p>
+                <Avatar sx={{ mr: 1 }}>S</Avatar>
+                <div className="nameofpeople">
+                  <p> Mr. Silambaran,</p>
+                  <p>Father of 3 years old, Chennai</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-              </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
           <article class="card peopelcard">
@@ -259,14 +295,19 @@ const People = () => {
             </div>
             <div className="name">
               {/* <img src="./images/avatar.svg" alt="" className="avatar" /> */}
-             <div className="icon">
-             <Avatar sx={{ mr: 1 }}>N</Avatar>
-              <div className="nameofpeople">
-                <p> Ms. Nivedha,</p>
-                <p>Doctor and mother, Ranipet</p>
+              <div className="icon">
+                <Avatar sx={{ mr: 1 }}>N</Avatar>
+                <div className="nameofpeople">
+                  <p> Ms. Nivedha,</p>
+                  <p>Doctor and mother, Ranipet</p>
+                  <Rating
+                    name="read-only"
+                    value={5}
+                    readOnly
+                    style={{ color: "white", width: "5px", height: "5px" }}
+                  />
+                </div>
               </div>
-             </div>
-              <Rating name="read-only" value={5} readOnly style={{color:'white'}} />
             </div>
           </article>
         </OwlCarousel>
