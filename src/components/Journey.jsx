@@ -22,12 +22,12 @@ function Journey() {
         <h1 className={`${classes.Journeywe}`}>
           {" "}
           We invite you to join us on this exciting journey of discovery and
-          growth. Explore our collection of
-          <br /> interactive board books that foster early learning while
+          growth. Explore our collection of 
+           interactive<br /> board books that foster early learning while
           respecting the importance of digital
-          <br /> balance. Together, let's create a world where education is an
+          balance. Together, let's create a world where education is an
           enchanting adventure, and every
-          <br /> child's potential knows no bounds.
+           child's potential knows no bounds.
         </h1>
       </div>
 

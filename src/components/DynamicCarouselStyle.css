@@ -264,6 +264,10 @@
     transform: translate(-50%, -20%);
     top: 50px !important;
   }
+  .button-container{
+    display: flex;
+    justify-content:center ;
+  }
   #gallery {
     font-size: 24px;
   }
