@@ -8,3 +8,86 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.mainimage {
+  width: 100%; /* Ensure the image doesn't exceed its parent container */
+  /* Maintain the image's aspect ratio */
+}
+
+/* .heroall {
+  margin-top: 65px;
+} */
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+/* Mobile */
+@media (max-width: 767px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+    display: none;
+  }
+  .mainimagemobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+.mainimage {
+  max-width: 100%; /* Ensure the image doesn't exceed its parent container */
+ /* Maintain the image's aspect ratio */
+}
+
+/* .heroall {
+  margin-top: 65px;
+} */
+
+/* Media query for screens with a maximum width of 768px (typical for mobile devices) */
+/* Mobile */
+@media (max-width: 767px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+    display: none;
+  }
+  .mainimagemobile {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Tablet */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+  .mainimagemobile {
+    display: none;
+  }
+}
+
+/* Laptop */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+  .mainimagemobile {
+    display: none;
+  }
+}
+
+/* Larger screens */
+@media only screen and (min-width: 1440px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+  .mainimagemobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 2560px) {
+  .mainimage {
+    width: 100%; /* Make the image fill the width of the viewport */
+  }
+  .mainimagemobile {
+    display: none;
+  }
+}

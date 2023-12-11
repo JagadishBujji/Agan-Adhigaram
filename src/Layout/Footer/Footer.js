@@ -14,14 +14,6 @@ const Footer = () => {
         } container-fluid`}
       >
         <div className={`${classes.footercontent} container`}>
-          <p className={`${classes.footerpara1}`}>
-            With love, Ramya and Sethu Ram, Chief Believers and Founders,
-            <br /> Agan Adhigaram®{" "}
-            <a href="terms-and-condition">Terms and Condition</a>{" "}
-            <span className={`${classes.and}`}>and</span>
-            <a href="privacy-policy">Privacy Policy</a>
-            {/* <Link to="/privacy-policy">Privacy Policy</Link> */}
-          </p>
           <div className={`${classes.socialmedia}`}>
             <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
               <img
@@ -81,6 +73,14 @@ const Footer = () => {
 
           <p className={classes.copyright}>
             copyright @Agan Adhigaram®.All rights reserved.
+          </p>
+          <p className={`${classes.footerpara1}`}>
+            With love, Ramya and Sethu Ram, Chief Believers and Founders,
+            <br /> Agan Adhigaram®{" "}
+            <a href="terms-and-condition">Terms and Condition</a>{" "}
+            <span className={`${classes.and}`}>and</span>
+            <a href="privacy-policy">Privacy Policy</a>
+            {/* <Link to="/privacy-policy">Privacy Policy</Link> */}
           </p>
         </div>
       </div>

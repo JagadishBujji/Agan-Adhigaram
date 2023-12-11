@@ -45,19 +45,21 @@ function Welcome() {
               alt="heroimg1"
               className={classes.crow}
             /> */}
+
             <script
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
             ></script>
-
             <dotlottie-player
-              src="https://lottie.host/3fc80cda-2fc7-4d44-8d58-312fc8461981/RGUijNcTfO.json"
+              src="https://lottie.host/6caf9ccb-6575-427e-a1e1-4bd2653e1187/f2cRMtO4gC.json"
               background="transparent"
               speed="1"
               style={{
-                width: "100%",
-                height: "100%",
+                width: "500px",
+                height: "500px",
               }}
+              direction="1"
+              mode="normal"
               loop
               autoplay
             ></dotlottie-player>
