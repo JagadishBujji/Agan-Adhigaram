@@ -21,9 +21,13 @@ function Aboutus() {
         </h1>
         <h1 className={`${classes.we}`}>
           {" "}
-          Fueling young minds with imagination
-          <br /> through interactive books that spark
-          <br /> creativity and learning.
+          Agan Adhigaram Publishing House® stands proudly as an <br />{" "}
+          independent publishing house situated in Chengalpattu, Tamil Nadu.{" "}
+          <br />
+          Our journey commenced with a clear intention—to redefine the realm of{" "}
+          <br />
+          Tamil children's literature  with interactive books that spark
+          creativity and learning.
         </h1>
         <h1 className={`${classes.mobilewe}`}>
           {" "}

@@ -28,7 +28,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5%;
+  padding-top: 3%;
   flex-direction: column;
 }
 
@@ -132,9 +132,9 @@
 /* Larger screens */
 @media only screen and (min-width: 1440px) {
   .footercontent {
-    padding-top: 10%;
+    /* padding-top: 10%; */
   }
   .logoicon {
-    bottom: 11.5rem;
+    bottom: 13.5rem;
   }
 }
