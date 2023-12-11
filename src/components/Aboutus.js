@@ -39,28 +39,46 @@ function Aboutus() {
             className={classes.dragon}
           />
           <p className={classes.sethuram}>
-            Sethu Ram is a Creative director and co-founder of
-            <br /> Agan Adhigaram publications.
+            {/* Sethu Ram is a  */}
+            Creative director and co-founder
+            {/* of */}
+            {/* <br /> Agan Adhigaram publications. */}
           </p>
           <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
           <p className={classes.name1}>Sethu Ram</p>
         </div>
         <div className={`${classes.person2} col-md-6`}>
           <p className={classes.name2}> Ramya</p>
-          <img
+          {/* <img
             src="./images/Butterfly.png"
             alt="heroimg1"
             className={classes.Butterfly}
-          />
+          /> */}
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <dotlottie-player
+            src="https://lottie.host/0e7460ad-a461-42bc-8c83-6323f9aab3ed/SQSSBBt0gR.json"
+            background="transparent"
+            speed="1"
+            class="Butterfly"
+            direction="1"
+            mode="normal"
+            loop
+            autoplay
+          ></dotlottie-player>
           <img
             src="./images/girl1.svg"
             alt="heroimg1"
             className={classes.boy}
           />
           <p className={classes.ramya}>
-            Ramya is the Publishing director and co-founder of
+            {/* Ramya is the  */}
+            Publishing director and co-founder
+            {/* of
             <br />
-            Agan Adhigaram publications.
+            Agan Adhigaram publications. */}
           </p>
         </div>
       </div>

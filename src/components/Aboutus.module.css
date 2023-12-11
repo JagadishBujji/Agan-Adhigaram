@@ -122,9 +122,9 @@
     align-items: center;
     flex-direction: column-reverse;
   }
-  .name1 {
+  /* .name1 {
     display: none;
-  }
+  } */
   .mobilewe {
     display: block;
     font-size: 22px;
@@ -151,9 +151,9 @@
     right: 8%;
     top: 58%;
   }
-  .name2 {
+  /* .name2 {
     display: none;
-  }
+  } */
   .ramya {
     font-size: 12px;
     margin-top: 30px;
@@ -297,5 +297,6 @@
   .Butterfly {
     right: 26%;
     top: 31%;
+    
   }
 }
