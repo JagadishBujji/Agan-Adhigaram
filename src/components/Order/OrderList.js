@@ -82,8 +82,8 @@ const Order = ({ order }) => {
                 onClick={() => navigate(`/books/${book.id}`)}
               >
                 <img
-                  src="./images/VP.jpg"
-                  alt=""
+                  src={book?.image ? book.image : "./images/VP.jpg"}
+                  alt={book.title}
                   className={classes.orderimage}
                 />
               </Grid>

@@ -35,6 +35,7 @@ const CheckOutSummary = ({ cartItems }) => {
         item_price: item.discount_price,
         total_price: item.total_price,
         book_format: item.book_format,
+        image: item.images[0],
       };
       ordered_books.push(temp);
     });
@@ -65,8 +66,8 @@ const CheckOutSummary = ({ cartItems }) => {
       console.log("orderId: ", orderId);
 
       const res = await axios.post(
-        // `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
-        `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
+        `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
+        // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
         {
           amount: total,
           userId: id,

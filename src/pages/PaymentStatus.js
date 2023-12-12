@@ -62,7 +62,8 @@ const PaymentStatus = () => {
               // s2s callback not initiated, check status api and if payment is pending, then call 5seconds
               axios
                 .get(
-                  `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${docSnap.id}`
+                  // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${docSnap.id}`
+                  `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
                 )
                 .then((res) => {
                   console.log("result: ", res.data);
@@ -95,7 +96,7 @@ const PaymentStatus = () => {
       console.log("5 secs once");
       axios
         .get(
-          `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${merchantTxnId}`
+          `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${merchantTxnId}`
         )
         .then((res) => {
           console.log("result: ", res.data);
