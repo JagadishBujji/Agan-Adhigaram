@@ -1,12 +1,14 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, addDoc, doc } from "firebase/firestore";
+import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { db } from "../../services/firebase";
 import {
   errorNotification,
+  infoNotification,
   successNotification,
 } from "../../utils/notifications";
 import { clearCart } from "../../store/cartSlice";
@@ -58,21 +60,55 @@ const CheckOutSummary = ({ cartItems }) => {
       total_price: total,
       total_qty: ordered_books.length,
       userDetail: { address, email, id, name, phone },
+      payment_method: "online-payment-gateway",
+      payment_status: "initiated",
     };
 
     // console.log("order: ", order, userDetail);
 
     try {
-      await addDoc(collection(db, "orders"), order);
-      dispatch(clearCart());
-      successNotification("Order placed successfully!");
-      navigate("/orders");
+      const { id: orderId } = await addDoc(collection(db, "orders"), order);
+
+      console.log("orderId: ", orderId);
+
+      const res = await axios.post(
+        // `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
+        `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
+        {
+          amount: total,
+          userId: id,
+          mobile: phone,
+          txnId: orderId,
+        }
+      );
+
+      const result = res.data;
+
+      if (result.success) {
+        console.log(
+          "result.data: ",
+          result.data,
+          result.data.instrumentResponse.redirectInfo.url
+        );
+        infoNotification(result.message);
+        window.location.replace(
+          result.data.instrumentResponse.redirectInfo.url
+        );
+        // result.data
+        // dispatch(clearCart());
+        // successNotification("Order placed successfully!");
+        // navigate("/orders");
+      } else {
+        // failed
+        errorNotification(res.data.message);
+      }
     } catch (e) {
       errorNotification(e.message);
     }
   };
 
-  const handleCheckoutButton = () => {
+  const handleCheckoutButton = async (e) => {
+    e.preventDefault();
     if (isAuthenticated) {
       let text = "Are you sure to proceed?";
       if (window.confirm(text) === true) {

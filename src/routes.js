@@ -22,7 +22,7 @@ import Loading from "./Reusable/Loading";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./Layout/Footer/PrivacyPolicy";
 import TeamsCondition from "./Layout/Footer/TeamsCondition";
-
+import PaymentStatus from "./pages/PaymentStatus";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -110,12 +110,16 @@ export default function Router() {
           element: <ContactUs />,
         },
         {
-          path:"privacy-policy",
-          element:<PrivacyPolicy />,
+          path: "privacy-policy",
+          element: <PrivacyPolicy />,
         },
         {
-          path:"terms-and-condition",
-          element:<TeamsCondition />,
+          path: "terms-and-condition",
+          element: <TeamsCondition />,
+        },
+        {
+          path: "payment-status",
+          element: <PaymentStatus />,
         },
       ],
     },

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
 
 const Order = ({ order }) => {
+  console.log("order: ", order);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -136,8 +137,8 @@ const Order = ({ order }) => {
               </span>
             </p>
             <p className={classes.placed}>
-              <b>Total Amount :</b>
-              <span className={classes.date}>₹ {total_price}</span>
+              <b>Total Book Price:</b>
+              <span className={classes.date}>₹ {order.total_item_price}</span>
             </p>
             <p className={classes.placed}>
               <b>Shipping to :</b>
@@ -149,15 +150,21 @@ const Order = ({ order }) => {
             </p>
             <p className={classes.placed}>
               <b>Delivery Charge:</b>
-              <span className={classes.date}>₹ 100</span>
+              <span className={classes.date}>₹ {order.delivery_charge}</span>
             </p>
             <p className={classes.placed}>
               <b>Tax Price:</b>
-              <span className={classes.date}>₹ 100 (5%)</span>
+              <span className={classes.date}>₹ {order.price_tax}</span>
+              {/* <span className={classes.date}>₹ 100 (5%)</span> */}
+            </p>
+
+            <p className={classes.placed}>
+              <b>Total Amount :</b>
+              <span className={classes.date}>₹ {total_price}</span>
             </p>
             <p className={classes.placed}>
-              <b>Total Price:</b>
-              <span className={classes.date}>₹ 100</span>
+              <b>Order Status:</b>
+              <span className={classes.date}>{order.status.toUpperCase()}</span>
             </p>
           </Stack>
         </Card>

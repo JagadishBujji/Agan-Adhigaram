@@ -154,7 +154,7 @@ export default function LoginModal() {
           <Typography id="modal-modal-title" variant="h4" component="h2">
             Login
           </Typography>
-          <Stack
+          {/* <Stack
             direction="row"
             justifyContent="space-around"
             alignItems="center"
@@ -182,7 +182,7 @@ export default function LoginModal() {
               <img src="./images/apple.png" alt="" className="facebook" />
             </a>
           </Stack>
-          <p className="or">Or</p>
+          <p className="or">Or</p> */}
           <Grid container>
             <Grid md={12} xs={12}>
               <TextField
