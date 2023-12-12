@@ -23,7 +23,7 @@ function Journey() {
           {" "}
           We invite you to join us on this exciting journey of discovery and
           growth. Explore our collection of 
-           interactive<br /> board books that foster early learning while
+           interactive board books that foster early learning while
           respecting the importance of digital
           balance. Together, let's create a world where education is an
           enchanting adventure, and every

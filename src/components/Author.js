@@ -440,11 +440,11 @@ const Author = () => {
           {/* end of remaining authors */}
         </div>
       </div>
-      <div className="Addmore">
+      {/* <div className="Addmore">
         <a href="author-illustrator" className="Author">
           See More
         </a>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -248,7 +248,7 @@
   .Grap {
     width: 30%;
     /* display: none; */
-    bottom: 0;
+    bottom: 118px;
     color: #000;
   }
   .items {
@@ -265,8 +265,9 @@
     top: 50px !important;
   }
   .button-container{
-    display: flex;
-    justify-content:center ;
+    /* display: flex;
+    justify-content:center ; */
+
   }
   #gallery {
     font-size: 24px;
