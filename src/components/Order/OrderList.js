@@ -163,6 +163,16 @@ const Order = ({ order }) => {
               <span className={classes.date}>₹ {total_price}</span>
             </p>
             <p className={classes.placed}>
+              <b>Payment Status:</b>
+              <span className={classes.date}>
+                {order.payment_status === "PAYMENT_SUCCESS"
+                  ? "Success"
+                  : order.payment_status === "PAYMENT_ERROR"
+                  ? "Failure"
+                  : order.payment_status}
+              </span>
+            </p>
+            <p className={classes.placed}>
               <b>Order Status:</b>
               <span className={classes.date}>{order.status.toUpperCase()}</span>
             </p>
