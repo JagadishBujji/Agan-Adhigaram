@@ -42,7 +42,7 @@
 .firsthalf1 {
   background: url("../../public/images/green3.svg");
   /* background-position: 10px 41px; */
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -57,7 +57,7 @@
 .firsthalf2 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -73,7 +73,7 @@
 .firsthalf3 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
