@@ -70,9 +70,13 @@ function Navbar(props) {
           >
             <ul className="navbar-nav m-auto">
               <li className="nav-item dropdown">
-                <a href="/" className="blackColor nav-link  " data-bs-toggle="">
+                <Link
+                  to="/"
+                  className="blackColor nav-link  "
+                  data-bs-toggle=""
+                >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -93,26 +97,26 @@ function Navbar(props) {
                 </a>
               </li>
               <li className="nav-item dropdown">
-                <a
-                  href="author-illustrator"
+                <Link
+                  to="author-illustrator"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
                   aria-expanded="false"
                 >
                   Creators
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
-                  href="/books"
+                <Link
+                  to="/books"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
                   aria-expanded="false"
                 >
                   Books
-                </a>
+                </Link>
               </li>
               {/* <li class="nav-item dropdown">
                 <a
@@ -157,15 +161,15 @@ function Navbar(props) {
                 </a>
               </li> */}
               <li className="nav-item dropdown">
-                <a
-                  href="/blog"
+                <Link
+                  to="/blog"
                   className="nav-link "
                   role="button"
                   data-bs-toggle=""
                   aria-expanded="false"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="corner">

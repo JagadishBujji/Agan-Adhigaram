@@ -7,6 +7,7 @@ const DashBoardLayout = () => {
     <>
       <Navbar logo="./images/Frame.svg" />
       <Outlet />
+
       <Footer />
     </>
   );

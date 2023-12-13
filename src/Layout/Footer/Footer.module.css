@@ -41,11 +41,11 @@
 }
 
 .socialmedia {
-  padding-top: 30px;
+  padding-top: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .socialmediaicon {
@@ -67,7 +67,7 @@
   bottom: 15rem;
 }
 
-.and{
+.and {
   margin-right: 5px !important;
 }
 
@@ -101,7 +101,7 @@
     background-color: #ff8924;
     background-size: auto;
   }
-  .footerbg_orange{
+  .footerbg_orange {
     height: 40vh;
   }
 
@@ -123,8 +123,13 @@
     left: 0;
     bottom: 100px;
   }
-  .footerpara1{
+  .footerpara1 {
     font-size: 10px;
+  }
+  .socialmedia {
+    padding-top: 10px;
+
+    margin-top: 1rem;
   }
 }
 
