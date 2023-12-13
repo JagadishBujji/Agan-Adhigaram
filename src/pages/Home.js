@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <section>
         <div className={classes.socialfixed}>
-          <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
+          <a href="https://www.instagram.com/agan_adhigaram/" target="_blank" rel="noreferrer">
             <img
               src="/images/Black Insta.svg"
               alt=""
@@ -38,7 +38,7 @@ const Home = () => {
               className={classes.insta}
             />
           </a>
-          <a href="https://twitter.com/AganAdhigaram" target="_blank">
+          <a href="https://twitter.com/AganAdhigaram" target="_blank" rel="noreferrer">
             {" "}
             <img src="/images/Black X.svg" alt="" className={classes.insta} />
           </a>
