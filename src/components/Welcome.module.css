@@ -428,7 +428,7 @@
     font-family: "Poppins", sans-serif;
   }
   .subcontentvision {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Poppins", sans-serif;
   }
   .welcomemissionfox {
@@ -452,6 +452,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+  }
+  .mission {
+    margin-top: 8%;
   }
   .fox {
     /* max-width: 100%; */

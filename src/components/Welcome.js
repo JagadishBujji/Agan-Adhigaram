@@ -35,7 +35,7 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid m-auto`}>
+        <div className={`${classes.mission} row container-fluid `}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
