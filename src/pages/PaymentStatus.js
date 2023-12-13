@@ -16,7 +16,7 @@ const PaymentStatus = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [status, setStatus] = useState({
-    code: "PAYMENT_INITIATED",
+    code: "PAYMENT_ERROR",
     message: "",
     desc: "",
   });
@@ -145,9 +145,7 @@ const PaymentStatus = () => {
           <p>
             Please don't close the website until payment is success or failure.
           </p>
-
           {/* payment loading*/}
-
           <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
@@ -165,7 +163,36 @@ const PaymentStatus = () => {
             ></dotlottie-player>
           </div>
           {/* payment loading*/}
-
+        </>
+      ) : status.code === "PAYMENT_SUCCESS" ? (
+        <>
+          <h2>Payment Status - Success</h2>
+          {/* payment success */}
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <div className="loading">
+            <dotlottie-player
+              src="https://lottie.host/b65903ba-8a59-4b52-bd47-b5cc785b2043/zkRe8jafuL.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "500px", height: "500px" }}
+              direction="1"
+              mode="normal"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+          {/* payment success */}
+          <Button variant="outlined" onClick={() => navigate("/orders")}>
+            Go To Orders
+          </Button>
+        </>
+      ) : status.code === "PAYMENT_ERROR" ? (
+        <>
+          <h2>Payment Status - Failure</h2>
+          <p>Failure Message: {status.desc}</p>
           {/* payment failed*/}
           <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
@@ -184,38 +211,6 @@ const PaymentStatus = () => {
             ></dotlottie-player>
           </div>
           {/* payment failed*/}
-
-          {/* payment success */}
-
-          <script
-            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-            type="module"
-          ></script>
-          <div className="loading">
-            <dotlottie-player
-              src="https://lottie.host/b65903ba-8a59-4b52-bd47-b5cc785b2043/zkRe8jafuL.json"
-              background="transparent"
-              speed="1"
-              style={{ width: "500px", height: "500px" }}
-              direction="1"
-              mode="normal"
-              loop
-              autoplay
-            ></dotlottie-player>
-          </div>
-          {/* payment success */}
-        </>
-      ) : status.code === "PAYMENT_SUCCESS" ? (
-        <>
-          <h2>Payment Status - Success</h2>
-          <Button variant="outlined" onClick={() => navigate("/orders")}>
-            Go To Orders
-          </Button>
-        </>
-      ) : status.code === "PAYMENT_ERROR" ? (
-        <>
-          <h2>Payment Status - Failure</h2>
-          <p>Failure Message: {status.desc}</p>
           <Button variant="outlined" onClick={() => navigate("/checkout")}>
             Go To Cart
           </Button>
