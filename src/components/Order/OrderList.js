@@ -82,8 +82,8 @@ const Order = ({ order }) => {
                 onClick={() => navigate(`/books/${book.id}`)}
               >
                 <img
-                  src="./images/VP.jpg"
-                  alt=""
+                  src={book?.image ? book.image : "./images/VP.jpg"}
+                  alt={book.title}
                   className={classes.orderimage}
                 />
               </Grid>
@@ -161,6 +161,16 @@ const Order = ({ order }) => {
             <p className={classes.placed}>
               <b>Total Amount :</b>
               <span className={classes.date}>₹ {total_price}</span>
+            </p>
+            <p className={classes.placed}>
+              <b>Payment Status:</b>
+              <span className={classes.date}>
+                {order.payment_status === "PAYMENT_SUCCESS"
+                  ? "Success"
+                  : order.payment_status === "PAYMENT_ERROR"
+                  ? "Failure"
+                  : order.payment_status}
+              </span>
             </p>
             <p className={classes.placed}>
               <b>Order Status:</b>

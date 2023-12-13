@@ -33,6 +33,7 @@ const OrdersPage = () => {
       const q = query(
         ordersRef,
         where("userDetail.id", "==", userDetail.id),
+        where("payment_status", "==", "PAYMENT_SUCCESS"),
         orderBy("ordered_timestamp", "desc"),
         limit(pageLimit)
       );
@@ -75,6 +76,7 @@ const OrdersPage = () => {
       q = query(
         ordersRef,
         where("userDetail.id", "==", userDetail.id),
+        where("payment_status", "==", "PAYMENT_SUCCESS"),
         orderBy("ordered_timestamp", "desc"),
         startAfter(lastDocument),
         limit(pageLimit)

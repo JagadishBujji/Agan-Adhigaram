@@ -119,7 +119,9 @@ export default function Router() {
         },
         {
           path: "payment-status",
-          element: <PaymentStatus />,
+          element: (
+            <AuthenticatedRoute element={<PaymentStatus />} key="orders" />
+          ),
         },
       ],
     },

@@ -1,21 +1,14 @@
 import { useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { collection, addDoc, doc } from "firebase/firestore";
+import { useSelector } from "react-redux";
+import { collection, addDoc } from "firebase/firestore";
 import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { db } from "../../services/firebase";
-import {
-  errorNotification,
-  infoNotification,
-  successNotification,
-} from "../../utils/notifications";
-import { clearCart } from "../../store/cartSlice";
+import { errorNotification, infoNotification } from "../../utils/notifications";
 
 const CheckOutSummary = ({ cartItems }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
 
@@ -42,6 +35,7 @@ const CheckOutSummary = ({ cartItems }) => {
         item_price: item.discount_price,
         total_price: item.total_price,
         book_format: item.book_format,
+        image: item.images[0],
       };
       ordered_books.push(temp);
     });
@@ -61,7 +55,7 @@ const CheckOutSummary = ({ cartItems }) => {
       total_qty: ordered_books.length,
       userDetail: { address, email, id, name, phone },
       payment_method: "online-payment-gateway",
-      payment_status: "initiated",
+      payment_status: "PAYMENT_INITIATED",
     };
 
     // console.log("order: ", order, userDetail);
@@ -72,8 +66,8 @@ const CheckOutSummary = ({ cartItems }) => {
       console.log("orderId: ", orderId);
 
       const res = await axios.post(
-        // `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
-        `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
+        `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
+        // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
         {
           amount: total,
           userId: id,

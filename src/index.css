@@ -21,6 +21,12 @@ code {
   top: -20%;
 }
 
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* .heroall {
   margin-top: 65px;
 } */
