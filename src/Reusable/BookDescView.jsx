@@ -8,6 +8,7 @@ import {
   removeItemQty,
   selectCartItems,
 } from "../store/cartSlice";
+import { Link } from "react-router-dom";
 // import {}
 
 const BookDescView = ({ book }) => {
@@ -72,6 +73,7 @@ const BookDescView = ({ book }) => {
                 Add
               </Button>
             ) : (
+              <>
               <div className={classes.qty}>
                 <i
                   className={`${classes.minus} fa-solid fa-minus`}
@@ -83,6 +85,24 @@ const BookDescView = ({ book }) => {
                   onClick={handleAddItemQty}
                 ></i>
               </div>
+
+            <Link to="/checkout">
+            <Button
+                sx={{
+                  backgroundColor: "#f19e38",
+                  marginLeft:"10px",
+                  "&:hover": {
+                    backgroundColor: "#ffae58", // Change the background color on hover
+                  },
+                }}
+                variant="contained"
+        
+              >
+              Go to Cart
+              </Button>
+            </Link>
+              </>
+              
             )}
             {/* <a href="wishlist" className={classes.wishlist}>
               <i className={`${classes.heart} fa-regular fa-heart`}></i>WISHLIST

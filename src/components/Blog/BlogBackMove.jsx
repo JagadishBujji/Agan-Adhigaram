@@ -13,7 +13,7 @@ const BlogBackMove = (props) => {
     <>
       <section className={classes.movebackmove}>
         <div className={classes.moveback}>
-          <a href="" className={classes.home}>
+          <a href="/" className={classes.home}>
             Home
           </a>
           <span className={classes.slash}>/</span>
