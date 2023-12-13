@@ -459,7 +459,7 @@
     flex-direction: row;
   }
   .mission {
-    margin-top: 8%;
+    margin-top: 10% !important;
   }
   .fox {
     /* max-width: 100%; */
