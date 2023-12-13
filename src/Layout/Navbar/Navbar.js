@@ -24,6 +24,10 @@ function Navbar(props) {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const closeMenu=()=>{
+    setIsMenuOpen(true)
+  }
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -64,21 +68,22 @@ function Navbar(props) {
 
           <div
             className={`collapse navbar-collapse justify-content-center${
-              isMenuOpen ? " show" : ""
+              isMenuOpen ? "show" : ""
             }`}
             id="myNavBar1"
           >
             <ul className="navbar-nav m-auto">
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <Link
                   to="/"
                   className="blackColor nav-link  "
                   data-bs-toggle=""
+                  
                 >
                   Home
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <a
                   href="#aboutus"
                   className="blackColor nav-link  "
@@ -87,16 +92,18 @@ function Navbar(props) {
                   About Us
                 </a>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <a
                   href="#gallery"
                   className="blackColor nav-link  "
                   data-bs-toggle=""
+                  
                 >
                   Gallery
+                  
                 </a>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <Link
                   to="author-illustrator"
                   className="nav-link "
@@ -107,7 +114,7 @@ function Navbar(props) {
                   Creators
                 </Link>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <Link
                   to="/books"
                   className="nav-link "
@@ -160,7 +167,7 @@ function Navbar(props) {
                   Events
                 </a>
               </li> */}
-              <li className="nav-item dropdown">
+              <li className="nav-item dropdown" onClick={closeMenu}>
                 <Link
                   to="/blog"
                   className="nav-link "

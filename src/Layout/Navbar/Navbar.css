@@ -119,6 +119,10 @@
 @media (max-width: 768px) {
   .nav-item {
     width: 100%;
+    color:white;
+  }
+  .nav-link:hover{
+color:white !important;
   }
   .nav-item a {
     padding: 1px 15px;
