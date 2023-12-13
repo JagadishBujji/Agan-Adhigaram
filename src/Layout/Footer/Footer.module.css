@@ -139,15 +139,21 @@
 } */
 
 /* Laptop */
-/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
-} */
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .footercontent {
+    padding-top: 6%;
+  }
+  .logoicon {
+    bottom: 18.5rem;
+  }
+}
 
 /* Larger screens */
 @media only screen and (min-width: 1440px) {
   .footercontent {
-    /* padding-top: 10%; */
+    padding-top: 6%;
   }
   .logoicon {
-    bottom: 16.5rem;
+    bottom: 18.5rem;
   }
 }
