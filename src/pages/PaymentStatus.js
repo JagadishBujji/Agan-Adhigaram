@@ -145,6 +145,65 @@ const PaymentStatus = () => {
           <p>
             Please don't close the website until payment is success or failure.
           </p>
+
+          {/* payment loading*/}
+
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <div className="loading">
+            <dotlottie-player
+              src="https://lottie.host/2ffbc400-cbca-4214-be86-9fcae02cdf2a/ImKw0dntL5.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "500px", height: "500px" }}
+              direction="1"
+              mode="normal"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+          {/* payment loading*/}
+
+          {/* payment failed*/}
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <div className="loading">
+            <dotlottie-player
+              src="https://lottie.host/e385d37a-9f97-48e8-a1df-3b9f036242c4/tFNW6AxhAG.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "500px", height: "500px" }}
+              direction="1"
+              mode="normal"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+          {/* payment failed*/}
+
+          {/* payment success */}
+
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <div className="loading">
+            <dotlottie-player
+              src="https://lottie.host/b65903ba-8a59-4b52-bd47-b5cc785b2043/zkRe8jafuL.json"
+              background="transparent"
+              speed="1"
+              style={{ width: "500px", height: "500px" }}
+              direction="1"
+              mode="normal"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </div>
+          {/* payment success */}
         </>
       ) : status.code === "PAYMENT_SUCCESS" ? (
         <>
