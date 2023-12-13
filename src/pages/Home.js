@@ -1,4 +1,5 @@
 import Aboutus from "../components/Aboutus";
+import $ from "jquery";
 import Author from "../components/Author";
 import Hero from "../components/Hero";
 import Journey from "../components/Journey";
@@ -10,11 +11,28 @@ import People from "../components/People";
 import classes from "./Home.module.css";
 
 const Home = () => {
+  $(document).ready(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $("#scroll").fadeIn();
+      } else {
+        $("#scroll").fadeOut();
+      }
+    });
+    $("#scroll").click(function () {
+      $("html, body").animate({ scrollTop: 0 }, 600);
+      return false;
+    });
+  });
   return (
     <>
       <section>
         <div className={classes.socialfixed}>
-          <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
+          <a
+            href="https://www.instagram.com/agan_adhigaram/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src="/images/Black Insta.svg"
               alt=""
@@ -38,7 +56,11 @@ const Home = () => {
               className={classes.insta}
             />
           </a>
-          <a href="https://twitter.com/AganAdhigaram" target="_blank">
+          <a
+            href="https://twitter.com/AganAdhigaram"
+            target="_blank"
+            rel="noreferrer"
+          >
             {" "}
             <img src="/images/Black X.svg" alt="" className={classes.insta} />
           </a>
@@ -61,6 +83,9 @@ const Home = () => {
         <People />
         <Journey />
       </section>
+      <a href="#" id="scroll" style={{ display: "none" }}>
+        <span></span>
+      </a>
     </>
   );
 };

@@ -215,9 +215,10 @@
     font-weight: 600;
   }
   .we {
-    font-size: 20px;
+    font-size: 24px;
     font-family: "Poppins", sans-serif;
     margin-top: 25px;
+    padding: 0 10%;
   }
   .sethuram {
     font-size: 16px;
@@ -244,8 +245,9 @@
     font-family: "Poppins", sans-serif;
   }
   .we {
-    font-size: 40px;
+    font-size: 26px;
     font-family: "Poppins", sans-serif;
+    padding: 0 10%;
   }
   .sethuram {
     font-size: 18px;
@@ -292,11 +294,9 @@
   }
   .dragon {
     left: 20%;
-    
   }
   .Butterfly {
     right: 26%;
     top: 31%;
-    
   }
 }

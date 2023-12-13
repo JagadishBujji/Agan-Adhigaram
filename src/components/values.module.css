@@ -42,7 +42,7 @@
 .firsthalf1 {
   background: url("../../public/images/green3.svg");
   /* background-position: 10px 41px; */
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -57,7 +57,7 @@
 .firsthalf2 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -73,7 +73,7 @@
 .firsthalf3 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -268,7 +268,6 @@
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  
 }
 
 /* Laptop */
@@ -288,7 +287,7 @@
     padding-top: 0rem;
   }
   .Values {
-    height: 75rem;
+    height: 80rem;
     background-position: 0 -550px;
   }
   .valuessubcontent1 {
@@ -306,8 +305,21 @@
   .valuetitle {
     font-size: 40px;
   }
-  .firsthalf1_ {
+  .firsthalf1 {
     background-position: 10px !important;
+    padding: 0 50px;
+  }
+  .firsthalf2 {
+    background-position: 10px !important;
+    padding: 0 50px;
+  }
+  .firsthalf3 {
+    background-position: 10px !important;
+    padding: 0 50px;
+  }
+  .firsthalf4 {
+    background-position: 10px !important;
+    padding: 0 50px;
   }
   .items .button-container {
     top: 50px;

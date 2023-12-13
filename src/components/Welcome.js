@@ -22,11 +22,8 @@ function Welcome() {
               style={{ textAlign: "center" }}
             >
               We craft books like toys that they can play with. When a book
-              <br />
               becomes a toy, it transforms learning into a joyful experience.
-              <br />
               Children engage with the stories, flipping pages with excitement,
-              <br />
               and in doing so, they're not just reading; they're playing.
             </p>
             <span>
@@ -38,7 +35,7 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid m-auto`}>
+        <div className={`${classes.mission} row container-fluid `}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
