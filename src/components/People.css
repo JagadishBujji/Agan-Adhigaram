@@ -1,3 +1,7 @@
+.rating{
+  width: 100px;
+}
+
 .peopleheading {
   display: flex;
   justify-content: center;
@@ -13,7 +17,7 @@
 
 .peopleheading h1 {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
   text-align: center;
   color: #000000;
   font-size: 35px;

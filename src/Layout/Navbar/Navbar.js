@@ -25,9 +25,9 @@ function Navbar(props) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeMenu=()=>{
-    setIsMenuOpen(true)
-  }
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -78,7 +78,6 @@ function Navbar(props) {
                   to="/"
                   className="blackColor nav-link  "
                   data-bs-toggle=""
-                  
                 >
                   Home
                 </Link>
@@ -97,10 +96,8 @@ function Navbar(props) {
                   href="#gallery"
                   className="blackColor nav-link  "
                   data-bs-toggle=""
-                  
                 >
                   Gallery
-                  
                 </a>
               </li>
               <li className="nav-item dropdown" onClick={closeMenu}>
@@ -178,12 +175,60 @@ function Navbar(props) {
                   Blog
                 </Link>
               </li>
+              {isMenuOpen && (
+                <>
+                  <li className="nav-item dropdown" onClick={closeMenu}>
+                    <Link
+                      to="/checkout"
+                      className="nav-link "
+                      role="button"
+                      data-bs-toggle=""
+                      aria-expanded="false"
+                    >
+                      Cart
+                    </Link>
+                  </li>
+                  <li className="nav-item dropdown" onClick={closeMenu}>
+                    <Link
+                      to="/checkout"
+                      className="nav-link "
+                      role="button"
+                      data-bs-toggle=""
+                      aria-expanded="false"
+                    >
+                      Profile
+                    </Link>
+                  </li>
+                  <li className="nav-item dropdown" onClick={closeMenu}>
+                    <Link
+                      to="/checkout"
+                      className="nav-link "
+                      role="button"
+                      data-bs-toggle=""
+                      aria-expanded="false"
+                    >
+                      Orders
+                    </Link>
+                  </li>
+                  <li className="nav-item dropdown" onClick={closeMenu}>
+                    <Link
+                      to="/checkout"
+                      className="nav-link "
+                      role="button"
+                      data-bs-toggle=""
+                      aria-expanded="false"
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
             <div className="corner">
               {/* <li className="nav-item dropdown">
                 <a
-                  href=""
-                  books/checkout
+                  href="  books/checkout"
+                
                   className="right "
                   role="button"
                   data-bs-toggle=""
@@ -195,28 +240,33 @@ function Navbar(props) {
               {/* <a href="books/wishlist" className="cart"> */}
               {/* <img
               </li> */}
-              <Link to="/checkout" className="cart">
-                {/* <img
+              {!isMenuOpen && (
+                <>
+                  {" "}
+                  <Link to="/checkout" className="cart">
+                    {/* <img
                   src="./images/cart.svg"
                   alt="Kittivasal logo"
                   width="30"
                   height="auto"
                   className="d-inline-block align-text-top"
                 /> */}
-                <IconButton aria-label="cart">
-                  <StyledBadge
-                    badgeContent={cartSize}
-                    sx={{ color: "#f19e38" }}
-                  >
-                    <ShoppingCartIcon />
-                  </StyledBadge>
-                </IconButton>
-              </Link>
-              {isAuthenticated ? (
-                <ProfileMenu userDetail={userDetail} />
-              ) : (
-                <>
-                  <LoginModal />
+                    <IconButton aria-label="cart">
+                      <StyledBadge
+                        badgeContent={cartSize}
+                        sx={{ color: "#f19e38" }}
+                      >
+                        <ShoppingCartIcon />
+                      </StyledBadge>
+                    </IconButton>
+                  </Link>
+                  {isAuthenticated ? (
+                    <ProfileMenu userDetail={userDetail} />
+                  ) : (
+                    <>
+                      <LoginModal />
+                    </>
+                  )}
                 </>
               )}
             </div>

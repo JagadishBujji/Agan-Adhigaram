@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -26,9 +26,15 @@ const People = () => {
     ],
     outerWidth: 100,
   };
+ 
+
+ 
+
+ 
 
   return (
     <>
+     
       <div className="row container peopleheading">
         <div className="heading">
           <span className="sparakel">
@@ -38,7 +44,6 @@ const People = () => {
         </div>
         <p>Their experience throughout every platform</p>
       </div>
-
       <section class="cards">
         {/* <div class="owl-wrapper"> */}
         {/* <div class="loop owl-carousel owl-theme"> */}
@@ -65,7 +70,9 @@ const People = () => {
                     name="read-only"
                     value={5}
                     readOnly
-                    style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    style={{  color: "white", width: "5px", height: "5px" }}
+                    // style={window.innerWidth < 400 ? rating : ratingLg}
                   />
                 </div>
               </div>
@@ -95,6 +102,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -127,6 +135,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -157,6 +166,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -185,6 +195,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -214,6 +225,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth >500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -243,6 +255,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -274,6 +287,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
@@ -305,6 +319,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ?"medium"   : "small"}
                   />
                 </div>
               </div>
