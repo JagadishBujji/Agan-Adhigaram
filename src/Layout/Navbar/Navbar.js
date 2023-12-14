@@ -7,14 +7,15 @@ import { IconButton } from "@mui/material";
 import Badge from "@mui/material/Badge";
 import { styled } from "@mui/material/styles";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-
 import LoginModal from "../../Reusable/LoginModal";
 import SignupModal from "../../Reusable/SignupModal";
 import ProfileMenu from "../../Reusable/ProfileMenu";
-import { selectUser } from "../../store/userSlice";
+import {  selectUser } from "../../store/userSlice";
 
 import "./Navbar.css";
 import { selectCartSize } from "../../store/cartSlice";
+
+import { logout } from "../../api/auth";
 
 function Navbar(props) {
   const { isAuthenticated, userDetail } = useSelector(selectUser);
@@ -176,10 +177,11 @@ function Navbar(props) {
                 </Link>
               </li>
               {isMenuOpen && (
+                isAuthenticated ?
                 <>
                   <li className="nav-item dropdown" onClick={closeMenu}>
                     <Link
-                      to="/checkout"
+                      to="checkout"
                       className="nav-link "
                       role="button"
                       data-bs-toggle=""
@@ -190,7 +192,7 @@ function Navbar(props) {
                   </li>
                   <li className="nav-item dropdown" onClick={closeMenu}>
                     <Link
-                      to="/checkout"
+                      to="profile"
                       className="nav-link "
                       role="button"
                       data-bs-toggle=""
@@ -201,7 +203,7 @@ function Navbar(props) {
                   </li>
                   <li className="nav-item dropdown" onClick={closeMenu}>
                     <Link
-                      to="/checkout"
+                      to="orders"
                       className="nav-link "
                       role="button"
                       data-bs-toggle=""
@@ -210,9 +212,9 @@ function Navbar(props) {
                       Orders
                     </Link>
                   </li>
-                  <li className="nav-item dropdown" onClick={closeMenu}>
-                    <Link
-                      to="/checkout"
+                  <li className="nav-item dropdown" onClick={() => {}}>
+                  <Link
+                   
                       className="nav-link "
                       role="button"
                       data-bs-toggle=""
@@ -221,7 +223,8 @@ function Navbar(props) {
                       Logout
                     </Link>
                   </li>
-                </>
+                </> :<LoginModal />
+
               )}
             </ul>
             <div className="corner">
