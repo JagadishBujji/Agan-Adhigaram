@@ -29,6 +29,10 @@ function Navbar(props) {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+  const handleLogout=()=>{
+    logout();
+    closeMenu()
+  }
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -212,9 +216,9 @@ function Navbar(props) {
                       Orders
                     </Link>
                   </li>
-                  <li className="nav-item dropdown" onClick={() => {}}>
+                  <li className="nav-item dropdown" onClick={handleLogout}>
                   <Link
-                   
+                    
                       className="nav-link "
                       role="button"
                       data-bs-toggle=""
@@ -223,7 +227,7 @@ function Navbar(props) {
                       Logout
                     </Link>
                   </li>
-                </> :<LoginModal />
+                </> :<LoginModal onClick={closeMenu} />
 
               )}
             </ul>
