@@ -25,6 +25,7 @@
 }
 
 .footercontent {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,7 +150,7 @@
     padding-top: 6%;
   }
   .logoicon {
-    bottom: 15.5rem;
+    bottom: 55%;
   }
 }
 
@@ -159,6 +160,6 @@
     padding-top: 6%;
   }
   .logoicon {
-    bottom: 18.5rem;
+    bottom: 50%;
   }
 }
