@@ -53,8 +53,10 @@ const loginModalBtn = {
   fontFamily: "'Poppins', sans-serif",
   "@media (max-width: 768px)": {
     marginBottom: "10px",
-    marginLeft: "10px",
+    marginLeft: "35px",
     marginRight: "10px",
+    border:"none",
+    fontWeight:"bold"
   },
 };
 const loginbtn = {

@@ -227,7 +227,7 @@ function Navbar(props) {
                       Logout
                     </Link>
                   </li>
-                </> :<LoginModal onClick={closeMenu} />
+                </> :<LoginModal onClick={closeMenu}   />
 
               )}
             </ul>
