@@ -10,6 +10,7 @@ import DynamicCarousel from "../components/DynamicCarousel";
 import People from "../components/People";
 import classes from "./Home.module.css";
 
+
 const Home = () => {
   $(document).ready(function () {
     $(window).scroll(function () {
@@ -78,6 +79,7 @@ const Home = () => {
         <Welcome />
         <Values />
         <DynamicCarousel />
+       
         <Author />
         <Magical />
         <People />

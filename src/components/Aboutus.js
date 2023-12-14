@@ -51,11 +51,11 @@ function Aboutus() {
         </div>
         <div className={`${classes.person2} col-md-6`}>
           <p className={classes.name2}> Ramya</p>
-          {/* <img
+          <img
             src="./images/Butterfly.png"
             alt="heroimg1"
             className={classes.Butterfly}
-          /> */}
+          />
           <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"

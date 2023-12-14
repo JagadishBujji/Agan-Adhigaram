@@ -194,6 +194,9 @@
   .name2 {
     font-size: 14px;
   }
+  .Butterfly{
+    display: none;
+  }
 }
 
 /* Tablet */
@@ -204,6 +207,9 @@
     color: #f19e38;
     font-size: 30px;
     font-weight: 500;
+  }
+  .Butterfly{
+    display: none;
   }
 }
 
@@ -236,6 +242,9 @@
     font-size: 16px;
     font-family: "Poppins", sans-serif;
   }
+  .Butterfly{
+    display: none;
+  }
 }
 
 /* Larger screens */
@@ -264,6 +273,9 @@
   .ramya {
     font-size: 18px;
     font-family: "Poppins", sans-serif;
+  }
+  .Butterfly{
+    display: none;
   }
 }
 
@@ -298,5 +310,9 @@
   .Butterfly {
     right: 26%;
     top: 31%;
+    display: block;
+  }
+  .Butterfly{
+    display: none;
   }
 }

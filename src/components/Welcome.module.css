@@ -278,15 +278,15 @@
     font-family: "Poppins", sans-serif;
   }
   .subcontent {
-    font-size: 14px;
+    font-size: 12px;
     font-family: "Poppins", sans-serif;
-    line-height: 34px;
+    line-height: 24px;
     padding: 0;
   }
   .kamaimg {
     max-width: 3%;
-    left: 14%;
-    top: 3%;
+    left: 11%;
+    top: 2%;
   }
   /* .mission {
     position: relative;
@@ -315,7 +315,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 14% !important;
+    margin-top: 37% !important;
   }
   .subcontentvision {
     text-align: center;
@@ -353,7 +353,7 @@
     line-height: 24px;
   }
   .welcomecolumn2fox {
-    margin-top: 14% !important;
+    margin-top: 8% !important;
     /* margin-top: 0% !important; */
 
     align-items: center;

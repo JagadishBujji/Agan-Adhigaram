@@ -81,6 +81,7 @@ code {
     max-width: 21%;
     right: 8%;
     top: 10%;
+    display: none;
   }
 }
 
