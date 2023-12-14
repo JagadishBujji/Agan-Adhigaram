@@ -30,13 +30,24 @@ function Hero() {
           loop
           autoplay
         ></dotlottie-player>
-        {/* <img
-          src="./images/Website illustration for mobile.png"
+        <img
+          src="./images/mobilegifbanner.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
-        /> */}
-        <script
+        />
+        {/* <video
+          className={classes.mainimagemobile}
+          width="100%"
+          height="100%"
+          muted
+          autoPlay
+        >
+          <source src="./images/Websitemobile.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video> */}
+
+        {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"
         ></script>
@@ -49,7 +60,7 @@ function Hero() {
           mode="normal"
           loop
           autoplay
-        ></dotlottie-player>
+        ></dotlottie-player> */}
 
         <Heronav />
       </div>

@@ -11,6 +11,7 @@ import {
   warningNotification,
 } from "../utils/notifications";
 import axios from "axios";
+import classes from "./PaymentStatus.module.css";
 
 const PaymentStatus = () => {
   const dispatch = useDispatch();
@@ -139,83 +140,86 @@ const PaymentStatus = () => {
 
   return (
     <>
-      {status.code === "PAYMENT_INITIATED" ? (
-        <>
-          <h2>Payment Status - Pending</h2>
-          <p>
-            Please don't close the website until payment is success or failure.
-          </p>
-          {/* payment loading*/}
-          <script
-            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-            type="module"
-          ></script>
-          <div className="loading">
-            <dotlottie-player
-              src="https://lottie.host/2ffbc400-cbca-4214-be86-9fcae02cdf2a/ImKw0dntL5.json"
-              background="transparent"
-              speed="1"
-              style={{ width: "500px", height: "500px" }}
-              direction="1"
-              mode="normal"
-              loop
-              autoplay
-            ></dotlottie-player>
-          </div>
-          {/* payment loading*/}
-        </>
-      ) : status.code === "PAYMENT_SUCCESS" ? (
-        <>
-          <h2>Payment Status - Success</h2>
-          {/* payment success */}
-          <script
-            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-            type="module"
-          ></script>
-          <div className="loading">
-            <dotlottie-player
-              src="https://lottie.host/b65903ba-8a59-4b52-bd47-b5cc785b2043/zkRe8jafuL.json"
-              background="transparent"
-              speed="1"
-              style={{ width: "500px", height: "500px" }}
-              direction="1"
-              mode="normal"
-              loop
-              autoplay
-            ></dotlottie-player>
-          </div>
-          {/* payment success */}
-          <Button variant="outlined" onClick={() => navigate("/orders")}>
-            Go To Orders
-          </Button>
-        </>
-      ) : status.code === "PAYMENT_ERROR" ? (
-        <>
-          <h2>Payment Status - Failure</h2>
-          <p>Failure Message: {status.desc}</p>
-          {/* payment failed*/}
-          <script
-            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-            type="module"
-          ></script>
-          <div className="loading">
-            <dotlottie-player
-              src="https://lottie.host/e385d37a-9f97-48e8-a1df-3b9f036242c4/tFNW6AxhAG.json"
-              background="transparent"
-              speed="1"
-              style={{ width: "500px", height: "500px" }}
-              direction="1"
-              mode="normal"
-              loop
-              autoplay
-            ></dotlottie-player>
-          </div>
-          {/* payment failed*/}
-          <Button variant="outlined" onClick={() => navigate("/checkout")}>
-            Go To Cart
-          </Button>
-        </>
-      ) : null}
+      <div className={`${classes.payment}`}>
+        {status.code === "PAYMENT_INITIATED" ? (
+          <>
+            <h2 className={`${classes.pay}`}>Payment Status - Pending</h2>
+            <p className={`${classes.pay}`}>
+              Please don't close the website until payment is success or
+              failure.
+            </p>
+            {/* payment loading*/}
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+            <div className="loading">
+              <dotlottie-player
+                src="https://lottie.host/2ffbc400-cbca-4214-be86-9fcae02cdf2a/ImKw0dntL5.json"
+                background="transparent"
+                speed="1"
+                style={{ width: "500px", height: "500px" }}
+                direction="1"
+                mode="normal"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            {/* payment loading*/}
+          </>
+        ) : status.code === "PAYMENT_SUCCESS" ? (
+          <>
+            <h2 className={`${classes.pay}`}>Payment Status - Success</h2>
+            {/* payment success */}
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+            <div className="loading">
+              <dotlottie-player
+                src="https://lottie.host/b65903ba-8a59-4b52-bd47-b5cc785b2043/zkRe8jafuL.json"
+                background="transparent"
+                speed="1"
+                style={{ width: "500px", height: "500px" }}
+                direction="1"
+                mode="normal"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            {/* payment success */}
+            <Button variant="outlined" onClick={() => navigate("/orders")}>
+              Go To Orders
+            </Button>
+          </>
+        ) : status.code === "PAYMENT_ERROR" ? (
+          <>
+            <h2 className={`${classes.pay}`}>Payment Status - Failure</h2>
+            <p className={`${classes.pay}`}>Failure Message: {status.desc}</p>
+            {/* payment failed*/}
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+            <div className="loading">
+              <dotlottie-player
+                src="https://lottie.host/e385d37a-9f97-48e8-a1df-3b9f036242c4/tFNW6AxhAG.json"
+                background="transparent"
+                speed="1"
+                style={{ width: "500px", height: "500px" }}
+                direction="1"
+                mode="normal"
+                loop
+                autoplay
+              ></dotlottie-player>
+            </div>
+            {/* payment failed*/}
+            <Button variant="outlined" className={`${classes.go}`} onClick={() => navigate("/checkout")}>
+              Go To Cart
+            </Button>
+          </>
+        ) : null}
+      </div>
     </>
   );
 };
