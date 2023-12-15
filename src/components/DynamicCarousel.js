@@ -50,6 +50,7 @@ const DynamicCarousel = () => {
     // "./images/gallery3.svg",
     // "./images/gallery3.svg",
   ];
+
   const prev = (current - 1 + awards.length) % awards.length;
   const next = (current + 1) % awards.length;
 
@@ -61,16 +62,24 @@ const DynamicCarousel = () => {
     setCurrent(next);
   };
 
+  
   const renderCarousel = (type) => {
     let ui = null;
     let imagesArray = [];
-
-    if (type === "awards") {
-      imagesArray = awards;
-    } else if (type === "events") {
-      imagesArray = events;
-    } else {
-      imagesArray = books;
+ 
+    if (window.innerWidth < 767  )
+    {
+      let mobileArray=awards.concat(events,books)
+      imagesArray=mobileArray
+    }
+    else{
+      if (type === "awards") {
+        imagesArray = awards;
+      } else if (type === "events") {
+        imagesArray = events;
+      } else {
+        imagesArray = books;
+      }
     }
 
     const prevIndex = (current - 1 + imagesArray.length) % imagesArray.length;

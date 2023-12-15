@@ -26,15 +26,9 @@ const People = () => {
     ],
     outerWidth: 100,
   };
- 
-
- 
-
- 
 
   return (
     <>
-     
       <div className="row container peopleheading">
         <div className="heading">
           <span className="sparakel">
@@ -70,8 +64,8 @@ const People = () => {
                     name="read-only"
                     value={5}
                     readOnly
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
-                    style={{  color: "white", width: "5px", height: "5px" }}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
+                    style={{ color: "white", width: "5px", height: "5px" }}
                     // style={window.innerWidth < 400 ? rating : ratingLg}
                   />
                 </div>
@@ -102,7 +96,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -135,7 +129,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -166,7 +160,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -195,7 +189,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -225,7 +219,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth >500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -255,7 +249,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -287,7 +281,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
@@ -319,7 +313,7 @@ const People = () => {
                     value={5}
                     readOnly
                     style={{ color: "white", width: "5px", height: "5px" }}
-                    size={window.innerWidth > 500 ?"medium"   : "small"}
+                    size={window.innerWidth > 500 ? "medium" : "small"}
                   />
                 </div>
               </div>
