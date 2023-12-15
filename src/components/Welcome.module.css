@@ -247,7 +247,7 @@
     height: 65rem;
   }
   .welcomecolumn {
-    margin-top: 0% !important;
+    margin-top: 15% !important;
     /* margin-top: 10% !important; */
   }
 
@@ -315,7 +315,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 37% !important;
+    margin-top: 20% !important;
   }
   .subcontentvision {
     text-align: center;
