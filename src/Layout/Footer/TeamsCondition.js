@@ -4,9 +4,9 @@ import { Container } from "@mui/material";
 const TeamsCondition = () => {
   return (
     <div>
-      <Container maxWidth="md" className="container">
-        <h1>Terms And Conditions</h1>
-        <h4>Terms Of Service Agreement</h4>
+      <Container maxWidth="md" className="privacy">
+        <h1 className="pri">Terms And Conditions</h1>
+        <h4 className="poi">Terms Of Service Agreement</h4>
         <h6>As on 04-11-2021</h6>
         <p>
           PLEASE READ THIS TERMS OF SERVICE AGREEMENT CAREFULLY. BY USING THIS
@@ -37,7 +37,7 @@ const TeamsCondition = () => {
           you would like to print this Agreement, please click the print button
           on your browser toolbar.
         </p>
-        <h4>I. PRODUCTS</h4>
+        <h4 className="poi">I. PRODUCTS</h4>
         <p>
           Terms of Offer. This Website offers for sale of certain products (the
           "Products"). By placing an order for Products through this Website,
@@ -62,7 +62,7 @@ const TeamsCondition = () => {
           information. Sales Tax. If you purchase any Products, you will be
           responsible for paying any applicable sales tax.
         </p>
-        <h4>II. WEBSITE</h4>
+        <h4 className="poi">II. WEBSITE</h4>
         <p>
           Content; Intellectual Property; Third-Party Links. In addition to
           making Products available, this Website also offers information and
@@ -116,7 +116,7 @@ const TeamsCondition = () => {
           Publishing house® deems objectionable, in Agan Adhigaram Publishing
           house®’s sole discretion.
         </p>
-        <h4>III. DISCLAIMER OF WARRANTIES</h4>
+        <h4 className="poi">III. DISCLAIMER OF WARRANTIES</h4>
         <p>
           YOUR USE OF THIS WEBSITE AND/OR PRODUCTS ARE AT YOUR SOLE RISK. THE
           WEBSITE AND PRODUCTS ARE OFFERED ON AN "AS IS" AND "AS AVAILABLE"
@@ -138,7 +138,7 @@ const TeamsCondition = () => {
           ALLOW THE EXCLUSION OF CERTAIN WARRANTIES, SO SOME OF THE ABOVE
           EXCLUSIONS MAY NOT APPLY TO YOU.
         </p>
-        <h4>IV. LIMITATION OF LIABILITY</h4>
+        <h4 className="poi">IV. LIMITATION OF LIABILITY</h4>
         <p>
           AGAN ADHIGARAM PUBLISHING HOUSE® ENTIRE LIABILITY, AND YOUR EXCLUSIVE
           REMEDY, IN LAW, IN EQUITY, OR OTHERWISE, WITH RESPECT TO THE WEBSITE
@@ -156,7 +156,7 @@ const TeamsCondition = () => {
           CONSEQUENTIAL DAMAGES SO SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY
           TO YOU.
         </p>
-        <h4>V. INDEMNIFICATION</h4>
+        <h4 className="poi">V. INDEMNIFICATION</h4>
         <p>
           You will release, indemnify, defend and hold harmless Agan Adhigaram
           Publishing house®, and any of its contractors, agents, employees,
@@ -187,20 +187,20 @@ const TeamsCondition = () => {
           terms of this provision will survive any termination or cancellation
           of this Agreement or your use of the Website or Products.
         </p>
-        <h4>VI. PRIVACY</h4>
+        <h4 className="poi">VI. PRIVACY</h4>
         <p>
           Agan Adhigaram Publishing house® believes strongly in protecting user
           privacy. Please refer to Agan Adhigaram Publishing house® privacy
           policy, incorporated by reference herein, that is posted on the
           Website.
         </p>
-        <h4>VII. AGREEMENT TO BE BOUND</h4>
+        <h4 className="poi">VII. AGREEMENT TO BE BOUND</h4>
         <p>
           By using this Website or ordering Products, you acknowledge that you
           have read and agree to be bound by this Agreement and all terms and
           conditions on this Website.{" "}
         </p>
-        <h4>VIII. GENERAL</h4>
+        <h4 className="poi">VIII. GENERAL</h4>
         <p>
           Force Majeure. Agan Adhigaram Publishing house® will not be deemed in
           default hereunder or held responsible for any cessation, interruption,

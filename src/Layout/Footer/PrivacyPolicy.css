@@ -1,19 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
+
+
 .pri {
   text-align: center;
   margin-bottom: 60px;
   font-weight: 500;
   /* color:rgb(58, 56, 56); */
+  font-family: "Poppins", sans-serif;
+  color: #f19e38;
 }
 .privacy {
-  margin-top: 130px;
-  font-family: poppins;
+  margin-top: 50px;
+  font-family: "Poppins", sans-serif;
+  
 }
 .poi {
   margin-bottom: 15px;
   color: #f19e38;
+  font-family: "Poppins", sans-serif;
 }
 p {
   text-align: justify;
   margin-bottom: 25px;
   font-size: 15px;
+  font-family: "Poppins", sans-serif;
 }
