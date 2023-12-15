@@ -180,20 +180,22 @@ function Navbar(props) {
                   Blog
                 </Link>
               </li>
+             {
+             isMenuOpen &&  <li className="nav-item dropdown" onClick={closeMenu}>
+             <Link
+               to="checkout"
+               className="nav-link "
+               role="button"
+               data-bs-toggle=""
+               aria-expanded="false"
+             >
+               Cart
+             </Link>
+           </li>
+             }
               {isMenuOpen && (
                 isAuthenticated ?
                 <>
-                  <li className="nav-item dropdown" onClick={closeMenu}>
-                    <Link
-                      to="checkout"
-                      className="nav-link "
-                      role="button"
-                      data-bs-toggle=""
-                      aria-expanded="false"
-                    >
-                      Cart
-                    </Link>
-                  </li>
                   <li className="nav-item dropdown" onClick={closeMenu}>
                     <Link
                       to="profile"
