@@ -88,7 +88,7 @@
 .we {
   text-align: center;
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
 }
 
@@ -194,7 +194,7 @@
   .name2 {
     font-size: 14px;
   }
-  .Butterfly{
+  .Butterfly {
     display: none;
   }
 }
@@ -208,7 +208,7 @@
     font-size: 30px;
     font-weight: 500;
   }
-  .Butterfly{
+  .Butterfly {
     display: none;
   }
 }
@@ -221,7 +221,7 @@
     font-weight: 600;
   }
   .we {
-    font-size: 24px;
+    font-size: 16px;
     font-family: "Poppins", sans-serif;
     margin-top: 25px;
     padding: 0 10%;
@@ -242,7 +242,7 @@
     font-size: 16px;
     font-family: "Poppins", sans-serif;
   }
-  .Butterfly{
+  .Butterfly {
     display: none;
   }
 }
@@ -274,7 +274,23 @@
     font-size: 18px;
     font-family: "Poppins", sans-serif;
   }
-  .Butterfly{
+  .Butterfly {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .aboutus {
+    font-size: 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+  .we {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    padding: 0 10%;
+  }
+  .Butterfly {
     display: none;
   }
 }
@@ -312,7 +328,7 @@
     top: 31%;
     display: block;
   }
-  .Butterfly{
+  .Butterfly {
     display: none;
   }
 }

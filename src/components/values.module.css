@@ -264,8 +264,6 @@
     padding: 0;
     margin-left: 100px;
   }
- 
-  
 }
 
 /* Tablet */
@@ -326,6 +324,43 @@
   .items .button-container {
     top: 50px;
   }
+}
+
+@media only screen and (min-width: 1500px) {
+  .valuesheading {
+    padding-top: 3rem !important;
+  }
+  .valuessubcontent1 {
+    padding: 0px 135px;
+  }
+  .valuessubcontent2 {
+    padding: 0px 135px;
+  }
+  .valuessubcontent3 {
+    padding: 0px 135px;
+    margin-bottom: 0;
+  }
+  .valuessubcontent4 {
+    padding: 0px 135px;
+  }
+
+  .valuestitles1 {
+    padding-top: 0px;
+    font-size: 20px;
+  }
+  .valuestitles2 {
+    /* padding-top: 0px; */
+    font-size: 20px;
+  }
+  .valuestitles3 {
+    padding-top: 20px;
+    font-size: 20px;
+  }
+  .valuestitles4 {
+    padding-top: 10px;
+    font-size: 20px;
+  }
+  
 }
 @media only screen and (min-width: 2560px) {
   .Values {

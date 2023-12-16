@@ -35,7 +35,7 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid m-auto `}>
+        <div className={`${classes.mission} row container-fluid  `}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
@@ -61,7 +61,9 @@ function Welcome() {
               autoplay
             ></dotlottie-player>
           </div>
-          <div className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6 `}>
+          <div
+            className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6 `}
+          >
             <h3 className={`${classes.welcomevision}`}>Our Vision</h3>
             <h4 className={`${classes.welcomevisiontitle}`}>
               {" "}

@@ -16,13 +16,13 @@ const DynamicCarousel = () => {
     "./images/awards1.png",
     "./images/awards2.png",
     "./images/gallery3.svg",
-    // "./images/I.png",
-    // "./images/vadai.jpeg",
-    // "./images/vadai2.jpeg",
-    // "./images/VPxSIMZ-3.jpg",
-    // "./images/ibook.png",
-    // "./images/gallery3.svg",
-    // "./images/gallery3.svg",
+    "./images/I.png",
+    "./images/vadai.jpeg",
+    "./images/vadai2.jpeg",
+    "./images/VPxSIMZ-3.jpg",
+    "./images/ibook.png",
+    "./images/gallery3.svg",
+    "./images/gallery3.svg",
   ];
 
   const events = [
@@ -32,10 +32,10 @@ const DynamicCarousel = () => {
     "./images/event4.png",
     "./images/event5.png",
     "./images/events6.jpeg",
-    // "./images/VPxSIMZ-3.jpg",
-    // "./images/VPxSIMZ-18.jpg",
-    // "./images/ibook.png",
-    // "./images/gallery3.svg",
+    "./images/VPxSIMZ-3.jpg",
+    "./images/VPxSIMZ-18.jpg",
+    "./images/ibook.png",
+    "./images/gallery3.svg",
   ];
 
   const books = [
@@ -47,8 +47,10 @@ const DynamicCarousel = () => {
     "./images/book6.jpg",
     "./images/book7.jpg",
     "./images/book8.jpg",
-    // "./images/gallery3.svg",
-    // "./images/gallery3.svg",
+    "./images/ibook.png",
+    "./images/vadai.jpeg",
+    "./images/gallery3.svg",
+    "./images/gallery3.svg",
   ];
 
   const prev = (current - 1 + awards.length) % awards.length;

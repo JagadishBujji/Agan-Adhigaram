@@ -15,7 +15,7 @@ code {
 }
 
 .Butterfly {
-  max-width: 10%;
+  max-width: 8%;
   position: absolute;
   right: 9%;
   top: -20%;
@@ -60,8 +60,6 @@ code {
   -ms-filter: "alpha(opacity=100)";
 }
 
-
-
 /* .heroall {
   margin-top: 65px;
 } */
@@ -78,9 +76,6 @@ code {
     width: 100%;
   }
   .Butterfly {
-    max-width: 21%;
-    right: 8%;
-    top: 10%;
     display: none;
   }
 }

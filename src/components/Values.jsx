@@ -33,8 +33,7 @@ const Values = () => {
           </div>
           <div className={`${classes.firsthalf3} col-md-6`}>
             <h4 className={classes.valuestitles3}>
-              Balancing Tradition <br />
-              and Technology
+              Balancing Tradition and Technology
             </h4>
             <p className={classes.valuessubcontent3}>
               In a digital age, we recognise the importance of maintaining a
@@ -44,10 +43,7 @@ const Values = () => {
             </p>
           </div>
           <div className={`${classes.firsthalf4} col-md-6`}>
-            <h4 className={classes.valuestitles4}>
-              Quality
-               Craftsmanship
-            </h4>
+            <h4 className={classes.valuestitles4}>Quality Craftsmanship</h4>
             <p className={classes.valuessubcontent4}>
               We take pride in producing high-quality, durable, and safe
               products for children. Each book is a result of meticulous

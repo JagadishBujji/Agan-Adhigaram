@@ -112,11 +112,12 @@
 
 .Journeywe {
   text-align: center;
-  margin:0 auto;
+  margin: 0 auto;
   width: 50%;
   font-size: 18px;
   font-weight: 500;
   color: #000000;
+  font-family: "Poppins", sans-serif;
 }
 
 .row {
@@ -184,8 +185,14 @@
 } */
 
 /* Laptop */
-/* @media only screen and (min-width: 1024px) and (max-width: 1365px) {
-} */
+@media only screen and (max-width: 1500px) {
+  .spark {
+    max-width: 6%;
+    position: absolute;
+    top: -10%;
+    left: 38%;
+  }
+}
 
 /* Larger screens */
 /* @media only screen and (min-width: 1366px) {

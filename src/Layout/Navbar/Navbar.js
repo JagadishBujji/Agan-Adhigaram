@@ -47,7 +47,7 @@ function Navbar(props) {
     <div>
       <nav className="navbar navbar-expand-lg  container-fluid ">
         <div className="container-fluid">
-          <a href="#" className="navbar-brand">
+          <a href="/" className="navbar-brand">
             <img
               src="./images/Logo_Agan.png"
               // {props.logo}
