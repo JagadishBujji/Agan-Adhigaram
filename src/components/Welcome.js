@@ -27,11 +27,25 @@ function Welcome() {
               and in doing so, they're not just reading; they're playing.
             </p>
             <span>
-              <img
+              {/* <img
                 src="./images/Paatti 1.svg"
                 alt="heroimg1"
                 className={classes.paatiimg}
-              />
+              /> */}
+              <script
+                src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                type="module"
+              ></script>
+              <dotlottie-player
+                src="https://lottie.host/53bfb191-5d62-4a09-8e16-f5cc4b43fef9/BFeDo3AjjP.json"
+                background="transparent"
+                speed="1"
+                class="paatiimg"
+                direction="1"
+                mode="normal"
+                loop
+                autoplay
+              ></dotlottie-player>
             </span>
           </div>
         </div>

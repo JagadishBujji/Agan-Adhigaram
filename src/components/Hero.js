@@ -13,8 +13,23 @@ function Hero() {
           float={"center"}
           className={classes.mainimage}
         /> */}
-
         <script
+          src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+          type="module"
+        ></script>
+        <dotlottie-player
+          src="https://lottie.host/7d71a005-b3a0-49cd-81ae-c6e87449c6ff/oUD6STCRN5.json"
+          background="transparent"
+          speed="1"
+          style={{ width: "100%" }}
+          class="mainimage"
+          direction="1"
+          mode="normal"
+          loop
+          autoplay
+        ></dotlottie-player>
+
+        {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"
         ></script>
@@ -25,17 +40,31 @@ function Hero() {
           direction="1"
           style={{ width: "100%" }}
           class="mainimage"
-          // className={classes.mainimage}
+          className={classes.mainimage}
           mode="normal"
           loop
           autoplay
-        ></dotlottie-player>
+        ></dotlottie-player> */}
         <img
           src="./images/mobilegifbanner.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
         />
+        {/* <script
+          src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+          type="module"
+        ></script>
+        <dotlottie-player
+          src="https://lottie.host/7dd27d77-88f3-4be1-bf7d-ec62af0bd52c/JE9fcJIBOh.json"
+          background="transparent"
+          speed="1"
+          class="mainimagemobile"
+          direction="1"
+          mode="normal"
+          loop
+          autoplay
+        ></dotlottie-player> */}
         {/* <video
           className={classes.mainimagemobile}
           width="100%"

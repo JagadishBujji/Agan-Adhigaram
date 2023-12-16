@@ -28,6 +28,19 @@ code {
   top: -20%;
 }
 
+.paatiimg {
+  max-width: 32%;
+  position: absolute;
+  top: -25%;
+  right: 0;
+  bottom: 0%;
+}
+
+.mainimagemobile {
+  display: block;
+  width: 100%;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -85,7 +98,10 @@ code {
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
+    display: none;
+  }
+  .paatiimg{
     display: none;
   }
 }
@@ -110,7 +126,6 @@ code {
     display: block;
     width: 100%;
   }
-  
 }
 
 /* Tablet */
@@ -125,6 +140,10 @@ code {
     right: 7%;
     top: 28%;
   }
+  .mainimagemobile {
+    display: none;
+    width: 100%;
+  }
 }
 
 /* Laptop */
@@ -134,6 +153,10 @@ code {
   }
   .mainimagemobile {
     display: none;
+  }
+  .mainimagemobile {
+    display: none;
+    width: 100%;
   }
 }
 

@@ -74,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .refine {
@@ -89,6 +90,7 @@
   align-items: center;
   padding: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 .filter {
   background: #fff;
@@ -103,9 +105,17 @@
   justify-content: center;
   align-items: center;
   padding: 12px;
+  cursor: pointer;
 }
 
 .fa-plus {
   color: #f19e38;
   font-size: 12px;
+  cursor: pointer;
 }
+.fa-minus {
+  color: #f19e38;
+  font-size: 12px;
+  cursor: pointer;
+}
+

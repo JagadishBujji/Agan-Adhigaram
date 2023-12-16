@@ -35,8 +35,8 @@
   width: 300px;
   position: relative;
   z-index: 1;
-  opacity: 0.5;
-  color: #fff;
+  /* opacity: 0.5; */
+  color: #fdf3e2;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }

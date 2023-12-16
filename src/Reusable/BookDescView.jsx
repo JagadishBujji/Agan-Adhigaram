@@ -51,24 +51,24 @@ const BookDescView = ({ book }) => {
   // gallery
   const slides = [
     {
-      eachSlide: 'url(book.images[0])',
+      eachSlide: "url(book.images[0])",
     },
     {
-      eachSlide: 'url(book.images[1])',
+      eachSlide: "url(book.images[1])",
     },
     {
-      eachSlide: 'url(book.images[2])',
+      eachSlide: "url(book.images[2])",
     },
     {
-      eachSlide: 'url(book.images[3])',
+      eachSlide: "url(book.images[3])",
     },
     {
-      eachSlide: 'url(book.images[4])',
+      eachSlide: "url(book.images[4])",
     },
     {
-      eachSlide: 'url(book.images[5])',
-    }
-];
+      eachSlide: "url(book.images[5])",
+    },
+  ];
   const max = slides.length;
 
   const intervalBetweenSlides = () =>
@@ -91,63 +91,58 @@ const BookDescView = ({ book }) => {
     const transition = active * -100;
 
     return {
-      width:slides.length * 100 + "vw",
+      width: slides.length * 100 + "vw",
       transform: "translateX(" + transition + "vw)",
     };
   };
 
   const renderSlides = () =>
-  // {
-  // <>
-  // <img
-  //   src={book.images[0]}
-  //   alt=""
-  //   className={classes.imgbook}
-  //   onClick={handleOnImageClick}
-  // />
-  // <img
-  //   src={book.images[1]}
-  //   alt=""
-  //   className={classes.imgbook2}
-  //   onClick={handleOnImageClick}
-  // />
+    // {
+    // <>
+    // <img
+    //   src={book.images[0]}
+    //   alt=""
+    //   className={classes.imgbook}
+    //   onClick={handleOnImageClick}
+    // />
+    // <img
+    //   src={book.images[1]}
+    //   alt=""
+    //   className={classes.imgbook2}
+    //   onClick={handleOnImageClick}
+    // />
 
-  //   <img
-  //     src={book.images[2]}
-  //     alt=""
-  //     className={classes.imgrowbook}
-  //     onClick={handleOnImageClick}
-  //   />
-  //   <img
-  //     src={book.images[3]}
-  //     alt=""
-  //     className={classes.imgrowbook}
-  //     onClick={handleOnImageClick}
-  //   />
-  //   <img
-  //     src={book.images[4]}
-  //     alt=""
-  //     className={classes.imgrowbook}
-  //     onClick={handleOnImageClick}
-  //   />
-  //   <img
-  //     src={book.images[5]}
-  //     alt=""
-  //     className={classes.imgrowbook}
-  //     onClick={handleOnImageClick}
-  //   />
-  //   </>}
-  (book.images).map((item, index) => (
-      <img 
-        src={item}
-            className={classes.eachSlides} 
-            key={ index } 
-            />
-             
+    //   <img
+    //     src={book.images[2]}
+    //     alt=""
+    //     className={classes.imgrowbook}
+    //     onClick={handleOnImageClick}
+    //   />
+    //   <img
+    //     src={book.images[3]}
+    //     alt=""
+    //     className={classes.imgrowbook}
+    //     onClick={handleOnImageClick}
+    //   />
+    //   <img
+    //     src={book.images[4]}
+    //     alt=""
+    //     className={classes.imgrowbook}
+    //     onClick={handleOnImageClick}
+    //   />
+    //   <img
+    //     src={book.images[5]}
+    //     alt=""
+    //     className={classes.imgrowbook}
+    //     onClick={handleOnImageClick}
+    //   />
+    //   </>}
+    book.images.map((item, index) => (
+      <img src={item} className={classes.eachSlides} key={index} />
     ));
 
   const renderDots = () =>
-  slides.map(
+    slides.map(
       (
         silde,
         index // check index
@@ -160,16 +155,46 @@ const BookDescView = ({ book }) => {
       )
     );
 
-    const cancelSlide=()=>{
-      return (<svg version="1.1" id="Layer_1" 
-      viewBox="0 0 32 32" enable-background="new 0 0 32 32" >
-   <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="16" cy="16" r="12"/>
-   <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="11.5" y1="11.5" x2="20.5" y2="20.5"/>
-   <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="20.5" y1="11.5" x2="11.5" y2="20.5"/>
-   </svg>)
-
-
-    }
+  const cancelSlide = () => {
+    return (
+      <svg
+        version="1.1"
+        id="Layer_1"
+        viewBox="0 0 32 32"
+        enable-background="new 0 0 32 32"
+      >
+        <circle
+          fill="none"
+          stroke="#000000"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          cx="16"
+          cy="16"
+          r="12"
+        />
+        <line
+          fill="none"
+          stroke="#000000"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          x1="11.5"
+          y1="11.5"
+          x2="20.5"
+          y2="20.5"
+        />
+        <line
+          fill="none"
+          stroke="#000000"
+          stroke-width="2"
+          stroke-miterlimit="10"
+          x1="20.5"
+          y1="11.5"
+          x2="11.5"
+          y2="20.5"
+        />
+      </svg>
+    );
+  };
 
   const renderPlayStop = () =>
     autoplay ? (
@@ -186,13 +211,21 @@ const BookDescView = ({ book }) => {
 
   const renderArrows = () => (
     <React.Fragment>
-      <button type="button" className={`${classes.arrows} ${classes.prev}`} onClick={() => prevOne()}>
+      <button
+        type="button"
+        className={`${classes.arrows} ${classes.prev}`}
+        onClick={() => prevOne()}
+      >
         <svg fill="#FFFFFF" width="50" height="50" viewBox="0 0 24 24">
           <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
           <path d="M0 0h24v24H0z" fill="none" />
         </svg>
       </button>
-      <button type="button" className={`${classes.arrows} ${classes.next}`} onClick={() => nextOne()}>
+      <button
+        type="button"
+        className={`${classes.arrows} ${classes.next}`}
+        onClick={() => nextOne()}
+      >
         <svg fill="#FFFFFF" height="50" viewBox="0 0 24 24" width="50">
           <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
           <path d="M0 0h24v24H0z" fill="none" />
@@ -283,10 +316,10 @@ const BookDescView = ({ book }) => {
           </p>
         </div>
         <div className={`${classes.BookDescView2} col-md-7`}>
-          <div className={`${classes.bookdescimg} row`}>
+          {/* <div className={`${classes.bookdescimg} row`}>
             <div className={`${classes.bookdescimg1} col-md-6`}></div>
             <div className={`${classes.bookdescimg2} col-md-4`}></div>
-          </div>
+          </div> */}
           <img
             src={book.images[0]}
             alt=""
@@ -339,9 +372,13 @@ const BookDescView = ({ book }) => {
                   onClick={toggleAutoPlay}
                 >
                   {renderPlayStop()}
-                 
                 </button>
-                <span className={classes.cancel} onClick={()=>setOnImageClick(false)} >{cancelSlide()}</span> 
+                <span
+                  className={classes.cancel}
+                  onClick={() => setOnImageClick(false)}
+                >
+                  {cancelSlide()}
+                </span>
               </section>
             </Modal>
           )}
