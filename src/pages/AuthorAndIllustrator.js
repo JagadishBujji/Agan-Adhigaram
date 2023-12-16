@@ -7,6 +7,9 @@ const AuthorAndIllustrator = () => {
     <>
       <div className={classes.Authorbooksmain}>
         <Author />
+        <a href="#" id="scroll" style={{ display: "none" }}>
+          <span></span>
+        </a>
       </div>
     </>
   );

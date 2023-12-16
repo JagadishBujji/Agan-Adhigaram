@@ -10,7 +10,6 @@ import DynamicCarousel from "../components/DynamicCarousel";
 import People from "../components/People";
 import classes from "./Home.module.css";
 
-
 const Home = () => {
   $(document).ready(function () {
     $(window).scroll(function () {
@@ -35,14 +34,14 @@ const Home = () => {
             rel="noreferrer"
           >
             <img
-              src="/images/Black Insta.svg"
+              src="/images/Instagram-01.png"
               alt=""
               className={classes.insta}
             />
           </a>
           <a href=" https://www.facebook.com/Aganadhigaram" target="_blank">
             <img
-              src="/images/Black Facebook.svg"
+              src="/images/Facebook-01.png"
               alt=""
               className={classes.insta}
             />
@@ -52,23 +51,28 @@ const Home = () => {
             target="_blank"
           >
             <img
-              src="/images/Black linkedin.svg"
+              src="/images/Linked in-01-01.png"
               alt=""
               className={classes.insta}
             />
           </a>
+
           <a
             href="https://twitter.com/AganAdhigaram"
             target="_blank"
             rel="noreferrer"
           >
             {" "}
-            <img src="/images/Black X.svg" alt="" className={classes.insta} />
+            <img
+              src="/images/Twitter-01.png"
+              alt=""
+              className={classes.insta}
+            />
           </a>
           <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank">
             {" "}
             <img
-              src="/images/Black youtube.svg"
+              src="/images/Youtube-01.png"
               alt=""
               className={classes.insta}
             />
@@ -79,7 +83,7 @@ const Home = () => {
         <Welcome />
         <Values />
         <DynamicCarousel />
-       
+
         <Author />
         <Magical />
         <People />

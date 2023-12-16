@@ -15,16 +15,16 @@ const Footer = () => {
       >
         <div className={`${classes.footercontent} container`}>
           <div className={`${classes.socialmedia}`}>
-            <a href="https://www.instagram.com/agan_adhigaram/" target="_blank">
+            <a href="https://www.instagram.com/agan_adhigaram/" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Black Insta.svg"
+                src="./images/Instagram-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href=" https://www.facebook.com/Aganadhigaram" target="_blank">
+            <a href=" https://www.facebook.com/Aganadhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Black Facebook.svg"
+                src="./images/Facebook-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
@@ -32,23 +32,24 @@ const Footer = () => {
             <a
               href=" https://www.linkedin.com/in/agan-adhigaram-7b6911292/"
               target="_blank"
+              className={classes.sociallink}
             >
               <img
-                src="./images/Black linkedin.svg"
+                src="./images/Linked in-01-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="https://twitter.com/AganAdhigaram" target="_blank">
+            <a href="https://twitter.com/AganAdhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Black X.svg"
+                src="./images/Twitter-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank">
+            <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Black youtube.svg"
+                src="./images/Youtube-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />

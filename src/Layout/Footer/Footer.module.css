@@ -47,11 +47,18 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
+  width: 30%;
 }
 
 .socialmediaicon {
-  max-width: 50%;
+  max-width: 40%;
   margin-left: 15px;
+}
+
+.sociallink{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .borderbottom {
@@ -116,7 +123,9 @@
     font-size: 12px;
   }
   .socialmediaicon {
-    max-width: 35%;
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 22px;
   }
   .socialmedia {
     margin-top: none;
