@@ -197,7 +197,7 @@
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
@@ -214,7 +214,7 @@
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
@@ -231,6 +231,7 @@
     font-family: "Poppins", sans-serif;
     margin-top: 25px;
     padding: 0 10%;
+    line-height: 30px;
   }
   .sethuram {
     font-size: 16px;
@@ -251,7 +252,7 @@
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
@@ -286,10 +287,30 @@
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
+
+/* @media only screen and (min-width: 1441px) and (max-width: 1600px) {
+  .aboutus {
+    font-size: 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+  }
+  .we {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    padding: 0 10%;
+    line-height: 32px;
+  }
+  .Butterfly {
+    display: none;
+  }
+  .dragon {
+    display: none;
+  }
+} */
 
 @media only screen and (min-width: 1500px) {
   .aboutus {
@@ -301,11 +322,12 @@
     font-size: 20px;
     font-family: "Poppins", sans-serif;
     padding: 0 10%;
+    line-height: 32px;
   }
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
@@ -346,7 +368,17 @@
   .Butterfly {
     display: none;
   }
-  .dragon{
+  .dragon {
     display: none;
   }
 }
+
+/* Media query for 14-inch laptops and similar sizes */
+/* @media only screen and (min-width: 1366px) and (max-width: 1440px) { */
+/* Add styles specific to 14-inch laptops */
+/* } */
+
+/* Media query for 16-inch laptops and similar sizes */
+/* @media only screen and (min-width: 1441px) and (max-width: 1600px) { */
+/* Add styles specific to 16-inch laptops */
+/* } */
