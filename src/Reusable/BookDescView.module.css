@@ -331,14 +331,20 @@
     flex-direction: column-reverse;
   }
   .imgbook {
-    max-width: 40%;
+    /* max-width: 40%; */
+    width: 130px;
+    height: 200px;
     margin-right: 10px;
   }
   .imgbook2 {
-    max-width: 43%;
+    /* max-width: 43%; */
+    width: 130px;
+    height: 200px;
   }
   .imgrowbook {
-    max-width: 95%;
+    /* max-width: 95%; */
+    width: 40px;
+    height: 40px;
     margin-left: 15px;
   }
   .BookDescView2 {
