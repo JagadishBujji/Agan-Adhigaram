@@ -169,10 +169,10 @@
     display: none;
   }
   .spark {
-    max-width: 15%;
-    position: absolute;
-    top: -7%;
-    left: 18%;
+    max-width: 15% !important;
+    position: absolute !important;
+    top: -7% !important;
+    left: 18% !important;
   }
   .About {
     padding-top: 0px;

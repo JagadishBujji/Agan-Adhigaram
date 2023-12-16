@@ -88,8 +88,9 @@
     text-align: center;
   }
   .spark {
-    right: 20px;
-    max-width: 22%;
+    top: -14% !important;
+    right: 62px !important;
+    max-width: 14% !important;
   }
   .magicalpara {
     display: none;
@@ -113,7 +114,7 @@
 } */
 
 /* Laptop */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1px) {
   .spark {
     max-width: 7%;
     position: absolute;
