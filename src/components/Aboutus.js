@@ -47,6 +47,20 @@ function Aboutus() {
             {/* <br /> Agan Adhigaram publications. */}
           </p>
           <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
+          <script
+            src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+            type="module"
+          ></script>
+          <dotlottie-player
+            src="https://lottie.host/a222fe18-5bd8-4770-9855-ec53ed22006e/A3MaojSZu3.json"
+            background="transparent"
+            speed="1"
+            class="dragon"
+            direction="1"
+            mode="normal"
+            loop
+            autoplay
+          ></dotlottie-player>
           <p className={classes.name1}>Sethu Ram</p>
         </div>
         <div className={`${classes.person2} col-md-6`}>

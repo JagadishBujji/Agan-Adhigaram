@@ -197,6 +197,9 @@
   .Butterfly {
     display: none;
   }
+  .dragon{
+    display: none;
+  }
 }
 
 /* Tablet */
@@ -209,6 +212,9 @@
     font-weight: 500;
   }
   .Butterfly {
+    display: none;
+  }
+  .dragon{
     display: none;
   }
 }
@@ -245,6 +251,9 @@
   .Butterfly {
     display: none;
   }
+  .dragon{
+    display: none;
+  }
 }
 
 /* Larger screens */
@@ -277,6 +286,9 @@
   .Butterfly {
     display: none;
   }
+  .dragon{
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 1500px) {
@@ -291,6 +303,9 @@
     padding: 0 10%;
   }
   .Butterfly {
+    display: none;
+  }
+  .dragon{
     display: none;
   }
 }
@@ -329,6 +344,9 @@
     display: block;
   }
   .Butterfly {
+    display: none;
+  }
+  .dragon{
     display: none;
   }
 }
