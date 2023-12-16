@@ -226,7 +226,7 @@
     padding-bottom: 30px;
     /* height: 52rem; */
     overflow: hidden;
-    margin-bottom: 16%;
+    margin-bottom: 0%;
     background: #fff;
   }
   .items .item {
@@ -264,10 +264,9 @@
     transform: translate(-50%, -20%);
     top: 50px !important;
   }
-  .button-container{
+  .button-container {
     /* display: flex;
     justify-content:center ; */
-
   }
   #gallery {
     font-size: 24px;
@@ -282,5 +281,13 @@
     font-size: 40px;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
+  }
+}
+
+
+
+@media only screen and (min-width: 1500px) {
+  .overallcarosuel {
+    height: 40rem !important;
   }
 }
