@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <section>
-        <div className={classes.socialfixed}>
+        {/* <div className={classes.socialfixed}>
           <a
             href="https://www.instagram.com/agan_adhigaram/"
             target="_blank"
@@ -77,7 +77,7 @@ const Home = () => {
               className={classes.insta}
             />
           </a>
-        </div>
+        </div> */}
         <Hero />
         <Aboutus />
         <Welcome />
