@@ -17,14 +17,14 @@ const Footer = () => {
           <div className={`${classes.socialmedia}`}>
             <a href="https://www.instagram.com/agan_adhigaram/" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Instagram-01.png"
+                src="./images/insta-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href=" https://www.facebook.com/Aganadhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Facebook-01.png"
+                src="./images/facebook-04.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
@@ -35,21 +35,21 @@ const Footer = () => {
               className={classes.sociallink}
             >
               <img
-                src="./images/Linked in-01-01.png"
+                src="./images/linkedin-05.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href="https://twitter.com/AganAdhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Twitter-01.png"
+                src="./images/twitter-03.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
             <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank" className={classes.sociallink}>
               <img
-                src="./images/Youtube-01.png"
+                src="./images/youtube-02.png"
                 alt=""
                 className={classes.socialmediaicon}
               />

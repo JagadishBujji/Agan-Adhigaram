@@ -156,17 +156,20 @@
 /* Laptop */
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
   .footercontent {
-    padding-top: 6%;
+    padding-top: 5%;
   }
   .logoicon {
     bottom: 55%;
+  }
+  .socialmediaicon{
+    max-width: 80%;
   }
 }
 
 /* Larger screens */
 @media only screen and (min-width: 1440px) {
   .footercontent {
-    padding-top: 6%;
+    padding-top: 5%;
   }
   .logoicon {
     bottom: 50%;
