@@ -373,6 +373,10 @@
   }
 }
 
+@media only screen and (min-width: 1441px) and (max-width: 1600px){
+  
+}
+
 /* Media query for 14-inch laptops and similar sizes */
 /* @media only screen and (min-width: 1366px) and (max-width: 1440px) { */
 /* Add styles specific to 14-inch laptops */

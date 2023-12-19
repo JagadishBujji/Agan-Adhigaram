@@ -156,7 +156,14 @@
     justify-content: flex-start;
   }
   .bookitems {
-    padding: 0 20px;
+    padding: 0 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .overallbook {
+    padding: 20px 7px;
+    margin: 0 5px;
   }
 }
 

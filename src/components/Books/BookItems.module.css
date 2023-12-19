@@ -112,11 +112,11 @@
 .cartshopping1 {
   position: absolute;
   bottom: 15px;
-  right: 34px;
-  background: #fff;
+  right: 10px;
+  background: #fdf3e2;
   color: #f19e38;
   border-radius: 10px;
-  padding: 5px;
+  padding: 0px 20px;
   display: flex;
   justify-content: center;
   align-items: center;

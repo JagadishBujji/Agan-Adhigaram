@@ -112,10 +112,12 @@
   color: #f19e38;
   font-size: 12px;
   cursor: pointer;
+  margin-left: 10px;
 }
 .fa-minus {
   color: #f19e38;
   font-size: 12px;
   cursor: pointer;
+  margin-right: 10px;
 }
 

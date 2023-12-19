@@ -132,6 +132,15 @@
   }
 }
 
+@media only screen and (min-width: 1501px) and (max-width: 1600px) {
+  .spark {
+    max-width: 7%;
+    position: absolute;
+    top: -40%;
+    right: 30%;
+  }
+}
+
 /* Larger screens */
 /* @media only screen and (min-width: 1366px) {
 } */

@@ -45,7 +45,7 @@ const BookListView = ({ book }) => {
           className={`${classes.listview} row container-fluid  `}
           key={book.id}
         >
-          <div className={`${classes.list1} col-md-3`}>
+          <div className={`${classes.list1} col-md-3 col-4`}>
             <Link
               to={`/books/${book.id}`}
               state={book}
@@ -58,7 +58,7 @@ const BookListView = ({ book }) => {
               />
             </Link>
           </div>
-          <div className={`${classes.list2} col-md-6`}>
+          <div className={`${classes.list2} col-md-6 col-4`}>
             <Link
               to={`/books/${book.id}`}
               state={book}
@@ -67,10 +67,10 @@ const BookListView = ({ book }) => {
               <h4 className={classes.Humorous}>{book.genre}</h4>
               <h2 className={classes.vadai}>{book.title}</h2>
               <p className={classes.bookram}>{book.author}</p>
-              <p className={classes.bookramdec}>{book.description}</p>
+              {/* <p className={classes.bookramdec}>{book.description}</p> */}
             </Link>
           </div>
-          <div className={`${classes.list3} col-md-3`}>
+          <div className={`${classes.list3} col-md-3 col-4`}>
             <p className={classes.amount}>₹{book.discount_price}</p>
             <div className={classes.amountstrickout}>
               <p className={classes.strickout}>₹{book.mrp_price}</p>
