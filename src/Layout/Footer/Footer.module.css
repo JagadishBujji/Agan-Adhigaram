@@ -114,10 +114,16 @@
     background-color: #ff8924;
     background-size: auto;
   }
+  .links{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
   .copyright {
     padding-top: 0;
-    font-size: 12px;
+    font-size: 10px;
+    margin-bottom: 5px;
   }
   .links a {
     font-size: 12px;

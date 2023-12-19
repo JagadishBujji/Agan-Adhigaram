@@ -171,8 +171,8 @@
   .spark {
     max-width: 15% !important;
     position: absolute !important;
-    top: -7% !important;
-    left: 18% !important;
+    top: -30px !important;
+    left: 25px !important;
   }
   .About {
     padding-top: 0px;
