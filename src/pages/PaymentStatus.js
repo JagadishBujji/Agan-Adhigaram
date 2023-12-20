@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { Button } from "@mui/material";
 import { db } from "../services/firebase";
 import { clearCart } from "../store/cartSlice";
@@ -31,64 +31,67 @@ const PaymentStatus = () => {
   useEffect(() => {
     if (txnId) {
       const docRef = doc(db, "orders", txnId);
-      getDoc(docRef)
-        .then((docSnap) => {
-          if (docSnap.exists()) {
-            const data = docSnap.data();
-            console.log("Document data:", data);
-            if (data.payment_status === "PAYMENT_SUCCESS") {
-              setStatus({
-                code: data.payment_status,
-                message: "Success",
-                desc: "",
-              });
-              dispatch(clearCart());
-              successNotification("Order placed successfully!");
-              // navigate("/orders");
-            } else if (data.payment_status === "PAYMENT_ERROR") {
-              // payment failed
-              setStatus({
-                code: data.payment_status,
-                message: "Failure",
-                desc: data.payment_transaction_details?.responseCodeDescription,
-              });
-              errorNotification("Payment Failed, Please try again later!");
-            } else if (data.payment_status === "PAYMENT_INITIATED") {
-              setStatus({
-                code: data.payment_status,
-                message: "Pending",
-                desc: "",
-              });
-              warningNotification("Payment Pending, Please wait");
-              // s2s callback not initiated, check status api and if payment is pending, then call 5seconds
-              axios
-                .get(
-                  // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${docSnap.id}`
-                  `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
-                )
-                .then((res) => {
-                  console.log("result: ", res.data);
-                  if (
-                    res.data.code === "PAYMENT_SUCCESS" ||
-                    res.data.code === "PAYMENT_ERROR"
-                  ) {
-                    // update the status in firestore
-                    updateOrderStatus(docSnap.id, res.data);
-                  } else if (
-                    res.data.code === "PAYMENT_PENDING" ||
-                    res.data.code === "INTERNAL_SERVER_ERROR"
-                  ) {
-                    startInterval(docSnap.id);
-                  }
-                })
-                .catch((e) => console.log(e));
-            }
-          } else {
-            // docSnap.data() will be undefined in this case
-            console.log("No such document!");
+      const unsubscribe = onSnapshot(docRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          console.log("Document data:", data);
+          if (data.payment_status === "PAYMENT_SUCCESS") {
+            setStatus({
+              code: data.payment_status,
+              message: "Success",
+              desc: "",
+            });
+            dispatch(clearCart());
+            successNotification("Order placed successfully!");
+            // navigate("/orders");
+          } else if (data.payment_status === "PAYMENT_ERROR") {
+            // payment failed
+            setStatus({
+              code: data.payment_status,
+              message: "Failure",
+              desc: data.payment_transaction_details?.responseCodeDescription,
+            });
+            errorNotification("Payment Failed, Please try again later!");
+          } else if (data.payment_status === "PAYMENT_INITIATED") {
+            setStatus({
+              code: data.payment_status,
+              message: "Pending",
+              desc: "",
+            });
+            warningNotification("Payment Pending, Please wait");
+            // s2s callback not initiated, check status api and if payment is pending, then call 5seconds
+            axios
+              .get(
+                // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${docSnap.id}`
+                `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
+              )
+              .then((res) => {
+                console.log("result: ", res.data);
+                if (
+                  res.data.code === "PAYMENT_SUCCESS" ||
+                  res.data.code === "PAYMENT_ERROR"
+                ) {
+                  // update the status in firestore
+                  updateOrderStatus(docSnap.id, res.data);
+                } else if (
+                  res.data.code === "PAYMENT_PENDING" ||
+                  res.data.code === "INTERNAL_SERVER_ERROR"
+                ) {
+                  // going option 1: and not option 2, bcs no idea, whether we need to call refund, when payment is pending,
+                  // website open - current doc is realtime, so once backend check is confirmed, automatically, this useeffect will run and change to success or failure
+                  // website close - backend, call the retry api with 9mins timeout and with every 5 secs, check status api is checked and once the status is success, then close the function, check for 8 mins, and still it is in pending, then we can initiate refund and note transaction as failed
+                  startInterval(docSnap.id);
+                }
+              })
+              .catch((e) => console.log(e));
           }
-        })
-        .catch((e) => console.log(e));
+        } else {
+          // docSnap.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      });
+
+      return () => unsubscribe();
     }
   }, [txnId]);
 
@@ -123,17 +126,20 @@ const PaymentStatus = () => {
       },
     })
       .then(() => {
-        setStatus({
-          code: result.code,
-          message: result.code === "PAYMENT_SUCCESS" ? "Success" : "Failure",
-          desc:
-            result.code === "PAYMENT_SUCCESS"
-              ? ""
-              : result.data.payment_transaction_details
-                  ?.responseCodeDescription,
-        });
-        dispatch(clearCart());
-        successNotification("Order placed successfully!");
+        console.log(
+          "order updated... And observor will get the data, and update the status locally"
+        );
+        // setStatus({
+        //   code: result.code,
+        //   message: result.code === "PAYMENT_SUCCESS" ? "Success" : "Failure",
+        //   desc:
+        //     result.code === "PAYMENT_SUCCESS"
+        //       ? ""
+        //       : result.data.payment_transaction_details
+        //           ?.responseCodeDescription,
+        // });
+        // dispatch(clearCart());
+        // successNotification("Order placed successfully!");
       })
       .catch((e) => console.log(e));
   };
@@ -145,8 +151,7 @@ const PaymentStatus = () => {
           <>
             <h2 className={`${classes.pay}`}>Payment Status - Pending</h2>
             <p className={`${classes.pay}`}>
-              Please don't close the website until payment is success or
-              failure.
+              Please don't close the website until payment is success or failed.
             </p>
             {/* payment loading*/}
             <script
@@ -214,7 +219,11 @@ const PaymentStatus = () => {
               ></dotlottie-player>
             </div>
             {/* payment failed*/}
-            <Button variant="outlined" className={`${classes.go}`} onClick={() => navigate("/checkout")}>
+            <Button
+              variant="outlined"
+              className={`${classes.go}`}
+              onClick={() => navigate("/checkout")}
+            >
               Go To Cart
             </Button>
           </>
