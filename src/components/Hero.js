@@ -2,6 +2,7 @@ import React from "react";
 // import heroimg from "../images/Hero.png";
 import Heronav from "./Heronav";
 import classes from "./Hero.module.css";
+import VideoBanner from "../Reusable/VideoBanner";
 
 function Hero() {
   return (
@@ -13,7 +14,7 @@ function Hero() {
           float={"center"}
           className={classes.mainimage}
         /> */}
-        <script
+        {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"
         ></script>
@@ -27,7 +28,12 @@ function Hero() {
           mode="normal"
           loop
           autoplay
-        ></dotlottie-player>
+        ></dotlottie-player> */}
+        <VideoBanner />
+
+        {/* <video class="mainimage" width="100%" height="100%" muted autoPlay>
+          <source src="./images/Web banner.webm" type="video/webm" />
+        </video> */}
 
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
