@@ -8,6 +8,8 @@ const BookDetails = ({ book }) => {
     month: "2-digit",
     year: "numeric",
   };
+
+  
   return (
     <>
       <section className={classes.bookdetailoverall}>
@@ -27,7 +29,7 @@ const BookDetails = ({ book }) => {
                 <li>Reading Age</li>
               </ul>
               <ul className={classes.details2}>
-                <li>{book.title}</li>
+                <li>{book.title} ({book.title_tamil})</li>
                 <li>{book.author}</li>
                 <li>{book.illustrator}</li>
                 <li>{book.language}</li>

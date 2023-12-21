@@ -54,7 +54,7 @@ const RelatedBooks = ({ relatedBooks }) => {
               className={classes.kadi}
             />
             <div className={classes.contant}>
-              <p className={classes.booktitle}>{book.title}</p>
+              <p className={classes.booktitle}>{book.title}({book.title_tamil})</p>
               <p className={classes.amount}>₹{book.discount_price}</p>
             </div>
           </div>

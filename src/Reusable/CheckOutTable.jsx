@@ -26,7 +26,7 @@ const CheckOutTable = ({ cartItems }) => {
             className={`${classes.CheckOutTablerow} container`}
             key={item.id}
           >
-            <p className={classes.tableheadrow1}>{item.title}</p>
+            <p className={classes.tableheadrow1}>{item.title}({item.title_tamil})</p>
             <div className={classes.qty}>
               <i
                 className={`${classes.minus} fa-solid fa-minus`}

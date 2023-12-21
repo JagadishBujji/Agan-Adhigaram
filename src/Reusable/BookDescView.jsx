@@ -239,7 +239,7 @@ const BookDescView = ({ book }) => {
     <>
       <div className={`${classes.BookDescView} row container-fluid m-auto`}>
         <div className={`${classes.BookDescView1} col-md-5`}>
-          <h3 className={classes.bookheading}>{book.title}</h3>
+          <h3 className={classes.bookheading}>{book.title}({book.title_tamil})</h3>
           <div className={classes.ramya}>
             <AvatarGroup max={2}>
               <Avatar alt="" src="../images/ramya.svg" />
