@@ -26,7 +26,7 @@ const PaymentStatus = () => {
   const searchParams = new URLSearchParams(location.search);
   const txnId = searchParams.get("txnId");
 
-  console.log("txnId", txnId);
+  // console.log("txnId", txnId);
 
   useEffect(() => {
     if (txnId) {
@@ -68,19 +68,28 @@ const PaymentStatus = () => {
               .then((res) => {
                 console.log("result: ", res.data);
                 if (
-                  res.data.code === "PAYMENT_SUCCESS" ||
-                  res.data.code === "PAYMENT_ERROR"
-                ) {
-                  // update the status in firestore
-                  updateOrderStatus(docSnap.id, res.data);
-                } else if (
                   res.data.code === "PAYMENT_PENDING" ||
                   res.data.code === "INTERNAL_SERVER_ERROR"
                 ) {
                   // going option 1: and not option 2, bcs no idea, whether we need to call refund, when payment is pending,
                   // website open - current doc is realtime, so once backend check is confirmed, automatically, this useeffect will run and change to success or failure
-                  // website close - backend, call the retry api with 9mins timeout and with every 5 secs, check status api is checked and once the status is success, then close the function, check for 8 mins, and still it is in pending, then we can initiate refund and note transaction as failed
-                  startInterval(docSnap.id);
+                  // website close - backend, call the retry api with 20mins timeout with reconcillation, check status api is checked and once the status is success, then close the function, else if pending, it will check the status until 20mins timeout, once that is done, timeout is returned and that is considered as failure
+                  // startInterval(docSnap.id);
+                  warningNotification(
+                    "Payment Pending, Please wait for some more minutes or check order history after some time."
+                  );
+                  axios
+                    .get(
+                      `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepeReconcillation?txnId=${docSnap.id}`
+                    )
+                    .then((res) => {
+                      console.log("phonepeReconcillation result: ", res.data);
+                    })
+                    .catch((e) => console.log(e));
+                } else {
+                  // PAYMENT_SUCCESS, PAYMENT_ERROR, PAYMENT_DECLINED, TIMED_OUT - update order status
+                  updateOrderStatus(docSnap.id, res.data);
+                  // TRANSACTION_NOT_FOUND, AUTHORIZATION_FAILED, BAD_REQUEST - these are developing errors or hack errors, make it to developer concern
                 }
               })
               .catch((e) => console.log(e));
@@ -95,26 +104,26 @@ const PaymentStatus = () => {
     }
   }, [txnId]);
 
-  const startInterval = (merchantTxnId) => {
-    var timer = setInterval(() => {
-      console.log("5 secs once");
-      axios
-        .get(
-          `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${merchantTxnId}`
-        )
-        .then((res) => {
-          console.log("result: ", res.data);
-          if (
-            res.data.code === "PAYMENT_SUCCESS" ||
-            res.data.code === "PAYMENT_ERROR"
-          ) {
-            clearInterval(timer);
-            updateOrderStatus(merchantTxnId, res.data);
-          }
-        })
-        .catch((e) => console.log(e));
-    }, 5000);
-  };
+  // const startInterval = (merchantTxnId) => {
+  //   var timer = setInterval(() => {
+  //     console.log("5 secs once");
+  //     axios
+  //       .get(
+  //         `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${merchantTxnId}`
+  //       )
+  //       .then((res) => {
+  //         console.log("result: ", res.data);
+  //         if (
+  //           res.data.code === "PAYMENT_SUCCESS" ||
+  //           res.data.code === "PAYMENT_ERROR"
+  //         ) {
+  //           clearInterval(timer);
+  //           updateOrderStatus(merchantTxnId, res.data);
+  //         }
+  //       })
+  //       .catch((e) => console.log(e));
+  //   }, 5000);
+  // };
 
   const updateOrderStatus = (orderId, result) => {
     const orderRef = doc(db, "orders", orderId);
