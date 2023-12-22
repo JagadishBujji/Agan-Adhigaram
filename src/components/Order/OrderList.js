@@ -89,7 +89,7 @@ const Order = ({ order }) => {
               </Grid>
               <Grid md={8}>
                 <h3 className={classes.title}>
-                  {book.title} - {book.book_format}
+                  {book.title}({book.title_tamil}) - {book.book_format}
                 </h3>
                 <p className={classes.author}>by {book.author}</p>
                 <p className={classes.price}>₹ {book.total_price}</p>

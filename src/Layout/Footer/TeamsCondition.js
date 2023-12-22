@@ -8,7 +8,7 @@ const TeamsCondition = () => {
         <h1 className="pri">Terms And Conditions</h1>
         <h4 className="poi">Terms Of Service Agreement</h4>
         <h6>As on 04-11-2021</h6>
-        <p>
+        <p className="para">
           PLEASE READ THIS TERMS OF SERVICE AGREEMENT CAREFULLY. BY USING THIS
           WEBSITE OR ORDERING PRODUCTS FROM THIS WEBSITE YOU AGREE TO BE BOUND
           BY ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT. <br /> <br />This Terms of
@@ -38,7 +38,7 @@ const TeamsCondition = () => {
           on your browser toolbar.
         </p>
         <h4 className="poi">I. PRODUCTS</h4>
-        <p>
+        <p className="para">
           Terms of Offer. This Website offers for sale of certain products (the
           "Products"). By placing an order for Products through this Website,
           you agree to the terms outlined in this Agreement.<br /> <br /> Customer
@@ -63,7 +63,7 @@ const TeamsCondition = () => {
           responsible for paying any applicable sales tax.
         </p>
         <h4 className="poi">II. WEBSITE</h4>
-        <p>
+        <p className="para">
           Content; Intellectual Property; Third-Party Links. In addition to
           making Products available, this Website also offers information and
           marketing materials. This Website also offers information, both
@@ -117,7 +117,7 @@ const TeamsCondition = () => {
           house®’s sole discretion.
         </p>
         <h4 className="poi">III. DISCLAIMER OF WARRANTIES</h4>
-        <p>
+        <p className="para">
           YOUR USE OF THIS WEBSITE AND/OR PRODUCTS ARE AT YOUR SOLE RISK. THE
           WEBSITE AND PRODUCTS ARE OFFERED ON AN "AS IS" AND "AS AVAILABLE"
           BASIS. AGAN ADHIGARAM PUBLISHING HOUSE® EXPRESSLY DISCLAIMS ALL
@@ -139,7 +139,7 @@ const TeamsCondition = () => {
           EXCLUSIONS MAY NOT APPLY TO YOU.
         </p>
         <h4 className="poi">IV. LIMITATION OF LIABILITY</h4>
-        <p>
+        <p className="para">
           AGAN ADHIGARAM PUBLISHING HOUSE® ENTIRE LIABILITY, AND YOUR EXCLUSIVE
           REMEDY, IN LAW, IN EQUITY, OR OTHERWISE, WITH RESPECT TO THE WEBSITE
           CONTENT AND PRODUCTS AND/OR FOR ANY BREACH OF THIS AGREEMENT IS SOLELY
@@ -157,7 +157,7 @@ const TeamsCondition = () => {
           TO YOU.
         </p>
         <h4 className="poi">V. INDEMNIFICATION</h4>
-        <p>
+        <p className="para">
           You will release, indemnify, defend and hold harmless Agan Adhigaram
           Publishing house®, and any of its contractors, agents, employees,
           officers, directors, shareholders, affiliates and assigns from all
@@ -188,20 +188,20 @@ const TeamsCondition = () => {
           of this Agreement or your use of the Website or Products.
         </p>
         <h4 className="poi">VI. PRIVACY</h4>
-        <p>
+        <p className="para">
           Agan Adhigaram Publishing house® believes strongly in protecting user
           privacy. Please refer to Agan Adhigaram Publishing house® privacy
           policy, incorporated by reference herein, that is posted on the
           Website.
         </p>
         <h4 className="poi">VII. AGREEMENT TO BE BOUND</h4>
-        <p>
+        <p className="para">
           By using this Website or ordering Products, you acknowledge that you
           have read and agree to be bound by this Agreement and all terms and
           conditions on this Website.{" "}
         </p>
         <h4 className="poi">VIII. GENERAL</h4>
-        <p>
+        <p className="para">
           Force Majeure. Agan Adhigaram Publishing house® will not be deemed in
           default hereunder or held responsible for any cessation, interruption,
           or delay in the performance of its obligations hereunder due to
