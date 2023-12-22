@@ -124,7 +124,7 @@
 
 .BookDescView2 {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -138,7 +138,7 @@
 .imgbook {
   /* max-width: 80%; */
   width: 250px;
-  height: 420px;
+  height: 350px;
   border-radius: 10px;
   cursor: pointer;
   margin-right: 10px;
@@ -146,7 +146,7 @@
 .imgbook2 {
   /* max-width: 36%; */
   width: 250px;
-  height: 420px;
+  height: 350px;
   border-radius: 10px;
   cursor: pointer;
   margin-right: 10px;
@@ -155,7 +155,7 @@
 .imgrowbook {
   /* max-width: 85%; */
   width: 100px;
-  height: 100px;
+  height: 80px;
   border-radius: 10px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -286,6 +286,10 @@
   color: #fff;
   text-decoration: none;
 } */
+
+.BookDescView{
+  padding-top: 10px;
+}
 
 @media only screen and (max-width: 767px) {
   .bookheading {

@@ -96,7 +96,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 12%;
   font-size: 26px;
   font-weight: 900;
   font-family: "Poppins", sans-serif;
@@ -107,7 +107,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 3%;
+  margin-top: 0%;
   font-size: 20px;
   line-height: 40px;
   font-family: "Poppins", sans-serif;
@@ -118,7 +118,7 @@
   max-width: 2%;
   position: absolute;
   left: 32%;
-  top: 6%;
+  top: 8%;
 }
 
 .paatiimg {
@@ -235,6 +235,10 @@
   text-align: end;
   font-family: "Poppins", sans-serif;
   margin-top: 8px;
+}
+
+.welcomecolumn2 {
+  margin-top: 7% !important;
 }
 
 /* Mobile */
@@ -476,9 +480,6 @@
     align-items: center;
   }
 }
-
-
-
 
 @media only screen and (min-width: 2560px) {
   .overallmission {

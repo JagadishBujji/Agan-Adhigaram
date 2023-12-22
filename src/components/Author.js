@@ -194,7 +194,7 @@ const Author = () => {
             </div>
             <div className="col-sm">
               <h1 className="vai">Sethu Ram</h1>
-              <p>Illustrator</p>
+              <p>Author & Illustrator</p>
               <div className="card4">
                 <div className="card-content">
                   <p className="authorcontent">
