@@ -29,10 +29,10 @@ code {
 }
 
 .paatiimg {
-  max-width: 32%;
+  max-width: 30%;
   position: absolute;
-  top: -25%;
-  right: 0;
+  top: -27%;
+  right: 0px;
   bottom: 0%;
 }
 
@@ -101,7 +101,7 @@ code {
   .dragon {
     display: none;
   }
-  .paatiimg{
+  .paatiimg {
     display: none;
   }
 }

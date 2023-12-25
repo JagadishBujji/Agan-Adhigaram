@@ -64,17 +64,14 @@ const DynamicCarousel = () => {
     setCurrent(next);
   };
 
-  
   const renderCarousel = (type) => {
     let ui = null;
     let imagesArray = [];
- 
-    if (window.innerWidth < 767  )
-    {
-      let mobileArray=awards.concat(events,books)
-      imagesArray=mobileArray
-    }
-    else{
+
+    if (window.innerWidth < 767) {
+      let mobileArray = awards.concat(events, books);
+      imagesArray = mobileArray;
+    } else {
       if (type === "awards") {
         imagesArray = awards;
       } else if (type === "events") {
@@ -93,7 +90,7 @@ const DynamicCarousel = () => {
         className={`item ${index === current ? "active" : ""} ${
           index === prevIndex ? "prev" : ""
         } ${index === nextIndex ? "next" : ""} `}
-        id="gallery" 
+        id="gallery"
       >
         <img src={image} className="d-block " alt={image} />
       </div>
@@ -101,9 +98,9 @@ const DynamicCarousel = () => {
 
     return (
       <>
-        <div className="items" >
+        <div className="items">
           {ui}
-          <div className="button-container" >
+          <div className="button-container">
             <div className="button" onClick={goToNext}>
               <i className="fa-solid fa-angle-left left"></i>
             </div>
@@ -127,7 +124,22 @@ const DynamicCarousel = () => {
       <div className="overallcarosuel">
         <div>{renderCarousel(activeCarousel)}</div>
         <div className="demo1">
-          <img
+          <div
+            className="awards"
+            onClick={() => handleCarouselChange("awards")}
+          >
+            <p className="contentawards">Awards</p>
+          </div>
+          <div
+            className="events"
+            onClick={() => handleCarouselChange("events")}
+          >
+            <p className="contentawards2">Events</p>
+          </div>
+          <div className="books" onClick={() => handleCarouselChange("books")}>
+            <p className="contentawards3">Books</p>
+          </div>
+          {/* <img
             onClick={() => handleCarouselChange("awards")}
             src="/images/Awards.svg"
             className="gallery"
@@ -146,7 +158,7 @@ const DynamicCarousel = () => {
             src="/images/Books.svg"
             className="gallery"
             alt="books"
-          />
+          /> */}
         </div>
         <a href="/" className="Grap">
           Grab Yours

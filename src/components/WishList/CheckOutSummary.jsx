@@ -32,7 +32,8 @@ const CheckOutSummary = ({ cartItems }) => {
         genre: item.genre,
         qty: item.qty,
         title: item.title,
-        title_tamil:item.title_tamil,
+        title_tamil: item.title_tamil,
+        mrp_price: item.mrp_price,
         item_price: item.discount_price,
         total_price: item.total_price,
         book_format: item.book_format,
@@ -123,8 +124,9 @@ const CheckOutSummary = ({ cartItems }) => {
           <div className={`${classes.CheckOutSummary1} col-md-6`}>
             <h3 className={classes.shoppingheading}>Shopping Summary</h3>
             <p className={classes.shoppingcontent}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Almost there! Your chosen books are ready to spark young
+              imaginations. Review your selection and when you're all set, click
+              'Checkout' to confirm. Happy reading awaits!
             </p>
             {/* <p className={classes.shoppingcode}>Have a coupon code?</p>
             <from className={classes.text}>

@@ -22,7 +22,7 @@ const VideoBanner = () => {
         autoPlay
         loop
         muted
-        onClick={togglePlay}
+        // onClick={togglePlay}
       >
         <source src="./images/Web banner.webm" type="video/webm" />
       </video>

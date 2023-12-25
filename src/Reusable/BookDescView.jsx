@@ -132,6 +132,7 @@ const BookDescView = ({ book }) => {
         id="Layer_1"
         viewBox="0 0 32 32"
         enable-background="new 0 0 32 32"
+        style={{ background: "#fff", borderRadius: "10px" }}
       >
         <circle
           fill="none"
@@ -362,13 +363,14 @@ const BookDescView = ({ book }) => {
                 </Link>
               </>
             )}
+
             {/* <a href="wishlist" className={classes.wishlist}>
               <i className={`${classes.heart} fa-regular fa-heart`}></i>WISHLIST
             </a> */}
           </div>
           <p className={classes.Available}>
             Also Available On{" "}
-            <a href="">
+            <a href={book.amazon_link} target="_blank">
               <img
                 src="../images/amazon.svg"
                 alt=""

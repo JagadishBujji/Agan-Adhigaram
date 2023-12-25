@@ -90,7 +90,7 @@
   background: #fdf3e2;
   padding: 5px 25px;
   border-radius: 5px;
-  width: 50%;
+  width: 15%;
 }
 
 .minus {
@@ -148,5 +148,6 @@
   }
   .qty{
     padding: 5px 20px;
+    width: 50%;
   }
 }

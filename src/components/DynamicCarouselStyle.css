@@ -154,7 +154,7 @@
   flex-direction: column;
   position: absolute;
   right: 65px;
-  top: 0px;
+  top: 60px;
 }
 
 .demo1 li {
@@ -220,6 +220,123 @@
   color: #fdf3e2;
 }
 
+.awards {
+  background-image: url(../../public/images/awards.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.awards::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #d9d9d947;
+  border-radius: 50%;
+
+}
+
+.contentawards {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 24px;
+  left: 7px;
+  text-align: center;
+  margin-bottom: 0;
+  z-index: 10;
+}
+.events {
+  background-image: url(../../public/images/events.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.events::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #d9d9d947;
+  border-radius: 50%;
+
+}
+
+.contentawards2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 24px;
+  left: 11px;
+  text-align: center;
+  margin-bottom: 0;
+  z-index: 10;
+}
+.books {
+  background-image: url(../../public/images/books.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  border: 2px solid #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.books::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #d9d9d947;
+  border-radius: 50%;
+
+}
+
+.contentawards3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 24px;
+  left: 13px;
+  text-align: center;
+  margin-bottom: 0;
+  z-index: 10;
+}
+
 @media (max-width: 768px) {
   .overallcarosuel {
     margin-top: 65px;
@@ -283,8 +400,6 @@
     font-weight: bold;
   }
 }
-
-
 
 @media only screen and (min-width: 1500px) {
   .overallcarosuel {
