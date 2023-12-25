@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./BookGallerySlider.css"
 import { Avatar, AvatarGroup, Button, Modal } from "@mui/material";
 import classes from "./BookDescView.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +10,7 @@ import {
   selectCartItems,
 } from "../store/cartSlice";
 import { Link } from "react-router-dom";
+import BookGallerySlider from "./BookGallerySlider";
 // import {}
 
 const BookDescView = ({ book }) => {
@@ -18,6 +20,8 @@ const BookDescView = ({ book }) => {
   const [onImageClick, setOnImageClick] = useState(false);
   const [active, setActive] = React.useState(0);
   const [autoplay, setAutoplay] = React.useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
 
   useEffect(() => {
     const item = cartItems.find((item) => item.id === book.id);
@@ -32,9 +36,13 @@ const BookDescView = ({ book }) => {
     dispatch(addItem(book));
   };
 
-  const handleOnImageClick = () => {
+  const handleOnImageClick = (index) => {
+  
+    // currentslide(index + 1);
     setOnImageClick(true);
   };
+
+
 
   const handleAddItemQty = () => {
     dispatch(addItemQty(book));
@@ -97,48 +105,10 @@ const BookDescView = ({ book }) => {
   };
 
   const renderSlides = () =>
-    // {
-    // <>
-    // <img
-    //   src={book.images[0]}
-    //   alt=""
-    //   className={classes.imgbook}
-    //   onClick={handleOnImageClick}
-    // />
-    // <img
-    //   src={book.images[1]}
-    //   alt=""
-    //   className={classes.imgbook2}
-    //   onClick={handleOnImageClick}
-    // />
-
-    //   <img
-    //     src={book.images[2]}
-    //     alt=""
-    //     className={classes.imgrowbook}
-    //     onClick={handleOnImageClick}
-    //   />
-    //   <img
-    //     src={book.images[3]}
-    //     alt=""
-    //     className={classes.imgrowbook}
-    //     onClick={handleOnImageClick}
-    //   />
-    //   <img
-    //     src={book.images[4]}
-    //     alt=""
-    //     className={classes.imgrowbook}
-    //     onClick={handleOnImageClick}
-    //   />
-    //   <img
-    //     src={book.images[5]}
-    //     alt=""
-    //     className={classes.imgrowbook}
-    //     onClick={handleOnImageClick}
-    //   />
-    //   </>}
     book.images.map((item, index) => (
-      <img src={item} className={classes.eachSlides} key={index} />
+      <div className={classes.gallerySlider}>
+      <img src={item} className={classes.eachSlides} key={index}  />
+      </div>
     ));
 
   const renderDots = () =>
@@ -233,13 +203,105 @@ const BookDescView = ({ book }) => {
       </button>
     </React.Fragment>
   );
+  const handlePrev = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + book.images.length) % book.images.length);
+  };
 
-  //gallery -end
+  const handleNext = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % book.images.length);
+  };
+
+
+  // const openModal = () => {
+  //   document.getElementById("myModal").style.display = "block";
+  // };
+
+  // const handleCloseModal = () => {
+  //   setOnImageClick(false)
+  // };
+
+  // const plusSlides = (n) => {
+  //   showSlides(currentSlide + n);
+  // };
+
+  // const currentslide = (n) => {
+  //   showSlides(n);
+  // };
+
+   
+
+  // const showSlides = (n) => {
+  //   let slideIndex = n;
+  //   const slides = document.getElementsByClassName("mySlides");
+
+  //   console.log("slides in slide",slides)
+  //   if (slideIndex > slides.length) {
+  //     slideIndex = 1;
+  //   }
+  //   if (slideIndex < 1) {
+  //     slideIndex = slides.length;
+  //   }
+  //   for (let i = 0; i < slides.length; i++) {
+  //     slides[i].style.display = "none";
+  //   }
+  //   slides[slideIndex - 1].style.display = "block";
+  //   setCurrentSlide(slideIndex);
+  // };
+  //gallery -end.
+
+  const [clickedImg, setClickedImg] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+
+  const handleClick = (item, index) => {
+    setCurrentIndex(index);
+    setClickedImg(book.images[index]);
+  };
+
+  const handelRotationRight = () => {
+    const totalLength = book.images.length;
+    if (currentIndex + 1 >= totalLength) {
+      setCurrentIndex(0);
+      const newUrl =book.images[0];
+      setClickedImg(newUrl);
+      return;
+    }
+    const newIndex = currentIndex + 1;
+    const newUrl = book.images.filter((item) => {
+      return book.images.indexOf(item) === newIndex;
+    });
+    const newItem = newUrl[0];
+    setClickedImg(newItem);
+    setCurrentIndex(newIndex);
+  };
+
+  const handelRotationLeft = () => {
+    const totalLength =book.images.length;
+    if (currentIndex === 0) {
+
+      setCurrentIndex(totalLength - 1);
+      const newUrl = book.images[totalLength - 1];
+      setClickedImg(newUrl);
+      return;
+    }
+    const newIndex = currentIndex - 1;
+    const newUrl = book.images.filter((item) => {
+      return book.images.indexOf(item) === newIndex;
+    });
+    const newItem = newUrl[0];
+    setClickedImg(newItem);
+    setCurrentIndex(newIndex);
+  };
+
+
+
+
   return (
     <>
       <div className={`${classes.BookDescView} row container-fluid m-auto`}>
         <div className={`${classes.BookDescView1} col-md-5`}>
-          <h3 className={classes.bookheading}>{book.title}({book.title_tamil})</h3>
+          <h3 className={classes.bookheading}>
+            {book.title}({book.title_tamil})
+          </h3>
           <div className={classes.ramya}>
             <AvatarGroup max={2}>
               <Avatar alt="" src="../images/ramya.svg" />
@@ -324,63 +386,99 @@ const BookDescView = ({ book }) => {
             src={book.images[0]}
             alt=""
             className={classes.imgbook}
-            onClick={handleOnImageClick}
+            onClick={() => handleClick(book.images[0], 0)}
           />
           <img
             src={book.images[1]}
             alt=""
             className={classes.imgbook2}
-            onClick={handleOnImageClick}
+            onClick={() => handleClick(book.images[1], 1)}
           />
           <div className={classes.imgrow}>
             <img
               src={book.images[2]}
               alt=""
               className={classes.imgrowbook}
-              onClick={handleOnImageClick}
+              onClick={() => handleClick(book.images[2], 2)}
             />
             <img
               src={book.images[3]}
               alt=""
               className={classes.imgrowbook}
-              onClick={handleOnImageClick}
+              onClick={() => handleClick(book.images[3], 3)}
             />
             <img
               src={book.images[4]}
               alt=""
               className={classes.imgrowbook}
-              onClick={handleOnImageClick}
+              onClick={() => handleClick(book.images[4], 4)}
             />
             <img
               src={book.images[5]}
               alt=""
               className={classes.imgrowbook}
-              onClick={handleOnImageClick}
+              onClick={() => handleClick(book.images[5], 5)}
             />
           </div>
-          {onImageClick && (
-            <Modal open={onImageClick} onClose={onImageClick}>
-              <section className={classes.slider}>
-                <div className={classes.wrapper} style={setSliderStyles()}>
-                  {renderSlides()}
-                </div>
-                {renderArrows()}
-                <ul className={classes.dotsContainer}>{renderDots()}</ul>
-                <button
-                  type="button"
-                  className={classes.togglePlay}
-                  onClick={toggleAutoPlay}
-                >
-                  {renderPlayStop()}
-                </button>
-                <span
-                  className={classes.cancel}
-                  onClick={() => setOnImageClick(false)}
-                >
-                  {cancelSlide()}
-                </span>
-              </section>
-            </Modal>
+          {/* <BookGallerySlider book={book}  /> */}
+          {clickedImg && (
+            <BookGallerySlider  clickedImg={clickedImg}
+            handelRotationRight={handelRotationRight}
+            setClickedImg={setClickedImg}
+            handelRotationLeft={handelRotationLeft}  />
+            
+          //   <div id="myModal" className="modal" >
+          //   <span className="close cursor" onClick={handleCloseModal}>
+          //     &times;
+          //   </span>
+          //   <div className="modal-content">
+          //     {book.images.map((imageUrl, index) => (
+          //       <div
+          //         key={index}
+          //         className={`mySlides ${index + 1 === currentSlide ? "show" : ""}`}
+          //       >
+          //         <div className="numbertext">
+          //           {index + 1} / {book.images.length}
+          //         </div>
+          //         <img
+          //           src={imageUrl}
+          //           style={{ width: "100%" }}
+          //           alt={`Slide ${index + 1}`}
+          //         />
+          //       </div>
+          //     ))}
+    
+          //     <a className="prev" onClick={() => plusSlides(-1)}>
+          //       &#10094;
+          //     </a>
+          //     <a className="next" onClick={() => plusSlides(1)}>
+          //       &#10095;
+          //     </a>
+          //   </div>
+          // </div>
+            // <Modal open={onImageClick} onClose={onImageClick}>
+           
+            //   <section className={classes.slider}>
+            //     <div className={classes.wrapper} style={setSliderStyles()}>
+            //       {renderSlides()}
+            //     </div>
+            //     {renderArrows()}
+            //     <ul className={classes.dotsContainer}>{renderDots()}</ul>
+            //     <button
+            //       type="button"
+            //       className={classes.togglePlay}
+            //       onClick={toggleAutoPlay}
+            //     >
+            //       {renderPlayStop()}
+            //     </button>
+            //     <span
+            //       className={classes.cancel}
+            //       onClick={() => setOnImageClick(false)}
+            //     >
+            //       {cancelSlide()}
+            //     </span>
+            //   </section>
+            // </Modal>
           )}
         </div>
       </div>
