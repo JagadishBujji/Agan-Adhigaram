@@ -278,6 +278,12 @@
   background-color: transparent; */
 }
 
+/* .gallerySlider{
+  display: flex;
+  width: 100vw !important;
+  height: 100vh !important;
+} */
+
 /* .addBtn:hover {
   background-color: #f19e38;
   border-radius: 5px;

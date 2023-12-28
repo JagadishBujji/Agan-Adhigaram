@@ -41,6 +41,18 @@ const Order = ({ order }) => {
     },
   };
 
+  function customTime(n) {
+    const storeDate = new Date(n).toLocaleString('en-IN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+    return storeDate;
+  }
+
   return (
     <>
       <Stack className={`${classes.pro} container`}>
@@ -115,10 +127,50 @@ const Order = ({ order }) => {
                   >
                     View Item
                   </Button>
+                  
                 </Stack>
+                <>
+                  <div>
+                    <div className="row">
+                      <div className={`col-12 col-md-10 ${classes.hhGrayBox} ${classes.pt45} ${classes.pb20} `}>
+                        <div className={classes.container}>
+                          <div className={`${classes.orderTracking} ${classes.completed}`}>
+                            <span className={classes.isComplete}></span>
+                            <p>
+                              Ordered <br />
+                              <span>{customTime(order.ordered_timestamp)}</span>
+                            </p>
+                          </div>
+                          <div
+                            className={`${classes.orderTracking} ${
+                              order.status === 'dispatched' && classes.completed
+                            } ${order.status === 'delivered' && classes.completed}`}
+                          >
+                            <span className={classes.isComplete}></span>
+                            <p>
+                              Dispatched <br />
+                              <span>{order.dispatched_timestamp ? customTime(order.dispatched_timestamp) : ''}</span>
+                            </p>
+                          </div>
+                          <div
+                            className={`${classes.orderTracking} ${order.status === 'delivered' && classes.completed} `}
+                          >
+                            <span className={classes.isComplete}></span>
+                            <p>
+                              Delivered <br />
+                              <span>{order.delivered_timestamp ? customTime(order.delivered_timestamp) : ''}</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
               </Grid>
             </Grid>
+
           ))}
+       
           <Divider sx={{ borderColor: "#000", mt: 1 }} />
           <Stack
             direction="row"
