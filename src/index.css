@@ -47,6 +47,14 @@ code {
   align-items: center;
 }
 
+.fox {
+  max-width: 20%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #scroll {
   position: fixed;
   right: 10px;
