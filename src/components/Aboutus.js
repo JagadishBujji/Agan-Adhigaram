@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./Aboutus.module.css";
+import Butterfly from "../Reusable/Butterfly";
+import Dragonfly from "../Reusable/Dragonfly";
 // import dragon from '../images/Dragon.png';
 // import boy1 from '../images/boy1.png';
 // import girl1 from '../images/girl1.png';
@@ -51,16 +53,17 @@ function Aboutus() {
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
           ></script>
-          <dotlottie-player
-            src="https://lottie.host/a222fe18-5bd8-4770-9855-ec53ed22006e/A3MaojSZu3.json"
-            background="transparent"
-            speed="1"
-            class="dragon"
-            direction="1"
-            mode="normal"
-            loop
-            autoplay
-          ></dotlottie-player>
+          <Dragonfly />
+            {/* <dotlottie-player
+              src="https://lottie.host/a222fe18-5bd8-4770-9855-ec53ed22006e/A3MaojSZu3.json"
+              background="transparent"
+              speed="1"
+              class="dragon"
+              direction="1"
+              mode="normal"
+              loop
+              autoplay
+            ></dotlottie-player> */}
           <p className={classes.name1}>Sethu Ram</p>
         </div>
         <div className={`${classes.person2} col-md-6`}>
@@ -74,7 +77,8 @@ function Aboutus() {
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
           ></script>
-          <dotlottie-player
+          <Butterfly />
+          {/* <dotlottie-player
             src="https://lottie.host/0e7460ad-a461-42bc-8c83-6323f9aab3ed/SQSSBBt0gR.json"
             background="transparent"
             speed="1"
@@ -83,7 +87,8 @@ function Aboutus() {
             mode="normal"
             loop
             autoplay
-          ></dotlottie-player>
+          ></dotlottie-player> */}
+
           <img
             src="./images/girl1.svg"
             alt="heroimg1"

@@ -1,5 +1,9 @@
 import React from "react";
 import classes from "./Welcome.module.css";
+import Crow from "../Reusable/Crow";
+import FoxDancing from "../Reusable/FoxDancing";
+import Fox from "../Reusable/Fox";
+import Paati from "../Reusable/Paati";
 
 function Welcome() {
   return (
@@ -36,7 +40,8 @@ function Welcome() {
                 src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                 type="module"
               ></script>
-              <dotlottie-player
+              <Paati />
+              {/* <dotlottie-player
                 src="https://lottie.host/53bfb191-5d62-4a09-8e16-f5cc4b43fef9/BFeDo3AjjP.json"
                 background="transparent"
                 speed="1"
@@ -45,7 +50,7 @@ function Welcome() {
                 mode="normal"
                 loop
                 autoplay
-              ></dotlottie-player>
+              ></dotlottie-player> */}
             </span>
           </div>
         </div>
@@ -61,7 +66,8 @@ function Welcome() {
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
             ></script>
-            <dotlottie-player
+            <Crow />
+            {/* <dotlottie-player
               src="https://lottie.host/6caf9ccb-6575-427e-a1e1-4bd2653e1187/f2cRMtO4gC.json"
               background="transparent"
               speed="1"
@@ -73,7 +79,7 @@ function Welcome() {
               mode="normal"
               loop
               autoplay
-            ></dotlottie-player>
+            ></dotlottie-player> */}
           </div>
           <div
             className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6 `}
@@ -114,11 +120,12 @@ function Welcome() {
             </p>
           </div>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
-            <img
+           <Fox  fox={classes.fox}/>
+            {/* <img
               src="./images/Nari-2.gif"
               alt="heroimg1"
               className={classes.fox}
-            />
+            /> */}
           </div>
         </div>
       </div>
