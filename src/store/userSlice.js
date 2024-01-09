@@ -7,6 +7,7 @@ const initialState = {
     email: "",
     phone: "",
     address: "",
+    pincode:"",
     role: "",
   },
   isAuthenticated: false,
@@ -29,6 +30,10 @@ export const userSlice = createSlice({
         email: "",
         phone: "",
         address: "",
+        pincode:"",
+        country:"",
+        state:"",
+        city:"",
         role: "",
       };
       state.isAuthenticated = false;
