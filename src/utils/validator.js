@@ -37,10 +37,19 @@ function isValidAddress(address) {
   return addressRegex.test(address);
 }
 
+function isValidNumber(num) {
+  // contains only 10 digit number
+  const numberRegex = /^\d+$/;
+
+  //Test the Phone number against the regex pattern
+  return numberRegex.test(num);
+}
+
 export {
   isValidEmail,
   isValidPassword,
   isValidAddress,
   isValidPhoneNumber,
   isValidName,
+  isValidNumber,
 };

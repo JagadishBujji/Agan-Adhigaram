@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase";
@@ -18,6 +18,18 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Stack } from "@mui/system";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import {
+  CitySelect,
+  CountrySelect,
+  StateSelect,
+} from "react-country-state-city";
+import "react-country-state-city/dist/react-country-state-city.css";
+import {
+  GetCountries,
+  GetState,
+  GetCity,
+  GetLanguages, //async functions
+} from "react-country-state-city";
 import classes from "./Profile.module.css";
 import { selectUser } from "../../store/userSlice";
 import {
@@ -78,9 +90,28 @@ const Profile = () => {
     name: userDetail.name,
     phone: userDetail.phone,
     address: userDetail.address,
+    country: userDetail.country,
+    state: userDetail.state,
+    city: userDetail.city,
+    pincode: userDetail.pincode,
   });
+  console.log("editedValues", editedValues);
   const [pwd, setPwd] = useState("");
   const [cpwd, setCpwd] = useState("");
+  const [countriesList, setCountriesList] = useState([]);
+  const [stateList, setStateList] = useState([]);
+  const [cityList, setCityList] = useState([]);
+  const [languageList, setLanguageList] = useState([]);
+
+  useEffect(() => {
+    GetCountries().then((result) => {
+      setCountriesList(result);
+    });
+
+    // GetLanguages().then((result) => {
+    //   setLanguageList(result);
+    // });
+  }, []);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -100,7 +131,7 @@ const Profile = () => {
     });
   };
 
-  const { name, address, phone } = editedValues;
+  const { name, address, phone, country, state, city, pincode } = editedValues;
 
   async function saveChanges() {
     const docRef = doc(db, "users", id);
@@ -235,11 +266,66 @@ const Profile = () => {
                 disabled={disableProfileEdit}
                 multiline
                 name="address"
-                rows={3}
+                rows={2}
                 sx={{ mb: 2, width: "100%" }}
               />
             </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic1"
+                label="Country"
+                value={editedValues.country}
+                disabled={true}
+                variant="outlined"
+                name="country"
+                className="name"
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic1"
+                label="State"
+                value={editedValues.state}
+                disabled={true}
+                variant="outlined"
+                name="state"
+                className="name"
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic1"
+                label="city"
+                value={editedValues.city}
+                disabled={true}
+                variant="outlined"
+                name="city"
+                className="name"
+                sx={{ mb: 2 }}
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                id="outlined-basic"
+                label="Pincode"
+                variant="outlined"
+                name="pincode"
+                // type="number"
+                value={editedValues.pincode}
+                // onChange={handleInputChange}
+                disabled={true}
+                className="pincode"
+                size="medium"
+              />
+            </Grid>
           </Grid>
+
           {!disableProfileEdit && (
             <Stack
               spacing={2}

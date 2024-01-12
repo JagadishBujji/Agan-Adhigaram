@@ -6,6 +6,7 @@ import {
   isValidAddress,
   isValidPhoneNumber,
   isValidName,
+  isValidNumber,
 } from "../utils/validator";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../services/firebase";
@@ -28,6 +29,8 @@ import "./SignupModal.css";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { errorNotification, successNotification } from "../utils/notifications";
 import { async } from "q";
+import CountryAndStates from "./CountryAndStates";
+
 
 const style = {
   position: "absolute",
@@ -82,6 +85,11 @@ const Signupbtn = {
 export default function SignupModal() {
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [countryid, setCountryid] = useState(0);
+  const [stateid, setstateid] = useState(0);
+  const [countryName, setCountryName] = useState("");
+  const [stateName, setstateName] = useState("");
+  const [cityName, setCityName] = useState("");
   const [signUpDetails, setSignUpDetails] = useState({
     name: "",
     email: "",
@@ -89,6 +97,10 @@ export default function SignupModal() {
     address: "",
     createPassword: "",
     confirmPassword: "",
+    country:"",
+    state:"",
+    city:"",
+    pincode:""
   });
   console.log("testing for name", signUpDetails);
   const auth = getAuth();
@@ -121,6 +133,10 @@ export default function SignupModal() {
       address,
       confirmPassword,
       createPassword,
+      country,
+      state,
+      city,
+      pincode,
     } = signUpDetails;
 
     if (
@@ -130,6 +146,8 @@ export default function SignupModal() {
       isValidAddress(address) &&
       isValidPassword(createPassword) &&
       isValidPassword(confirmPassword) &&
+      isValidNumber(pincode) &&
+      country && state && city &&
       createPassword === confirmPassword
     ) {
       createUserWithEmailAndPassword(auth, email, createPassword)
@@ -144,6 +162,10 @@ export default function SignupModal() {
             phone: phonenumber,
             address,
             email,
+            country:countryName,
+            state: stateName,
+            city: cityName,
+            pincode,
             role: "consumer",
           });
         })
@@ -166,6 +188,14 @@ export default function SignupModal() {
         errorNotification("Invalid ConfirmPassword");
       !(createPassword === confirmPassword) &&
         errorNotification("Password doesn't match");
+      !isValidNumber(pincode) &&
+      errorNotification("Enter valid pincode");
+      !country &&
+      errorNotification("Select Country");
+      !state &&
+      errorNotification("Select State");
+      !city &&
+      errorNotification("Select City");
     }
   };
 
@@ -236,17 +266,23 @@ export default function SignupModal() {
                 sx={{ mb: 2 }}
               />
             </Grid>
+         
             <Grid md={12} xs={12}>
               <TextField
                 id="outlined-multiline-static"
                 label="Address"
                 multiline
-                rows={3}
+                rows={1}
                 name="address"
                 value={signUpDetails.address}
                 onChange={handleInputChange}
                 sx={{ mb: 2, width: "100%" }}
               />
+            </Grid>
+            <Grid md={12} xs={12}>
+            <CountryAndStates signUpDetails={signUpDetails} setSignUpDetails={setSignUpDetails} handleInputChange={handleInputChange}  countryid={countryid} setCountryid={setCountryid} setCountryName={setCountryName} stateid={stateid} setstateid={setstateid} 
+            setstateName={setstateName} setCityName={setCityName} />
+            
             </Grid>
             <Grid md={6} xs={12}>
               <FormControl
