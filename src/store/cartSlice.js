@@ -3,6 +3,7 @@ import { errorNotification } from "../utils/notifications";
 
 const initialState = {
   cartItems: [],
+  totalBookQuantity: 0,
 };
 
 export const cartSlice = createSlice({
@@ -10,40 +11,61 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const newItem = action.payload;
-      const index = state.cartItems.findIndex((item) => item.id === newItem.id);
-      if (index === -1 || state.cartItems.length === 0) {
-        const updatedNewItem = {
-          ...newItem,
-          qty: 1,
-          discount_price: newItem.discount_price || newItem.item_price, // from orders page
-          total_price: newItem.discount_price || newItem.item_price, // item_price - from orders page
-        };
-        state.cartItems.push(updatedNewItem);
-        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      // console.log("totalQuantity-ad1:", state.totalBookQuantity);
+      if (state.totalBookQuantity <= 5 - 1) {
+        const newItem = action.payload;
+        const index = state.cartItems.findIndex(
+          (item) => item.id === newItem.id
+        );
+        if (index === -1 || state.cartItems.length === 0) {
+          const updatedNewItem = {
+            ...newItem,
+            qty: 1,
+            discount_price: newItem.discount_price || newItem.item_price, // from orders page
+            total_price: newItem.discount_price || newItem.item_price, // item_price - from orders page
+          };
+          state.totalBookQuantity += 1;
+          // console.log("totalQuantity-ad:", state.totalBookQuantity);
+          state.cartItems.push(updatedNewItem);
+          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        } else {
+          errorNotification("Already added, check cart page!!!");
+        }
       } else {
-        errorNotification("Already added, check cart page!!!");
+        errorNotification(
+          "Only 5 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
+        );
       }
     },
     clearCart: (state) => {
       state.cartItems = [];
+      state.totalBookQuantity = 0;
       localStorage.clear();
     },
     addItemQty: (state, action) => {
-      const cartItem = action.payload;
-      const index = state.cartItems.findIndex(
-        (item) => item.id === cartItem.id
-      );
+      // console.log("totalQuantity-ad:", state.totalBookQuantity);
+      if (state.totalBookQuantity <= 5 - 1) {
+        const cartItem = action.payload;
+        const index = state.cartItems.findIndex((item) => {
+          return item.id === cartItem.id;
+        });
 
-      if (index !== -1) {
-        state.cartItems[index].qty += 1;
-        state.cartItems[index].total_price =
-          state.cartItems[index].qty * state.cartItems[index].discount_price;
+        if (index !== -1) {
+          state.totalBookQuantity += 1;
+          state.cartItems[index].qty += 1;
+          state.cartItems[index].total_price =
+            state.cartItems[index].qty * state.cartItems[index].discount_price;
 
-        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+        }
+      } else {
+        errorNotification(
+          "Only 5 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
+        );
       }
     },
     removeItemQty: (state, action) => {
+      // console.log("totalQuantity-re:", state.totalBookQuantity);
       const cartItem = action.payload;
       const index = state.cartItems.findIndex(
         (item) => item.id === cartItem.id
@@ -56,6 +78,7 @@ export const cartSlice = createSlice({
           state.cartItems = state.cartItems.filter(
             (item) => item.id !== cartItem.id
           );
+          state.totalBookQuantity -= 1;
         } else {
           // Create a new array with the quantity decremented
           // state.cartItems[index] = {
@@ -65,15 +88,22 @@ export const cartSlice = createSlice({
           state.cartItems[index].qty -= 1;
           state.cartItems[index].total_price =
             state.cartItems[index].qty * state.cartItems[index].discount_price;
+          state.totalBookQuantity -= 1;
         }
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       }
     },
     setCartItems: (state, action) => {
       const cartItems = action.payload;
+
       if (cartItems) {
+        if (cartItems.length > 0) {
+          const totalQty = cartItems.reduce((a, b) => a.qty + b.qty);
+          state.totalBookQuantity = totalQty;
+        }
         state.cartItems = [...cartItems];
       }
+      console.log("cartItems--:", cartItems, state.totalBookQuantity);
     },
   },
 });
@@ -82,6 +112,6 @@ export const { addItem, addItemQty, clearCart, removeItemQty, setCartItems } =
   cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart;
-export const selectCartSize = (state) => state.cart.cartItems.length;
+export const selectCartSize = (state) => state.cart.totalBookQuantity;
 
 export default cartSlice.reducer;

@@ -7,13 +7,18 @@ import classes from "./CheckOut.module.css";
 import { selectCartItems } from "../store/cartSlice";
 
 const CheckOut = () => {
-  const { cartItems } = useSelector(selectCartItems);
+  const { cartItems, totalBookQuantity } = useSelector(selectCartItems);
   return (
     <>
       <section className={`${classes.CheckOut}`}>
         <BlogBackMove move="Cart" />
         <CheckOutItems cartItems={cartItems} />
-        {cartItems.length > 0 && <CheckOutSummary cartItems={cartItems} />}
+        {cartItems.length > 0 && (
+          <CheckOutSummary
+            cartItems={cartItems}
+            totalBookQuantity={totalBookQuantity}
+          />
+        )}
         <Subscribe
           circleimg="../images/circleElement (1).svg"
           circle1="../images/circleElement.svg"

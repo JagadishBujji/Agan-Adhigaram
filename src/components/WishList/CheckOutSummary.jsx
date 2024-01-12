@@ -8,11 +8,11 @@ import { Link } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { errorNotification, infoNotification } from "../../utils/notifications";
 
-const CheckOutSummary = ({ cartItems }) => {
+const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const { isAuthenticated, userDetail } = useSelector(selectUser);
-  const { address, email, id, name, phone } = userDetail;
+  const { address, email, id, name, phone, country } = userDetail;
 
-  const delivery = 50; // For both tamilnadu and outside tamilnadu per Kg : Rs. 50
+  const delivery = 50; // for India
 
   const discount = 0;
   //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
@@ -54,7 +54,8 @@ const CheckOutSummary = ({ cartItems }) => {
       tax_percentage: 0,
       total_item_price: subtotal,
       total_price: total,
-      total_qty: ordered_books.length,
+      // total_qty: ordered_books.length,
+      total_qty: totalBookQuantity,
       userDetail: { address, email, id, name, phone },
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
@@ -119,16 +120,17 @@ const CheckOutSummary = ({ cartItems }) => {
   // console.log(subtotal, total);
   return (
     <>
-      <div className={`${classes.summary}  container`}>
-        <div className={`${classes.CheckOutSummary} row`}>
-          <div className={`${classes.CheckOutSummary1} col-md-6`}>
-            <h3 className={classes.shoppingheading}>Shopping Summary</h3>
-            <p className={classes.shoppingcontent}>
-              Almost there! Your chosen books are ready to spark young
-              imaginations. Review your selection and when you're all set, click
-              'Checkout' to confirm. Happy reading awaits!
-            </p>
-            {/* <p className={classes.shoppingcode}>Have a coupon code?</p>
+      <div className={`${classes.summary} container`}>
+        {country === "India" ? (
+          <div className={`${classes.CheckOutSummary} row`}>
+            <div className={`${classes.CheckOutSummary1} col-md-6`}>
+              <h3 className={classes.shoppingheading}>Shopping Summary</h3>
+              <p className={classes.shoppingcontent}>
+                Almost there! Your chosen books are ready to spark young
+                imaginations. Review your selection and when you're all set,
+                click 'Checkout' to confirm. Happy reading awaits!
+              </p>
+              {/* <p className={classes.shoppingcode}>Have a coupon code?</p>
             <from className={classes.text}>
               <i className="fa-solid fa-ticket"></i>
               <input
@@ -140,40 +142,51 @@ const CheckOutSummary = ({ cartItems }) => {
                 <i class="fa-solid fa-arrow-right"></i>
               </button>
             </from> */}
-          </div>
-          <div className={`${classes.CheckOutSummary2} col-md-6`}>
-            <div className={`${classes.total}`}>
-              <p className={classes.subtotal}>Subtotal</p>
-              <p className={classes.amount}>₹ {subtotal}</p>
             </div>
-            {discount !== 0 && (
+            <div className={`${classes.CheckOutSummary2} col-md-6`}>
               <div className={`${classes.total}`}>
-                <p className={classes.subtotal}>Discount</p>
-                <p className={classes.amount}>₹ 0</p>
+                <p className={classes.subtotal}>Subtotal</p>
+                <p className={classes.amount}>₹ {subtotal}</p>
               </div>
-            )}
-            <div className={`${classes.total}`}>
-              <p className={classes.subtotal}>delivery</p>
-              <p className={classes.amount}>₹ {delivery}</p>
+              {discount !== 0 && (
+                <div className={`${classes.total}`}>
+                  <p className={classes.subtotal}>Discount</p>
+                  <p className={classes.amount}>₹ 0</p>
+                </div>
+              )}
+              <div className={`${classes.total}`}>
+                <p className={classes.subtotal}>Delivery (within India)</p>
+                <p className={classes.amount}>₹ {delivery}</p>
+              </div>
+              <hr />
+              <div className={`${classes.total}`}>
+                <p className={classes.subtotal}>Total</p>
+                <p className={classes.amount}>₹ {total}</p>
+              </div>
+              <button
+                className={classes.checkoutbtn}
+                onClick={handleCheckoutButton}
+              >
+                Checkout
+              </button>
+              <Link to="/books" className={classes.Continue}>
+                {/* <a href="" > */}
+                Continue Shopping
+                {/* </a> */}
+              </Link>
             </div>
-            <hr />
-            <div className={`${classes.total}`}>
-              <p className={classes.subtotal}>Total</p>
-              <p className={classes.amount}>₹ {total}</p>
-            </div>
-            <button
-              className={classes.checkoutbtn}
-              onClick={handleCheckoutButton}
-            >
-              Checkout
-            </button>
-            <Link to="/books" className={classes.Continue}>
-              {/* <a href="" > */}
-              Continue Shopping
-              {/* </a> */}
-            </Link>
           </div>
-        </div>
+        ) : (
+          <>
+            <h3 className={classes.shoppingheading}>Shopping Summary</h3>
+            <p className={classes.shoppingcontent}>
+              Almost there! Your chosen books are ready to spark young
+              imaginations. For countries outside India or for any bulk orders,
+              please reach out to us by <a href="/contact-us">clicking here</a>.
+              Happy reading awaits!
+            </p>
+          </>
+        )}
       </div>
     </>
   );
