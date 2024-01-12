@@ -15,7 +15,7 @@ const FoxVideo = () => {
   };
 
   return (
-    <div>
+    <div className="foxbig">
       <video
         class="fox"
         ref={videoRef}
