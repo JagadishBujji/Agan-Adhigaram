@@ -15,7 +15,7 @@ const PaymentSuccess = () => {
   };
 
   return (
-    <div>
+    <div >
       <video
         className="paatiimg"
         ref={videoRef}
