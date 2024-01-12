@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const Fox = ({fox}) => {
+const Fox = ({ fox }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -15,16 +15,16 @@ const Fox = ({fox}) => {
   };
 
   return (
-    <div>
+    <div className="foxbig">
       <video
-       className={fox}
+        className={fox}
         ref={videoRef}
         autoPlay
         loop
         muted
         // onClick={togglePlay}
       >
-        <source src="./images/Fox.webm" type="video/webm" />
+        <source src="./images/Fox 2.webm" type="video/webm" />
       </video>
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>

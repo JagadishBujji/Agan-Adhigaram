@@ -15,9 +15,8 @@ const Crow = () => {
   };
 
   return (
-    <div>
+    <div style={{ position: "relative", bottom: "-70px" }}>
       <video
-      
         ref={videoRef}
         autoPlay
         loop

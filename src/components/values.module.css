@@ -316,8 +316,8 @@
     padding-top: 0rem;
   }
   .Values {
-    height: 80rem;
-    background-position: 0 -550px;
+    height: 85rem;
+    background-position: 0 -500px;
   }
   .valuessubcontent1 {
     font-size: 16px;
@@ -357,7 +357,8 @@
 
 @media only screen and (min-width: 1500px) {
   .valuesheading {
-    padding-top: 3rem !important;
+    padding-top: 7rem !important;
+    padding-bottom: 9rem;
   }
   .valuessubcontent1 {
     padding: 0px 135px;

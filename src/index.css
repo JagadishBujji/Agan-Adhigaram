@@ -25,15 +25,15 @@ code {
   max-width: 8%;
   position: absolute;
   right: 9%;
-  top: 18%;
+  top: 24%;
 }
 
 .paatiimg {
   max-width: 30%;
   position: absolute;
-  top: 12%;
+  top: 14%;
   right: 0px;
-  bottom: 0%;
+  bottom: 0;
 }
 
 .mainimagemobile {
@@ -53,6 +53,15 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4rem;
+}
+
+.foxbig{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 60px;
 }
 
 #scroll {

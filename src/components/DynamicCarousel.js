@@ -160,7 +160,7 @@ const DynamicCarousel = () => {
             alt="books"
           /> */}
         </div>
-        <a href="/" className="Grap">
+        <a href="books" className="Grap">
           Grab Yours
         </a>
       </div>
