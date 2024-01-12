@@ -31,7 +31,6 @@ import { errorNotification, successNotification } from "../utils/notifications";
 import { async } from "q";
 import CountryAndStates from "./CountryAndStates";
 
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -97,12 +96,12 @@ export default function SignupModal() {
     address: "",
     createPassword: "",
     confirmPassword: "",
-    country:"",
-    state:"",
-    city:"",
-    pincode:""
+    country: "",
+    state: "",
+    city: "",
+    pincode: "",
   });
-  console.log("testing for name", signUpDetails);
+  // console.log("testing for name", signUpDetails);
   const auth = getAuth();
   const collection = "users";
 
@@ -147,7 +146,9 @@ export default function SignupModal() {
       isValidPassword(createPassword) &&
       isValidPassword(confirmPassword) &&
       isValidNumber(pincode) &&
-      country && state && city &&
+      country &&
+      state &&
+      city &&
       createPassword === confirmPassword
     ) {
       createUserWithEmailAndPassword(auth, email, createPassword)
@@ -162,7 +163,7 @@ export default function SignupModal() {
             phone: phonenumber,
             address,
             email,
-            country:countryName,
+            country: countryName,
             state: stateName,
             city: cityName,
             pincode,
@@ -188,14 +189,10 @@ export default function SignupModal() {
         errorNotification("Invalid ConfirmPassword");
       !(createPassword === confirmPassword) &&
         errorNotification("Password doesn't match");
-      !isValidNumber(pincode) &&
-      errorNotification("Enter valid pincode");
-      !country &&
-      errorNotification("Select Country");
-      !state &&
-      errorNotification("Select State");
-      !city &&
-      errorNotification("Select City");
+      !isValidNumber(pincode) && errorNotification("Enter valid pincode");
+      !country && errorNotification("Select Country");
+      !state && errorNotification("Select State");
+      !city && errorNotification("Select City");
     }
   };
 
@@ -266,7 +263,7 @@ export default function SignupModal() {
                 sx={{ mb: 2 }}
               />
             </Grid>
-         
+
             <Grid md={12} xs={12}>
               <TextField
                 id="outlined-multiline-static"
@@ -280,9 +277,18 @@ export default function SignupModal() {
               />
             </Grid>
             <Grid md={12} xs={12}>
-            <CountryAndStates signUpDetails={signUpDetails} setSignUpDetails={setSignUpDetails} handleInputChange={handleInputChange}  countryid={countryid} setCountryid={setCountryid} setCountryName={setCountryName} stateid={stateid} setstateid={setstateid} 
-            setstateName={setstateName} setCityName={setCityName} />
-            
+              <CountryAndStates
+                signUpDetails={signUpDetails}
+                setSignUpDetails={setSignUpDetails}
+                handleInputChange={handleInputChange}
+                countryid={countryid}
+                setCountryid={setCountryid}
+                setCountryName={setCountryName}
+                stateid={stateid}
+                setstateid={setstateid}
+                setstateName={setstateName}
+                setCityName={setCityName}
+              />
             </Grid>
             <Grid md={6} xs={12}>
               <FormControl

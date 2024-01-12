@@ -41,10 +41,9 @@ const CountryAndStates = ({
             onChange={(e) => {
               setCountryid(e.id);
               setCountryName(e.name);
-              handleInputValue("country",e.name)
+              handleInputValue("country", e.name);
             }}
             placeHolder="Select Country"
-           
           />
         </Grid>
         <Grid md={5.5} xs={12} sx={{ ml: 3 }}>
@@ -53,12 +52,10 @@ const CountryAndStates = ({
             countryid={countryid}
             onChange={(e) => {
               setstateid(e.id);
-              handleInputValue("state",e.name)
+              handleInputValue("state", e.name);
               setstateName(e.name);
             }}
             placeHolder="Select State"
-            
-            
           />
         </Grid>
         <Grid md={5.5} xs={12} sx={{ mt: 3 }}>
@@ -68,10 +65,9 @@ const CountryAndStates = ({
             stateid={stateid}
             onChange={(e) => {
               setCityName(e.name);
-              handleInputValue("city",e.name)
+              handleInputValue("city", e.name);
             }}
             placeHolder="Select City"
-           
           />
         </Grid>
         <Grid md={6} xs={12} sx={{ mb: 2 }}>

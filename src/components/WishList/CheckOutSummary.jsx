@@ -12,7 +12,7 @@ const CheckOutSummary = ({ cartItems }) => {
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone } = userDetail;
 
-  const delivery = 100;
+  const delivery = 50; // For both tamilnadu and outside tamilnadu per Kg : Rs. 50
 
   const discount = 0;
   //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
