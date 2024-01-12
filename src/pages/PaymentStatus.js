@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { Button } from "@mui/material";
 import { db } from "../services/firebase";
 import { clearCart } from "../store/cartSlice";
+// import ima from '../../public/images/'
 import {
   errorNotification,
   successNotification,
@@ -12,6 +13,7 @@ import {
 } from "../utils/notifications";
 import axios from "axios";
 import classes from "./PaymentStatus.module.css";
+import PaymentSuccess from "../Reusable/PaymentSuccess";
 
 const PaymentStatus = () => {
   const dispatch = useDispatch();
@@ -181,11 +183,14 @@ const PaymentStatus = () => {
             </div>
             {/* payment loading*/}
           </>
-        ) : status.code === "PAYMENT_SUCCESS" ? (
+        ) : // ) : status.code === "PAYMENT_SUCCESS" ? (
+        status.code === "PAYMENT_ERROR" ? (
           <>
             <h2 className={`${classes.pay}`}>Payment Status - Success</h2>
             {/* payment success */}
-            <script
+            {/* <img src="http://localhost:3000/images/fox_payment_success.webm" /> */}
+            <PaymentSuccess />
+            {/* <script
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
             ></script>
@@ -200,7 +205,7 @@ const PaymentStatus = () => {
                 loop
                 autoplay
               ></dotlottie-player>
-            </div>
+            </div> */}
             {/* payment success */}
             <Button variant="outlined" onClick={() => navigate("/orders")}>
               Go To Orders
