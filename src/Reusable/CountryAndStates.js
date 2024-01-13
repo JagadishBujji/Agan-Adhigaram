@@ -35,7 +35,7 @@ const CountryAndStates = ({
   return (
     <div>
       <Grid container>
-        <Grid md={5.5} xs={12}>
+        <Grid md={5.5} xs={12} sx={{ mr:{md: 3 },mb:{xs:2,md:0}}}>
           {/* <h6>Country</h6> */}
           <CountrySelect
             onChange={(e) => {
@@ -46,7 +46,7 @@ const CountryAndStates = ({
             placeHolder="Select Country"
           />
         </Grid>
-        <Grid md={5.5} xs={12} sx={{ ml: 3 }}>
+        <Grid md={5.5} xs={12} >
           {/* <h6>State</h6> */}
           <StateSelect
             countryid={countryid}
@@ -58,7 +58,7 @@ const CountryAndStates = ({
             placeHolder="Select State"
           />
         </Grid>
-        <Grid md={5.5} xs={12} sx={{ mt: 3 }}>
+        <Grid md={5.5} xs={12} sx={{ mt: 3, mr:{md: 3 } }}>
           {/* <h6>City</h6> */}
           <CitySelect
             countryid={countryid}
@@ -70,7 +70,7 @@ const CountryAndStates = ({
             placeHolder="Select City"
           />
         </Grid>
-        <Grid md={6} xs={12} sx={{ mb: 2 }}>
+        <Grid md={5.5} xs={12} sx={{ mb: 2 }}>
           <TextField
             fullWidth
             id="outlined-basic"
@@ -80,8 +80,8 @@ const CountryAndStates = ({
             // type="number"
             value={signUpDetails.pincode}
             onChange={handleInputChange}
-            className="pincode"
-            sx={{ mt: 3, ml: 3 }}
+            // className="pincode"
+            sx={{ mt: 3}}
             size="medium"
           />
         </Grid>
