@@ -52,13 +52,13 @@ function Hero() {
           loop
           autoplay
         ></dotlottie-player> */}
-        {/* <img
-          src="./images/mobilegifbanner.gif"
+        <img
+          src="./images/Website illustration for mobile V3.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
-        /> */}
-        <MobileBanner className={classes.mainimagemobile} />
+        />
+        {/* <MobileBanner className={classes.mainimagemobile} /> */}
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"

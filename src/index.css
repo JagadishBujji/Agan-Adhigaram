@@ -37,7 +37,7 @@ code {
   margin: auto;
   position: absolute;
   top: 15%;
-  right: -2%;
+  right: 0%;
 }
 
 .mainimagemobile {
@@ -112,6 +112,14 @@ code {
 /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
 /* Mobile */
 @media (max-width: 767px) {
+  .fox {
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
   .MobileBanner {
     max-width: 100%;
   }

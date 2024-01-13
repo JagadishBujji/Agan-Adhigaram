@@ -29,10 +29,10 @@ function Aboutus() {
           children's literature with interactive books that spark creativity and
           learning.
         </h1>
-        <h1 className={`${classes.mobilewe}`}>
+        {/* <h1 className={`${classes.mobilewe}`}>
           {" "}
           we're on a mission to create a<br /> positive global impact.
-        </h1>
+        </h1> */}
       </div>
 
       <div className={`${classes.About} row container m-auto`}>

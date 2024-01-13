@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 const MobileBanner = ({ fox }) => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
     if (videoRef.current.paused) {
@@ -17,14 +17,16 @@ const MobileBanner = ({ fox }) => {
   return (
     <div className="mobilebanner">
       <video
-        className={MobileBanner}
+        className="MobileBanner"
         ref={videoRef}
-        autoPlay
+        controls={false} // Hide default video controls
         loop
         muted
-        // onClick={togglePlay}
+        style={{ width: "100%" }}
+        onClick={togglePlay}
       >
-        <source src="./images/mobilebanner.webm" type="video/webm" />
+        {/* <source src="./images/V5.mp4" type="video/mp4" /> */}
+        <source src="./images/V5.webm" type="video/webm" />
       </video>
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>
