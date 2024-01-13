@@ -238,7 +238,7 @@
 }
 
 .welcomecolumn2 {
-  margin-top: 7% !important;
+  margin-top: 15% !important;
 }
 
 /* Mobile */
@@ -457,7 +457,7 @@
     font-family: "Poppins", sans-serif;
   }
   .welcomecolumn2fox {
-    padding-top: 5%;
+    padding-top: 10%;
   }
   .missionfox {
     display: flex;
