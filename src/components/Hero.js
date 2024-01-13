@@ -53,7 +53,7 @@ function Hero() {
           autoplay
         ></dotlottie-player> */}
         <img
-          src="./images/Website illustration for mobile V3.gif"
+          src="./images/Website-illustration-for-mobile 5.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
