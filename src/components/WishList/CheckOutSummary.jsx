@@ -9,7 +9,6 @@ import { db } from "../../services/firebase";
 import { errorNotification, infoNotification } from "../../utils/notifications";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
-  // console.log("env: ", process.env.REACT_APP_ENV, process.env.NODE_ENV);
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone, city, state, country, pincode } =
     userDetail;
@@ -132,7 +131,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   return (
     <>
       <div className={`${classes.summary} container`}>
-        {country === "India" ? (
+        {country === "India" || country === "" ? (
           <div className={`${classes.CheckOutSummary} row`}>
             <div className={`${classes.CheckOutSummary1} col-md-6`}>
               <h3 className={classes.shoppingheading}>Shopping Summary</h3>
