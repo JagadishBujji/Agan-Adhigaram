@@ -98,8 +98,13 @@ export const cartSlice = createSlice({
 
       if (cartItems) {
         if (cartItems.length > 0) {
-          const totalQty = cartItems.reduce((a, b) => a.qty + b.qty);
-          state.totalBookQuantity = totalQty;
+          if (cartItems.length === 1) {
+            state.totalBookQuantity = cartItems[0].qty;
+          } else {
+            const totalQty = cartItems.reduce((a, b) => a.qty + b.qty);
+            console.log("totalQuantity: ", totalQty);
+            state.totalBookQuantity = totalQty;
+          }
         }
         state.cartItems = [...cartItems];
       }

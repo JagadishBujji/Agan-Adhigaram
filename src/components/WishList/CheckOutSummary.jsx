@@ -9,18 +9,18 @@ import { db } from "../../services/firebase";
 import { errorNotification, infoNotification } from "../../utils/notifications";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
+  console.log("env: ", process.env.REACT_APP_ENV, process.env.NODE_ENV);
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone, country } = userDetail;
 
   const delivery = 50; // for India
 
   const discount = 0;
-  //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
-  //ordered_timestamp,price_tax,status,tax_percentage,total_item_price,total_price,total_qty,
-  //userDetails:{address,email,id,name,phone}
+
   const subtotal = useMemo(() => {
     return cartItems.reduce((total, item) => total + item.total_price, 0);
   }, [cartItems]);
+
   const total = useMemo(() => subtotal + delivery, [subtotal]);
 
   const addDataToOrdersCollection = async () => {

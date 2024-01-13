@@ -65,7 +65,9 @@ const BookListView = ({ book }) => {
               className={classes.openbookitems}
             >
               <h4 className={classes.Humorous}>{book.genre}</h4>
-              <h2 className={classes.vadai}>{book.title}({book.title_tamil})</h2>
+              <h2 className={classes.vadai}>
+                {book.title}({book.title_tamil})
+              </h2>
               <p className={classes.bookram}>{book.author}</p>
               {/* <p className={classes.bookramdec}>{book.description}</p> */}
             </Link>
