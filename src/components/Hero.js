@@ -3,6 +3,7 @@ import React from "react";
 import Heronav from "./Heronav";
 import classes from "./Hero.module.css";
 import VideoBanner from "../Reusable/VideoBanner";
+import MobileBanner from "../Reusable/MobileBanner";
 
 function Hero() {
   return (
@@ -51,12 +52,13 @@ function Hero() {
           loop
           autoplay
         ></dotlottie-player> */}
-        <img
+        {/* <img
           src="./images/mobilegifbanner.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
-        />
+        /> */}
+        <MobileBanner className={classes.mainimagemobile} />
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"

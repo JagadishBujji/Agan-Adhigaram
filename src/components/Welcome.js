@@ -54,7 +54,7 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid  `}>
+        <div className={`${classes.mission} row container-fluid  mission m-auto`}>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
@@ -101,7 +101,7 @@ function Welcome() {
             </p>
           </div>
         </div>
-        <div className={`${classes.missionfox} row container m-auto`}>
+        <div className={`${classes.missionfox} row container m-auto missionfox`}>
           <div
             className={`${classes.welcomecolumn2fox} col-sm col-md-6 col-lg-6`}
           >
@@ -120,7 +120,7 @@ function Welcome() {
             </p>
           </div>
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
-           <Fox  fox={classes.fox}/>
+            <Fox fox={classes.fox} />
             {/* <img
               src="./images/Nari-2.gif"
               alt="heroimg1"
