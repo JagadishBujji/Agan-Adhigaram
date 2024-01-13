@@ -14,7 +14,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const { address, email, id, name, phone, city, state, country, pincode } =
     userDetail;
 
-  let delivery = 50; // for India
+  let delivery = 0; // for India
 
   const discount = 0;
 
