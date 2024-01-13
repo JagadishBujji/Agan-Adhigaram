@@ -24,7 +24,10 @@ const VideoBanner = () => {
         muted
         // onClick={togglePlay}
       >
-        <source src="./images/Web banner.webm" type="video/webm" />
+        <source
+          src="./images/Website illustration Edited New.webm"
+          type="video/webm"
+        />
       </video>
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>

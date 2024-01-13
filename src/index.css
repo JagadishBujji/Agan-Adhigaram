@@ -119,6 +119,7 @@ code {
     justify-content: center;
     align-items: center;
     margin-bottom: 4rem;
+    display: none;
   }
   .MobileBanner {
     max-width: 100%;
