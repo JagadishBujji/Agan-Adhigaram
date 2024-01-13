@@ -9,11 +9,12 @@ import { db } from "../../services/firebase";
 import { errorNotification, infoNotification } from "../../utils/notifications";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
-  console.log("env: ", process.env.REACT_APP_ENV, process.env.NODE_ENV);
+  // console.log("env: ", process.env.REACT_APP_ENV, process.env.NODE_ENV);
   const { isAuthenticated, userDetail } = useSelector(selectUser);
-  const { address, email, id, name, phone, country } = userDetail;
+  const { address, email, id, name, phone, city, state, country, pincode } =
+    userDetail;
 
-  const delivery = 50; // for India
+  let delivery = 50; // for India
 
   const discount = 0;
 
@@ -56,7 +57,17 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       total_price: total,
       // total_qty: ordered_books.length,
       total_qty: totalBookQuantity,
-      userDetail: { address, email, id, name, phone },
+      userDetail: {
+        address,
+        city,
+        country,
+        email,
+        id,
+        name,
+        phone,
+        state,
+        pincode,
+      },
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
     };
