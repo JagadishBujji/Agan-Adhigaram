@@ -9,7 +9,6 @@ const CheckOutItems = ({ cartItems }) => {
       <section className={`${classes.item}`}>
         {cartItems.length === 0 ? (
           <div className={`${classes.sadfox}`}>
-            <img src="../images/Fox-Cring.gif" alt="" className={classes.fox} />
             <FoxVideo />
             <p className={classes.noitem}>No item in you cart.</p>
             <p className={classes.additem}>Lets add some items from</p>
