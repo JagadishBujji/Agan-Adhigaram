@@ -183,8 +183,7 @@ const PaymentStatus = () => {
             </div>
             {/* payment loading*/}
           </>
-        ) : // ) : status.code === "PAYMENT_SUCCESS" ? (
-        status.code === "PAYMENT_ERROR" ? (
+        ) : status.code === "PAYMENT_SUCCESS" ? (
           <>
             <h2 className={`${classes.pay}`}>Payment Status - Success</h2>
             {/* payment success */}

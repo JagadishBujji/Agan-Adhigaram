@@ -30,10 +30,14 @@ code {
 
 .paatiimg {
   max-width: 30%;
-  position: absolute;
+  /* position: absolute;
   top: 14%;
   right: 0px;
-  bottom: 0;
+  bottom: 0; */
+  margin: auto;
+  position: absolute;
+  top: 15%;
+  right: -2%;
 }
 
 .mainimagemobile {

@@ -9,18 +9,19 @@ import { db } from "../../services/firebase";
 import { errorNotification, infoNotification } from "../../utils/notifications";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
+  // console.log("env: ", process.env.REACT_APP_ENV, process.env.NODE_ENV);
   const { isAuthenticated, userDetail } = useSelector(selectUser);
-  const { address, email, id, name, phone, country } = userDetail;
+  const { address, email, id, name, phone, city, state, country, pincode } =
+    userDetail;
 
-  const delivery = 50; // for India
+  let delivery = 50; // for India
 
   const discount = 0;
-  //delivery_charge,logistics,order_id,ordered_books:[{author,book_id,genre,price,qty,title,total_price}],
-  //ordered_timestamp,price_tax,status,tax_percentage,total_item_price,total_price,total_qty,
-  //userDetails:{address,email,id,name,phone}
+
   const subtotal = useMemo(() => {
     return cartItems.reduce((total, item) => total + item.total_price, 0);
   }, [cartItems]);
+
   const total = useMemo(() => subtotal + delivery, [subtotal]);
 
   const addDataToOrdersCollection = async () => {
@@ -56,7 +57,17 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       total_price: total,
       // total_qty: ordered_books.length,
       total_qty: totalBookQuantity,
-      userDetail: { address, email, id, name, phone },
+      userDetail: {
+        address,
+        city,
+        country,
+        email,
+        id,
+        name,
+        phone,
+        state,
+        pincode,
+      },
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
     };

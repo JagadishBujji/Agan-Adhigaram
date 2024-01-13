@@ -10,7 +10,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoginModal from "../../Reusable/LoginModal";
 import SignupModal from "../../Reusable/SignupModal";
 import ProfileMenu from "../../Reusable/ProfileMenu";
-import {  selectUser } from "../../store/userSlice";
+import { selectUser } from "../../store/userSlice";
 
 import "./Navbar.css";
 import { selectCartSize } from "../../store/cartSlice";
@@ -29,10 +29,11 @@ function Navbar(props) {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-  const handleLogout=()=>{
+
+  const handleLogout = () => {
     logout();
-    closeMenu()
-  }
+    closeMenu();
+  };
   const StyledBadge = styled(Badge)(({ theme }) => ({
     "& .MuiBadge-badge": {
       right: -3,
@@ -50,7 +51,6 @@ function Navbar(props) {
           <a href="/" className="navbar-brand">
             <img
               src="./images/Logo_Agan.png"
-              // {props.logo}
               alt=" logo"
               width="60"
               height="80"
@@ -127,48 +127,6 @@ function Navbar(props) {
                   Books
                 </Link>
               </li>
-              {/* <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Books
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      href="https://amzn.eu/d/1yoJQiR"
-                      target="_blank"
-                    >
-                      Vadai Pochae
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      class="dropdown-item"
-                      href="https://amzn.eu/d/aZDzE8G"
-                      target="_blank"
-                    >
-                      I
-                    </a>
-                  </li>
-                </ul>
-              </li> */}
-              {/* <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  className="nav-link "
-                  role="button"
-                  data-bs-toggle=""
-                  aria-expanded="false"
-                >
-                  Events
-                </a>
-              </li> */}
               <li className="nav-item dropdown" onClick={closeMenu}>
                 <Link
                   to="/blog"
@@ -180,86 +138,63 @@ function Navbar(props) {
                   Blog
                 </Link>
               </li>
-             {
-             isMenuOpen &&  <li className="nav-item dropdown" onClick={closeMenu}>
-             <Link
-               to="checkout"
-               className="nav-link "
-               role="button"
-               data-bs-toggle=""
-               aria-expanded="false"
-             >
-               Cart
-             </Link>
-           </li>
-             }
               {isMenuOpen && (
-                isAuthenticated ?
-                <>
-                  <li className="nav-item dropdown" onClick={closeMenu}>
-                    <Link
-                      to="profile"
-                      className="nav-link "
-                      role="button"
-                      data-bs-toggle=""
-                      aria-expanded="false"
-                    >
-                      Profile
-                    </Link>
-                  </li>
-                  <li className="nav-item dropdown" onClick={closeMenu}>
-                    <Link
-                      to="orders"
-                      className="nav-link "
-                      role="button"
-                      data-bs-toggle=""
-                      aria-expanded="false"
-                    >
-                      Orders
-                    </Link>
-                  </li>
-                  <li className="nav-item dropdown" onClick={handleLogout}>
+                <li className="nav-item dropdown" onClick={closeMenu}>
                   <Link
-                    
-                      className="nav-link "
-                      role="button"
-                      data-bs-toggle=""
-                      aria-expanded="false"
-                    >
-                      Logout
-                    </Link>
-                  </li>
-                </> :<LoginModal onClick={closeMenu}   />
-
+                    to="checkout"
+                    className="nav-link "
+                    role="button"
+                    data-bs-toggle=""
+                    aria-expanded="false"
+                  >
+                    Cart
+                  </Link>
+                </li>
               )}
+              {isMenuOpen &&
+                (isAuthenticated ? (
+                  <>
+                    <li className="nav-item dropdown" onClick={closeMenu}>
+                      <Link
+                        to="profile"
+                        className="nav-link "
+                        role="button"
+                        data-bs-toggle=""
+                        aria-expanded="false"
+                      >
+                        Profile
+                      </Link>
+                    </li>
+                    <li className="nav-item dropdown" onClick={closeMenu}>
+                      <Link
+                        to="orders"
+                        className="nav-link "
+                        role="button"
+                        data-bs-toggle=""
+                        aria-expanded="false"
+                      >
+                        Orders
+                      </Link>
+                    </li>
+                    <li className="nav-item dropdown" onClick={handleLogout}>
+                      <Link
+                        className="nav-link "
+                        role="button"
+                        data-bs-toggle=""
+                        aria-expanded="false"
+                      >
+                        Logout
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  <LoginModal onClick={closeMenu} />
+                ))}
             </ul>
             <div className="corner">
-              {/* <li className="nav-item dropdown">
-                <a
-                  href="  books/checkout"
-                
-                  className="right "
-                  role="button"
-                  data-bs-toggle=""
-                  aria-expanded="false"
-                >
-                  Cart
-                </a>
-              </li> */}
-              {/* <a href="books/wishlist" className="cart"> */}
-              {/* <img
-              </li> */}
               {!isMenuOpen && (
                 <>
-                  {" "}
                   <Link to="/checkout" className="cart">
-                    {/* <img
-                  src="./images/cart.svg"
-                  alt="Kittivasal logo"
-                  width="30"
-                  height="auto"
-                  className="d-inline-block align-text-top"
-                /> */}
                     <IconButton aria-label="cart">
                       <StyledBadge
                         badgeContent={cartSize}
