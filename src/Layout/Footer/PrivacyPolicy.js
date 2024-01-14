@@ -8,8 +8,8 @@ const PrivacyPolicy = () => {
         <h1 className="pri">Privacy Policy</h1>
         <h4 className="poi">Privacy Policy</h4>
         <p className="para">
-          The website www.aganadhigaram .com ("Website") is owned and operated
-          by Agan Adhigaram Publishing house®. We are aware that
+          The website aganadhigaram.com ("Website") is owned and operated by
+          Agan Adhigaram Publishing house®. We are aware that
           users/visitors/customers who access our website are concerned about
           how their personal information is used or shared. This Privacy Policy
           ("Policy") conveys the manner in which such information is used by us
