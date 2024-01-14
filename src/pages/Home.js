@@ -83,7 +83,6 @@ const Home = () => {
         <Welcome />
         <Values />
         <DynamicCarousel />
-
         <Author />
         <Magical />
         <People />

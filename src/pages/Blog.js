@@ -10,7 +10,7 @@ const Blog = () => {
       <BlogHeading />
       <BlogBackMove move="Blog" />
       <BlogStartup />
-      <BlogCarosuel/>
+      <BlogCarosuel />
       {/* <Author/> */}
     </>
   );

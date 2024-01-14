@@ -1,0 +1,16 @@
+.Logo {
+  background-color: #f19e38; /* Orange color from the image */
+  padding: 0.5rem 1rem; /* Adjust for spacing as needed */
+  text-align: center; /* Center the text */
+  border-radius: 5px; /* Add rounded corners */
+  display: inline-block; /* Make the container inline-block */
+  cursor: pointer; /* Change cursor to pointer for button-like feel */
+}
+
+.LogoText {
+  color: #000; /* White text for contrast */
+  font-family: sans-serif; /* Use a sans-serif font */
+  font-weight: bold; /* Adjust font size and line-height as needed */
+  margin: 0; /* Remove default margin for h1 */
+  font-size: 12px;
+}
