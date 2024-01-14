@@ -25,9 +25,13 @@ const VideoBanner = () => {
         // onClick={togglePlay}
       >
         <source
+          src="./images/Website-illustration-Edited-New.mp4"
+          type="video/mp4"
+        />
+        {/* <source
           src="./images/Website illustration Edited New.webm"
           type="video/webm"
-        />
+        /> */}
       </video>
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>

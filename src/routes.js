@@ -1,4 +1,4 @@
-import { Navigate, useRoutes } from "react-router-dom";
+import { Navigate, useNavigate, useRoutes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DashboardLayout from "./Layout/dashboard/DashBoardLayout";
 
@@ -17,7 +17,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./services/firebase";
 import { getUserById } from "./api/user";
 import { errorNotification } from "./utils/notifications";
-import { setCartItems } from "./store/cartSlice";
+import { clearCart, setCartItems } from "./store/cartSlice";
 import Loading from "./Reusable/Loading";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./Layout/Footer/PrivacyPolicy";
@@ -49,6 +49,7 @@ export default function Router() {
         });
       } else {
         dispatch(logout());
+        dispatch(clearCart());
         // Set authChecked to true once authentication state is checked
         setAuthChecked(true);
       }

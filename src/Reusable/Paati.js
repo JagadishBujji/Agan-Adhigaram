@@ -24,7 +24,8 @@ const Paati = () => {
         muted
         // onClick={togglePlay}
       >
-        <source src="./images/Paati.webm" type="video/webm" />
+        {/* <source src="./images/Paati.webm" type="video/webm" /> */}
+        <source src="./images/Paati.mp4" type="video/mp4" />
       </video>
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>

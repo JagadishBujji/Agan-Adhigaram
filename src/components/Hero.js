@@ -35,6 +35,7 @@ function Hero() {
         {/* <video class="mainimage" width="100%" height="100%" muted autoPlay>
           <source src="./images/Web banner.webm" type="video/webm" />
         </video> */}
+        {/* Websitemobile.mp4 - removing this becase not using, and putting in final gif in downloads */}
 
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
@@ -83,6 +84,7 @@ function Hero() {
           <source src="./images/Websitemobile.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video> */}
+        {/* Websitemobile.mp4 - removing this becase not using, and putting in final gif in downloads */}
 
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"

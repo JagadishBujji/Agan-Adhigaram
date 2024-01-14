@@ -16,7 +16,7 @@ const Fox = ({ fox }) => {
 
   return (
     <div className="foxbig">
-      <video
+      {/* <video
         className={fox}
         ref={videoRef}
         autoPlay
@@ -25,8 +25,9 @@ const Fox = ({ fox }) => {
         // onClick={togglePlay}
       >
         <source src="./images/Fox 2.webm" type="video/webm" />
-      </video>
+      </video> */}
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
+      <img src="./images/Fox-2.gif" alt="Crow" className={fox} />
     </div>
   );
 };

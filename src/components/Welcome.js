@@ -36,11 +36,16 @@ function Welcome() {
                 alt="heroimg1"
                 className={classes.paatiimg}
               /> */}
-              <script
+              <img
+                src="./images/Paati-2.gif"
+                alt="heroimg1"
+                className={classes.paatiimg}
+              />
+              {/* <Paati /> */}
+              {/* <script
                 src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                 type="module"
-              ></script>
-              <Paati />
+              ></script> */}
               {/* <dotlottie-player
                 src="https://lottie.host/53bfb191-5d62-4a09-8e16-f5cc4b43fef9/BFeDo3AjjP.json"
                 background="transparent"
@@ -54,19 +59,26 @@ function Welcome() {
             </span>
           </div>
         </div>
-        <div className={`${classes.mission} row container-fluid  mission m-auto`}>
+        <div
+          className={`${classes.mission} row container-fluid  mission m-auto`}
+        >
           <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
               alt="heroimg1"
               className={classes.crow}
             /> */}
+            <img
+              src="./images/Crow.gif"
+              alt="heroimg1"
+              className={classes.crow}
+            />
 
-            <script
+            {/* <Crow /> */}
+            {/* <script
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
-            ></script>
-            <Crow />
+            ></script> */}
             {/* <dotlottie-player
               src="https://lottie.host/6caf9ccb-6575-427e-a1e1-4bd2653e1187/f2cRMtO4gC.json"
               background="transparent"
@@ -101,7 +113,9 @@ function Welcome() {
             </p>
           </div>
         </div>
-        <div className={`${classes.missionfox} row container m-auto missionfox`}>
+        <div
+          className={`${classes.missionfox} row container m-auto missionfox`}
+        >
           <div
             className={`${classes.welcomecolumn2fox} col-sm col-md-6 col-lg-6`}
           >
