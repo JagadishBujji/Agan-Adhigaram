@@ -56,7 +56,7 @@
 }
 
 .paatiimg {
-  max-width: 25%;
+  max-width: 20%;
   position: absolute;
   right: 0;
   bottom: 0%;
@@ -121,12 +121,12 @@
   top: 8%;
 }
 
-.paatiimg {
+/* .paatiimg {
   max-width: 25%;
   position: absolute;
   right: 14px;
   top: 135px;
-}
+} */
 
 .crow {
   max-width: 90%;
@@ -432,8 +432,10 @@
     font-family: "Poppins", sans-serif;
   }
   .paatiimg {
-    right: 40px;
-    top: 170px;
+    right: 4%;
+    top: 15%;
+    /* right: 40px;
+    top: 170px; */
   }
   .welcomevisiontitle {
     font-size: 34px;

@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Welcome.module.css";
-import Crow from "../Reusable/Crow";
-import FoxDancing from "../Reusable/FoxDancing";
+// import Crow from "../Reusable/Crow";
+// import FoxDancing from "../Reusable/FoxDancing";
 import Fox from "../Reusable/Fox";
 import Paati from "../Reusable/Paati";
 
@@ -36,12 +36,7 @@ function Welcome() {
                 alt="heroimg1"
                 className={classes.paatiimg}
               /> */}
-              <img
-                src="./images/Paati-2.gif"
-                alt="heroimg1"
-                className={classes.paatiimg}
-              />
-              {/* <Paati /> */}
+              <Paati class={classes.paatiimg} />
               {/* <script
                 src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
                 type="module"
