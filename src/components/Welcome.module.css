@@ -58,8 +58,8 @@
 .paatiimg {
   max-width: 20%;
   position: absolute;
-  right: 0;
-  bottom: 0%;
+  right: 10px;
+  top: 165px;
 }
 
 /* .mission {
@@ -238,7 +238,7 @@
 }
 
 .welcomecolumn2 {
-  margin-top: 15% !important;
+  margin-top: 60px !important;
 }
 
 /* Mobile */

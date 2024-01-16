@@ -293,12 +293,11 @@ const People = () => {
             </div>
             <div class="card__content">
               <p>
-                “Very Colourful Potrayal of Five Landscapes of Tamil regions in
-                an Interactive way for Kids and few Adults as well. This clearly
-                depicts the Landscapes, People, Culture, Work, Animals, Birds,
-                etc. My daughter was delighted to have it. Especially after
-                'Vada Poche', this book is so satisfying. Will be watching this
-                space for more such books from Agan Adhigaram publications.”{" "}
+                I remember reading the sangam landforms in school days. Never
+                thought that these landforms can be introduced playfully to my
+                toddler. Such a creative idea to introduce lands of the Tamil
+                culture and heritage with colourful illustrations with quality
+                design.{" "}
               </p>
             </div>
             <div className="name">
