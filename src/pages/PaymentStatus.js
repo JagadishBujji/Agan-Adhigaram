@@ -19,7 +19,7 @@ const PaymentStatus = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [status, setStatus] = useState({
-    code: "PAYMENT_ERROR",
+    code: "PAYMENT_INITIATED",
     message: "",
     desc: "",
   });

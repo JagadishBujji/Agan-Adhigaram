@@ -15,17 +15,15 @@ const PaymentSuccess = () => {
   };
 
   return (
-    <div >
-      <video
-        className="paatiimg"
-        ref={videoRef}
-        autoPlay
-        loop
-        muted
-        // onClick={togglePlay}
-      >
+    <div>
+      {/* <video className="payment-success-fox" ref={videoRef} autoPlay loop muted>
         <source src="./images/fox_payment_success.webm" type="video/webm" />
-      </video>
+      </video> */}
+      <img
+        className="payment-success-fox"
+        src="./images/fox_payment_success.gif"
+        alt="payment-success-fox-dancing"
+      />
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>
   );

@@ -104,17 +104,21 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .aboutus{
+    margin-top: 0;
+  }
   .we {
     text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    display: none;
+    font-size: 10px;
+    font-weight: 500;
+    /* display: none; */
   }
   .spark {
     display: none;
   }
   .aboutus {
-    font-size: 20px;
+    font-size: 26px;
+    font-weight: 600;
   }
   .person1 {
     display: flex;
@@ -204,6 +208,9 @@
 
 /* Tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .we{
+    display: block;
+  }
   .aboutus {
     margin-top: 80px;
     text-align: center;

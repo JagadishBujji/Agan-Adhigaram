@@ -56,10 +56,10 @@
 }
 
 .paatiimg {
-  max-width: 25%;
+  max-width: 20%;
   position: absolute;
-  right: 0;
-  bottom: 0%;
+  right: 10px;
+  top: 165px;
 }
 
 /* .mission {
@@ -121,12 +121,12 @@
   top: 8%;
 }
 
-.paatiimg {
+/* .paatiimg {
   max-width: 25%;
   position: absolute;
   right: 14px;
   top: 135px;
-}
+} */
 
 .crow {
   max-width: 90%;
@@ -238,11 +238,14 @@
 }
 
 .welcomecolumn2 {
-  margin-top: 7% !important;
+  margin-top: 60px !important;
 }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .mission {
+    margin: auto;
+  }
   .overallmission {
     background-image: url("../../public/images/foxandcrow.svg");
     /* width: 100%; */
@@ -319,7 +322,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20% !important;
+    margin-top: 25% !important;
   }
   .subcontentvision {
     text-align: center;
@@ -429,8 +432,10 @@
     font-family: "Poppins", sans-serif;
   }
   .paatiimg {
-    right: 40px;
-    top: 170px;
+    right: 4%;
+    top: 15%;
+    /* right: 40px;
+    top: 170px; */
   }
   .welcomevisiontitle {
     font-size: 34px;
@@ -454,7 +459,7 @@
     font-family: "Poppins", sans-serif;
   }
   .welcomecolumn2fox {
-    padding-top: 5%;
+    padding-top: 10%;
   }
   .missionfox {
     display: flex;
@@ -473,7 +478,6 @@
     max-width: 80%;
     padding-top: 0%;
     width: 100%;
-    
   }
   .welcomecolumn1 {
     display: flex;

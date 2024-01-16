@@ -54,7 +54,7 @@
   width: 100%;
   padding: 2em 0;
   background-color: #fefefe;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
 }
 
 .startupcard {
@@ -83,7 +83,7 @@
   max-width: 80%;
   padding: 20px;
   border-radius: 30px;
-  box-shadow: #DBE3ED 0px 1px 0px;
+  box-shadow: #dbe3ed 0px 1px 0px;
 }
 .firsthalf {
   display: flex;
@@ -285,6 +285,7 @@
 .testimg {
   max-width: 8%;
   margin-right: 10px;
+  border-radius: 50%;
 }
 .hinduimg {
   max-width: 20%;
@@ -425,20 +426,20 @@
   .sparakel {
     left: 0;
   }
-  .blogimg{
+  .blogimg {
     max-width: 100%;
     margin-bottom: 10%;
   }
-  .blogtitle{
+  .blogtitle {
     font-size: 14px;
   }
-  .blogcontent{
+  .blogcontent {
     font-size: 12px;
   }
-  .readmore{
+  .readmore {
     font-size: 12px;
   }
-  .cards{
+  .cards {
     margin-bottom: 70%;
   }
 }

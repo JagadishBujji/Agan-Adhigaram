@@ -3,6 +3,7 @@ import React from "react";
 import Heronav from "./Heronav";
 import classes from "./Hero.module.css";
 import VideoBanner from "../Reusable/VideoBanner";
+import MobileBanner from "../Reusable/MobileBanner";
 
 function Hero() {
   return (
@@ -34,6 +35,7 @@ function Hero() {
         {/* <video class="mainimage" width="100%" height="100%" muted autoPlay>
           <source src="./images/Web banner.webm" type="video/webm" />
         </video> */}
+        {/* Websitemobile.mp4 - removing this becase not using, and putting in final gif in downloads */}
 
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
@@ -52,11 +54,12 @@ function Hero() {
           autoplay
         ></dotlottie-player> */}
         <img
-          src="./images/mobilegifbanner.gif"
+          src="./images/Website-illustration-for-mobile 5.gif"
           alt="heroimg1"
           float={"center"}
           className={classes.mainimagemobile}
         />
+        {/* <MobileBanner className={classes.mainimagemobile} /> */}
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
           type="module"
@@ -81,6 +84,7 @@ function Hero() {
           <source src="./images/Websitemobile.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video> */}
+        {/* Websitemobile.mp4 - removing this becase not using, and putting in final gif in downloads */}
 
         {/* <script
           src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"

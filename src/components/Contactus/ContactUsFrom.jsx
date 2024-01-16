@@ -95,8 +95,9 @@ const ContactUsFrom = () => {
                   <div class="contact-info-text">
                     <h2>address</h2>
                     <span>
-                      Agan Adhigaram publishing house, No. 35, Gandhi salai,
-                      Chengalpattu – 603002,
+                      Agan Adhigaram publishing house,
+                      <br />
+                      No. 35, Gandhi salai, Chengalpattu – 603002,
                     </span>
                     <span>Tamil Nadu</span>
                   </div>
@@ -210,13 +211,23 @@ const ContactUsFrom = () => {
             </div>
             <div class="col-md-4">
               <div class="contact-page-map">
-                <iframe
+                {/* <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109741.02912911311!2d76.69348873658222!3d30.73506264436677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed0be66ec96b%3A0xa5ff67f9527319fe!2sChandigarh!5e0!3m2!1sen!2sin!4v1553497921355"
                   width="100%"
                   height="450"
                   frameborder="0"
                   style={{ border: 0 }}
                   allowfullscreen
+                ></iframe> */}
+                <iframe
+                  title="Agan Adhigaram Location"
+                  style={{ border: 0 }}
+                  src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3892.3003235721417!2d79.97303617477684!3d12.693810820908347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDQxJzM3LjciTiA3OcKwNTgnMzIuMiJF!5e0!3m2!1sen!2sin!4v1705237919424!5m2!1sen!2sin"
+                  width="400"
+                  height="300"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>

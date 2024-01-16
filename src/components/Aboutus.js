@@ -29,10 +29,10 @@ function Aboutus() {
           children's literature with interactive books that spark creativity and
           learning.
         </h1>
-        <h1 className={`${classes.mobilewe}`}>
+        {/* <h1 className={`${classes.mobilewe}`}>
           {" "}
           we're on a mission to create a<br /> positive global impact.
-        </h1>
+        </h1> */}
       </div>
 
       <div className={`${classes.About} row container m-auto`}>
@@ -49,12 +49,12 @@ function Aboutus() {
             {/* <br /> Agan Adhigaram publications. */}
           </p>
           <img src="./images/boy1.svg" alt="heroimg1" className={classes.boy} />
-          <script
+          <Dragonfly />
+          {/* <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
-          ></script>
-          <Dragonfly />
-            {/* <dotlottie-player
+          ></script> */}
+          {/* <dotlottie-player
               src="https://lottie.host/a222fe18-5bd8-4770-9855-ec53ed22006e/A3MaojSZu3.json"
               background="transparent"
               speed="1"
@@ -73,11 +73,11 @@ function Aboutus() {
             alt="heroimg1"
             className={classes.Butterfly}
           />
-          <script
+          <Butterfly />
+          {/* <script
             src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
             type="module"
-          ></script>
-          <Butterfly />
+          ></script> */}
           {/* <dotlottie-player
             src="https://lottie.host/0e7460ad-a461-42bc-8c83-6323f9aab3ed/SQSSBBt0gR.json"
             background="transparent"

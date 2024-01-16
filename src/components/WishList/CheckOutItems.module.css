@@ -40,6 +40,13 @@
 }
 
 .fox {
-  max-width: 50%;
-  margin: auto;
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .fox {
+    max-width: 50%;
+    margin: auto;
+    display: block;
+  }
 }

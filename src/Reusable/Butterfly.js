@@ -16,17 +16,18 @@ const Butterfly = () => {
 
   return (
     <div>
-      <video
-         className="Butterfly"
-         background="transparent"
+      {/* <video
+        className="Butterfly"
+        background="transparent"
         ref={videoRef}
         autoPlay
         loop
         muted
         // onClick={togglePlay}
       >
-        <source src="./images/Butterfly.webm" type="video/webm" />
-      </video>
+        <source src="./images/Butterfly.mp4" type="video/mp4" />
+      </video> */}
+      <img src="./images/Butterfly.gif" alt="butterfly" className="Butterfly" />
       {/* <button onClick={togglePlay}>{isPlaying ? "Pause" : "Play"}</button> */}
     </div>
   );

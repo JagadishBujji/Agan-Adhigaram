@@ -8,21 +8,32 @@ const Footer = () => {
     <>
       <div
         className={`${
-          pathname.includes("books")
+          pathname.includes("books") ||
+          pathname.includes("checkout") ||
+          pathname.includes("profile") ||
+          pathname.includes("orders")
             ? classes.footerbg_orange
             : classes.footerbg
         } container-fluid`}
       >
         <div className={`${classes.footercontent} container`}>
           <div className={`${classes.socialmedia}`}>
-            <a href="https://www.instagram.com/agan_adhigaram/" target="_blank" className={classes.sociallink}>
+            <a
+              href="https://www.instagram.com/agan_adhigaram/"
+              target="_blank"
+              className={classes.sociallink}
+            >
               <img
                 src="./images/insta-01.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href=" https://www.facebook.com/Aganadhigaram" target="_blank" className={classes.sociallink}>
+            <a
+              href=" https://www.facebook.com/Aganadhigaram"
+              target="_blank"
+              className={classes.sociallink}
+            >
               <img
                 src="./images/facebook-04.png"
                 alt=""
@@ -40,14 +51,22 @@ const Footer = () => {
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href="https://twitter.com/AganAdhigaram" target="_blank" className={classes.sociallink}>
+            <a
+              href="https://twitter.com/AganAdhigaram"
+              target="_blank"
+              className={classes.sociallink}
+            >
               <img
                 src="./images/twitter-03.png"
                 alt=""
                 className={classes.socialmediaicon}
               />
             </a>
-            <a href=" https://www.youtube.com/@AganAdhigaram" target="_blank" className={classes.sociallink}>
+            <a
+              href=" https://www.youtube.com/@AganAdhigaram"
+              target="_blank"
+              className={classes.sociallink}
+            >
               <img
                 src="./images/youtube-02.png"
                 alt=""

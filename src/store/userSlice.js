@@ -40,6 +40,7 @@ export const userSlice = createSlice({
         role: "",
       };
       state.isAuthenticated = false;
+      localStorage.clear();
     },
   },
 });

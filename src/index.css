@@ -33,7 +33,12 @@ code {
   margin: auto;
   position: absolute;
   top: 15%;
-  right: -2%;
+  right: 0%;
+}
+
+.payment-success-fox {
+  max-width: 30%;
+  margin: auto;
 }
 
 .mainimagemobile {
@@ -61,7 +66,7 @@ code {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 60px;
+  top: 40px;
 }
 
 #scroll {
@@ -97,6 +102,10 @@ code {
   -ms-filter: "alpha(opacity=100)";
 }
 
+.mobilebanner {
+  display: none;
+}
+
 /* .heroall {
   margin-top: 65px;
 } */
@@ -104,6 +113,29 @@ code {
 /* Media query for screens with a maximum width of 768px (typical for mobile devices) */
 /* Mobile */
 @media (max-width: 767px) {
+  .fox {
+    max-width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    display: none;
+  }
+  .MobileBanner {
+    max-width: 100%;
+  }
+  .mobilebanner {
+    display: block;
+    max-width: 100%;
+  }
+
+  .mission {
+    margin: auto;
+  }
+  .missionfox {
+    margin: auto;
+  }
   .mainimage {
     width: 100%; /* Make the image fill the width of the viewport */
     display: none;
