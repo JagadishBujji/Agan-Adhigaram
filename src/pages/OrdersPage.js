@@ -24,7 +24,7 @@ const OrdersPage = () => {
   const [lastDocument, setLastDocument] = useState(null);
   const [showLoadMore, setShowLoadMore] = useState(false);
 
-  console.log("last:", lastDocument);
+  // console.log("last:", lastDocument);
 
   useEffect(() => {
     const getOrders = async () => {

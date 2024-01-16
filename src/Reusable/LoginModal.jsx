@@ -25,6 +25,7 @@ import { getUserById } from "../api/user";
 import { useDispatch } from "react-redux";
 import { login } from "../store/userSlice";
 import SignupModal from "./SignupModal";
+import { logout } from "../api/auth";
 
 const style = {
   position: "absolute",
@@ -55,8 +56,8 @@ const loginModalBtn = {
     marginBottom: "10px",
     marginLeft: "35px",
     marginRight: "10px",
-    border:"none",
-    fontWeight:"bold"
+    border: "none",
+    fontWeight: "bold",
   },
 };
 const loginbtn = {
@@ -125,9 +126,17 @@ export default function LoginModal() {
           getUserById(uid, (result) => {
             console.log("userdetail: ", result);
             if (result.success) {
-              dispatch(login(result.data));
-              successNotification(result.message);
-              closeModal();
+              if (result?.data?.role === "admin") {
+                errorNotification(
+                  "Admin's don't have access to customer website. Please login with someother email id"
+                );
+                logout(false);
+                closeModal();
+              } else {
+                dispatch(login(result.data));
+                successNotification(result.message);
+                closeModal();
+              }
             } else {
               errorNotification(result.err.message);
             }

@@ -31,7 +31,7 @@ function Navbar(props) {
   };
 
   const handleLogout = () => {
-    logout();
+    logout(true);
     closeMenu();
   };
   const StyledBadge = styled(Badge)(({ theme }) => ({
