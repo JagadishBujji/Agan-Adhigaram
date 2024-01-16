@@ -58,8 +58,8 @@
 .paatiimg {
   max-width: 20%;
   position: absolute;
-  right: 0;
-  bottom: 0%;
+  right: 10px;
+  top: 165px;
 }
 
 /* .mission {
