@@ -27,7 +27,7 @@ const DynamicCarousel = () => {
 
   const events = [
     "./images/events1.jpeg",
-    "./images/events2.jpeg",
+    // "./images/events2.jpeg",
     "./images/I.png",
     "./images/event4.png",
     "./images/event5.png",

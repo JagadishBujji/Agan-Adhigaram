@@ -11,8 +11,8 @@
 .bookimg {
   /* max-width: 90%; */
   /* width: 215px; */
-  width: 100%;
-  height: 300px;
+  max-width: 100%;
+  height: 150px;
   border-radius: 10px;
 }
 
