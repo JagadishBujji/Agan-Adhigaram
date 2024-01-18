@@ -198,8 +198,8 @@ const Author = () => {
               <div className="card4">
                 <div className="card-content">
                   <p className="authorcontent">
-                    Sethu Ram is a first employee and co-founder of Agan
-                    Adhigaram publications. He is not only penned stories but
+                    Sethu Ram is the first employee and co-founder of Agan
+                    Adhigaram publications. He has not only penned stories but
                     has rewritten the narrative of his own life. He is a
                     children's book publisher and author who dared to leave
                     behind the corporate world to follow his life calling – the

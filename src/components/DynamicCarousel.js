@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DynamicCarouselStyle.css";
 import classes from "./values.module.css";
+// import awardimg from './images/Awards/Child 1_KVKK'
 
 const DynamicCarousel = () => {
   const [activeCarousel, setActiveCarousel] = useState("awards");
@@ -13,48 +14,44 @@ const DynamicCarousel = () => {
   };
 
   const awards = [
-    // "./images/awards1.png",
-    "./images/awards2.png",
-    "./images/gallery3.svg",
-    "./images/I.png",
-    "./images/vadai.jpeg",
-    "./images/vadai2.jpeg",
-    "./images/VPxSIMZ-3.jpg",
-    "./images/ibook.png",
-    "./images/gallery3.svg",
-    "./images/gallery3.svg",
+    "./images/Awards/Child 1_KVKK.jpg",
+    "./images/Awards/Child 2_KvKK.jpg",
+    "./images/Awards/Child 3_I_.jpg",
+    "./images/Awards/Child 4_I_.jpeg",
+    "./images/Awards/Child 5_VP_.jpeg",
+    "./images/Awards/VPxSIMZ-18.jpg",
+    "./images/Awards/VPxSIMZ-19.jpg",
+    "./images/Awards/VPxSIMZ-20.jpg",
+    "./images/Awards/VPxSIMZ-21.jpg",
+    "./images/Awards/VPxSIMZ-22.jpg",
   ];
 
   const events = [
-    "./images/events1.jpeg",
-    // "./images/events2.jpeg",
-    "./images/I.png",
-    "./images/event4.png",
-    "./images/event5.png",
-    "./images/event6.png",
-    "./images/VPxSIMZ-3.jpg",
-    "./images/VPxSIMZ-18.jpg",
-    "./images/ibook.png",
-    "./images/gallery3.svg",
+    "./images/Events/event1.jpeg",
+    "./images/Events/event2.jpeg",
+    "./images/Events/event3.jpeg",
+    "./images/Events/event1.jpeg",
+    "./images/Events/event4.jpeg",
+    "./images/Events/event5.jpeg",
   ];
 
   const books = [
-    "./images/book1.jpg",
-    "./images/book2.jpg",
-    "./images/book3.jpg",
-    "./images/book4.jpg",
-    "./images/book5.jpg",
-    "./images/book6.jpg",
-    "./images/book7.jpg",
-    "./images/book8.jpg",
-    "./images/ibook.png",
-    "./images/vadai.jpeg",
-    "./images/gallery3.svg",
-    "./images/gallery3.svg",
+    "./images/Books/1.jpg",
+    "./images/Books/2.jpg",
+    "./images/Books/3.jpg",
+    "./images/Books/4.jpg",
+    "./images/Books/5.jpg",
+    "./images/Books/6.jpg",
+    "./images/Books/7.jpg",
+    "./images/Books/8.jpg",
+    "./images/Books/9.jpg",
+    "./images/Books/10.jpg",
+    "./images/Books/11.jpeg",
+    "./images/Books/12.jpeg",
   ];
 
-  const prev = (current - 1 + awards.length) % awards.length;
-  const next = (current + 1) % awards.length;
+  const prev = (current - 1 + activeCarousel.length) % activeCarousel.length;
+  const next = (current + 1) % activeCarousel.length;
 
   const goToPrev = () => {
     setCurrent(prev);
@@ -70,15 +67,16 @@ const DynamicCarousel = () => {
 
     if (window.innerWidth < 767) {
       let mobileArray = awards.concat(events, books);
-      imagesArray = mobileArray;
+      const shuffleArray=mobileArray.sort(()=>Math.random()-0.5)
+      imagesArray = shuffleArray;
     } else {
-      if (type === "awards") {
-        imagesArray = awards;
-      } else if (type === "events") {
-        imagesArray = events;
-      } else {
-        imagesArray = books;
-      }
+    if (type === "awards") {
+      imagesArray = awards;
+    } else if (type === "events") {
+      imagesArray = events;
+    } else {
+      imagesArray = books;
+    }
     }
 
     const prevIndex = (current - 1 + imagesArray.length) % imagesArray.length;
@@ -92,6 +90,7 @@ const DynamicCarousel = () => {
         } ${index === nextIndex ? "next" : ""} `}
         id="gallery"
       >
+        
         <img src={image} className="d-block " alt={image} />
       </div>
     ));

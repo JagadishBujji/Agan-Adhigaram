@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   max-width: 100%;
   height: 86rem;
-  margin-bottom: 0%;
+  margin-bottom: -5%;
   z-index: 999;
 }
 
@@ -300,6 +300,7 @@
     font-family: "Poppins", sans-serif;
     padding-top: 20px;
     font-weight: 600;
+    width: 217px; ;
   }
   .valuestitles4 {
     font-size: 18px;
