@@ -28,7 +28,7 @@ export default function ProfileMenu({ userDetail }) {
 
   const handleLogout = () => {
     handleClose();
-    logout();
+    logout(true);
   };
 
   return (

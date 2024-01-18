@@ -92,13 +92,13 @@ h2 {
   font-size: 20px;
 }
 
-p {
+/* p {
   margin: 10px 0;
   font-size: 18px;
 
-  /* overflow: hidden; */
+  overflow: hidden;
   text-overflow: ellipsis;
-}
+} */
 
 .col-sm {
   display: flex;
@@ -599,7 +599,7 @@ p {
   }
   .author {
     position: absolute;
-    top: -3%;
+    top: -50px;
     left: 40%;
     max-width: 5%;
   }

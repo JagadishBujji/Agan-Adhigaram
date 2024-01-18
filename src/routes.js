@@ -39,7 +39,7 @@ export default function Router() {
         console.log("uid", uid);
         getUserById(uid, (result) => {
           console.log("userdetail: ", result);
-          if (result.success) {
+          if (result?.success) {
             dispatch(login(result.data));
             // Set authChecked to true once authentication state is checked
             setAuthChecked(true);
@@ -48,7 +48,7 @@ export default function Router() {
           }
         });
       } else {
-        dispatch(logout());
+        dispatch(logout(true));
         dispatch(clearCart());
         // Set authChecked to true once authentication state is checked
         setAuthChecked(true);

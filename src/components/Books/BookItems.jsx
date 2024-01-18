@@ -43,7 +43,11 @@ const BookCard = ({ book }) => {
           state={book}
           className={classes.openbookitems}
         >
-          <img src={book.images[0]} alt="" className={classes.bookimg} />
+          <img
+            src={book.images[0]}
+            alt={book.images[0]}
+            className={classes.bookimg}
+          />
         </Link>
         <div className={classes.favheart}>
           {/* <i className={`${classes.heart} fa-regular fa-heart`}></i> */}
@@ -68,7 +72,9 @@ const BookCard = ({ book }) => {
         </div>
       </div>
       <h5 className={classes.bookgenre}>{book.genre}</h5>
-      <h2 className={classes.bookbigtitle}>{book.title} ({book.title_tamil})</h2>
+      <h2 className={classes.bookbigtitle}>
+        {book.title} ({book.title_tamil})
+      </h2>
       <p className={classes.namebookauthor}>{book.author}</p>
       <p className={classes.bookprice}>
         ₹{book.discount_price}

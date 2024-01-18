@@ -4,7 +4,7 @@
   position: relative;
   background-image: url("../../public/images/all4.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   max-width: 100%;
   /* height: 1720px; */
 }
