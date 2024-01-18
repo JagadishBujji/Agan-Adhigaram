@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
 
 .Values {
-  background: url("../../public/images/Values.svg");
+  background: url("../../public/images/Values1.png");
   background-position: 0px 80%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,12 +25,20 @@
   color: #000;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
+  position: relative;
 }
 
 .subtitle {
   text-align: center;
   font-size: 16px;
   color: #4d4d4d;
+}
+
+.spark {
+  max-width: 30%;
+  position: absolute;
+  top: -170%;
+  right: -24%;
 }
 
 .greenleaf {
@@ -276,11 +284,8 @@
     background-position: 0px 41px;
   }
   .Values {
-    background-position: 0px 71%;
-    height: 75rem;
-  } .Values {
-    background-position: 0px 71%;
-    height: 75rem;
+    background-position: -60px -20px;
+    height: 80rem;
   }
   .valuestitles1 {
     font-size: 18px;
@@ -303,7 +308,7 @@
     font-family: "Poppins", sans-serif;
     padding-top: 20px;
     font-weight: 600;
-    width: 217px; ;
+    width: 217px;
   }
   .valuestitles4 {
     font-size: 18px;

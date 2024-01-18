@@ -5,7 +5,16 @@ const Values = () => {
     <>
       <div className={classes.Values}>
         <div className={classes.valuesheading}>
-          <h1 className={classes.valuetitle}>Values we stand for</h1>
+          <h1 className={classes.valuetitle}>
+            Values we stand for
+            <span>
+              <img
+                src="./images/Sparkle.svg"
+                alt="heroimg1"
+                className={classes.spark}
+              />
+            </span>
+          </h1>
           <p className={classes.subtitle}>
             Fostering early education and digital balance
             <br /> through interactive, high-quality books.
