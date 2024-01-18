@@ -104,7 +104,7 @@
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
-  .aboutus{
+  .aboutus {
     margin-top: 0;
   }
   .we {
@@ -170,6 +170,7 @@
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .we {
     font-size: 22px;
+    display: block;
   }
   .spark {
     top: -6%;
@@ -204,25 +205,13 @@
   .dragon {
     display: none;
   }
-}
 
-/* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .we{
-    display: block;
-  }
   .aboutus {
     margin-top: 80px;
     text-align: center;
     color: #f19e38;
     font-size: 30px;
     font-weight: 500;
-  }
-  .Butterfly {
-    display: none;
-  }
-  .dragon {
-    display: none;
   }
 }
 
@@ -381,8 +370,7 @@
   }
 }
 
-@media only screen and (min-width: 1441px) and (max-width: 1600px){
-  
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
 }
 
 /* Media query for 14-inch laptops and similar sizes */

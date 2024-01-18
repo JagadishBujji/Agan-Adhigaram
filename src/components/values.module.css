@@ -2,7 +2,7 @@
 
 .Values {
   background: url("../../public/images/Values1.png");
-  background-position: 0px -90px;
+  background-position: 0px 80%;
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100%;
@@ -50,7 +50,7 @@
 .firsthalf1 {
   background: url("../../public/images/green3.svg");
   /* background-position: 10px 41px; */
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -65,7 +65,7 @@
 .firsthalf2 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -81,7 +81,7 @@
 .firsthalf3 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -96,7 +96,7 @@
 .firsthalf4 {
   background: url("../../public/images/green3.svg");
   background-position: center;
-  background-size: contain;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   max-width: 50%;
   display: flex;
@@ -281,10 +281,10 @@
 /* Laptop */
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
   .firsthalf1 {
-    background-position: 0px 41px;
+    background-position: 0px 20px;
   }
   .Values {
-    background-position: -60px -20px;
+    background-position: -60px -75px;
     height: 80rem;
   }
   .valuestitles1 {
@@ -356,7 +356,7 @@
   }
   .Values {
     height: 85rem;
-    background-position: 0 -90px;
+    background-position: 0 -150px;
   }
   .valuessubcontent1 {
     font-size: 16px;
@@ -432,7 +432,7 @@
 }
 @media only screen and (min-width: 1501px) and (max-width: 1600px) {
   .Values {
-    background-position: 0 -20px;
+    background-position: 0 -460px;
   }
 }
 @media only screen and (min-width: 2560px) {
