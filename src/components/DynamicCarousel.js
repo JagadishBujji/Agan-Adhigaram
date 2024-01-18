@@ -6,6 +6,7 @@ import classes from "./values.module.css";
 
 const DynamicCarousel = () => {
   const [activeCarousel, setActiveCarousel] = useState("awards");
+  const [mobileCarousel, setMobileCarousel] = useState(false);
   const [current, setCurrent] = useState(0);
 
   const handleCarouselChange = (carouselNumber) => {
@@ -15,7 +16,7 @@ const DynamicCarousel = () => {
 
   const awards = [
     "./images/Awards/Child1_KVKK.jpg",
-    "./images/Awards/Child2_KVKK.jpg",
+    "./images/Awards/Child2.jpg",
     "./images/Awards/Child3_I_.jpg",
     "./images/Awards/Child4_I_.jpeg",
     "./images/Awards/Child5_VP_.jpeg",
@@ -29,10 +30,9 @@ const DynamicCarousel = () => {
   const events = [
     "./images/Events/event1.jpeg",
     "./images/Events/event2.jpeg",
-    "./images/Events/event3.jpeg",
-    "./images/Events/event1.jpeg",
-    "./images/Events/event4.jpeg",
-    "./images/Events/event5.jpeg",
+    "./images/Events/event3.png",
+    "./images/Events/event4.png",
+    "./images/Events/event5.png",
   ];
 
   const books = [
@@ -49,15 +49,27 @@ const DynamicCarousel = () => {
     "./images/Books/11.jpeg",
     "./images/Books/12.jpeg",
   ];
+  let arr;
+  if (window.innerWidth < 767) {
+    let mobileArray = awards.concat(events, books);
+    arr = mobileArray;
+    const shuffleArray = mobileArray.sort(() => Math.random() - 0.5);
+    arr = shuffleArray;
+  } else if (activeCarousel === "awards") {
+    arr = awards;
+  } else if (activeCarousel === "events") {
+    arr = events;
+  } else if (activeCarousel === "books") {
+    arr = books;
+  }
 
-  const prev = (current - 1 + activeCarousel.length) % activeCarousel.length;
-  const next = (current + 1) % activeCarousel.length;
-
+  const prev = (current - 1 + arr.length) % arr.length;
+  const next = (current + 1) % arr.length;
   const goToPrev = () => {
     setCurrent(prev);
   };
 
-  const goToNext = () => {
+  const goToNext = (nextIndex) => {
     setCurrent(next);
   };
 
@@ -67,16 +79,16 @@ const DynamicCarousel = () => {
 
     if (window.innerWidth < 767) {
       let mobileArray = awards.concat(events, books);
-      const shuffleArray=mobileArray.sort(()=>Math.random()-0.5)
+      const shuffleArray = mobileArray.sort(() => Math.random() - 0.5);
       imagesArray = shuffleArray;
     } else {
-    if (type === "awards") {
-      imagesArray = awards;
-    } else if (type === "events") {
-      imagesArray = events;
-    } else {
-      imagesArray = books;
-    }
+      if (type === "awards") {
+        imagesArray = awards;
+      } else if (type === "events") {
+        imagesArray = events;
+      } else {
+        imagesArray = books;
+      }
     }
 
     const prevIndex = (current - 1 + imagesArray.length) % imagesArray.length;
@@ -90,7 +102,6 @@ const DynamicCarousel = () => {
         } ${index === nextIndex ? "next" : ""} `}
         id="gallery"
       >
-        
         <img src={image} className="d-block " alt={image} />
       </div>
     ));
@@ -100,10 +111,10 @@ const DynamicCarousel = () => {
         <div className="items">
           {ui}
           <div className="button-container">
-            <div className="button" onClick={goToNext}>
+            <div className="button" onClick={goToPrev}>
               <i className="fa-solid fa-angle-left left"></i>
             </div>
-            <div className="button" onClick={goToPrev}>
+            <div className="button" onClick={() => goToNext(nextIndex)}>
               <i className="fa-solid fa-angle-right righticon"></i>
             </div>
           </div>

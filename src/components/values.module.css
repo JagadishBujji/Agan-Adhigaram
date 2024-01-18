@@ -2,7 +2,7 @@
 
 .Values {
   background: url("../../public/images/Values1.png");
-  background-position: 0px 80%;
+  background-position: 0px -90px;
   background-size: cover;
   background-repeat: no-repeat;
   max-width: 100%;
@@ -326,7 +326,7 @@
   }
   .Values {
     height: 85rem;
-    background-position: 0 -500px;
+    background-position: 0 -90px;
   }
   .valuessubcontent1 {
     font-size: 16px;
@@ -402,7 +402,7 @@
 }
 @media only screen and (min-width: 1501px) and (max-width: 1600px) {
   .Values {
-    background-position: 0 -460px;
+    background-position: 0 -20px;
   }
 }
 @media only screen and (min-width: 2560px) {
