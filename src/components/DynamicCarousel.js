@@ -14,11 +14,11 @@ const DynamicCarousel = () => {
   };
 
   const awards = [
-    "./images/Awards/Child 1_KVKK.jpg",
-    "./images/Awards/Child 2_KvKK.jpg",
-    "./images/Awards/Child 3_I_.jpg",
-    "./images/Awards/Child 4_I_.jpeg",
-    "./images/Awards/Child 5_VP_.jpeg",
+    "./images/Awards/Child1_KVKK.jpg",
+    "./images/Awards/Child2_KvKK.jpg",
+    "./images/Awards/Child3_I_.jpg",
+    "./images/Awards/Child4_I_.jpeg",
+    "./images/Awards/Child5_VP_.jpeg",
     "./images/Awards/VPxSIMZ-18.jpg",
     "./images/Awards/VPxSIMZ-19.jpg",
     "./images/Awards/VPxSIMZ-20.jpg",

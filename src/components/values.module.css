@@ -270,14 +270,14 @@
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
 }
 
-@media only screen and (min-width: 1170px) and (max-width: 1365px){
+/* @media only screen and (min-width: 1170px) and (max-width: 1365px){
   .Values {
-    /* background-position: 0px 71%; */
+    background-position: 0px 71%;
     height: 75rem;
   }
-}
+} */
 
-@media only screen and (min-width: 950px) and (max-width: 1171px){
+/* @media only screen and (min-width: 950px) and (max-width: 1171px){
   .Values {
     background-position: 0px 71%;
     height: 70rem;
@@ -285,14 +285,17 @@
   .greenleaf{
     height: 395px;
   }
-}
+} */
 
 /* Laptop */
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
   .firsthalf1 {
     background-position: 0px 41px;
   }
- 
+  .Values {
+    background-position: 0px 71%;
+    height: 75rem;
+  }
   .valuestitles1 {
     font-size: 18px;
     color: #fff;
