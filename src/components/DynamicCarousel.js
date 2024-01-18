@@ -6,7 +6,7 @@ import classes from "./values.module.css";
 
 const DynamicCarousel = () => {
   const [activeCarousel, setActiveCarousel] = useState("awards");
-  const [mobileCarousel, setMobileCarousel] = useState(false);
+  
   const [current, setCurrent] = useState(0);
 
   const handleCarouselChange = (carouselNumber) => {
