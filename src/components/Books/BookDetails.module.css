@@ -1,36 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Inter:wght@600&family=Montserrat&family=Nunito&family=Open+Sans&family=Poppins&display=swap");
 
-.titlebook {
+/* .titlebook {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
   height: 100%;
   width: 100%;
-}
+} */
 
 .bookdetailoverall {
   margin-top: 10%;
   margin-bottom: 10%;
 }
-
-.details {
+.detailsbook{
+  display: grid;
+  grid-template-columns:30% 70%;
+  padding: 10px;
+  border: none;
+  outline:none;
+}
+.gridItem {
+  height: inherit;
   background-color: #4d4d4d;
   list-style-type: none;
-  padding-left: 0;
-  width: 30%;
-  border-radius: 10px 0px 0px 10px;
-  height: inherit;
-}
-
-.details li {
   padding: 15px;
   color: #fff;
   font-size: 14px;
   text-align: left;
+  border: none;
+  outline:none;
+
   font-family: "Poppins", sans-serif;
 }
-.details2 {
+.gridItemWhite{
+  background-color: #fcf8fd;
+  list-style-type: none;
+  padding-left: 0;
+  /* border-radius: 0px 10px 10px 0px; */
+  height: inherit;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
+  padding: 15px 45px;
+  color: #4d4d4d;
+  border: none;
+  outline:none;
+  font-size: 14px;
+  text-align: left;
+}
+/* .details2 {
   background-color: #fcf8fd;
   list-style-type: none;
   padding-left: 0;
@@ -48,6 +66,23 @@
   text-align: left;
   font-family: "Poppins", sans-serif;
 }
+.details {
+  background-color: #4d4d4d;
+  list-style-type: none;
+  padding-left: 0;
+  width: 30%;
+  border-radius: 10px 0px 0px 10px;
+  height: inherit;
+}
+
+.details li {
+  padding: 15px;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+} */
+
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
@@ -55,7 +90,11 @@
     margin-bottom: 10%;
     font-family: "Poppins", sans-serif;
   }
-  .details2 li {
+  /* .details2 li {
+    padding: 19px 45px;
+    font-family: "Poppins", sans-serif;
+  } */
+  .gridItemWhite{
     padding: 19px 45px;
     font-family: "Poppins", sans-serif;
   }
