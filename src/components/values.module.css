@@ -197,9 +197,9 @@
     background-position: right;
     background-size: cover;
   }
-  .greenleaf {
+  /* .greenleaf {
     padding: 0;
-  }
+  } */
   .valuestitles1 {
     font-size: 16px;
     text-align: left;
@@ -393,11 +393,36 @@
     top: 50px;
   }
 }
-
+@media only screen and (min-width: 767px) and (max-width: 1200px){
+  .valuestitles1 {
+    font-size: 13px;
+  }
+  .valuessubcontent1{
+    font-size: 11px;
+  }
+  .valuestitles2 {
+    font-size: 13px;
+  }
+  .valuessubcontent2{
+    font-size: 11px;
+  }
+  .valuestitles3 {
+    font-size: 13px;
+  }
+  .valuessubcontent3{
+    font-size: 11px;
+  }
+  .valuestitles4 {
+    font-size: 13px;
+  }
+  .valuessubcontent4{
+    font-size: 11px;
+  }
+}
 @media only screen and (min-width: 1500px) {
   .valuesheading {
     padding-top: 7rem !important;
-    padding-bottom: 9rem;
+    padding-bottom: 5rem;
   }
   .valuessubcontent1 {
     padding: 0px 135px;
@@ -432,7 +457,7 @@
 }
 @media only screen and (min-width: 1501px) and (max-width: 1600px) {
   .Values {
-    background-position: 0 -7px;
+    background-position: 0 -70px;
   }
 }
 @media only screen and (min-width: 2560px) {
