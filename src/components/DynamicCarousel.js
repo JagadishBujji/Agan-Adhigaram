@@ -16,7 +16,7 @@ const DynamicCarousel = () => {
 
   const awards = [
     "./images/Awards/Child1_KVKK.jpg",
-    "./images/Awards/Child2.jpg",
+    "./images/Awards/child2.png",
     "./images/Awards/Child3_I_.jpg",
     "./images/Awards/Child4_I_.jpeg",
     "./images/Awards/Child5_VP_.jpeg",
