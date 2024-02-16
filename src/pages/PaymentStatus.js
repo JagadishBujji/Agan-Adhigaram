@@ -32,7 +32,7 @@ const PaymentStatus = () => {
 
   // console.log("txnId", txnId);
 
-  async function updateStock(item,orderId) {
+  async function updateStock(item) {
     
     const docSnap = doc(db, "books", item.id);
     const getDataBooks = await getDoc(docSnap);
@@ -157,7 +157,7 @@ const PaymentStatus = () => {
     const getOrderBooksDetails = getData.data();
 
     getOrderBooksDetails.ordered_books.map((item) => {
-      updateStock(item,orderId);
+      updateStock(item);
     });
 
     updateDoc(orderRef, {
