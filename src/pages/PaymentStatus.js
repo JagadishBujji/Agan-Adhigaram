@@ -32,7 +32,8 @@ const PaymentStatus = () => {
 
   // console.log("txnId", txnId);
 
-  async function updateStock(item) {
+  async function updateStock(item,orderId) {
+    
     const docSnap = doc(db, "books", item.id);
     const getDataBooks = await getDoc(docSnap);
    
@@ -49,8 +50,7 @@ const PaymentStatus = () => {
   }
 
   useEffect(async () => {
-    const orderRef = doc(db, "orders", "01Hh3cC3ZMG4JPVkUfxs");
-    const getData = await getDoc(orderRef);
+    
 
     if (txnId) {
       const docRef = doc(db, "orders", txnId);
@@ -157,7 +157,7 @@ const PaymentStatus = () => {
     const getOrderBooksDetails = getData.data();
 
     getOrderBooksDetails.ordered_books.map((item) => {
-      updateStock(item);
+      updateStock(item,orderId);
     });
 
     updateDoc(orderRef, {
