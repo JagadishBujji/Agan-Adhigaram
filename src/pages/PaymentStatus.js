@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
 import { Button } from "@mui/material";
 import { db } from "../services/firebase";
 import { clearCart } from "../store/cartSlice";
@@ -14,6 +14,8 @@ import {
 import axios from "axios";
 import classes from "./PaymentStatus.module.css";
 import PaymentSuccess from "../Reusable/PaymentSuccess";
+import { getTTFB } from "web-vitals";
+import { get } from "jquery";
 
 const PaymentStatus = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,26 @@ const PaymentStatus = () => {
 
   // console.log("txnId", txnId);
 
-  useEffect(() => {
+  async function updateStock(item) {
+    
+    const docSnap = doc(db, "books", item.id);
+    const getDataBooks = await getDoc(docSnap);
+   
+
+    console.log("test", item.qty);
+    const getData = getDataBooks.data();
+     console.log("before", getData);
+    const stockRemaining = parseInt(getData.stock) - item.qty;
+    await updateDoc(docSnap, {
+      stock: stockRemaining,
+    });
+
+    // console.log("after", getDataBooks.data());
+  }
+
+  useEffect(async () => {
+    
+
     if (txnId) {
       const docRef = doc(db, "orders", txnId);
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
@@ -127,8 +148,17 @@ const PaymentStatus = () => {
   //   }, 5000);
   // };
 
-  const updateOrderStatus = (orderId, result) => {
+  const updateOrderStatus = async (orderId, result) => {
     const orderRef = doc(db, "orders", orderId);
+    const getData = await getDoc(orderRef);
+    console.log("get Doc ", getData);
+
+    
+    const getOrderBooksDetails = getData.data();
+
+    getOrderBooksDetails.ordered_books.map((item) => {
+      updateStock(item);
+    });
 
     updateDoc(orderRef, {
       payment_status: result.code, // PAYMENT_SUCCESS, PAYMENT_ERROR -> only success/failure callback will be there

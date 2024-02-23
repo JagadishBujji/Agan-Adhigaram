@@ -22,16 +22,21 @@ function Journey() {
         <h1 className={`${classes.Journeywe}`}>
           {" "}
           We invite you to join us on this exciting journey of discovery and
-          growth. Explore our collection of 
-           interactive board books that foster early learning while
-          respecting the importance of digital
-          balance. Together, let's create a world where education is an
-          enchanting adventure, and every
-           child's potential knows no bounds.
+          growth. Explore our collection of interactive board books that foster
+          early learning while respecting the importance of digital balance.
+          Together, let's create a world where education is an enchanting
+          adventure, and every child's potential knows no bounds.
         </h1>
       </div>
-
       <div className={`${classes.About} row container m-auto`}>
+        <img
+          src="./images/AntJourney.gif"
+          alt="heroimg1"
+          className={classes.AntJourney}
+        />
+      </div>
+
+      {/* <div className={`${classes.About} row container m-auto`}>
         <div className={`${classes.person1} col-md-4`}>
           <img
             src="./images/Squiril and board 1.svg"
@@ -41,11 +46,11 @@ function Journey() {
         </div>
         <div className={`${classes.person2} col-md-4`}>
           <span className={classes.well1}>
-            {/* <img
+             <img
               src="./images/Well 2.svg"
               alt="heroimg1"
               className={classes.Well}
-            /> */}
+            /> 
           </span>
           <img
             src="./images/house 1.svg"
@@ -67,7 +72,7 @@ function Journey() {
             className={classes.Well}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
