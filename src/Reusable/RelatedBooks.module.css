@@ -1,7 +1,7 @@
 .card {
   display: flex;
   justify-content: flex-start;
-  align-items: end;
+  align-items: normal;
   border-radius: 10px;
   margin-bottom: 18px;
   box-shadow: #8d28ad 0px 1px 4px -1px, #8d28ad 0px 0px 0px 0px;
