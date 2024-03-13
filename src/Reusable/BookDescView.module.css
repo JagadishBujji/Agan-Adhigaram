@@ -295,7 +295,7 @@
   text-decoration: none;
 } */
 
-.BookDescView{
+.BookDescView {
   padding-top: 10px;
 }
 
@@ -357,5 +357,15 @@
   .imgbook2 {
     width: 350px;
     height: 420px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  .imgbook,
+  .imgbook2 {
+    width: 200px !important;
+  }
+  .Vadai{
+    font-size: 13px;
   }
 }
