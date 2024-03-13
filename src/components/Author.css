@@ -593,6 +593,15 @@ h2 {
   }
 }
 
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .flower1,
+  .flower2,
+  .flower3,
+  .mushroom {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 1500px) {
   .author-overall {
     margin-top: 5%;
