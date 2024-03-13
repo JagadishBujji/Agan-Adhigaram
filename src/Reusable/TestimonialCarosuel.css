@@ -178,3 +178,19 @@
     top: 36%;
   }
 }
+
+/* Tablet */
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px){
+  .testimonials .item{
+    width: 300px;
+    height: 230px;
+  }
+  .testimonials .item p{
+    font-size: 12px;
+  }
+  .Testtitle{
+    font-size: 24px;
+  }
+}
+
+

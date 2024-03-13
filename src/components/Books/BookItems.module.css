@@ -172,7 +172,27 @@
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .bookitems {
+    padding: 0;
+  }
+  .bookimg {
+    height: 110px;
+  }
+  .bookbigtitle {
+    font-size: 14px;
+  }
+  .cartshopping {
+    padding: 5px;
+    font-size: 16px;
+  }
+  .cartshopping1 {
+    padding: 5px;
+    font-size: 14px;
+  }
+  .bookgenre{
+    font-size: 14px;
+  }
 }
 
 /* Laptop */

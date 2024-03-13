@@ -21,7 +21,13 @@
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px){
+  .Testimonials{
+    padding: 40px;
+  }
+  .Testtitle{
+    font-size: 24px;
+  }
 }
 
 /* Laptop */

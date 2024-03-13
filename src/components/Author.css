@@ -600,6 +600,15 @@ h2 {
   .mushroom {
     display: none;
   }
+  .Author {
+    width: 15%;
+  }
+  .author {
+    position: absolute;
+    top: -2%;
+    left: 37%;
+    max-width: 8%;
+  }
 }
 
 @media only screen and (min-width: 1500px) {

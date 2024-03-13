@@ -87,11 +87,11 @@
     font-size: 24px;
     text-align: center;
   }
-  .spark {
+  /* .spark {
     top: -15px !important;
     right: 52px !important;
     max-width: 14% !important;
-  }
+  } */
   .magicalpara {
     display: none;
   }
@@ -109,12 +109,28 @@
 }
 
 /* Tablet */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .spark {
+    max-width: 10% !important;
+    position: absolute;
+    top: -30% !important;
+    right: 22% !important;
+  }
+  .title1 {
+    font-size: 30px;
+  }
+  .title2 {
+    font-size: 30px;
+  }
+}
+
 /* @media only screen and (min-width: 768px) and (max-width: 1023px) {
   
 } */
 
 /* Laptop */
-@media only screen and (max-width: 1px) {
+@media only screen and (max-width: 1024px) {
   .spark {
     max-width: 7%;
     position: absolute;

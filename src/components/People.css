@@ -1,4 +1,4 @@
-.rating{
+.rating {
   width: 100px;
 }
 
@@ -176,9 +176,8 @@
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  flex-direction:column;
+  flex-direction: column;
 }
-
 
 .name p {
   margin-bottom: 0;
@@ -186,7 +185,7 @@
   font-size: 14px;
 }
 
-.icon{
+.icon {
   display: flex;
   flex-direction: row;
 }
@@ -305,11 +304,17 @@
   .sparakel {
     left: 0;
   }
-  .peopleheading h1{
+  .peopleheading h1 {
     font-size: 24px;
   }
-  .peopleheading p{
+  .peopleheading p {
     font-size: 18px;
   }
-  
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .sparakel {
+    position: absolute;
+    left: 19%;
+  }
 }
