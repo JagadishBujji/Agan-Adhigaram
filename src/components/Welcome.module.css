@@ -369,9 +369,13 @@
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
   .overallmission {
-    height: 1390px;
+    background-image: url("../../public/images/foxandcrow.svg");
+    /* width: 100%; */
+    background-position: center;
+    background-size: cover;
+    height: 120rem;
   }
   .crow {
     padding-top: 200px;
@@ -379,6 +383,62 @@
   .welcomevision {
     font-size: 28px;
     font-family: "Poppins", sans-serif;
+  }
+  .welcomeheaing {
+    font-size: 24px;
+  }
+  .kamaimg {
+    left: 23%;
+    top: 10%;
+  }
+  .paatiimg {
+    display: none;
+  }
+  .crow {
+    display: none;
+  }
+  .fox {
+    display: none;
+  }
+  .subcontent {
+    padding: 0 10%;
+    font-size: 20px;
+  }
+  .mission {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .missionfox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .welcomecolumn {
+    margin-top: 15% !important;
+    margin: auto;
+  }
+  .welcomecolumn2 {
+    margin-top: 35% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    
+  }
+  .welcomecolumn2fox {
+    margin-top: 35% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+  }
+  .subcontentvisionfox{
+    text-align: center;
   }
 }
 

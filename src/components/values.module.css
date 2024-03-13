@@ -272,10 +272,100 @@
     padding: 0;
     margin-left: 100px;
   }
+  .spark {
+    max-width: 30%;
+    position: absolute;
+    top: -150%;
+    right: -24%;
+  }
+  .valuetitle {
+    font-size: 20px;
+  }
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .firsthalf1 {
+    max-width: 100%;
+    padding-left: 20px;
+    background-position: right;
+    background-size: cover;
+  }
+  /* .greenleaf {
+    padding: 0;
+  } */
+  .valuestitles1 {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 0;
+  }
+  .valuessubcontent1 {
+    font-size: 14px;
+    text-align: left;
+    padding: 0;
+    margin-right: 100px;
+  }
+  .firsthalf2 {
+    max-width: 100%;
+    padding-right: 10px;
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .valuestitles2 {
+    font-size: 16px;
+    text-align: right;
+    padding-top: 10px;
+  }
+  .valuessubcontent2 {
+    font-size: 14px;
+    text-align: right;
+    padding: 0;
+    margin-left: 100px;
+  }
+  .firsthalf3 {
+    max-width: 100%;
+    padding-left: 20px;
+    background-position: right;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .valuestitles3 {
+    font-size: 16px;
+    text-align: left;
+    padding-top: 10px;
+  }
+  .valuessubcontent3 {
+    font-size: 12px;
+    text-align: left;
+    padding: 0;
+    margin-right: 100px;
+  }
+  .firsthalf4 {
+    max-width: 100%;
+    padding-right: 20px;
+    background-position: left;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .valuestitles4 {
+    font-size: 16px;
+    text-align: right;
+    padding-top: 10px;
+  }
+  .valuessubcontent4 {
+    font-size: 14px;
+    text-align: right;
+    padding: 0;
+    margin-left: 100px;
+  }
 }
 
 /* Laptop */
@@ -393,29 +483,29 @@
     top: 50px;
   }
 }
-@media only screen and (min-width: 767px) and (max-width: 1200px){
+@media only screen and (min-width: 767px) and (max-width: 1200px) {
   .valuestitles1 {
     font-size: 13px;
   }
-  .valuessubcontent1{
+  .valuessubcontent1 {
     font-size: 11px;
   }
   .valuestitles2 {
     font-size: 13px;
   }
-  .valuessubcontent2{
+  .valuessubcontent2 {
     font-size: 11px;
   }
   .valuestitles3 {
     font-size: 13px;
   }
-  .valuessubcontent3{
+  .valuessubcontent3 {
     font-size: 11px;
   }
   .valuestitles4 {
     font-size: 13px;
   }
-  .valuessubcontent4{
+  .valuessubcontent4 {
     font-size: 11px;
   }
 }

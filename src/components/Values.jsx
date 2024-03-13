@@ -20,8 +20,8 @@ const Values = () => {
             <br /> through interactive, high-quality books.
           </p>
         </div>
-        <div className={`${classes.greenleaf} row m-auto container p-0`}>
-          <div className={`${classes.firsthalf1} col-md-6`}>
+        <div className={`${classes.greenleaf} row m-auto container-fluid p-0`}>
+          <div className={`${classes.firsthalf1} col-md-6 col-lg-6`}>
             <div className={classes.Learning}>
               <h4 className={classes.valuestitles1}>Interactive Learning</h4>
               <p className={classes.valuessubcontent1}>
@@ -31,7 +31,7 @@ const Values = () => {
               </p>
             </div>
           </div>
-          <div className={`${classes.firsthalf2} col-md-6`}>
+          <div className={`${classes.firsthalf2} col-md-6 col-lg-6`}>
             <h4 className={classes.valuestitles2}>Early Education</h4>
             <p className={classes.valuessubcontent2}>
               We are passionate about empowering children with knowledge and
@@ -40,7 +40,7 @@ const Values = () => {
               language development, cognitive skills, and creativity.
             </p>
           </div>
-          <div className={`${classes.firsthalf3} col-md-6`}>
+          <div className={`${classes.firsthalf3} col-md-6 col-lg-6`}>
             <h4 className={classes.valuestitles3}>
               Balancing Tradition and Technology
             </h4>
@@ -51,7 +51,7 @@ const Values = () => {
               engage the senses, fostering a well-rounded approach to learning.
             </p>
           </div>
-          <div className={`${classes.firsthalf4} col-md-6`}>
+          <div className={`${classes.firsthalf4} col-md-6 col-lg-6`}>
             <h4 className={classes.valuestitles4}>Quality Craftsmanship</h4>
             <p className={classes.valuessubcontent4}>
               We take pride in producing high-quality, durable, and safe

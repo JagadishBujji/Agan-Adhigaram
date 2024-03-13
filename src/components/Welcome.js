@@ -1,9 +1,10 @@
 import React from "react";
-import classes from "./Welcome.module.css";
+
 // import Crow from "../Reusable/Crow";
 // import FoxDancing from "../Reusable/FoxDancing";
 import Fox from "../Reusable/Fox";
 import Paati from "../Reusable/Paati";
+import classes from "./Welcome.module.css";
 
 function Welcome() {
   return (
@@ -57,7 +58,7 @@ function Welcome() {
         <div
           className={`${classes.mission} row container-fluid  mission m-auto`}
         >
-          <div className={`${classes.welcomecolumn1} col-sm col-md-6 col-lg-6`}>
+          <div className={`${classes.welcomecolumn1} col-sm-12 col-md-12 col-lg-6`}>
             {/* <img
               src="./images/crow.svg"
               alt="heroimg1"
@@ -89,7 +90,7 @@ function Welcome() {
             ></dotlottie-player> */}
           </div>
           <div
-            className={`${classes.welcomecolumn2} col-sm col-md-6 col-lg-6 `}
+            className={`${classes.welcomecolumn2} col-sm-12 col-md-12 col-lg-6 `}
           >
             <h3 className={`${classes.welcomevision}`}>Our Vision</h3>
             <h4 className={`${classes.welcomevisiontitle}`}>
@@ -112,7 +113,7 @@ function Welcome() {
           className={`${classes.missionfox} row container m-auto missionfox`}
         >
           <div
-            className={`${classes.welcomecolumn2fox} col-sm col-md-6 col-lg-6`}
+            className={`${classes.welcomecolumn2fox} col-sm col-md-12 col-lg-6`}
           >
             <h3 className={`${classes.welcomemissionfox}`}>Our mission</h3>
             <h4 className={`${classes.welcomevisiontitlefox}`}>

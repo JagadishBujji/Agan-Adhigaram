@@ -234,7 +234,7 @@
   margin-bottom: 10px;
 }
 
-.awards::before{
+.awards::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -245,7 +245,6 @@
   right: 0;
   background-color: #d9d9d947;
   border-radius: 50%;
-
 }
 
 .contentawards {
@@ -272,7 +271,7 @@
   cursor: pointer;
   margin-bottom: 10px;
 }
-.events::before{
+.events::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -283,7 +282,6 @@
   right: 0;
   background-color: #d9d9d947;
   border-radius: 50%;
-
 }
 
 .contentawards2 {
@@ -311,7 +309,7 @@
   margin-bottom: 10px;
 }
 
-.books::before{
+.books::before {
   position: absolute;
   content: "";
   width: 100%;
@@ -322,7 +320,6 @@
   right: 0;
   background-color: #d9d9d947;
   border-radius: 50%;
-
 }
 
 .contentawards3 {
@@ -337,7 +334,7 @@
   z-index: 10;
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
   .overallcarosuel {
     margin-top: 65px;
     padding-bottom: 30px;
@@ -363,7 +360,60 @@
     font-size: 18px;
   }
   .Grap {
-    width: 32%;
+    width: 15%;
+    /* display: none; */
+    bottom: 118px;
+    color: #000;
+  }
+  .items {
+    top: 23%;
+  }
+  .item.prev {
+    transform: translate(-134%, 43%) scale(0.8);
+  }
+  .item.next {
+    transform: translate(33%, 43%) scale(0.8);
+  }
+  .items .button-container {
+    transform: translate(-50%, -20%);
+    top: 50px !important;
+  }
+  .button-container {
+    /* display: flex;
+    justify-content:center ; */
+  }
+  #gallery {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
+  .overallcarosuel {
+    margin-top: 65px;
+    padding-bottom: 30px;
+    /* height: 52rem; */
+    overflow: hidden;
+    margin-bottom: 0%;
+    background: #fff;
+  }
+  .items .item {
+    width: 200px;
+    height: 200px;
+  }
+  .demo1 {
+    display: none;
+  }
+  .gallerycapturing {
+    left: 30px;
+    /* margin-top: 40px; */
+    top: 0;
+  }
+  .gallerycapturing p {
+    text-align: center;
+    font-size: 18px;
+  }
+  .Grap {
+    width: 15%;
     /* display: none; */
     bottom: 118px;
     color: #000;

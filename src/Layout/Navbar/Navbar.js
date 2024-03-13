@@ -52,9 +52,9 @@ function Navbar(props) {
             <img
               src="./images/Logo_Agan.png"
               alt=" logo"
-              width="60"
-              height="80"
-              className="d-inline-block align-text-top"
+              // width="60"
+              // height="80"
+              className="d-inline-block align-text-top logo"
             />
           </a>
 

@@ -178,7 +178,7 @@ code {
 }
 
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
   .mainimage {
     width: 100%; /* Make the image fill the width of the viewport */
   }
@@ -187,11 +187,14 @@ code {
   }
   .Butterfly {
     right: 7%;
-    top: 28%;
+    top: 35%;
   }
   .mainimagemobile {
     display: none;
     width: 100%;
+  }
+  .dragon {
+    left: 3%;
   }
 }
 

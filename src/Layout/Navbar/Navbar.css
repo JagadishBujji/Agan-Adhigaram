@@ -8,7 +8,7 @@
   height: 80px;
   /* font-family: "Poppins", sans-serif; */
 }
-@media (max-width: 768px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 979px) {
   .navbar {
     position: relative;
     background-color: transparent;
@@ -16,6 +16,10 @@
 
   body {
     padding-top: 0;
+  }
+  .logo {
+    width: 50px;
+    height: 70px;
   }
 }
 
@@ -40,7 +44,7 @@
 
 .nav-item .nav-link {
   color: rgba(100, 100, 100, 1);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   margin: 0 18px;
   font-weight: 500;
@@ -119,10 +123,10 @@
 @media (max-width: 768px) {
   .nav-item {
     width: 100%;
-    color:white;
+    color: white;
   }
-  .nav-link:hover{
-color:white !important;
+  .nav-link:hover {
+    color: white !important;
   }
   .nav-item a {
     padding: 1px 15px;
@@ -168,4 +172,9 @@ color:white !important;
   .cart img {
     width: 50px; /* Adjust the image width for smaller screens */
   }
+}
+
+.logo {
+  width: 40px;
+  height: 60px;
 }

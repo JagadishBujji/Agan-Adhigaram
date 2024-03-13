@@ -166,15 +166,21 @@
   }
 }
 
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 767px) and (max-device-width: 1023px) {
+  
+  /* Styles */
+}
+
 /* Tablet */
-@media only screen and (min-width: 768px) and (max-width: 1023px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
   .we {
     font-size: 22px;
     display: block;
   }
   .spark {
     top: -6%;
-    right: 38%;
+    right: 36%;
     max-width: 8%;
   }
   .sethuram {
