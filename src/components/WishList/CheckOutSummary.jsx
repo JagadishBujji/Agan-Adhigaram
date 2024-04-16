@@ -21,7 +21,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     return cartItems.reduce((total, item) => total + item.total_price, 0);
   }, [cartItems]);
 
-  const total = useMemo(() => subtotal + delivery, [subtotal]);
+  const total = useMemo(() => subtotal + delivery, [delivery, subtotal]);
 
   const addDataToOrdersCollection = async () => {
     let ordered_books = [];
