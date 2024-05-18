@@ -33,14 +33,12 @@ const PaymentStatus = () => {
   // console.log("txnId", txnId);
 
   async function updateStock(item) {
-    
     const docSnap = doc(db, "books", item.id);
     const getDataBooks = await getDoc(docSnap);
-   
 
-    console.log("test", item.qty);
+    // console.log("test", item.qty);
     const getData = getDataBooks.data();
-     console.log("before", getData);
+    // console.log("before", getData);
     const stockRemaining = parseInt(getData.stock) - item.qty;
     await updateDoc(docSnap, {
       stock: stockRemaining,
@@ -49,9 +47,7 @@ const PaymentStatus = () => {
     // console.log("after", getDataBooks.data());
   }
 
-  useEffect(async () => {
-    
-
+  useEffect(() => {
     if (txnId) {
       const docRef = doc(db, "orders", txnId);
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
@@ -151,9 +147,8 @@ const PaymentStatus = () => {
   const updateOrderStatus = async (orderId, result) => {
     const orderRef = doc(db, "orders", orderId);
     const getData = await getDoc(orderRef);
-    console.log("get Doc ", getData);
+    // console.log("get Doc ", getData);
 
-    
     const getOrderBooksDetails = getData.data();
 
     getOrderBooksDetails.ordered_books.map((item) => {

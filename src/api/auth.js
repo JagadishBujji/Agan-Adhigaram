@@ -3,7 +3,7 @@ import { auth } from "../services/firebase";
 import { errorNotification, successNotification } from "../utils/notifications";
 
 const logout = (showMessage) => {
-  console.log("logout");
+  // console.log("logout");
   signOut(auth)
     .then(() => {
       console.log("successfully logged out");
