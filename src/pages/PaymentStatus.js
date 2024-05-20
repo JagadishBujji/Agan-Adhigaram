@@ -53,7 +53,7 @@ const PaymentStatus = () => {
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
-          console.log("Document data:", data);
+          // console.log("Document data:", data);
           if (data.payment_status === "PAYMENT_SUCCESS") {
             setStatus({
               code: data.payment_status,
@@ -85,7 +85,7 @@ const PaymentStatus = () => {
                 `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
               )
               .then((res) => {
-                console.log("result: ", res.data);
+                // console.log("result: ", res.data);
                 if (
                   res.data.code === "PAYMENT_PENDING" ||
                   res.data.code === "INTERNAL_SERVER_ERROR"
@@ -102,9 +102,9 @@ const PaymentStatus = () => {
                       `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepeReconcillation?txnId=${docSnap.id}`
                     )
                     .then((res) => {
-                      console.log("phonepeReconcillation result: ", res.data);
+                      // console.log("phonepeReconcillation result: ", res.data);
                     })
-                    .catch((e) => console.log(e));
+                    .catch((e) => console.log("phonepeReconcillation: ", e));
                 } else {
                   // PAYMENT_SUCCESS, PAYMENT_ERROR, PAYMENT_DECLINED, TIMED_OUT - update order status
                   updateOrderStatus(docSnap.id, res.data);

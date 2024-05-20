@@ -6,7 +6,7 @@ const logout = (showMessage) => {
   // console.log("logout");
   signOut(auth)
     .then(() => {
-      console.log("successfully logged out");
+      // console.log("successfully logged out");
       if (showMessage) {
         successNotification("Successfully logged out");
       }

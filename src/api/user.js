@@ -8,7 +8,7 @@ const getUserById = (id, sendData) => {
   getDoc(docRef)
     .then((docSnap) => {
       if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         sendData({
           success: true,
           message: "Successfully Logged In",
@@ -20,7 +20,7 @@ const getUserById = (id, sendData) => {
         });
       } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
         sendData({
           success: false,
           message: null,

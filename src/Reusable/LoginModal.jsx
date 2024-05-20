@@ -122,11 +122,11 @@ export default function LoginModal() {
     if (isValidEmail(email) && isValidPassword(password)) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log("userCredential: ", userCredential);
-          console.log("userCredential.user: ", userCredential.user);
+          // console.log("userCredential: ", userCredential);
+          // console.log("userCredential.user: ", userCredential.user);
           const { uid } = userCredential.user;
           getUserById(uid, (result) => {
-            console.log("userdetail: ", result);
+            // console.log("userdetail: ", result);
             if (result.success) {
               if (result?.data?.role === "admin") {
                 errorNotification(

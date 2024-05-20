@@ -83,7 +83,7 @@ const OrdersPage = () => {
       );
 
       const querySnapshot = await getDocs(q);
-      console.log(querySnapshot.size, pageLimit);
+      // console.log(querySnapshot.size, pageLimit);
 
       if (querySnapshot.empty) {
         warningNotification("No more orders!!!");

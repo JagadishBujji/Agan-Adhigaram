@@ -95,7 +95,6 @@ const Profile = () => {
     city: userDetail.city,
     pincode: userDetail.pincode,
   });
-  console.log("editedValues", editedValues);
   const [pwd, setPwd] = useState("");
   const [cpwd, setCpwd] = useState("");
   const [countriesList, setCountriesList] = useState([]);
@@ -165,11 +164,11 @@ const Profile = () => {
       return;
     }
 
-    console.log("updateUserPassword", isValidPassword, pwd, cpwd);
+    // console.log("updateUserPassword", isValidPassword, pwd, cpwd);
     const auth = getAuth();
 
     const user = auth.currentUser;
-    console.log("user: ", user);
+    // console.log("user: ", user);
 
     updatePassword(user, pwd)
       .then(() => {

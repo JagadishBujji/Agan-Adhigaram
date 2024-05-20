@@ -4,7 +4,6 @@ import { addItemQty, removeItemQty } from "../store/cartSlice";
 
 const CheckOutTable = ({ cartItems }) => {
   const dispatch = useDispatch();
-  console.log("cartItems: ", cartItems);
   const handleAddItemQty = (book) => {
     dispatch(addItemQty(book));
   };

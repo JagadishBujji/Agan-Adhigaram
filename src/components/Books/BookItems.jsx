@@ -10,7 +10,7 @@ import {
 } from "../../store/cartSlice";
 
 const BookCard = ({ book }) => {
-  console.log("book: ", book);
+  // console.log("book: ", book);
   const dispatch = useDispatch();
   const { cartItems } = useSelector(selectCartItems);
   const [noOfItems, setNoOfItems] = useState(0);

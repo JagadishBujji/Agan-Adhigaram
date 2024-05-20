@@ -82,7 +82,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     try {
       const { id: orderId } = await addDoc(collection(db, "orders"), order);
 
-      console.log("orderId: ", orderId);
+      // console.log("orderId: ", orderId);
 
       const res = await axios.post(
         `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
@@ -98,11 +98,11 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       const result = res.data;
 
       if (result.success) {
-        console.log(
-          "result.data: ",
-          result.data,
-          result.data.instrumentResponse.redirectInfo.url
-        );
+        // console.log(
+        //   "result.data: ",
+        //   result.data,
+        //   result.data.instrumentResponse.redirectInfo.url
+        // );
         infoNotification(result.message);
         window.location.replace(
           result.data.instrumentResponse.redirectInfo.url
