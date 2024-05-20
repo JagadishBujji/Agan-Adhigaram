@@ -42,7 +42,7 @@ const BooksAndFilters = () => {
   }, []);
 
   const getPublishedBooks = async () => {
-    console.log("selectedItem: ", selectedItem);
+    // console.log("selectedItem: ", selectedItem);
     const booksRef = collection(db, "books");
 
     let bookQuery = query(
@@ -113,7 +113,7 @@ const BooksAndFilters = () => {
           ...doc.data(),
         });
       });
-      console.log("books: ", bookArr);
+      // console.log("books: ", bookArr);
       setBooks(bookArr);
 
       // If there are more documents, update the lastDocument state

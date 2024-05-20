@@ -24,7 +24,7 @@ const People = () => {
       "<img  src='./images/Arrow - Left Circle.svg'>",
       "<img  src='./images/Arrow - Right Circle.svg'>",
     ],
-    outerWidth: 100,
+    outerwidth: 100,
   };
 
   return (

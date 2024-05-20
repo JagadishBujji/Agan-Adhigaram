@@ -10,6 +10,7 @@ import {
 } from "../../store/cartSlice";
 
 const BookCard = ({ book }) => {
+  console.log("book: ", book);
   const dispatch = useDispatch();
   const { cartItems } = useSelector(selectCartItems);
   const [noOfItems, setNoOfItems] = useState(0);
@@ -51,7 +52,9 @@ const BookCard = ({ book }) => {
         </Link>
         <div className={classes.favheart}>
           {/* <i className={`${classes.heart} fa-regular fa-heart`}></i> */}
-          {noOfItems === 0 ? (
+          {book.stock === 0 ? (
+            <p className={`${classes.outofstock}`}>Out of Stock</p>
+          ) : noOfItems === 0 ? (
             <i
               className={`${classes.cartshopping} fa-solid fa-cart-shopping`}
               onClick={handleAddCartItem}

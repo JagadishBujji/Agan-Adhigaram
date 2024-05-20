@@ -128,6 +128,23 @@
   font-family: "Poppins", sans-serif;
 }
 
+.outofstock {
+  position: absolute;
+  bottom: 10px; /* Adjust the distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for the width of the element */
+  background: #fdf3e2;
+  color: #f19e38;
+  border-radius: 10px;
+  padding: 0px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
 .count {
   padding: 5px;
 }
@@ -190,7 +207,7 @@
     padding: 5px;
     font-size: 14px;
   }
-  .bookgenre{
+  .bookgenre {
     font-size: 14px;
   }
 }
