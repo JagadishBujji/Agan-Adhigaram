@@ -231,6 +231,14 @@ code {
   }
   .Butterfly {
     right: 26%;
+    max-width: 6%;
     top: 31%;
+  }
+
+  .dragon {
+    max-width: 6%;
+    position: absolute;
+    left: 22%;
+    top: 52%;
   }
 }

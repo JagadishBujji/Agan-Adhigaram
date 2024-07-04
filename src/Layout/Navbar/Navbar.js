@@ -200,7 +200,15 @@ function Navbar(props) {
                         badgeContent={cartSize}
                         sx={{ color: "#f19e38" }}
                       >
-                        <ShoppingCartIcon />
+                        <ShoppingCartIcon
+                          sx={{
+                            "@media (min-width: 2048px) and (max-width: 4096px)":
+                              {
+                                width: "3rem",
+                                height: "3rem",
+                              },
+                          }}
+                        />
                       </StyledBadge>
                     </IconButton>
                   </Link>

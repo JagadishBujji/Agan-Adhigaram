@@ -195,3 +195,21 @@
     bottom: 50%;
   }
 }
+
+@media (min-width: 2048px) and (max-width: 4096px) {
+  .socialmediaicon {
+    max-width: 100%;
+  }
+  .links a {
+    font-size: 30px !important;
+  }
+  .copyright{
+    font-size: 26px;
+  }
+  .footerpara1{
+    font-size: 30px;
+  }
+  .borderbottom{
+    margin-top: 4%;
+  }
+}

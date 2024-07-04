@@ -168,7 +168,6 @@
 
 /* iPads (portrait and landscape) ----------- */
 @media only screen and (min-device-width: 767px) and (max-device-width: 1023px) {
-  
   /* Styles */
 }
 
@@ -338,10 +337,13 @@
 @media only screen and (min-width: 2560px) {
   .aboutus {
     font-size: 80px;
+
     font-family: "Poppins", sans-serif;
   }
   .we {
-    font-size: 50px;
+    font-size: 32px;
+    
+    line-height: 80px;
     font-family: "Poppins", sans-serif;
   }
   .sethuram {

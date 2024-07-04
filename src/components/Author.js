@@ -27,7 +27,7 @@ const Author = () => {
           <br /> and vibrant illustrations!
         </p>
 
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-sm">
               <h1 className="vai"> Ida Bernice</h1>
