@@ -13,7 +13,7 @@ const BooksDesc = () => {
   let { state } = useLocation();
   const [book, setBook] = useState(null);
   const { id } = useParams();
-  console.log("book in books desc: ", state, id);
+  // console.log("book in books desc: ", state, id);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,6 +30,7 @@ const BooksDesc = () => {
     } else {
       fetchData();
     }
+    window.scrollTo(0, 0); // when related book is clicked, it will go top
   }, [id, state]);
 
   return (

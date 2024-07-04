@@ -26,6 +26,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../store/userSlice";
 import SignupModal from "./SignupModal";
 import { logout } from "../api/auth";
+import ForgetPasswordModal from "./ForgetPassowrdModal";
 
 const style = {
   position: "absolute",
@@ -89,6 +90,7 @@ export default function LoginModal() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [forgotPassword, setForgotPassword] = useState(false);
   const [userCred, setUserCred] = useState({
     email: "",
     password: "",
@@ -123,11 +125,11 @@ export default function LoginModal() {
     if (isValidEmail(email) && isValidPassword(password)) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          console.log("userCredential: ", userCredential);
-          console.log("userCredential.user: ", userCredential.user);
+          // console.log("userCredential: ", userCredential);
+          // console.log("userCredential.user: ", userCredential.user);
           const { uid } = userCredential.user;
           getUserById(uid, (result) => {
-            console.log("userdetail: ", result);
+            // console.log("userdetail: ", result);
             if (result.success) {
               if (result?.data?.role === "admin") {
                 errorNotification(
@@ -250,6 +252,7 @@ export default function LoginModal() {
               variant="subtitle2"
               underline="hover"
               sx={{ color: "#9F3239" }}
+              onClick={() => setForgotPassword(true)}
             >
               Forgot password?
             </Link>
@@ -257,7 +260,12 @@ export default function LoginModal() {
           <Button sx={loginbtn} onClick={handleLogin}>
             Login
           </Button>
-
+          {forgotPassword && (
+            <ForgetPasswordModal
+              open={forgotPassword}
+              setOpen={(value) => setForgotPassword(value)}
+            />
+          )}
           <SignupModal />
         </Box>
       </Modal>

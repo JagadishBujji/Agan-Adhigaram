@@ -33,14 +33,12 @@ const PaymentStatus = () => {
   // console.log("txnId", txnId);
 
   async function updateStock(item) {
-    
     const docSnap = doc(db, "books", item.id);
     const getDataBooks = await getDoc(docSnap);
-   
 
-    console.log("test", item.qty);
+    // console.log("test", item.qty);
     const getData = getDataBooks.data();
-     console.log("before", getData);
+    // console.log("before", getData);
     const stockRemaining = parseInt(getData.stock) - item.qty;
     await updateDoc(docSnap, {
       stock: stockRemaining,
@@ -49,15 +47,13 @@ const PaymentStatus = () => {
     // console.log("after", getDataBooks.data());
   }
 
-  useEffect(async () => {
-    
-
+  useEffect(() => {
     if (txnId) {
       const docRef = doc(db, "orders", txnId);
       const unsubscribe = onSnapshot(docRef, (docSnap) => {
         if (docSnap.exists()) {
           const data = docSnap.data();
-          console.log("Document data:", data);
+          // console.log("Document data:", data);
           if (data.payment_status === "PAYMENT_SUCCESS") {
             setStatus({
               code: data.payment_status,
@@ -89,7 +85,7 @@ const PaymentStatus = () => {
                 `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
               )
               .then((res) => {
-                console.log("result: ", res.data);
+                // console.log("result: ", res.data);
                 if (
                   res.data.code === "PAYMENT_PENDING" ||
                   res.data.code === "INTERNAL_SERVER_ERROR"
@@ -106,9 +102,9 @@ const PaymentStatus = () => {
                       `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepeReconcillation?txnId=${docSnap.id}`
                     )
                     .then((res) => {
-                      console.log("phonepeReconcillation result: ", res.data);
+                      // console.log("phonepeReconcillation result: ", res.data);
                     })
-                    .catch((e) => console.log(e));
+                    .catch((e) => console.log("phonepeReconcillation: ", e));
                 } else {
                   // PAYMENT_SUCCESS, PAYMENT_ERROR, PAYMENT_DECLINED, TIMED_OUT - update order status
                   updateOrderStatus(docSnap.id, res.data);
@@ -151,9 +147,8 @@ const PaymentStatus = () => {
   const updateOrderStatus = async (orderId, result) => {
     const orderRef = doc(db, "orders", orderId);
     const getData = await getDoc(orderRef);
-    console.log("get Doc ", getData);
+    // console.log("get Doc ", getData);
 
-    
     const getOrderBooksDetails = getData.data();
 
     getOrderBooksDetails.ordered_books.map((item) => {

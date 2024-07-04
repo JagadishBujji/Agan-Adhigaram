@@ -64,6 +64,24 @@ export const cartSlice = createSlice({
         );
       }
     },
+    removeItem: (state, action) => {
+      const cartItem = action.payload;
+      // console.log("removeItem:", cartItem);
+      const index = state.cartItems.findIndex(
+        (item) => item.id === cartItem.id
+      );
+
+      if (index !== -1) {
+        const qty = state.cartItems[index].qty;
+
+        state.cartItems = state.cartItems.filter(
+          (item) => item.id !== cartItem.id
+        );
+        state.totalBookQuantity -= qty;
+
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+      }
+    },
     removeItemQty: (state, action) => {
       // console.log("totalQuantity-re:", state.totalBookQuantity);
       const cartItem = action.payload;
@@ -101,20 +119,31 @@ export const cartSlice = createSlice({
           if (cartItems.length === 1) {
             state.totalBookQuantity = cartItems[0].qty;
           } else {
-            const totalQty = cartItems.reduce((a, b) => a.qty + b.qty);
-            console.log("totalQuantity: ", totalQty);
+            const totalQty = cartItems.reduce(
+              (accumulator, item) => accumulator + item.qty,
+              0
+            );
+
+            // console.log("totalQuantity: ", totalQty);
             state.totalBookQuantity = totalQty;
           }
         }
         state.cartItems = [...cartItems];
+        localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       }
-      console.log("cartItems--:", cartItems, state.totalBookQuantity);
+      // console.log("cartItems--:", cartItems, state.totalBookQuantity);
     },
   },
 });
 
-export const { addItem, addItemQty, clearCart, removeItemQty, setCartItems } =
-  cartSlice.actions;
+export const {
+  addItem,
+  addItemQty,
+  clearCart,
+  removeItem,
+  removeItemQty,
+  setCartItems,
+} = cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart;
 export const selectCartSize = (state) => state.cart.totalBookQuantity;

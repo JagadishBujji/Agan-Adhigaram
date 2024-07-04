@@ -155,7 +155,7 @@ export default function SignupModal() {
         .then(async (userCredential) => {
           // Signed up
           const user = userCredential.user;
-          console.log("user1", user);
+          // console.log("user1", user);
           const { uid } = userCredential.user;
           const docRef = doc(db, collection, uid);
           await setDoc(docRef, {

@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useRoutes } from "react-router-dom";
+import { Navigate, useRoutes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import DashboardLayout from "./Layout/dashboard/DashBoardLayout";
 
@@ -36,9 +36,9 @@ export default function Router() {
 
       if (user) {
         const { uid } = user;
-        console.log("uid", uid);
+        // console.log("uid", uid);
         getUserById(uid, (result) => {
-          console.log("userdetail: ", result);
+          // console.log("userdetail: ", result);
           if (result?.success) {
             dispatch(login(result.data));
             // Set authChecked to true once authentication state is checked

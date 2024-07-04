@@ -113,7 +113,9 @@ const BookDescView = ({ book }) => {
             </p>
           </div>
           <div className={classes.addedbtn}>
-            {noOfItems === 0 ? (
+            {book.stock === 0 ? (
+              <p className={`${classes.outofstock}`}>Out of Stock</p>
+            ) : noOfItems === 0 ? (
               <Button
                 sx={{
                   backgroundColor: "#f19e38",

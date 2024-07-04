@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
 
 const Order = ({ order }) => {
-  console.log("order: ", order);
+  // console.log("order: ", order);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

@@ -23,7 +23,7 @@ const BookListView = ({ book }) => {
     } else {
       setNoOfItems(0);
     }
-    console.log("item", item);
+    // console.log("item", item);
   }, [cartItems, book.id]);
 
   const handleAddCartItem = () => {

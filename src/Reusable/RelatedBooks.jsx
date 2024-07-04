@@ -54,7 +54,9 @@ const RelatedBooks = ({ relatedBooks }) => {
               className={classes.kadi}
             />
             <div className={classes.contant}>
-              <p className={classes.booktitle}>{book.title}({book.title_tamil})</p>
+              <p className={classes.booktitle}>
+                {book.title}({book.title_tamil})
+              </p>
               <p className={classes.amount}>₹{book.discount_price}</p>
             </div>
           </div>
@@ -83,10 +85,10 @@ const RelatedBooks = ({ relatedBooks }) => {
             <p className={classes.amount}>₹499</p>
           </div>
         </div> */}
-        <div className={classes.view}>
+        {/* <div className={classes.view}>
           View More{" "}
           <i className={`${classes.arrow} fa-solid fa-arrow-right`}></i>
-        </div>
+        </div> */}
       </section>
     </>
   );

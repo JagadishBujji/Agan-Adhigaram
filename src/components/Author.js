@@ -9,7 +9,6 @@ const Author = () => {
   return (
     <>
       {(seeMore = location.pathname === "/author-illustrator" ? true : false)}
-      {console.log("from author", location.pathname)}
       <div className="author-overall">
         <div>
           <span>
@@ -440,13 +439,13 @@ const Author = () => {
           {/* end of remaining authors */}
         </div>
       </div>
-      { !seeMore &&
+      {!seeMore && (
         <div className="Addmore">
           <a href="author-illustrator" className="Author">
             See More
           </a>
         </div>
-      }
+      )}
     </>
   );
 };

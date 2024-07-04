@@ -40,7 +40,7 @@ const ContactUsFrom = () => {
     } else if (contact.message === "") {
       errorNotification("Invalid - Message should not be empty");
     } else {
-      console.log("contact: ", contact);
+      // console.log("contact: ", contact);
       const templateParams = {
         from_name: "Agan-Adhigaram-Contactus",
         to_name: "Agan Adhigaram",
@@ -61,7 +61,7 @@ const ContactUsFrom = () => {
         )
         .then(
           function (response) {
-            console.log("SUCCESS!", response.status, response.text);
+            // console.log("SUCCESS!", response.status, response.text);
             successNotification(
               "Thank you for registering newletter with us!!!"
             );

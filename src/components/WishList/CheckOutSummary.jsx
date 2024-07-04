@@ -1,14 +1,20 @@
 import { useMemo } from "react";
-import { useSelector } from "react-redux";
-import { collection, addDoc } from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import { collection, addDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
 import { Link } from "react-router-dom";
 import { db } from "../../services/firebase";
-import { errorNotification, infoNotification } from "../../utils/notifications";
+import {
+  errorNotification,
+  infoNotification,
+  warningNotification,
+} from "../../utils/notifications";
+import { removeItem, setCartItems } from "../../store/cartSlice";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
+  const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const { address, email, id, name, phone, city, state, country, pincode } =
     userDetail;
@@ -21,7 +27,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     return cartItems.reduce((total, item) => total + item.total_price, 0);
   }, [cartItems]);
 
-  const total = useMemo(() => subtotal + delivery, [subtotal]);
+  const total = useMemo(() => subtotal + delivery, [delivery, subtotal]);
 
   const addDataToOrdersCollection = async () => {
     let ordered_books = [];
@@ -76,7 +82,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     try {
       const { id: orderId } = await addDoc(collection(db, "orders"), order);
 
-      console.log("orderId: ", orderId);
+      // console.log("orderId: ", orderId);
 
       const res = await axios.post(
         `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
@@ -92,11 +98,11 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       const result = res.data;
 
       if (result.success) {
-        console.log(
-          "result.data: ",
-          result.data,
-          result.data.instrumentResponse.redirectInfo.url
-        );
+        // console.log(
+        //   "result.data: ",
+        //   result.data,
+        //   result.data.instrumentResponse.redirectInfo.url
+        // );
         infoNotification(result.message);
         window.location.replace(
           result.data.instrumentResponse.redirectInfo.url
@@ -119,7 +125,61 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     if (isAuthenticated) {
       let text = "Are you sure to proceed?";
       if (window.confirm(text) === true) {
-        addDataToOrdersCollection();
+        // check out of stock
+        const promises = [];
+        // console.log("cartItems: ", cartItems);
+        cartItems.forEach((item) => {
+          const docRef = doc(db, "books", item.id);
+          promises.push(getDoc(docRef));
+        });
+
+        const result = await Promise.all(promises);
+        result.forEach((docSnap, i) => {
+          const currentProduct = docSnap.data();
+          // console.log(
+          //   "result-docSnap: ",
+          //   cartItems[i],
+          //   // currentProduct,
+          //   currentProduct.stock
+          // );
+
+          if (currentProduct.stock === 0) {
+            // out of stock, remove that item
+            dispatch(removeItem(cartItems[i]));
+
+            errorNotification(
+              `${cartItems[i].title} (${cartItems[i].title_tamil}) is out of stock`
+            );
+          } else if (currentProduct.stock > 0) {
+            // stock is there
+            if (cartItems[i].qty > currentProduct.stock) {
+              // stock is there but less the qty in cart, so re-calculate
+              let currentCartItems = [...cartItems];
+
+              const updatedCartItem = {
+                ...currentCartItems[i],
+                qty: currentProduct.stock,
+                total_price:
+                  currentProduct.stock * currentProduct.discount_price,
+              };
+
+              currentCartItems[i] = updatedCartItem;
+
+              // currentCartItems = [...updatedCartItems];
+              // console.log("cur: ", currentCartItems);
+
+              dispatch(setCartItems(currentCartItems));
+
+              warningNotification(
+                `The selected number of quantity is not available lowering your quantity to available number`
+              );
+            } else {
+              // less than available, so buy it directly
+              addDataToOrdersCollection();
+              // console.log("can buy");
+            }
+          }
+        });
       }
     } else {
       // show login modal

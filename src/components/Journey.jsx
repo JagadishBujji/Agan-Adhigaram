@@ -30,7 +30,7 @@ function Journey() {
       </div>
       <div className={`${classes.About} row container m-auto`}>
         <img
-          src="./images/AntJourney.gif"
+          src="./images/Ant.gif"
           alt="heroimg1"
           className={classes.AntJourney}
         />
