@@ -74,10 +74,16 @@ const BookListView = ({ book }) => {
           </div>
           <div className={`${classes.list3} col-md-3 col-4`}>
             <p className={classes.amount}>₹{book.discount_price}</p>
-            <div className={classes.amountstrickout}>
-              <p className={classes.strickout}>₹{book.mrp_price}</p>
-              <p className={classes.percentage}>{book.discount_percentage}%</p>
-            </div>
+
+            {book.discount_price !== book.mrp_price && (
+              <div className={classes.amountstrickout}>
+                <p className={classes.strickout}>₹{book.mrp_price}</p>
+                <p className={classes.percentage}>
+                  {book.discount_percentage}%
+                </p>
+              </div>
+            )}
+
             <div className={classes.checkout}>
               {/* <i className={`${classes.cart} fa-solid fa-cart-shopping`}></i> */}
               {noOfItems === 0 ? (

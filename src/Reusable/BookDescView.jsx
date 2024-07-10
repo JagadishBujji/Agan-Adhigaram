@@ -107,10 +107,15 @@ const BookDescView = ({ book }) => {
           <p className={classes.Vadai}>{book.description}</p>
           <div className={classes.amount}>
             <p className={classes.amount1}>₹{book.discount_price}</p>
-            <p className={classes.amount2}>₹{book.mrp_price}</p>
-            <p className={classes.amountpercentage}>
-              {book.discount_percentage}%
-            </p>
+
+            {book.discount_price !== book.mrp_price && (
+              <>
+                <p className={classes.amount2}>₹{book.mrp_price}</p>
+                <p className={classes.amountpercentage}>
+                  {book.discount_percentage}%
+                </p>
+              </>
+            )}
           </div>
           <div className={classes.addedbtn}>
             {book.stock === 0 ? (

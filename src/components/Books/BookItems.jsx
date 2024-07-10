@@ -81,7 +81,9 @@ const BookCard = ({ book }) => {
       <p className={classes.namebookauthor}>{book.author}</p>
       <p className={classes.bookprice}>
         ₹{book.discount_price}
-        <span className={classes.bookcancel}>₹{book.mrp_price}</span>
+        {book.discount_price !== book.mrp_price && (
+          <span className={classes.bookcancel}>₹{book.mrp_price}</span>
+        )}
       </p>
     </div>
   );
