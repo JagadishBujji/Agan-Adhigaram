@@ -157,6 +157,24 @@
   }
 }
 
+@media (min-width: 2048px) and (max-width: 4096px) {
+  .spark {
+    max-width: 5%;
+    position: absolute;
+    top: -53px;
+    right: 36%;
+  }
+  .title1 {
+    font-size: 50px;
+  }
+  .title2{
+    font-size: 52px;
+  }
+  .magicalpara{
+    font-size: 26px;
+  }
+}
+
 /* Larger screens */
 /* @media only screen and (min-width: 1366px) {
 } */

@@ -456,3 +456,48 @@
     height: 40rem !important;
   }
 }
+
+@media (min-width: 2048px) and (max-width: 4096px) {
+  .items .item {
+    width: 450px;
+    height: 450px;
+  }
+  .Grap {
+    bottom: -30px;
+    font-size: 30px;
+    width: 10%;
+  }
+  .items .button-container {
+    top: 177px;
+  }
+  .overallcarosuel {
+    margin-top: 30px;
+  }
+  .demo1{
+    top: -40px;
+  }
+  .awards {
+    width: 150px;
+    height: 150px;
+  }
+  .contentawards {
+    top: 64px;
+    left: 44px;
+  }
+  .events {
+    width: 150px;
+    height: 150px;
+  }
+  .contentawards2 {
+    top: 64px;
+    left: 44px;
+  }
+  .books {
+    width: 150px;
+    height: 150px;
+  }
+  .contentawards3 {
+    top: 64px;
+    left: 44px;
+  }
+}

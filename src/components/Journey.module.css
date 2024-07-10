@@ -198,6 +198,15 @@
   }
 }
 
+@media (min-width: 2048px) and (max-width: 4096px){
+  .Journeyus{
+    font-size: 50px;
+  }
+  .Journeywe{
+    font-size: 26px;
+  }
+}
+
 /* Larger screens */
 /* @media only screen and (min-width: 1366px) {
 } */

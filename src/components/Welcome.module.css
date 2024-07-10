@@ -427,7 +427,6 @@
     align-items: center;
     text-align: center;
     margin: auto;
-    
   }
   .welcomecolumn2fox {
     margin-top: 35% !important;
@@ -437,7 +436,7 @@
     text-align: center;
     margin: auto;
   }
-  .subcontentvisionfox{
+  .subcontentvisionfox {
     text-align: center;
   }
 }
@@ -546,7 +545,7 @@
   }
 }
 
-@media only screen and (min-width: 2560px) {
+@media (min-width: 2048px) and (max-width: 4096px) {
   .overallmission {
     height: 3500px;
   }
@@ -566,11 +565,13 @@
     font-family: "Poppins", sans-serif;
   }
   .subcontent {
-    font-size: 36px;
+    font-size: 32px;
+    line-height: 60px;
+
     font-family: "Poppins", sans-serif;
   }
   .paatiimg {
-    right: 174px;
+    right: 0px;
     top: 659px;
   }
   .welcomevisiontitle {
@@ -578,20 +579,21 @@
     font-family: "Poppins", sans-serif;
   }
   .subcontentvision {
-    font-size: 50px;
+    font-size: 44px;
     font-family: "Poppins", sans-serif;
   }
   .welcomemissionfox {
-    width: 28%;
+    width: 40%;
     font-size: 60px;
     font-family: "Poppins", sans-serif;
   }
   .welcomevisiontitlefox {
-    font-size: 60px;
+    font-size: 56px;
     font-family: "Poppins", sans-serif;
   }
   .subcontentvisionfox {
-    font-size: 50px;
+    font-size: 45px;
+    padding-left: 70px;
     font-family: "Poppins", sans-serif;
   }
   .welcomecolumn2fox {
@@ -608,5 +610,8 @@
     /* margin: auto; */
     width: 62%;
     padding-top: 240px;
+  }
+  .welcomecolumn2 {
+    margin-top: 20% !important;
   }
 }

@@ -59,6 +59,9 @@ const loginModalBtn = {
     marginRight: "10px",
     border: "none",
     fontWeight: "bold",
+    "@media (min-width: 2048px) and (max-width: 4096px)": {
+      fontSize: "30px",
+    },
   },
 };
 const loginbtn = {

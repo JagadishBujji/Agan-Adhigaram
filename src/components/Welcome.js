@@ -58,7 +58,9 @@ function Welcome() {
         <div
           className={`${classes.mission} row container-fluid  mission m-auto`}
         >
-          <div className={`${classes.welcomecolumn1} col-sm-12 col-md-12 col-lg-6`}>
+          <div
+            className={`${classes.welcomecolumn1} col-sm-12 col-md-12 col-lg-6`}
+          >
             {/* <img
               src="./images/crow.svg"
               alt="heroimg1"
@@ -110,7 +112,7 @@ function Welcome() {
           </div>
         </div>
         <div
-          className={`${classes.missionfox} row container m-auto missionfox`}
+          className={`${classes.missionfox} row container-fluid  m-auto missionfox`}
         >
           <div
             className={`${classes.welcomecolumn2fox} col-sm col-md-12 col-lg-6`}

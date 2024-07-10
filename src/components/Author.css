@@ -622,3 +622,25 @@ h2 {
     max-width: 5%;
   }
 }
+
+@media (min-width: 2048px) and (max-width: 4096px) {
+  .card1,
+  .card2,
+  .card3,
+  .card4,
+  .cardauthor {
+    margin: 0;
+    width: 400px;
+    height: 550px;
+  }
+  .one {
+    font-size: 70px;
+  }
+  .two {
+    font-size: 30px;
+  }
+  .Author {
+    font-size: 30px;
+  }
+
+}

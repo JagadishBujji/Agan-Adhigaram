@@ -36,7 +36,7 @@ function Aboutus() {
       </div>
 
       <div className={`${classes.About} row container m-auto`}>
-        <div className={`${classes.person1} col-md-6`}>
+        <div className={`${classes.person1} col-md-6 col-lg-6`}>
           <img
             src="./images/Dragon.png"
             alt="heroimg1"
@@ -66,7 +66,7 @@ function Aboutus() {
             ></dotlottie-player> */}
           <p className={classes.name1}>Sethu Ram</p>
         </div>
-        <div className={`${classes.person2} col-md-6`}>
+        <div className={`${classes.person2} col-md-6 col-lg-6`}>
           <p className={classes.name2}> Ramya</p>
           <img
             src="./images/Butterfly.png"
