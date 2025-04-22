@@ -52,7 +52,7 @@ const BookCard = ({ book }) => {
         </Link>
         <div className={classes.favheart}>
           {/* <i className={`${classes.heart} fa-regular fa-heart`}></i> */}
-          {book.stock === 0 ? (
+          {book.stock <= 0 ? (
             <p className={`${classes.outofstock}`}>Out of Stock</p>
           ) : noOfItems === 0 ? (
             <i

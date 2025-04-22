@@ -136,14 +136,15 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
         const result = await Promise.all(promises);
         result.forEach((docSnap, i) => {
           const currentProduct = docSnap.data();
-          // console.log(
-          //   "result-docSnap: ",
-          //   cartItems[i],
-          //   // currentProduct,
-          //   currentProduct.stock
-          // );
+          console.log(
+            "result-docSnap: ",
+            cartItems[i],
+            // currentProduct,
+            currentProduct.stock
+          );
 
-          if (currentProduct.stock === 0) {
+          if (currentProduct.stock <= 0) {
+            // less than or equal to 0 - to check cart empty
             // out of stock, remove that item
             dispatch(removeItem(cartItems[i]));
 
