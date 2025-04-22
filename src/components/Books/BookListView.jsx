@@ -13,9 +13,12 @@ import {
 import classes from "./BookListView.module.css";
 
 const BookListView = ({ book }) => {
+  console.log("book: ", book);
+
   const dispatch = useDispatch();
   const { cartItems } = useSelector(selectCartItems);
   const [noOfItems, setNoOfItems] = useState(0);
+
   useEffect(() => {
     const item = cartItems.find((item) => item.id === book.id);
     if (item) {
@@ -78,15 +81,17 @@ const BookListView = ({ book }) => {
             {book.discount_price !== book.mrp_price && (
               <div className={classes.amountstrickout}>
                 <p className={classes.strickout}>₹{book.mrp_price}</p>
-                <p className={classes.percentage}>
+                {/* <p className={classes.percentage}>
                   {book.discount_percentage}%
-                </p>
+                </p> */}
               </div>
             )}
 
             <div className={classes.checkout}>
               {/* <i className={`${classes.cart} fa-solid fa-cart-shopping`}></i> */}
-              {noOfItems === 0 ? (
+              {book.stock <= 0 ? (
+                <p className={`${classes.outofstock}`}>Out of Stock</p>
+              ) : noOfItems === 0 ? (
                 <i
                   className={`${classes.cart} fa-solid fa-cart-shopping`}
                   onClick={handleAddCartItem}

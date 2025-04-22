@@ -81,6 +81,19 @@
   margin-right: 10px;
 }
 
+.outofstock {
+  background: #fdf3e2;
+  color: #f19e38;
+  border-radius: 10px;
+  padding: 0px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  white-space: nowrap;
+}
+
 .percentage {
   color: #fff;
   background-color: #f19e38;
@@ -162,7 +175,7 @@
     margin-bottom: 10px;
     padding: 0;
   }
-  .list3{
+  .list3 {
     padding: 0;
   }
   .bookramdec {
@@ -172,10 +185,10 @@
     text-align: center;
     font-size: 12px;
   }
-  .listview{
+  .listview {
     padding: 0;
   }
-  .list1{
+  .list1 {
     padding: 0;
   }
 }
