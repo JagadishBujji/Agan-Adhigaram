@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { collection, addDoc, getDoc, doc } from "firebase/firestore";
+import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
@@ -49,10 +49,15 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     });
 
     let ordered_timestamp = new Date().getTime();
+
+    // Generate order ID first so we can include it in the document
+    const orderRef = doc(collection(db, "orders"));
+    const orderId = orderRef.id;
+
     const order = {
       delivery_charge: delivery,
       logistics: "",
-      order_id: "",
+      order_id: orderId, // Store document ID inside the document for easy filtering
       ordered_books,
       ordered_timestamp,
       price_tax: 0,
@@ -80,7 +85,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     // console.log("order: ", order, userDetail);
 
     try {
-      const { id: orderId } = await addDoc(collection(db, "orders"), order);
+      await setDoc(orderRef, order);
 
       // console.log("orderId: ", orderId);
 
