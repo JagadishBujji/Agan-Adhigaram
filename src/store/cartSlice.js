@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       // console.log("totalQuantity-ad1:", state.totalBookQuantity);
-      if (state.totalBookQuantity <= 5 - 1) {
+      if (state.totalBookQuantity <= 25 - 1) {
         const newItem = action.payload;
         const index = state.cartItems.findIndex(
           (item) => item.id === newItem.id
@@ -33,7 +33,7 @@ export const cartSlice = createSlice({
         }
       } else {
         errorNotification(
-          "Only 5 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
+          "Only 25 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
         );
       }
     },
@@ -44,7 +44,7 @@ export const cartSlice = createSlice({
     },
     addItemQty: (state, action) => {
       // console.log("totalQuantity-ad:", state.totalBookQuantity);
-      if (state.totalBookQuantity <= 5 - 1) {
+      if (state.totalBookQuantity <= 25 - 1) {
         const cartItem = action.payload;
         const index = state.cartItems.findIndex((item) => {
           return item.id === cartItem.id;
@@ -60,7 +60,7 @@ export const cartSlice = createSlice({
         }
       } else {
         errorNotification(
-          "Only 5 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
+          "Only 25 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
         );
       }
     },
