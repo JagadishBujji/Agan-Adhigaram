@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
@@ -13,6 +13,10 @@ import {
 } from "../../utils/notifications";
 import { removeItem, setCartItems } from "../../store/cartSlice";
 import { reconcileCartWithStock } from "../../utils/cartStock";
+import {
+  DEFAULT_DELIVERY_CHARGE,
+  getDeliveryCharge,
+} from "../../utils/logistics";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const dispatch = useDispatch();
@@ -23,7 +27,16 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const { address, email, id, name, phone, city, state, country, pincode } =
     userDetail;
 
-  let delivery = 50; // for India
+  // delivery charge for India - set by admin in settings
+  const [delivery, setDelivery] = useState(DEFAULT_DELIVERY_CHARGE);
+  const [isDeliveryLoaded, setIsDeliveryLoaded] = useState(false);
+
+  useEffect(() => {
+    getDoc(doc(db, "app", "meta"))
+      .then((docSnap) => setDelivery(getDeliveryCharge(docSnap.data())))
+      .catch((e) => console.log("delivery charge: ", e))
+      .finally(() => setIsDeliveryLoaded(true));
+  }, []);
 
   const discount = 0;
 
@@ -226,17 +239,21 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
               )}
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Delivery (within India)</p>
-                <p className={classes.amount}>₹ {delivery}</p>
+                <p className={classes.amount}>
+                  {isDeliveryLoaded ? `₹ ${delivery}` : "..."}
+                </p>
               </div>
               <hr />
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Total</p>
-                <p className={classes.amount}>₹ {total}</p>
+                <p className={classes.amount}>
+                  {isDeliveryLoaded ? `₹ ${total}` : "..."}
+                </p>
               </div>
               <button
                 className={classes.checkoutbtn}
                 onClick={handleCheckoutButton}
-                disabled={isPlacingOrder}
+                disabled={isPlacingOrder || !isDeliveryLoaded}
               >
                 {isPlacingOrder ? "Please wait..." : "Checkout"}
               </button>

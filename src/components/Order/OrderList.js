@@ -3,6 +3,7 @@ import classes from "./OrderList.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
+import { getLogisticsDetails } from "../../utils/logistics";
 
 const Order = ({ order }) => {
   // console.log("order: ", order);
@@ -13,6 +14,8 @@ const Order = ({ order }) => {
 
   const { ordered_timestamp, total_price, userDetail, id, ordered_books } =
     order;
+
+  const logistics = getLogisticsDetails(order.logistics);
 
   const cart = {
     background: "#f19e38",
@@ -242,6 +245,27 @@ const Order = ({ order }) => {
               <b>Order Status:</b>
               <span className={classes.date}>{order.status.toUpperCase()}</span>
             </p>
+            {logistics && (
+              <p className={classes.placed}>
+                <b>Courier:</b>
+                <span className={classes.date}>
+                  {logistics.name}
+                  {logistics.number && ` - ${logistics.number}`}
+                  {logistics.trackingUrl && (
+                    <>
+                      {" "}
+                      <a
+                        href={logistics.trackingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Track order
+                      </a>
+                    </>
+                  )}
+                </span>
+              </p>
+            )}
           </Stack>
         </Card>
       </Stack>
