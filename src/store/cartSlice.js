@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { errorNotification } from "../utils/notifications";
+import { DEFAULT_PREORDER_MAX_QTY } from "../utils/preorder";
 
 const initialState = {
   cartItems: [],
   totalBookQuantity: 0,
+  // maximum copies of a pre-order book in one order, set by admin
+  preorderMaxQty: DEFAULT_PREORDER_MAX_QTY,
 };
 
 export const cartSlice = createSlice({
@@ -50,7 +53,15 @@ export const cartSlice = createSlice({
           return item.id === cartItem.id;
         });
 
-        if (index !== -1) {
+        if (
+          index !== -1 &&
+          state.cartItems[index].is_preorder &&
+          state.cartItems[index].qty >= state.preorderMaxQty
+        ) {
+          errorNotification(
+            `Only ${state.preorderMaxQty} copies of a pre-order book can be ordered at a time`
+          );
+        } else if (index !== -1) {
           state.totalBookQuantity += 1;
           state.cartItems[index].qty += 1;
           state.cartItems[index].total_price =
@@ -63,6 +74,9 @@ export const cartSlice = createSlice({
           "Only 25 items, you can add. For bulk/foriegn orders, please contact Agan Adhigaram (+91 9363123828)"
         );
       }
+    },
+    setPreorderMaxQty: (state, action) => {
+      state.preorderMaxQty = action.payload;
     },
     removeItem: (state, action) => {
       const cartItem = action.payload;
@@ -143,9 +157,11 @@ export const {
   removeItem,
   removeItemQty,
   setCartItems,
+  setPreorderMaxQty,
 } = cartSlice.actions;
 
 export const selectCartItems = (state) => state.cart;
+export const selectPreorderMaxQty = (state) => state.cart.preorderMaxQty;
 export const selectCartSize = (state) => state.cart.totalBookQuantity;
 
 export default cartSlice.reducer;

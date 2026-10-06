@@ -11,7 +11,15 @@ import {
   infoNotification,
   warningNotification,
 } from "../../utils/notifications";
-import { removeItem, setCartItems } from "../../store/cartSlice";
+import {
+  removeItem,
+  selectPreorderMaxQty,
+  setCartItems,
+} from "../../store/cartSlice";
+import {
+  formatExpectedDate,
+  getOrderPreorderDetails,
+} from "../../utils/preorder";
 import { reconcileCartWithStock } from "../../utils/cartStock";
 import {
   formatAddress,
@@ -29,6 +37,8 @@ import {
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
+  const preorderMaxQty = useSelector(selectPreorderMaxQty);
+  const preorderDetails = getOrderPreorderDetails(cartItems);
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   // state update is async, ref blocks the second click immediately
   const placingOrderRef = useRef(false);
@@ -62,9 +72,10 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
 
   const total = useMemo(() => subtotal + delivery, [delivery, subtotal]);
 
-  const addDataToOrdersCollection = async () => {
+  // items - cart items checked with the latest stock and pre-order details
+  const addDataToOrdersCollection = async (items) => {
     let ordered_books = [];
-    cartItems.forEach((item) => {
+    items.forEach((item) => {
       let temp = {
         id: item.id,
         author: item.author,
@@ -77,7 +88,12 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
         total_price: item.total_price,
         book_format: item.book_format,
         image: item.images[0],
+        is_preorder: Boolean(item.is_preorder),
       };
+      if (item.is_preorder) {
+        temp.expected_delivery_date = item.expected_delivery_date || null;
+        temp.preorder_remark = item.preorder_remark || "";
+      }
       ordered_books.push(temp);
     });
 
@@ -92,6 +108,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       logistics: "",
       order_id: orderId, // Store document ID inside the document for easy filtering
       ordered_books,
+      ...getOrderPreorderDetails(ordered_books),
       ordered_timestamp,
       price_tax: 0,
       status: "booked",
@@ -194,7 +211,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
           });
 
           const { removed, adjusted, updatedCartItems, canPlaceOrder } =
-            reconcileCartWithStock(cartItems, stockById);
+            reconcileCartWithStock(cartItems, stockById, preorderMaxQty);
 
           removed.forEach((item) => {
             // out of stock, remove that item
@@ -214,7 +231,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
 
           if (canPlaceOrder) {
             // every item is available, so buy it directly
-            await addDataToOrdersCollection();
+            await addDataToOrdersCollection(updatedCartItems);
           }
         } catch (e) {
           errorNotification(e.message);
@@ -313,6 +330,17 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
                   {isDeliveryLoaded ? `₹ ${delivery}` : "..."}
                 </p>
               </div>
+              {preorderDetails.has_preorder && (
+                <p className={classes.preorderNote}>
+                  Your cart has a pre-order book. The whole order will be
+                  shipped together
+                  {preorderDetails.expected_delivery_date
+                    ? `, expected by ${formatExpectedDate(
+                        preorderDetails.expected_delivery_date
+                      )}.`
+                    : " once the book is released."}
+                </p>
+              )}
               <hr />
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Total</p>

@@ -203,3 +203,14 @@
     align-items: center;
   }
 }
+
+.preorderNote {
+  background: #fff;
+  border-left: 4px solid #f19e38;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #000;
+}

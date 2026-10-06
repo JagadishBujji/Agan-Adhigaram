@@ -9,6 +9,7 @@ import {
   removeItemQty,
   selectCartItems,
 } from "../store/cartSlice";
+import { getPreorderLabel, isOutOfStock } from "../utils/preorder";
 import { Link } from "react-router-dom";
 import BookGallerySlider from "./BookGallerySlider";
 // import {}
@@ -117,8 +118,16 @@ const BookDescView = ({ book }) => {
               </>
             )}
           </div>
+          {book.is_preorder && (
+            <div className={classes.preorderBox}>
+              <p className={classes.preorderTitle}>{getPreorderLabel(book)}</p>
+              {book.preorder_remark && (
+                <p className={classes.preorderRemark}>{book.preorder_remark}</p>
+              )}
+            </div>
+          )}
           <div className={classes.addedbtn}>
-            {book.stock <= 0 ? (
+            {isOutOfStock(book) ? (
               <p className={`${classes.outofstock}`}>Out of Stock</p>
             ) : noOfItems === 0 ? (
               <Button
@@ -131,7 +140,7 @@ const BookDescView = ({ book }) => {
                 variant="contained"
                 onClick={handleAddCartItem}
               >
-                Add
+                {book.is_preorder ? "Pre-order" : "Add"}
               </Button>
             ) : (
               <>
