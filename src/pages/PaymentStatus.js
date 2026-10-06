@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { doc, getDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { doc, onSnapshot } from "firebase/firestore";
 import { Button } from "@mui/material";
-import { db } from "../services/firebase";
+import { db, FUNCTIONS_BASE_URL } from "../services/firebase";
 import { clearCart } from "../store/cartSlice";
 // import ima from '../../public/images/'
 import {
@@ -14,8 +14,9 @@ import {
 import axios from "axios";
 import classes from "./PaymentStatus.module.css";
 import PaymentSuccess from "../Reusable/PaymentSuccess";
-import { getTTFB } from "web-vitals";
-import { get } from "jquery";
+
+// payment reached a final state without success
+const FAILED_PAYMENT_CODES = ["PAYMENT_ERROR", "PAYMENT_DECLINED", "TIMED_OUT"];
 
 const PaymentStatus = () => {
   const dispatch = useDispatch();
@@ -31,21 +32,6 @@ const PaymentStatus = () => {
   const txnId = searchParams.get("txnId");
 
   // console.log("txnId", txnId);
-
-  async function updateStock(item) {
-    const docSnap = doc(db, "books", item.id);
-    const getDataBooks = await getDoc(docSnap);
-
-    // console.log("test", item.qty);
-    const getData = getDataBooks.data();
-    // console.log("before", getData);
-    const stockRemaining = parseInt(getData.stock) - item.qty;
-    await updateDoc(docSnap, {
-      stock: stockRemaining,
-    });
-
-    // console.log("after", getDataBooks.data());
-  }
 
   useEffect(() => {
     if (txnId) {
@@ -63,10 +49,10 @@ const PaymentStatus = () => {
             dispatch(clearCart());
             successNotification("Order placed successfully!");
             // navigate("/orders");
-          } else if (data.payment_status === "PAYMENT_ERROR") {
+          } else if (FAILED_PAYMENT_CODES.includes(data.payment_status)) {
             // payment failed
             setStatus({
-              code: data.payment_status,
+              code: "PAYMENT_ERROR",
               message: "Failure",
               desc: data.payment_transaction_details?.responseCodeDescription,
             });
@@ -81,8 +67,7 @@ const PaymentStatus = () => {
             // s2s callback not initiated, check status api and if payment is pending, then call 5seconds
             axios
               .get(
-                // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/payment-status?txnId=${docSnap.id}`
-                `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/payment-status?txnId=${docSnap.id}`
+                `${FUNCTIONS_BASE_URL}/phonepe/payment-status?txnId=${docSnap.id}`
               )
               .then((res) => {
                 // console.log("result: ", res.data);
@@ -99,17 +84,16 @@ const PaymentStatus = () => {
                   );
                   axios
                     .get(
-                      `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepeReconcillation?txnId=${docSnap.id}`
+                      `${FUNCTIONS_BASE_URL}/phonepeReconcillation?txnId=${docSnap.id}`
                     )
                     .then((res) => {
                       // console.log("phonepeReconcillation result: ", res.data);
                     })
                     .catch((e) => console.log("phonepeReconcillation: ", e));
-                } else {
-                  // PAYMENT_SUCCESS, PAYMENT_ERROR, PAYMENT_DECLINED, TIMED_OUT - update order status
-                  updateOrderStatus(docSnap.id, res.data);
-                  // TRANSACTION_NOT_FOUND, AUTHORIZATION_FAILED, BAD_REQUEST - these are developing errors or hack errors, make it to developer concern
                 }
+                // PAYMENT_SUCCESS, PAYMENT_ERROR, PAYMENT_DECLINED, TIMED_OUT - order status and stock are updated by the backend (check status api),
+                // current doc is realtime, so this useeffect will run and change to success or failure
+                // TRANSACTION_NOT_FOUND, AUTHORIZATION_FAILED, BAD_REQUEST - these are developing errors or hack errors, make it to developer concern
               })
               .catch((e) => console.log(e));
           }
@@ -144,42 +128,6 @@ const PaymentStatus = () => {
   //   }, 5000);
   // };
 
-  const updateOrderStatus = async (orderId, result) => {
-    const orderRef = doc(db, "orders", orderId);
-    const getData = await getDoc(orderRef);
-    // console.log("get Doc ", getData);
-
-    const getOrderBooksDetails = getData.data();
-
-    getOrderBooksDetails.ordered_books.map((item) => {
-      updateStock(item);
-    });
-
-    updateDoc(orderRef, {
-      payment_status: result.code, // PAYMENT_SUCCESS, PAYMENT_ERROR -> only success/failure callback will be there
-      payment_transaction_details: {
-        ...result.data,
-      },
-    })
-      .then(() => {
-        console.log(
-          "order updated... And observor will get the data, and update the status locally"
-        );
-        // setStatus({
-        //   code: result.code,
-        //   message: result.code === "PAYMENT_SUCCESS" ? "Success" : "Failure",
-        //   desc:
-        //     result.code === "PAYMENT_SUCCESS"
-        //       ? ""
-        //       : result.data.payment_transaction_details
-        //           ?.responseCodeDescription,
-        // });
-        // dispatch(clearCart());
-        // successNotification("Order placed successfully!");
-      })
-      .catch((e) => console.log(e));
-  };
-
   return (
     <>
       <div className={`${classes.payment}`}>
@@ -194,7 +142,7 @@ const PaymentStatus = () => {
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
             ></script>
-            <div className="loading">
+            <div className="loading" key="payment-pending">
               <dotlottie-player
                 src="https://lottie.host/2ffbc400-cbca-4214-be86-9fcae02cdf2a/ImKw0dntL5.json"
                 background="transparent"
@@ -238,13 +186,17 @@ const PaymentStatus = () => {
         ) : status.code === "PAYMENT_ERROR" ? (
           <>
             <h2 className={`${classes.pay}`}>Payment Status - Failure</h2>
-            <p className={`${classes.pay}`}>Failure Message: {status.desc}</p>
+            <p className={`${classes.pay}`}>
+              {status.desc
+                ? `Failure Message: ${status.desc}`
+                : "Your payment could not be completed. Please try again."}
+            </p>
             {/* payment failed*/}
             <script
               src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
               type="module"
             ></script>
-            <div className="loading">
+            <div className="loading" key="payment-failed">
               <dotlottie-player
                 src="https://lottie.host/e385d37a-9f97-48e8-a1df-3b9f036242c4/tFNW6AxhAG.json"
                 background="transparent"

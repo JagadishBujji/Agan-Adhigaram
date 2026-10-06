@@ -1,21 +1,25 @@
-import { useMemo } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
 import { Link } from "react-router-dom";
-import { db } from "../../services/firebase";
+import { db, FUNCTIONS_BASE_URL } from "../../services/firebase";
 import {
   errorNotification,
   infoNotification,
   warningNotification,
 } from "../../utils/notifications";
 import { removeItem, setCartItems } from "../../store/cartSlice";
+import { reconcileCartWithStock } from "../../utils/cartStock";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+  // state update is async, ref blocks the second click immediately
+  const placingOrderRef = useRef(false);
   const { address, email, id, name, phone, city, state, country, pincode } =
     userDetail;
 
@@ -90,8 +94,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       // console.log("orderId: ", orderId);
 
       const res = await axios.post(
-        `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
-        // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
+        `${FUNCTIONS_BASE_URL}/phonepe/pay`,
         {
           amount: total,
           userId: id,
@@ -127,65 +130,56 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
 
   const handleCheckoutButton = async (e) => {
     e.preventDefault();
+    if (placingOrderRef.current) {
+      return;
+    }
     if (isAuthenticated) {
       let text = "Are you sure to proceed?";
       if (window.confirm(text) === true) {
-        // check out of stock
-        const promises = [];
-        // console.log("cartItems: ", cartItems);
-        cartItems.forEach((item) => {
-          const docRef = doc(db, "books", item.id);
-          promises.push(getDoc(docRef));
-        });
-
-        const result = await Promise.all(promises);
-        result.forEach((docSnap, i) => {
-          const currentProduct = docSnap.data();
-          console.log(
-            "result-docSnap: ",
-            cartItems[i],
-            // currentProduct,
-            currentProduct.stock
+        // check out of stock for all the items first, then place a single order
+        placingOrderRef.current = true;
+        setIsPlacingOrder(true);
+        try {
+          const result = await Promise.all(
+            cartItems.map((item) => getDoc(doc(db, "books", item.id)))
           );
 
-          if (currentProduct.stock <= 0) {
-            // less than or equal to 0 - to check cart empty
-            // out of stock, remove that item
-            dispatch(removeItem(cartItems[i]));
-
-            errorNotification(
-              `${cartItems[i].title} (${cartItems[i].title_tamil}) is out of stock`
-            );
-          } else if (currentProduct.stock > 0) {
-            // stock is there
-            if (cartItems[i].qty > currentProduct.stock) {
-              // stock is there but less the qty in cart, so re-calculate
-              let currentCartItems = [...cartItems];
-
-              const updatedCartItem = {
-                ...currentCartItems[i],
-                qty: currentProduct.stock,
-                total_price:
-                  currentProduct.stock * currentProduct.discount_price,
-              };
-
-              currentCartItems[i] = updatedCartItem;
-
-              // currentCartItems = [...updatedCartItems];
-              // console.log("cur: ", currentCartItems);
-
-              dispatch(setCartItems(currentCartItems));
-
-              warningNotification(
-                `The selected number of quantity is not available lowering your quantity to available number`
-              );
-            } else {
-              // less than available, so buy it directly
-              addDataToOrdersCollection();
-              // console.log("can buy");
+          const stockById = {};
+          result.forEach((docSnap) => {
+            if (docSnap.exists()) {
+              stockById[docSnap.id] = docSnap.data();
             }
+          });
+
+          const { removed, adjusted, updatedCartItems, canPlaceOrder } =
+            reconcileCartWithStock(cartItems, stockById);
+
+          removed.forEach((item) => {
+            // out of stock, remove that item
+            dispatch(removeItem(item));
+            errorNotification(
+              `${item.title} (${item.title_tamil}) is out of stock`
+            );
+          });
+
+          if (adjusted.length > 0) {
+            // stock is there but less the qty in cart, so re-calculate
+            dispatch(setCartItems(updatedCartItems));
+            warningNotification(
+              `The selected number of quantity is not available lowering your quantity to available number`
+            );
           }
-        });
+
+          if (canPlaceOrder) {
+            // every item is available, so buy it directly
+            await addDataToOrdersCollection();
+          }
+        } catch (e) {
+          errorNotification(e.message);
+        } finally {
+          placingOrderRef.current = false;
+          setIsPlacingOrder(false);
+        }
       }
     } else {
       // show login modal
@@ -242,8 +236,9 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
               <button
                 className={classes.checkoutbtn}
                 onClick={handleCheckoutButton}
+                disabled={isPlacingOrder}
               >
-                Checkout
+                {isPlacingOrder ? "Please wait..." : "Checkout"}
               </button>
               <Link to="/books" className={classes.Continue}>
                 {/* <a href="" > */}
