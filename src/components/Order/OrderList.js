@@ -3,6 +3,8 @@ import classes from "./OrderList.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../store/cartSlice";
+import { getLogisticsDetails } from "../../utils/logistics";
+import { getPreorderLabel } from "../../utils/preorder";
 
 const Order = ({ order }) => {
   // console.log("order: ", order);
@@ -13,6 +15,8 @@ const Order = ({ order }) => {
 
   const { ordered_timestamp, total_price, userDetail, id, ordered_books } =
     order;
+
+  const logistics = getLogisticsDetails(order.logistics);
 
   const cart = {
     background: "#f19e38",
@@ -104,6 +108,12 @@ const Order = ({ order }) => {
                   {book.title}({book.title_tamil}) - {book.book_format}
                 </h3>
                 <p className={classes.author}>by {book.author}</p>
+                {book.is_preorder && (
+                  <p className={classes.author}>
+                    <b>{getPreorderLabel(book)}</b>
+                    {book.preorder_remark && ` - ${book.preorder_remark}`}
+                  </p>
+                )}
                 <p className={classes.price}>₹ {book.total_price}</p>
                 <p className={classes.qty}>
                   <b>Qty :</b>
@@ -242,6 +252,27 @@ const Order = ({ order }) => {
               <b>Order Status:</b>
               <span className={classes.date}>{order.status.toUpperCase()}</span>
             </p>
+            {logistics && (
+              <p className={classes.placed}>
+                <b>Courier:</b>
+                <span className={classes.date}>
+                  {logistics.name}
+                  {logistics.number && ` - ${logistics.number}`}
+                  {logistics.trackingUrl && (
+                    <>
+                      {" "}
+                      <a
+                        href={logistics.trackingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Track order
+                      </a>
+                    </>
+                  )}
+                </span>
+              </p>
+            )}
           </Stack>
         </Card>
       </Stack>

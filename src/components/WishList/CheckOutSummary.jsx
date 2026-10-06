@@ -1,25 +1,68 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
 import { selectUser } from "../../store/userSlice";
 import classes from "./CheckOutSummary.module.css";
 import { Link } from "react-router-dom";
-import { db } from "../../services/firebase";
+import { db, FUNCTIONS_BASE_URL } from "../../services/firebase";
 import {
   errorNotification,
   infoNotification,
   warningNotification,
 } from "../../utils/notifications";
-import { removeItem, setCartItems } from "../../store/cartSlice";
+import {
+  removeItem,
+  selectPreorderMaxQty,
+  setCartItems,
+} from "../../store/cartSlice";
+import {
+  formatExpectedDate,
+  getOrderPreorderDetails,
+} from "../../utils/preorder";
+import { reconcileCartWithStock } from "../../utils/cartStock";
+import {
+  formatAddress,
+  getDefaultAddress,
+  getUserAddresses,
+  toOrderUserDetail,
+  validateAddress,
+} from "../../utils/addresses";
+import AddressSheet from "../Address/AddressSheet";
+import {
+  DEFAULT_DELIVERY_CHARGE,
+  getDeliveryCharge,
+} from "../../utils/logistics";
 
 const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
-  const { address, email, id, name, phone, city, state, country, pincode } =
-    userDetail;
+  const preorderMaxQty = useSelector(selectPreorderMaxQty);
+  const preorderDetails = getOrderPreorderDetails(cartItems);
+  const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+  // state update is async, ref blocks the second click immediately
+  const placingOrderRef = useRef(false);
+  const { id, phone } = userDetail;
 
-  let delivery = 50; // for India
+  // delivery address - default address is selected, user can change it in the sheet
+  const addresses = getUserAddresses(userDetail);
+  const [selectedAddressId, setSelectedAddressId] = useState("");
+  const [isAddressSheetOpen, setIsAddressSheetOpen] = useState(false);
+  const shippingAddress =
+    addresses.find((item) => item.id === selectedAddressId) ||
+    getDefaultAddress(addresses);
+  const country = shippingAddress ? shippingAddress.country : "";
+
+  // delivery charge for India - set by admin in settings
+  const [delivery, setDelivery] = useState(DEFAULT_DELIVERY_CHARGE);
+  const [isDeliveryLoaded, setIsDeliveryLoaded] = useState(false);
+
+  useEffect(() => {
+    getDoc(doc(db, "app", "meta"))
+      .then((docSnap) => setDelivery(getDeliveryCharge(docSnap.data())))
+      .catch((e) => console.log("delivery charge: ", e))
+      .finally(() => setIsDeliveryLoaded(true));
+  }, []);
 
   const discount = 0;
 
@@ -29,9 +72,10 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
 
   const total = useMemo(() => subtotal + delivery, [delivery, subtotal]);
 
-  const addDataToOrdersCollection = async () => {
+  // items - cart items checked with the latest stock and pre-order details
+  const addDataToOrdersCollection = async (items) => {
     let ordered_books = [];
-    cartItems.forEach((item) => {
+    items.forEach((item) => {
       let temp = {
         id: item.id,
         author: item.author,
@@ -44,7 +88,12 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
         total_price: item.total_price,
         book_format: item.book_format,
         image: item.images[0],
+        is_preorder: Boolean(item.is_preorder),
       };
+      if (item.is_preorder) {
+        temp.expected_delivery_date = item.expected_delivery_date || null;
+        temp.preorder_remark = item.preorder_remark || "";
+      }
       ordered_books.push(temp);
     });
 
@@ -59,6 +108,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       logistics: "",
       order_id: orderId, // Store document ID inside the document for easy filtering
       ordered_books,
+      ...getOrderPreorderDetails(ordered_books),
       ordered_timestamp,
       price_tax: 0,
       status: "booked",
@@ -67,16 +117,16 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       total_price: total,
       // total_qty: ordered_books.length,
       total_qty: totalBookQuantity,
-      userDetail: {
-        address,
-        city,
-        country,
-        email,
-        id,
-        name,
-        phone,
-        state,
-        pincode,
+      // name, phone and address of the selected delivery address
+      userDetail: toOrderUserDetail(userDetail, shippingAddress),
+      shipping_address: {
+        id: shippingAddress.id,
+        label: shippingAddress.label,
+      },
+      // account which placed the order, delivery can be for someone else
+      ordered_by: {
+        name: userDetail.name,
+        phone: userDetail.phone,
       },
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
@@ -90,8 +140,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       // console.log("orderId: ", orderId);
 
       const res = await axios.post(
-        `https://us-central1-agan-adhigaram.cloudfunctions.net/phonepe/pay`,
-        // `http://127.0.0.1:5001/agan-adhigaram/us-central1/phonepe/pay`,
+        `${FUNCTIONS_BASE_URL}/phonepe/pay`,
         {
           amount: total,
           userId: id,
@@ -127,65 +176,69 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
 
   const handleCheckoutButton = async (e) => {
     e.preventDefault();
+    if (placingOrderRef.current) {
+      return;
+    }
+    if (isAuthenticated && !shippingAddress) {
+      errorNotification("Please add a delivery address to place the order");
+      setIsAddressSheetOpen(true);
+      return;
+    }
+    if (isAuthenticated && validateAddress(shippingAddress)) {
+      // old profile address might not have all the details
+      errorNotification(
+        `${validateAddress(shippingAddress)}. Please update your delivery address`
+      );
+      setIsAddressSheetOpen(true);
+      return;
+    }
     if (isAuthenticated) {
       let text = "Are you sure to proceed?";
       if (window.confirm(text) === true) {
-        // check out of stock
-        const promises = [];
-        // console.log("cartItems: ", cartItems);
-        cartItems.forEach((item) => {
-          const docRef = doc(db, "books", item.id);
-          promises.push(getDoc(docRef));
-        });
-
-        const result = await Promise.all(promises);
-        result.forEach((docSnap, i) => {
-          const currentProduct = docSnap.data();
-          console.log(
-            "result-docSnap: ",
-            cartItems[i],
-            // currentProduct,
-            currentProduct.stock
+        // check out of stock for all the items first, then place a single order
+        placingOrderRef.current = true;
+        setIsPlacingOrder(true);
+        try {
+          const result = await Promise.all(
+            cartItems.map((item) => getDoc(doc(db, "books", item.id)))
           );
 
-          if (currentProduct.stock <= 0) {
-            // less than or equal to 0 - to check cart empty
-            // out of stock, remove that item
-            dispatch(removeItem(cartItems[i]));
-
-            errorNotification(
-              `${cartItems[i].title} (${cartItems[i].title_tamil}) is out of stock`
-            );
-          } else if (currentProduct.stock > 0) {
-            // stock is there
-            if (cartItems[i].qty > currentProduct.stock) {
-              // stock is there but less the qty in cart, so re-calculate
-              let currentCartItems = [...cartItems];
-
-              const updatedCartItem = {
-                ...currentCartItems[i],
-                qty: currentProduct.stock,
-                total_price:
-                  currentProduct.stock * currentProduct.discount_price,
-              };
-
-              currentCartItems[i] = updatedCartItem;
-
-              // currentCartItems = [...updatedCartItems];
-              // console.log("cur: ", currentCartItems);
-
-              dispatch(setCartItems(currentCartItems));
-
-              warningNotification(
-                `The selected number of quantity is not available lowering your quantity to available number`
-              );
-            } else {
-              // less than available, so buy it directly
-              addDataToOrdersCollection();
-              // console.log("can buy");
+          const stockById = {};
+          result.forEach((docSnap) => {
+            if (docSnap.exists()) {
+              stockById[docSnap.id] = docSnap.data();
             }
+          });
+
+          const { removed, adjusted, updatedCartItems, canPlaceOrder } =
+            reconcileCartWithStock(cartItems, stockById, preorderMaxQty);
+
+          removed.forEach((item) => {
+            // out of stock, remove that item
+            dispatch(removeItem(item));
+            errorNotification(
+              `${item.title} (${item.title_tamil}) is out of stock`
+            );
+          });
+
+          if (adjusted.length > 0) {
+            // stock is there but less the qty in cart, so re-calculate
+            dispatch(setCartItems(updatedCartItems));
+            warningNotification(
+              `The selected number of quantity is not available lowering your quantity to available number`
+            );
           }
-        });
+
+          if (canPlaceOrder) {
+            // every item is available, so buy it directly
+            await addDataToOrdersCollection(updatedCartItems);
+          }
+        } catch (e) {
+          errorNotification(e.message);
+        } finally {
+          placingOrderRef.current = false;
+          setIsPlacingOrder(false);
+        }
       }
     } else {
       // show login modal
@@ -197,6 +250,47 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   return (
     <>
       <div className={`${classes.summary} container`}>
+        {isAuthenticated && (
+          <div className={classes.deliverTo}>
+            <div className={classes.deliverToDetails}>
+              <p className={classes.deliverToTitle}>
+                Deliver to
+                {shippingAddress && (
+                  <span className={classes.deliverToLabel}>
+                    {shippingAddress.label}
+                  </span>
+                )}
+              </p>
+              {shippingAddress ? (
+                <>
+                  <p className={classes.deliverToName}>
+                    {shippingAddress.name}, {shippingAddress.phone}
+                  </p>
+                  <p className={classes.deliverToAddress}>
+                    {formatAddress(shippingAddress)}
+                  </p>
+                </>
+              ) : (
+                <p className={classes.deliverToAddress}>
+                  No delivery address added yet.
+                </p>
+              )}
+            </div>
+            <button
+              type="button"
+              className={classes.deliverToBtn}
+              onClick={() => setIsAddressSheetOpen(true)}
+            >
+              {shippingAddress ? "Change" : "Add Address"}
+            </button>
+            <AddressSheet
+              open={isAddressSheetOpen}
+              onClose={() => setIsAddressSheetOpen(false)}
+              selectedId={shippingAddress ? shippingAddress.id : ""}
+              onSelect={setSelectedAddressId}
+            />
+          </div>
+        )}
         {country === "India" || country === "" ? (
           <div className={`${classes.CheckOutSummary} row`}>
             <div className={`${classes.CheckOutSummary1} col-md-6`}>
@@ -232,18 +326,34 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
               )}
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Delivery (within India)</p>
-                <p className={classes.amount}>₹ {delivery}</p>
+                <p className={classes.amount}>
+                  {isDeliveryLoaded ? `₹ ${delivery}` : "..."}
+                </p>
               </div>
+              {preorderDetails.has_preorder && (
+                <p className={classes.preorderNote}>
+                  Your cart has a pre-order book. The whole order will be
+                  shipped together
+                  {preorderDetails.expected_delivery_date
+                    ? `, expected by ${formatExpectedDate(
+                        preorderDetails.expected_delivery_date
+                      )}.`
+                    : " once the book is released."}
+                </p>
+              )}
               <hr />
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Total</p>
-                <p className={classes.amount}>₹ {total}</p>
+                <p className={classes.amount}>
+                  {isDeliveryLoaded ? `₹ ${total}` : "..."}
+                </p>
               </div>
               <button
                 className={classes.checkoutbtn}
                 onClick={handleCheckoutButton}
+                disabled={isPlacingOrder || !isDeliveryLoaded}
               >
-                Checkout
+                {isPlacingOrder ? "Please wait..." : "Checkout"}
               </button>
               <Link to="/books" className={classes.Continue}>
                 {/* <a href="" > */}

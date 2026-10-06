@@ -31,10 +31,10 @@ import {
   GetLanguages, //async functions
 } from "react-country-state-city";
 import classes from "./Profile.module.css";
-import { selectUser } from "../../store/userSlice";
+import { login, selectUser } from "../../store/userSlice";
+import AddressManager from "../Address/AddressManager";
 import {
   isValidName,
-  isValidAddress,
   isValidPassword,
   isValidPhoneNumber,
 } from "../../utils/validator";
@@ -133,20 +133,25 @@ const Profile = () => {
   const { name, address, phone, country, state, city, pincode } = editedValues;
 
   async function saveChanges() {
-    const docRef = doc(db, "users", id);
-    await updateDoc(docRef, { name, phone, address });
-    setDisableProfileEdit(true);
+    try {
+      const docRef = doc(db, "users", id);
+      await updateDoc(docRef, { name, phone });
+      // keep the logged in user details in sync, so checkout uses the new values
+      dispatch(login({ ...userDetail, name, phone }));
+      successNotification("Profile updated successfully!!!");
+      setDisableProfileEdit(true);
+    } catch (e) {
+      errorNotification(e.message);
+    }
   }
 
   const handleSaveChanges = () => {
-    const { name, address, phone } = editedValues;
+    const { name, phone } = editedValues;
 
     !isValidName(name)
       ? errorNotification("Invalid Name")
       : !isValidPhoneNumber(phone)
       ? errorNotification("Invalid phone")
-      : !isValidAddress(address)
-      ? errorNotification("Invalid Address ")
       : saveChanges();
   };
 
@@ -256,73 +261,6 @@ const Profile = () => {
                 sx={{ mb: 2 }}
               />
             </Grid>
-            <Grid item md={12} xs={12}>
-              <TextField
-                id="outlined-multiline-static"
-                // label="Address"
-                value={editedValues.address}
-                onChange={(e) => handleEditValues(e)}
-                disabled={disableProfileEdit}
-                multiline
-                name="address"
-                rows={2}
-                sx={{ mb: 2, width: "100%" }}
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                id="outlined-basic1"
-                label="Country"
-                value={editedValues.country}
-                disabled={true}
-                variant="outlined"
-                name="country"
-                className="name"
-                sx={{ mb: 2 }}
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                id="outlined-basic1"
-                label="State"
-                value={editedValues.state}
-                disabled={true}
-                variant="outlined"
-                name="state"
-                className="name"
-                sx={{ mb: 2 }}
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                id="outlined-basic1"
-                label="city"
-                value={editedValues.city}
-                disabled={true}
-                variant="outlined"
-                name="city"
-                className="name"
-                sx={{ mb: 2 }}
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                id="outlined-basic"
-                label="Pincode"
-                variant="outlined"
-                name="pincode"
-                // type="number"
-                value={editedValues.pincode}
-                // onChange={handleInputChange}
-                disabled={true}
-                className="pincode"
-                size="medium"
-              />
-            </Grid>
           </Grid>
 
           {!disableProfileEdit && (
@@ -344,6 +282,14 @@ const Profile = () => {
               </Button>
             </Stack>
           )}
+        </Box>
+        <Box marginTop="30px">
+          <Typography variant="h4" component="h2" sx={{ mb: 2 }}>
+            Shipping Addresses
+          </Typography>
+          <Box sx={profilehalf}>
+            <AddressManager />
+          </Box>
         </Box>
         <Box marginTop="30px">
           <Stack

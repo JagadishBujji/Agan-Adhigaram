@@ -219,3 +219,15 @@
 /* Larger screens */
 @media only screen and (min-width: 1366px) {
 }
+
+.preorder {
+  display: inline-block;
+  background: #fdf3e2;
+  color: #b96a05;
+  border-radius: 12px;
+  padding: 2px 10px;
+  margin: 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}

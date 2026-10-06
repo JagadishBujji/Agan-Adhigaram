@@ -378,3 +378,27 @@
     font-size: 13px;
   }
 }
+
+.preorderBox {
+  background: #fdf3e2;
+  border-left: 4px solid #f19e38;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.preorderBox p {
+  margin: 0;
+}
+
+.preorderTitle {
+  font-weight: 600;
+  color: #b96a05;
+}
+
+.preorderRemark {
+  font-size: 14px;
+  color: #000;
+  overflow-wrap: anywhere;
+}

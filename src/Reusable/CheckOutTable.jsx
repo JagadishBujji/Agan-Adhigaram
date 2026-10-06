@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import classes from "./CheckOutTable.module.css";
 import { addItemQty, removeItemQty } from "../store/cartSlice";
+import { getPreorderLabel } from "../utils/preorder";
 
 const CheckOutTable = ({ cartItems }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,11 @@ const CheckOutTable = ({ cartItems }) => {
           >
             <p className={classes.tableheadrow1}>
               {item.title}({item.title_tamil})
+              {item.is_preorder && (
+                <span className={classes.preorder}>
+                  {getPreorderLabel(item)}
+                </span>
+              )}
             </p>
             <div className={classes.qty}>
               <i

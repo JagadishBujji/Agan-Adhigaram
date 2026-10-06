@@ -10,6 +10,7 @@ import {
   removeItemQty,
   selectCartItems,
 } from "../../store/cartSlice";
+import { getPreorderLabel, isOutOfStock } from "../../utils/preorder";
 import classes from "./BookListView.module.css";
 
 const BookListView = ({ book }) => {
@@ -72,6 +73,11 @@ const BookListView = ({ book }) => {
                 {book.title}({book.title_tamil})
               </h2>
               <p className={classes.bookram}>{book.author}</p>
+              {book.is_preorder && (
+                <span className={classes.preorder}>
+                  {getPreorderLabel(book)}
+                </span>
+              )}
               {/* <p className={classes.bookramdec}>{book.description}</p> */}
             </Link>
           </div>
@@ -89,7 +95,7 @@ const BookListView = ({ book }) => {
 
             <div className={classes.checkout}>
               {/* <i className={`${classes.cart} fa-solid fa-cart-shopping`}></i> */}
-              {book.stock <= 0 ? (
+              {isOutOfStock(book) ? (
                 <p className={`${classes.outofstock}`}>Out of Stock</p>
               ) : noOfItems === 0 ? (
                 <i

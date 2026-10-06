@@ -8,6 +8,7 @@ import {
   removeItemQty,
   selectCartItems,
 } from "../../store/cartSlice";
+import { getPreorderLabel, isOutOfStock } from "../../utils/preorder";
 
 const BookCard = ({ book }) => {
   // console.log("book: ", book);
@@ -52,7 +53,7 @@ const BookCard = ({ book }) => {
         </Link>
         <div className={classes.favheart}>
           {/* <i className={`${classes.heart} fa-regular fa-heart`}></i> */}
-          {book.stock <= 0 ? (
+          {isOutOfStock(book) ? (
             <p className={`${classes.outofstock}`}>Out of Stock</p>
           ) : noOfItems === 0 ? (
             <i
@@ -74,6 +75,9 @@ const BookCard = ({ book }) => {
           )}
         </div>
       </div>
+      {book.is_preorder && (
+        <span className={classes.preorder}>{getPreorderLabel(book)}</span>
+      )}
       <h5 className={classes.bookgenre}>{book.genre}</h5>
       <h2 className={classes.bookbigtitle}>
         {book.title} ({book.title_tamil})

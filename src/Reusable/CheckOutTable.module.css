@@ -151,3 +151,10 @@
     width: 50%;
   }
 }
+
+.preorder {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b96a05;
+}

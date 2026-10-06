@@ -14,10 +14,16 @@ import OrdersPage from "./pages/OrdersPage";
 import { login, logout, selectIsAuthenticated } from "./store/userSlice";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./services/firebase";
+import { auth, db } from "./services/firebase";
 import { getUserById } from "./api/user";
 import { errorNotification } from "./utils/notifications";
-import { clearCart, setCartItems } from "./store/cartSlice";
+import {
+  clearCart,
+  setCartItems,
+  setPreorderMaxQty,
+} from "./store/cartSlice";
+import { doc, getDoc } from "firebase/firestore";
+import { getPreorderMaxQty } from "./utils/preorder";
 import Loading from "./Reusable/Loading";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./Layout/Footer/PrivacyPolicy";
@@ -57,6 +63,15 @@ export default function Router() {
 
     // Clean up the subscription
     return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+    // pre-order limit set by admin, default is used until it is loaded
+    getDoc(doc(db, "app", "meta"))
+      .then((docSnap) =>
+        dispatch(setPreorderMaxQty(getPreorderMaxQty(docSnap.data())))
+      )
+      .catch((e) => console.log("pre-order limit: ", e));
   }, []);
 
   const AuthenticatedRoute = ({ element, ...rest }) =>
