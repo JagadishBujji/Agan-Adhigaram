@@ -1,5 +1,6 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../services/firebase";
+import { getDefaultAddress } from "../utils/addresses";
 
 const collection = "users";
 
@@ -50,4 +51,19 @@ const getUserById = (id, sendData) => {
     });
 };
 
-export { getUserById };
+// saves the shipping addresses, default address is also kept in the profile address fields
+const saveUserAddresses = async (id, addresses) => {
+  const defaultAddress = getDefaultAddress(addresses);
+  const updatedData = {
+    addresses,
+    address: defaultAddress ? defaultAddress.address : "",
+    city: defaultAddress ? defaultAddress.city : "",
+    state: defaultAddress ? defaultAddress.state : "",
+    country: defaultAddress ? defaultAddress.country : "",
+    pincode: defaultAddress ? defaultAddress.pincode : "",
+  };
+  await updateDoc(doc(db, collection, id), updatedData);
+  return updatedData;
+};
+
+export { getUserById, saveUserAddresses };

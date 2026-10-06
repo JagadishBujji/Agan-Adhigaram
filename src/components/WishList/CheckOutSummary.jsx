@@ -14,6 +14,14 @@ import {
 import { removeItem, setCartItems } from "../../store/cartSlice";
 import { reconcileCartWithStock } from "../../utils/cartStock";
 import {
+  formatAddress,
+  getDefaultAddress,
+  getUserAddresses,
+  toOrderUserDetail,
+  validateAddress,
+} from "../../utils/addresses";
+import AddressSheet from "../Address/AddressSheet";
+import {
   DEFAULT_DELIVERY_CHARGE,
   getDeliveryCharge,
 } from "../../utils/logistics";
@@ -24,8 +32,16 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const [isPlacingOrder, setIsPlacingOrder] = useState(false);
   // state update is async, ref blocks the second click immediately
   const placingOrderRef = useRef(false);
-  const { address, email, id, name, phone, city, state, country, pincode } =
-    userDetail;
+  const { id, phone } = userDetail;
+
+  // delivery address - default address is selected, user can change it in the sheet
+  const addresses = getUserAddresses(userDetail);
+  const [selectedAddressId, setSelectedAddressId] = useState("");
+  const [isAddressSheetOpen, setIsAddressSheetOpen] = useState(false);
+  const shippingAddress =
+    addresses.find((item) => item.id === selectedAddressId) ||
+    getDefaultAddress(addresses);
+  const country = shippingAddress ? shippingAddress.country : "";
 
   // delivery charge for India - set by admin in settings
   const [delivery, setDelivery] = useState(DEFAULT_DELIVERY_CHARGE);
@@ -84,16 +100,16 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       total_price: total,
       // total_qty: ordered_books.length,
       total_qty: totalBookQuantity,
-      userDetail: {
-        address,
-        city,
-        country,
-        email,
-        id,
-        name,
-        phone,
-        state,
-        pincode,
+      // name, phone and address of the selected delivery address
+      userDetail: toOrderUserDetail(userDetail, shippingAddress),
+      shipping_address: {
+        id: shippingAddress.id,
+        label: shippingAddress.label,
+      },
+      // account which placed the order, delivery can be for someone else
+      ordered_by: {
+        name: userDetail.name,
+        phone: userDetail.phone,
       },
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
@@ -144,6 +160,19 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const handleCheckoutButton = async (e) => {
     e.preventDefault();
     if (placingOrderRef.current) {
+      return;
+    }
+    if (isAuthenticated && !shippingAddress) {
+      errorNotification("Please add a delivery address to place the order");
+      setIsAddressSheetOpen(true);
+      return;
+    }
+    if (isAuthenticated && validateAddress(shippingAddress)) {
+      // old profile address might not have all the details
+      errorNotification(
+        `${validateAddress(shippingAddress)}. Please update your delivery address`
+      );
+      setIsAddressSheetOpen(true);
       return;
     }
     if (isAuthenticated) {
@@ -204,6 +233,47 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   return (
     <>
       <div className={`${classes.summary} container`}>
+        {isAuthenticated && (
+          <div className={classes.deliverTo}>
+            <div className={classes.deliverToDetails}>
+              <p className={classes.deliverToTitle}>
+                Deliver to
+                {shippingAddress && (
+                  <span className={classes.deliverToLabel}>
+                    {shippingAddress.label}
+                  </span>
+                )}
+              </p>
+              {shippingAddress ? (
+                <>
+                  <p className={classes.deliverToName}>
+                    {shippingAddress.name}, {shippingAddress.phone}
+                  </p>
+                  <p className={classes.deliverToAddress}>
+                    {formatAddress(shippingAddress)}
+                  </p>
+                </>
+              ) : (
+                <p className={classes.deliverToAddress}>
+                  No delivery address added yet.
+                </p>
+              )}
+            </div>
+            <button
+              type="button"
+              className={classes.deliverToBtn}
+              onClick={() => setIsAddressSheetOpen(true)}
+            >
+              {shippingAddress ? "Change" : "Add Address"}
+            </button>
+            <AddressSheet
+              open={isAddressSheetOpen}
+              onClose={() => setIsAddressSheetOpen(false)}
+              selectedId={shippingAddress ? shippingAddress.id : ""}
+              onSelect={setSelectedAddressId}
+            />
+          </div>
+        )}
         {country === "India" || country === "" ? (
           <div className={`${classes.CheckOutSummary} row`}>
             <div className={`${classes.CheckOutSummary1} col-md-6`}>

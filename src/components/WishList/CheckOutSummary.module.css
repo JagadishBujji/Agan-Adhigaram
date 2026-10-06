@@ -134,3 +134,72 @@
     margin-bottom: 20px;
   }
 }
+
+/* delivery address - mobile first */
+.deliverTo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #f1d9b5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.deliverToDetails {
+  min-width: 0;
+  flex-grow: 1;
+}
+
+.deliverTo p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.deliverToTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 4px;
+}
+
+.deliverToLabel {
+  background: #fdf3e2;
+  color: #b96a05;
+  border-radius: 12px;
+  padding: 2px 10px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.deliverToName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+.deliverToAddress {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.deliverToBtn {
+  background: transparent;
+  border: 1px solid #f19e38;
+  color: #f19e38;
+  border-radius: 5px;
+  min-height: 44px;
+  padding: 8px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@media (min-width: 600px) {
+  .deliverTo {
+    flex-direction: row;
+    align-items: center;
+  }
+}
