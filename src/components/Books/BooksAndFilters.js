@@ -41,66 +41,26 @@ const BooksAndFilters = () => {
     }
   }, []);
 
-  const getPublishedBooks = async () => {
-    // console.log("selectedItem: ", selectedItem);
-    const booksRef = collection(db, "books");
-
-    let bookQuery = query(
-      booksRef,
+  // first page and "load more" must use the same filters and sort order,
+  // otherwise startAfter() continues from the wrong place and books are skipped/repeated
+  const buildBooksQuery = (afterDocument) => {
+    const constraints = [
       where("status", "==", "published"),
       where("is_available", "==", true),
-      limit(pageLimit)
-    );
-
-    if (selectedItem !== "all genre") {
-      bookQuery = query(
-        booksRef,
-        where("status", "==", "published"),
-        where("is_available", "==", true),
-        where("genre", "==", selectedItem),
-        limit(pageLimit)
-      );
+    ];
+    if (selectedItem && selectedItem !== "all genre") {
+      constraints.push(where("genre", "==", selectedItem));
     }
-
-    if (sort === "new") {
-      bookQuery = query(
-        booksRef,
-        where("status", "==", "published"),
-        where("is_available", "==", true),
-        orderBy("date_published", "desc"),
-        limit(pageLimit)
-      );
-      if (selectedItem !== "all genre") {
-        bookQuery = query(
-          booksRef,
-          where("status", "==", "published"),
-          where("is_available", "==", true),
-          where("genre", "==", selectedItem),
-          orderBy("date_published", "desc"),
-          limit(pageLimit)
-        );
-      }
-    } else {
-      bookQuery = query(
-        booksRef,
-        where("status", "==", "published"),
-        where("is_available", "==", true),
-        orderBy("date_published", "asc"),
-        limit(pageLimit)
-      );
-      if (selectedItem !== "all genre") {
-        bookQuery = query(
-          booksRef,
-          where("status", "==", "published"),
-          where("is_available", "==", true),
-          where("genre", "==", selectedItem),
-          orderBy("date_published", "asc"),
-          limit(pageLimit)
-        );
-      }
+    constraints.push(orderBy("date_published", sort === "new" ? "desc" : "asc"));
+    if (afterDocument) {
+      constraints.push(startAfter(afterDocument));
     }
+    constraints.push(limit(pageLimit));
+    return query(collection(db, "books"), ...constraints);
+  };
 
-    const querySnapshot = await getDocs(bookQuery);
+  const getPublishedBooks = async () => {
+    const querySnapshot = await getDocs(buildBooksQuery());
 
     if (querySnapshot.empty) {
       setBooks([]);
@@ -132,34 +92,15 @@ const BooksAndFilters = () => {
   }, [sort]);
 
   const loadMoreBooks = async () => {
-    const booksRef = collection(db, "books");
-
-    let bookQuery;
-
-    if (lastDocument) {
-      bookQuery = query(
-        booksRef,
-        where("status", "==", "published"),
-        where("is_available", "==", true),
-        startAfter(lastDocument),
-        limit(pageLimit)
-      );
-      if (selectedItem !== "all genre") {
-        bookQuery = query(
-          booksRef,
-          where("status", "==", "published"),
-          where("is_available", "==", true),
-          where("genre", "==", selectedItem),
-          startAfter(lastDocument),
-          limit(pageLimit)
-        );
-      }
+    if (!lastDocument) {
+      setShowLoadMore(false);
+      return;
     }
 
-    const querySnapshot = await getDocs(bookQuery);
+    const querySnapshot = await getDocs(buildBooksQuery(lastDocument));
 
     if (querySnapshot.empty) {
-      warningNotification("No more orders!!!");
+      warningNotification("No more books to show");
       setShowLoadMore(false);
     } else {
       setBooks((prevState) => {
