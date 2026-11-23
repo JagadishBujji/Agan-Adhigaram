@@ -15,26 +15,32 @@ function isValidPassword(password) {
 }
 
 function isValidName(name) {
-  //Name contains letter and space(no space in beginning and ending)
-  const nameRegex = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+  // english letters (the invoice pdf prints only these), with initials and
+  // joiners: "K. Ramesh", "R.K. Selvi", "Anne-Marie", "O'Neil"
+  // no space in beginning and ending
+  const nameRegex = /^[A-Za-z]+(?:(?:\.\s?|\s|-|')[A-Za-z]+)*\.?$/;
 
-  //Test the name against the regex pattern
-  return nameRegex.test(name);
+  return typeof name === "string" && nameRegex.test(name);
+}
+
+// "+91 99521 68015", "09952168015", "99521-68015" -> "9952168015"
+// (autofill often adds the country code / spaces)
+function normalizePhoneNumber(phoneNumber) {
+  const digits = String(phoneNumber || "").replace(/[\s()-]/g, "").replace(/^\+/, "");
+  if (/^91\d{10}$/.test(digits)) return digits.slice(2);
+  if (/^0\d{10}$/.test(digits)) return digits.slice(1);
+  return digits;
 }
 
 function isValidPhoneNumber(phoneNumber) {
-  // contains only 10 digit number
-  const phoneNumberRegex = /^\d{10}$/;
-
-  //Test the Phone number against the regex pattern
-  return phoneNumberRegex.test(phoneNumber);
+  // 10 digit number after removing the country code / spaces
+  return /^\d{10}$/.test(normalizePhoneNumber(phoneNumber));
 }
 
 function isValidAddress(address) {
-  const addressRegex = /^[a-zA-Z0-9\s\/.,#'-]+$/;
-
-  //Test the address against the regex pattern
-  return addressRegex.test(address);
+  // printable english text and new lines (invoice pdf limitation), at least 5 characters
+  const text = String(address || "").trim();
+  return text.length >= 5 && /^[\x20-\x7E\n\r]+$/.test(text);
 }
 
 function isValidNumber(num) {
@@ -50,6 +56,7 @@ export {
   isValidPassword,
   isValidAddress,
   isValidPhoneNumber,
+  normalizePhoneNumber,
   isValidName,
   isValidNumber,
 };

@@ -15,7 +15,7 @@ import { login, logout, selectIsAuthenticated } from "./store/userSlice";
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./services/firebase";
-import { getUserById } from "./api/user";
+import { getUserById, saveUserEmail } from "./api/user";
 import { errorNotification } from "./utils/notifications";
 import {
   clearCart,
@@ -23,12 +23,14 @@ import {
   setPreorderMaxQty,
 } from "./store/cartSlice";
 import { doc, getDoc } from "firebase/firestore";
+import { getChangedEmail } from "./utils/emailVerification";
 import { getPreorderMaxQty } from "./utils/preorder";
 import Loading from "./Reusable/Loading";
 import ContactUs from "./pages/ContactUs";
 import PrivacyPolicy from "./Layout/Footer/PrivacyPolicy";
 import TeamsCondition from "./Layout/Footer/TeamsCondition";
 import PaymentStatus from "./pages/PaymentStatus";
+import NotFound from "./pages/NotFound";
 
 export default function Router() {
   const dispatch = useDispatch();
@@ -46,7 +48,17 @@ export default function Router() {
         getUserById(uid, (result) => {
           // console.log("userdetail: ", result);
           if (result?.success) {
-            dispatch(login(result.data));
+            const changedEmail = getChangedEmail(result.data, user);
+            if (changedEmail) {
+              saveUserEmail(uid, changedEmail).catch((e) =>
+                console.log("email sync: ", e)
+              );
+            }
+            dispatch(
+              login(
+                changedEmail ? { ...result.data, email: changedEmail } : result.data
+              )
+            );
             // Set authChecked to true once authentication state is checked
             setAuthChecked(true);
           } else {
@@ -139,6 +151,8 @@ export default function Router() {
             <AuthenticatedRoute element={<PaymentStatus />} key="orders" />
           ),
         },
+        // unknown urls showed a blank page
+        { path: "*", element: <NotFound /> },
       ],
     },
   ]);

@@ -73,7 +73,7 @@ const CountryAndStates = ({
         <Grid md={5.5} xs={12} sx={{ mb: 2 }}>
           <TextField
             fullWidth
-            id="outlined-basic"
+            id="signup-pincode"
             label="Pincode"
             variant="outlined"
             name="pincode"

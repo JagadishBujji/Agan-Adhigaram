@@ -18,6 +18,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./LoginModal.css";
 import { isValidEmail, isValidPassword } from "../utils/validator";
+import { getAuthErrorMessage } from "../utils/authMessages";
 import { errorNotification, successNotification } from "../utils/notifications";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase";
@@ -121,7 +122,8 @@ export default function LoginModal() {
   };
 
   const handleLogin = () => {
-    const { email, password } = userCred;
+    const { password } = userCred;
+    const email = userCred.email.trim().toLowerCase();
     if (isValidEmail(email) && isValidPassword(password)) {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -148,10 +150,10 @@ export default function LoginModal() {
           }); // async/await, promise-then, callback
         })
         .catch((e) => {
-          errorNotification(e.code);
+          errorNotification(getAuthErrorMessage(e));
         });
     } else {
-      errorNotification("Invalid Email/Password");
+      errorNotification("Please enter a valid email and a password of at least 6 characters.");
     }
   };
 
@@ -163,11 +165,11 @@ export default function LoginModal() {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
+        aria-labelledby="login-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2">
+          <Typography id="login-title" variant="h4" component="h2">
             Login
           </Typography>
           {/* <Stack
@@ -203,7 +205,7 @@ export default function LoginModal() {
             <Grid md={12} xs={12}>
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="login-email"
                 label="Email"
                 variant="outlined"
                 name="email"
@@ -215,11 +217,11 @@ export default function LoginModal() {
             </Grid>
             <Grid md={12} xs={12}>
               <FormControl sx={{ mb: 2, width: "100%" }} variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
+                <InputLabel htmlFor="login-password">
                   Password
                 </InputLabel>
                 <OutlinedInput
-                  id="outlined-adornment-password"
+                  id="login-password"
                   name="password"
                   type={showPassword ? "text" : "password"}
                   value={userCred.password}

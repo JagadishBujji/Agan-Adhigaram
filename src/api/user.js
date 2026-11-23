@@ -66,4 +66,8 @@ const saveUserAddresses = async (id, addresses) => {
   return updatedData;
 };
 
-export { getUserById, saveUserAddresses };
+// login email changed from "Wrong email? Change it": order mails use the profile email
+const saveUserEmail = (id, email) =>
+  updateDoc(doc(db, collection, id), { email });
+
+export { getUserById, saveUserAddresses, saveUserEmail };
