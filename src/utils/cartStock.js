@@ -14,6 +14,9 @@ function reconcileCartWithStock(
 
   cartItems.forEach((cartItem) => {
     const book = booksById[cartItem.id];
+    // hidden or draft books are not on sale (the payment server refuses them too)
+    const onSale =
+      book && book.is_available !== false && book.status !== "draft";
     const stock = book ? parseInt(book.stock) || 0 : 0;
     const preorder = isPreorder(book);
     const availableQty = preorder ? preorderMaxQty : stock;
@@ -39,7 +42,7 @@ function reconcileCartWithStock(
     const priceChanged =
       book && Number(cartItem.discount_price) !== latestPrice;
 
-    if (!book || availableQty <= 0) {
+    if (!book || !onSale || availableQty <= 0) {
       removed.push(item);
     } else if (item.qty > availableQty) {
       const updatedItem = {

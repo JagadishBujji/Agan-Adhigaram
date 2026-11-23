@@ -49,6 +49,17 @@ test("deleted book and negative stock are treated as out of stock", () => {
   expect(result.canPlaceOrder).toBe(false);
 });
 
+test("hidden or draft book is removed, like an out of stock one", () => {
+  for (const change of [{ is_available: false }, { status: "draft" }]) {
+    const result = reconcileCartWithStock(cart, {
+      a: { stock: 5, discount_price: 100, ...change },
+      b: { stock: 3, discount_price: 50 },
+    });
+    expect(result.canPlaceOrder).toBe(false);
+    expect(result.removed.map((item) => item.id)).toEqual(["a"]);
+  }
+});
+
 test("empty cart cannot place an order", () => {
   expect(reconcileCartWithStock([], {}).canPlaceOrder).toBe(false);
 });
