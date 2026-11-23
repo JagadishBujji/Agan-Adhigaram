@@ -15,4 +15,15 @@ function getChangedEmail(userDetail, authUser) {
   return authEmail.toLowerCase() === profileEmail.toLowerCase() ? null : authEmail;
 }
 
-export { getChangedEmail, needsEmailVerification };
+// Firestore checks "verified" in the login token, which still says "not
+// verified" after the customer opens the link (until it renews, up to an
+// hour). Get a fresh token once the account shows as verified.
+async function refreshVerifiedToken(authUser) {
+  if (!authUser || !authUser.emailVerified) return;
+  const { claims } = await authUser.getIdTokenResult();
+  if (claims.email_verified !== true) {
+    await authUser.getIdToken(true);
+  }
+}
+
+export { getChangedEmail, needsEmailVerification, refreshVerifiedToken };

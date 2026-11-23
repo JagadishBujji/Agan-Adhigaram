@@ -1,4 +1,8 @@
-import { getChangedEmail, needsEmailVerification } from "./emailVerification";
+import {
+  getChangedEmail,
+  needsEmailVerification,
+  refreshVerifiedToken,
+} from "./emailVerification";
 
 describe("needsEmailVerification", () => {
   it("asks a new account to verify before ordering", () => {
@@ -46,5 +50,34 @@ describe("getChangedEmail", () => {
 
   it("returns null when the login has no email", () => {
     expect(getChangedEmail({ email: "a@x.com" }, { email: null })).toBeNull();
+  });
+});
+
+describe("refreshVerifiedToken", () => {
+  const fakeUser = (emailVerified, tokenSaysVerified) => ({
+    emailVerified,
+    getIdTokenResult: jest.fn(async () => ({
+      claims: { email_verified: tokenSaysVerified },
+    })),
+    getIdToken: jest.fn(async () => "token"),
+  });
+
+  it("gets a new login token when the email was just verified", async () => {
+    const user = fakeUser(true, false);
+    await refreshVerifiedToken(user);
+    expect(user.getIdToken).toHaveBeenCalledWith(true);
+  });
+
+  it("keeps the token when it already says verified", async () => {
+    const user = fakeUser(true, true);
+    await refreshVerifiedToken(user);
+    expect(user.getIdToken).not.toHaveBeenCalled();
+  });
+
+  it("does nothing when the email is not verified or nobody is logged in", async () => {
+    const user = fakeUser(false, false);
+    await refreshVerifiedToken(user);
+    expect(user.getIdTokenResult).not.toHaveBeenCalled();
+    await expect(refreshVerifiedToken(null)).resolves.toBeUndefined();
   });
 });

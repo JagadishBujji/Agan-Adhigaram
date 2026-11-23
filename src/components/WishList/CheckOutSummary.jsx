@@ -34,6 +34,7 @@ import EmailVerificationNotice from "../EmailVerification/EmailVerificationNotic
 import {
   getChangedEmail,
   needsEmailVerification,
+  refreshVerifiedToken,
 } from "../../utils/emailVerification";
 import {
   DEFAULT_DELIVERY_CHARGE,
@@ -224,6 +225,8 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
         return;
       }
       setMustVerifyEmail(false);
+      // without it the order is refused until the old token renews
+      await refreshVerifiedToken(auth.currentUser).catch(() => {});
       syncChangedEmail();
     }
     if (isAuthenticated && !shippingAddress) {
