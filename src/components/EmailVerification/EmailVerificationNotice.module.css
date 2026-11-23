@@ -1,0 +1,94 @@
+/* matches the "Deliver to" card and the orange checkout button */
+.notice {
+  background: #fff;
+  border: 1px solid #f1d9b5;
+  border-left: 4px solid #f19e38;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 6px;
+}
+
+.text {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.65);
+  margin-bottom: 12px;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border: none;
+  background-color: #f19e38;
+  color: #fff;
+}
+
+.secondaryBtn {
+  border: 1px solid #f19e38;
+  background-color: #fff;
+  color: #c46f0c;
+}
+
+.linkBtn {
+  border: none;
+  background: none;
+  padding: 8px 0;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  color: #9f3239;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.primaryBtn:disabled,
+.secondaryBtn:disabled,
+.linkBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.changeForm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.label {
+  width: 100%;
+  font-size: 13px;
+  color: #000;
+  margin: 0;
+}
+
+.input {
+  flex: 1 1 220px;
+  padding: 8px 10px;
+  border: 1px solid #d9c3a0;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}

@@ -2,10 +2,11 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { collection, setDoc, getDoc, doc } from "firebase/firestore";
 import axios from "axios";
-import { selectUser } from "../../store/userSlice";
+import { login, selectUser } from "../../store/userSlice";
+import { saveUserEmail } from "../../api/user";
 import classes from "./CheckOutSummary.module.css";
 import { Link } from "react-router-dom";
-import { db, FUNCTIONS_BASE_URL } from "../../services/firebase";
+import { auth, db, FUNCTIONS_BASE_URL } from "../../services/firebase";
 import {
   errorNotification,
   infoNotification,
@@ -29,12 +30,18 @@ import {
   validateAddress,
 } from "../../utils/addresses";
 import AddressSheet from "../Address/AddressSheet";
+import EmailVerificationNotice from "../EmailVerification/EmailVerificationNotice";
+import {
+  getChangedEmail,
+  needsEmailVerification,
+  refreshVerifiedToken,
+} from "../../utils/emailVerification";
 import {
   DEFAULT_DELIVERY_CHARGE,
   getDeliveryCharge,
 } from "../../utils/logistics";
 
-const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
+const CheckOutSummary = ({ cartItems }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const preorderMaxQty = useSelector(selectPreorderMaxQty);
@@ -48,6 +55,19 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   const addresses = getUserAddresses(userDetail);
   const [selectedAddressId, setSelectedAddressId] = useState("");
   const [isAddressSheetOpen, setIsAddressSheetOpen] = useState(false);
+  // new accounts verify the email before the first order (older accounts are not asked)
+  const [mustVerifyEmail, setMustVerifyEmail] = useState(false);
+  useEffect(() => {
+    setMustVerifyEmail(needsEmailVerification(userDetail, auth.currentUser));
+  }, [userDetail, isAuthenticated]);
+
+  // after "Wrong email? Change it" the order (confirmation, invoice) must go to the new email
+  const syncChangedEmail = () => {
+    const changedEmail = getChangedEmail(userDetail, auth.currentUser);
+    if (!changedEmail) return;
+    saveUserEmail(id, changedEmail).catch((e) => console.log("email sync: ", e));
+    dispatch(login({ ...userDetail, email: changedEmail }));
+  };
   const shippingAddress =
     addresses.find((item) => item.id === selectedAddressId) ||
     getDefaultAddress(addresses);
@@ -115,10 +135,14 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       tax_percentage: 0,
       total_item_price: subtotal,
       total_price: total,
-      // total_qty: ordered_books.length,
-      total_qty: totalBookQuantity,
+      // from the books of this order: the server checks it, the cart counter can drift
+      total_qty: ordered_books.reduce((sum, book) => sum + book.qty, 0),
       // name, phone and address of the selected delivery address
-      userDetail: toOrderUserDetail(userDetail, shippingAddress),
+      // login email is the current one (the profile may still have an email changed in this click)
+      userDetail: toOrderUserDetail(
+        { ...userDetail, email: auth.currentUser?.email || userDetail.email },
+        shippingAddress
+      ),
       shipping_address: {
         id: shippingAddress.id,
         label: shippingAddress.label,
@@ -170,7 +194,14 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
         errorNotification(res.data.message);
       }
     } catch (e) {
-      errorNotification(e.message);
+      // the payment server explains a refused order (e.g. prices changed) in data.message
+      const serverMessage = e.response && e.response.data && e.response.data.message;
+      errorNotification(
+        serverMessage ||
+          (e.message === "Network Error"
+            ? "Could not reach the payment server. Please check your internet connection and try again."
+            : e.message)
+      );
     }
   };
 
@@ -178,6 +209,25 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
     e.preventDefault();
     if (placingOrderRef.current) {
       return;
+    }
+    if (isAuthenticated && userDetail.email_verification_required) {
+      // the link may have been opened in another tab, so get the latest state
+      await auth.currentUser?.reload().catch(() => {});
+      if (needsEmailVerification(userDetail, auth.currentUser)) {
+        setMustVerifyEmail(true);
+        errorNotification("Please verify your email to place the order");
+        // the notice renders on the next paint, then bring it into view
+        setTimeout(() =>
+          document
+            .getElementById("email-verification-notice")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" })
+        );
+        return;
+      }
+      setMustVerifyEmail(false);
+      // without it the order is refused until the old token renews
+      await refreshVerifiedToken(auth.currentUser).catch(() => {});
+      syncChangedEmail();
     }
     if (isAuthenticated && !shippingAddress) {
       errorNotification("Please add a delivery address to place the order");
@@ -225,7 +275,7 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
             // stock is there but less the qty in cart, so re-calculate
             dispatch(setCartItems(updatedCartItems));
             warningNotification(
-              `The selected number of quantity is not available lowering your quantity to available number`
+              "Your cart was updated with the latest price / available quantity. Please check it and click Checkout again."
             );
           }
 
@@ -250,6 +300,16 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
   return (
     <>
       <div className={`${classes.summary} container`}>
+        {isAuthenticated && mustVerifyEmail && (
+          <EmailVerificationNotice
+            id="email-verification-notice"
+            email={auth.currentUser?.email || userDetail.email}
+            onVerified={() => {
+              setMustVerifyEmail(false);
+              syncChangedEmail();
+            }}
+          />
+        )}
         {isAuthenticated && (
           <div className={classes.deliverTo}>
             <div className={classes.deliverToDetails}>

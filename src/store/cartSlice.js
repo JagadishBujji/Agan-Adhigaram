@@ -129,20 +129,14 @@ export const cartSlice = createSlice({
       const cartItems = action.payload;
 
       if (cartItems) {
-        if (cartItems.length > 0) {
-          if (cartItems.length === 1) {
-            state.totalBookQuantity = cartItems[0].qty;
-          } else {
-            const totalQty = cartItems.reduce(
-              (accumulator, item) => accumulator + item.qty,
-              0
-            );
-
-            // console.log("totalQuantity: ", totalQty);
-            state.totalBookQuantity = totalQty;
-          }
-        }
-        state.cartItems = [...cartItems];
+        // items saved without a book id (opened from a direct book link before the fix)
+        // can't be checked out and block other books, so they are dropped
+        const validItems = cartItems.filter((item) => item && item.id);
+        state.totalBookQuantity = validItems.reduce(
+          (accumulator, item) => accumulator + item.qty,
+          0
+        );
+        state.cartItems = validItems;
         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
       }
       // console.log("cartItems--:", cartItems, state.totalBookQuantity);

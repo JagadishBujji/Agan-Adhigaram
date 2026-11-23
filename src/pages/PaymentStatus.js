@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { doc, onSnapshot } from "firebase/firestore";
 import { Button } from "@mui/material";
 import { db, FUNCTIONS_BASE_URL } from "../services/firebase";
@@ -127,6 +127,21 @@ const PaymentStatus = () => {
   //       .catch((e) => console.log(e));
   //   }, 5000);
   // };
+
+  // opened without a payment (bookmark / back button) - it would wait as "Pending" forever
+  if (!txnId) {
+    return (
+      <div className={`${classes.payment}`}>
+        <h2 className={`${classes.pay}`}>No payment to show</h2>
+        <p className={`${classes.pay}`}>
+          You can see all your orders and their payment status in Orders.
+        </p>
+        <Link to="/orders" className="btn btn-warning text-white">
+          GO TO ORDERS
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <>

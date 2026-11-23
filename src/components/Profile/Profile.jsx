@@ -37,7 +37,9 @@ import {
   isValidName,
   isValidPassword,
   isValidPhoneNumber,
+  normalizePhoneNumber,
 } from "../../utils/validator";
+import { getAuthErrorMessage } from "../../utils/authMessages";
 import {
   errorNotification,
   successNotification,
@@ -135,6 +137,9 @@ const Profile = () => {
   async function saveChanges() {
     try {
       const docRef = doc(db, "users", id);
+      // store 10 digits even if "+91 ..." was typed - checkout expects 10 digits
+      const phone = normalizePhoneNumber(editedValues.phone);
+      const name = editedValues.name.trim();
       await updateDoc(docRef, { name, phone });
       // keep the logged in user details in sync, so checkout uses the new values
       dispatch(login({ ...userDetail, name, phone }));
@@ -163,9 +168,7 @@ const Profile = () => {
       return;
     }
     if (pwd !== cpwd) {
-      errorNotification(
-        "Invalid, Password must be 6 characters or more in length"
-      );
+      errorNotification("Passwords don't match");
       return;
     }
 
@@ -183,13 +186,16 @@ const Profile = () => {
         setCpwd("");
       })
       .catch((error) => {
-        errorNotification(error.message);
         console.log("updateUserPassword error: ", error.message);
         setPwd("");
         setCpwd("");
         if (error.code === "auth/requires-recent-login") {
-          // logout the user
-          dispatch(logout);
+          errorNotification(
+            "For your security, please login again and then change the password."
+          );
+          logout(false);
+        } else {
+          errorNotification(getAuthErrorMessage(error));
         }
       });
   };

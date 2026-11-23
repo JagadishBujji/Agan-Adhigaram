@@ -34,7 +34,7 @@ test("qty more than stock is lowered with the latest price", () => {
 
   expect(result.canPlaceOrder).toBe(false);
   expect(result.adjusted).toMatchObject([
-    { ...cart[1], qty: 1, total_price: 60 },
+    { ...cart[1], qty: 1, discount_price: 60, total_price: 60 },
   ]);
   expect(result.updatedCartItems[0]).toMatchObject(cart[0]);
 });
@@ -113,4 +113,29 @@ describe("pre-order books", () => {
       false,
     ]);
   });
+});
+
+test("price changed by admin - cart takes the latest price and asks to confirm again", () => {
+  const result = reconcileCartWithStock(cart, {
+    a: { stock: 5, discount_price: 120, mrp_price: 150 },
+    b: { stock: 3, discount_price: 50 },
+  });
+
+  expect(result.canPlaceOrder).toBe(false);
+  expect(result.adjusted).toMatchObject([
+    { id: "a", qty: 2, discount_price: 120, mrp_price: 150, total_price: 240 },
+  ]);
+  expect(result.updatedCartItems.map((item) => item.total_price)).toEqual([240, 150]);
+});
+
+test("price edited in localStorage is replaced with the real price", () => {
+  const tampered = [{ id: "a", title: "A", qty: 1, discount_price: 1, total_price: 1 }];
+  const result = reconcileCartWithStock(tampered, {
+    a: { stock: 5, discount_price: 100 },
+  });
+
+  expect(result.canPlaceOrder).toBe(false);
+  expect(result.updatedCartItems).toMatchObject([
+    { id: "a", discount_price: 100, total_price: 100 },
+  ]);
 });

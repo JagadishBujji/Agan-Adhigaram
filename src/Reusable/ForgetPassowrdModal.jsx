@@ -7,8 +7,11 @@ import { Grid, TextField } from "@mui/material";
 import "./LoginModal.css";
 import { isValidEmail } from "../utils/validator";
 import { errorNotification, successNotification } from "../utils/notifications";
-import { auth } from "../services/firebase";
-import { sendPasswordResetEmail } from "firebase/auth";
+import { requestPasswordReset } from "../api/authEmails";
+import {
+  getAuthErrorMessage,
+  getPasswordResetSentMessage,
+} from "../utils/authMessages";
 
 const style = {
   position: "absolute",
@@ -27,22 +30,6 @@ const style = {
   },
 };
 
-const loginModalBtn = {
-  border: "1px solid #f19e38",
-  color: "#f19e38",
-  fontSize: "14px",
-  fontWeight: 500,
-  margin: "0 10px",
-
-  fontFamily: "'Poppins', sans-serif",
-  "@media (max-width: 768px)": {
-    marginBottom: "10px",
-    marginLeft: "35px",
-    marginRight: "10px",
-    border: "none",
-    fontWeight: "bold",
-  },
-};
 const loginbtn = {
   // border: "1px solid #f19e38",
   color: "#fff",
@@ -68,45 +55,48 @@ const loginbtn = {
 export default function ForgetPasswordModal({ open, setOpen }) {
   const [email, setEmail] = useState("");
 
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handlePasswordReset = () => {
-    if (isValidEmail(email)) {
-      sendPasswordResetEmail(auth, email)
-        .then(() => {
-          successNotification("Password reset email sent!");
-          handleClose();
-        })
-        .catch((e) => {
-          console.log("forgot passowrd: ", e);
-          errorNotification(e.message);
-        });
-    } else {
-      errorNotification("Invalid Email!!!");
+    const trimmedEmail = email.trim().toLowerCase();
+    if (!isValidEmail(trimmedEmail)) {
+      errorNotification("Please enter a valid email address.");
+      return;
     }
+    const showSentMessage = () => {
+      successNotification(getPasswordResetSentMessage(trimmedEmail));
+      handleClose();
+    };
+    requestPasswordReset(trimmedEmail)
+      .then(showSentMessage)
+      .catch((e) => {
+        // same message as success, so the form does not reveal which emails have accounts
+        if (e.code === "auth/user-not-found") {
+          showSentMessage();
+          return;
+        }
+        console.log("forgot password: ", e);
+        errorNotification(getAuthErrorMessage(e));
+      });
   };
 
   return (
     <div>
-      <Button onClick={handleOpen} sx={loginModalBtn}>
-        Login
-      </Button>
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
+        aria-labelledby="forgot-password-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2">
-            Forget Password
+          <Typography id="forgot-password-title" variant="h4" component="h2">
+            Forgot Password
           </Typography>
           <Grid container>
             <Grid md={12} xs={12}>
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="forgot-password-email"
                 label="Email"
                 variant="outlined"
                 name="email"

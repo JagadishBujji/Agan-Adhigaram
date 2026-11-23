@@ -20,7 +20,8 @@ const BooksDesc = () => {
       const docRef = doc(db, "books", id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        setBook(docSnap.data()); //use State
+        // keep the doc id - cart, stock check and checkout look the book up by it
+        setBook({ id: docSnap.id, ...docSnap.data() });
       } else {
         setBook(null);
       }

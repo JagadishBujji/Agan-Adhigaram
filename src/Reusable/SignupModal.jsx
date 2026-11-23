@@ -7,8 +7,12 @@ import {
   isValidPhoneNumber,
   isValidName,
   isValidNumber,
+  normalizePhoneNumber,
 } from "../utils/validator";
 import { doc, setDoc } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { login } from "../store/userSlice";
+import { requestEmailVerification } from "../api/authEmails";
 import { db } from "../services/firebase";
 import {
   FormControl,
@@ -26,9 +30,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import "./SignupModal.css";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { getAuthErrorMessage } from "../utils/authMessages";
 import { errorNotification, successNotification } from "../utils/notifications";
-import { async } from "q";
 import CountryAndStates from "./CountryAndStates";
 
 const style = {
@@ -82,6 +90,7 @@ const Signupbtn = {
 // };
 
 export default function SignupModal() {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [countryid, setCountryid] = useState(0);
@@ -124,76 +133,89 @@ export default function SignupModal() {
     });
   };
 
+  // first problem only - a stack of toasts was shown before
+  const getSignUpError = ({
+    name,
+    email,
+    phonenumber,
+    address,
+    createPassword,
+    confirmPassword,
+    country,
+    state,
+    pincode,
+  }) => {
+    if (!isValidName(name))
+      return "Please enter your name in English letters (initials like K. Ramesh are fine)";
+    if (!isValidEmail(email)) return "Please enter a valid email address";
+    if (!isValidPhoneNumber(phonenumber))
+      return "Please enter a valid 10 digit phone number";
+    if (!isValidAddress(address))
+      return "Please enter the door no, street and area in English";
+    if (!country) return "Please select the country";
+    if (!state) return "Please select the state";
+    if (!isValidNumber(pincode)) return "Please enter a valid pincode";
+    if (!isValidPassword(createPassword))
+      return "Password should be at least 6 characters";
+    if (createPassword !== confirmPassword) return "Passwords don't match";
+    return "";
+  };
+
   const handleSignUP = () => {
-    const {
-      name,
-      email,
-      phonenumber,
-      address,
-      confirmPassword,
-      createPassword,
-      country,
-      state,
-      city,
-      pincode,
-    } = signUpDetails;
-
-    if (
-      isValidName(name) &&
-      isValidEmail(email) &&
-      isValidPhoneNumber(phonenumber) &&
-      isValidAddress(address) &&
-      isValidPassword(createPassword) &&
-      isValidPassword(confirmPassword) &&
-      isValidNumber(pincode) &&
-      country &&
-      state &&
-      city &&
-      createPassword === confirmPassword
-    ) {
-      createUserWithEmailAndPassword(auth, email, createPassword)
-        .then(async (userCredential) => {
-          // Signed up
-          const user = userCredential.user;
-          // console.log("user1", user);
-          const { uid } = userCredential.user;
-          const docRef = doc(db, collection, uid);
-          await setDoc(docRef, {
-            name,
-            phone: phonenumber,
-            address,
-            email,
-            country: countryName,
-            state: stateName,
-            city: cityName,
-            pincode,
-            role: "consumer",
-          });
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          errorNotification(errorCode);
-        });
-    } else {
-      !isValidName(name) && errorNotification("Invalid Name");
-
-      !isValidEmail(email) && errorNotification("Invalid Email");
-
-      !isValidPhoneNumber(phonenumber) &&
-        errorNotification("Invalid Phone Number");
-      !isValidAddress(address) && errorNotification("Invalid Address");
-      !isValidPassword(createPassword) &&
-        errorNotification("Invalid CreatePassword");
-      !isValidPassword(confirmPassword) &&
-        errorNotification("Invalid ConfirmPassword");
-      !(createPassword === confirmPassword) &&
-        errorNotification("Password doesn't match");
-      !isValidNumber(pincode) && errorNotification("Enter valid pincode");
-      !country && errorNotification("Select Country");
-      !state && errorNotification("Select State");
-      !city && errorNotification("Select City");
+    const details = {
+      ...signUpDetails,
+      name: signUpDetails.name.trim(),
+      email: signUpDetails.email.trim().toLowerCase(),
+      phonenumber: normalizePhoneNumber(signUpDetails.phonenumber),
+      address: signUpDetails.address.trim(),
+      pincode: signUpDetails.pincode.trim(),
+    };
+    const error = getSignUpError(details);
+    if (error) {
+      errorNotification(error);
+      return;
     }
+
+    const { name, email, phonenumber, address, createPassword, pincode } =
+      details;
+    createUserWithEmailAndPassword(auth, email, createPassword)
+      .then(async (userCredential) => {
+        const { user } = userCredential;
+        const userData = {
+          name,
+          phone: phonenumber,
+          address,
+          email,
+          country: countryName,
+          state: stateName,
+          // city is optional here - the library list misses many towns,
+          // checkout asks for it in the delivery address
+          city: cityName,
+          pincode,
+          role: "consumer",
+          // new accounts verify the email before the first order;
+          // older accounts don't have this field and are not asked
+          email_verification_required: true,
+        };
+        await setDoc(doc(db, collection, user.uid), userData);
+        // the login listener may have read the profile before it was saved
+        dispatch(login({ id: user.uid, ...userData }));
+        // the verification mail greets the customer by this name (%DISPLAY_NAME%),
+        // so it is saved before the mail is sent
+        await updateProfile(user, { displayName: name }).catch((e) =>
+          console.log("display name: ", e)
+        );
+        // a typo in the email is caught now, not when the password is forgotten
+        requestEmailVerification(user).catch((e) =>
+          console.log("verification mail: ", e)
+        );
+        successNotification(
+          `Account created! We have sent a verification link to ${email}.`
+        );
+      })
+      .catch((e) => {
+        errorNotification(getAuthErrorMessage(e));
+      });
   };
 
   return (
@@ -204,11 +226,11 @@ export default function SignupModal() {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
+        aria-labelledby="signup-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h4" component="h2">
+          <Typography id="signup-title" variant="h4" component="h2">
             Sign Up
           </Typography>
 
@@ -216,7 +238,7 @@ export default function SignupModal() {
             <Grid md={6} xs={12}>
               <TextField
                 fullWidth
-                id="outlined-basic1"
+                id="signup-name"
                 label="Name"
                 variant="outlined"
                 name="name"
@@ -236,7 +258,7 @@ export default function SignupModal() {
             <Grid md={6} xs={12}>
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="signup-email"
                 label="Email"
                 variant="outlined"
                 name="email"
@@ -252,7 +274,7 @@ export default function SignupModal() {
             <Grid md={12} xs={12}>
               <TextField
                 fullWidth
-                id="outlined-basic"
+                id="signup-phone"
                 label="Phone Number"
                 variant="outlined"
                 name="phonenumber"
@@ -266,7 +288,7 @@ export default function SignupModal() {
 
             <Grid md={12} xs={12}>
               <TextField
-                id="outlined-multiline-static"
+                id="signup-address"
                 label="Address"
                 multiline
                 rows={1}
@@ -301,11 +323,11 @@ export default function SignupModal() {
                 }}
                 variant="outlined"
               >
-                <InputLabel htmlFor="outlined-adornment-password">
+                <InputLabel htmlFor="signup-password">
                   Create Password
                 </InputLabel>
                 <OutlinedInput
-                  id="outlined-adornment-password"
+                  id="signup-password"
                   type={showPassword ? "text" : "password"}
                   name="createPassword"
                   value={signUpDetails.createPassword}
@@ -328,11 +350,11 @@ export default function SignupModal() {
             </Grid>
             <Grid md={6} xs={12}>
               <FormControl sx={{ mb: 2, width: "100%" }} variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
+                <InputLabel htmlFor="signup-confirm-password">
                   Confirm Password
                 </InputLabel>
                 <OutlinedInput
-                  id="outlined-adornment-password"
+                  id="signup-confirm-password"
                   type={showPassword ? "text" : "password"}
                   name="confirmPassword"
                   value={signUpDetails.confirmPassword}
@@ -349,7 +371,7 @@ export default function SignupModal() {
                       </IconButton>
                     </InputAdornment>
                   }
-                  label="Password"
+                  label="Confirm Password"
                 />
               </FormControl>
             </Grid>
