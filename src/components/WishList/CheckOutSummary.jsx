@@ -41,7 +41,7 @@ import {
   getDeliveryCharge,
 } from "../../utils/logistics";
 
-const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
+const CheckOutSummary = ({ cartItems }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
   const preorderMaxQty = useSelector(selectPreorderMaxQty);
@@ -135,8 +135,8 @@ const CheckOutSummary = ({ cartItems, totalBookQuantity }) => {
       tax_percentage: 0,
       total_item_price: subtotal,
       total_price: total,
-      // total_qty: ordered_books.length,
-      total_qty: totalBookQuantity,
+      // from the books of this order: the server checks it, the cart counter can drift
+      total_qty: ordered_books.reduce((sum, book) => sum + book.qty, 0),
       // name, phone and address of the selected delivery address
       // login email is the current one (the profile may still have an email changed in this click)
       userDetail: toOrderUserDetail(
