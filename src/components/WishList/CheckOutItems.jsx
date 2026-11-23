@@ -10,7 +10,7 @@ const CheckOutItems = ({ cartItems }) => {
         {cartItems.length === 0 ? (
           <div className={`${classes.sadfox}`}>
             <FoxVideo />
-            <p className={classes.noitem}>No item in you cart.</p>
+            <p className={classes.noitem}>No items in your cart.</p>
             <p className={classes.additem}>Lets add some items from</p>
             <Link to="/books">
               <button className={classes.bookbtn}>Books</button>

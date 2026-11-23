@@ -177,16 +177,23 @@ const BookDescView = ({ book }) => {
               <i className={`${classes.heart} fa-regular fa-heart`}></i>WISHLIST
             </a> */}
           </div>
-          <p className={classes.Available}>
-            Also Available On{" "}
-            <a href={book.amazon_link} target="_blank">
-              <img
-                src="../images/amazon.svg"
-                alt=""
-                className={classes.Amazon}
-              />
-            </a>
-          </p>
+          {/* books without an amazon listing have an empty link */}
+          {book.amazon_link && (
+            <p className={classes.Available}>
+              Also Available On{" "}
+              <a
+                href={book.amazon_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/amazon.svg"
+                  alt="Amazon"
+                  className={classes.Amazon}
+                />
+              </a>
+            </p>
+          )}
         </div>
         <div className={`${classes.BookDescView2} col-md-7`}>
           {/* <div className={`${classes.bookdescimg} row`}>
