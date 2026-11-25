@@ -83,6 +83,11 @@ const BookCard = ({ book }) => {
         {book.title} ({book.title_tamil})
       </h2>
       <p className={classes.namebookauthor}>{book.author}</p>
+      {book.illustrator && (
+        <p className={classes.namebookauthor}>
+          Illustrated by {book.illustrator}
+        </p>
+      )}
       <p className={classes.bookprice}>
         ₹{book.discount_price}
         {book.discount_price !== book.mrp_price && (

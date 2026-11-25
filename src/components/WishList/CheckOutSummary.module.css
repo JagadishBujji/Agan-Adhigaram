@@ -214,3 +214,26 @@
   font-family: "Poppins", sans-serif;
   color: #000;
 }
+
+.orderNoteLabel {
+  display: block;
+  margin: 14px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.orderNote {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  resize: vertical;
+}
+
+.orderNote:focus {
+  outline: none;
+  border-color: #f19e38;
+}
