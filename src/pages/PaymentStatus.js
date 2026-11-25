@@ -45,6 +45,7 @@ const PaymentStatus = () => {
               code: data.payment_status,
               message: "Success",
               desc: "",
+              orderNumber: data.order_number || docSnap.id,
             });
             dispatch(clearCart());
             successNotification("Order placed successfully!");
@@ -174,6 +175,11 @@ const PaymentStatus = () => {
         ) : status.code === "PAYMENT_SUCCESS" ? (
           <>
             <h2 className={`${classes.pay}`}>Payment Status - Success</h2>
+            {status.orderNumber && (
+              <p className={`${classes.pay}`}>
+                Your order number: <b>{status.orderNumber}</b>
+              </p>
+            )}
             {/* payment success */}
             {/* <img src="http://localhost:3000/images/fox_payment_success.webm" /> */}
             <PaymentSuccess />
