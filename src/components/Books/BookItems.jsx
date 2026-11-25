@@ -84,7 +84,7 @@ const BookCard = ({ book }) => {
       </h2>
       <p className={classes.namebookauthor}>{book.author}</p>
       {book.illustrator && (
-        <p className={classes.namebookauthor}>
+        <p className={`${classes.namebookauthor} ${classes.illustrator}`}>
           Illustrated by {book.illustrator}
         </p>
       )}

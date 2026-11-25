@@ -74,7 +74,7 @@ const BookListView = ({ book }) => {
               </h2>
               <p className={classes.bookram}>{book.author}</p>
               {book.illustrator && (
-                <p className={classes.bookram}>
+                <p className={`${classes.bookram} ${classes.illustrator}`}>
                   Illustrated by {book.illustrator}
                 </p>
               )}
