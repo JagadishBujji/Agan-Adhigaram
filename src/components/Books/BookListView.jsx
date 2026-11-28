@@ -73,6 +73,11 @@ const BookListView = ({ book }) => {
                 {book.title}({book.title_tamil})
               </h2>
               <p className={classes.bookram}>{book.author}</p>
+              {book.illustrator && (
+                <p className={`${classes.bookram} ${classes.illustrator}`}>
+                  Illustrated by {book.illustrator}
+                </p>
+              )}
               {book.is_preorder && (
                 <span className={classes.preorder}>
                   {getPreorderLabel(book)}

@@ -1,44 +1,38 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import Modal from "react-bootstrap/Modal";
 import classes from "./Subscribe.module.css";
 import { isValidEmail } from "../utils/validator";
-import { errorNotification, successNotification } from "../utils/notifications";
+import { errorNotification } from "../utils/notifications";
+import { subscribeToNewsletter } from "../api/newsletter";
 
 const Subscribe = ({ circleimg, circle1 }) => {
   const [email, setEmail] = useState("");
+  const [isSaving, setIsSaving] = useState(false);
+  // message shown in the popup after subscribing
+  const [doneMessage, setDoneMessage] = useState("");
 
-  const subscribeToNewsletter = () => {
-    const isValid = isValidEmail(email);
-    if (isValid) {
-      const templateParams = {
-        from_name: "Agan-Adhigaram-Newsletter",
-        to_name: "Agan Adhigaram",
-        message: `Newsletter email to be subscribed: ${email}`,
-        reply_to: "aganadhigaram@gmail.com",
-      };
-      // console.log("email: ", email, isValid);
-      emailjs
-        .send(
-          "agan-adhigaram-gmail", //"service_oqj0u95",
-          "agan-adhigaram-template", // "template_vm0im08",
-          templateParams,
-          "X998DiJQe-3yW7KbL" // D2kbT-B5keOM5qWXb
-        )
-        .then(
-          function (response) {
-            // console.log("SUCCESS!", response.status, response.text);
-            successNotification(
-              "Thank you for registering newletter with us!!!"
-            );
-            setEmail("");
-          },
-          function (error) {
-            console.log("FAILED...", error);
-          }
-        )
-        .catch((e) => console.log(e));
-    } else {
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!isValidEmail(email.trim())) {
       errorNotification("Invalid Email, please enter valid email address");
+      return;
+    }
+    setIsSaving(true);
+    try {
+      const result = await subscribeToNewsletter(email);
+      setDoneMessage(
+        result === "already-subscribed"
+          ? "You are already subscribed to our newsletter. Thank you!"
+          : "Thank you for subscribing! You will get our newest book updates by email."
+      );
+      setEmail("");
+    } catch (err) {
+      console.log("newsletter: ", err);
+      errorNotification(
+        "Could not subscribe right now, please try again in a moment"
+      );
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -53,7 +47,7 @@ const Subscribe = ({ circleimg, circle1 }) => {
           </h2>
         </div>
         <div className={`${classes.sub2} col-md-6`}>
-          <div className={classes.fromcontrol}>
+          <form className={classes.fromcontrol} onSubmit={handleSubscribe}>
             <input
               type="email"
               placeholder="Type your email here"
@@ -61,17 +55,27 @@ const Subscribe = ({ circleimg, circle1 }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <button className={classes.submit} onClick={subscribeToNewsletter}>
-              Subscribe
+            <button
+              type="submit"
+              className={classes.submit}
+              disabled={isSaving}
+            >
+              {isSaving ? "Subscribing..." : "Subscribe"}
             </button>
             <img
               src={circle1}
               alt="circle1"
               className={classes.circleElement}
             />
-          </div>
+          </form>
         </div>
       </div>
+      <Modal show={Boolean(doneMessage)} onHide={() => setDoneMessage("")} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Newsletter</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>{doneMessage}</Modal.Body>
+      </Modal>
     </>
   );
 };

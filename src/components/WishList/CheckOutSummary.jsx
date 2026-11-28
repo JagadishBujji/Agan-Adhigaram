@@ -41,6 +41,9 @@ import {
   getDeliveryCharge,
 } from "../../utils/logistics";
 
+// same limit as the firestore rules for orders
+const ORDER_NOTE_MAX_LENGTH = 500;
+
 const CheckOutSummary = ({ cartItems }) => {
   const dispatch = useDispatch();
   const { isAuthenticated, userDetail } = useSelector(selectUser);
@@ -76,6 +79,8 @@ const CheckOutSummary = ({ cartItems }) => {
   // delivery charge for India - set by admin in settings
   const [delivery, setDelivery] = useState(DEFAULT_DELIVERY_CHARGE);
   const [isDeliveryLoaded, setIsDeliveryLoaded] = useState(false);
+  // optional note for the shop: courier preference, gift packing, ...
+  const [orderNote, setOrderNote] = useState("");
 
   useEffect(() => {
     getDoc(doc(db, "app", "meta"))
@@ -155,6 +160,10 @@ const CheckOutSummary = ({ cartItems }) => {
       payment_method: "online-payment-gateway",
       payment_status: "PAYMENT_INITIATED",
     };
+    const note = orderNote.trim().slice(0, ORDER_NOTE_MAX_LENGTH);
+    if (note) {
+      order.order_note = note;
+    }
 
     // console.log("order: ", order, userDetail);
 
@@ -401,6 +410,18 @@ const CheckOutSummary = ({ cartItems }) => {
                     : " once the book is released."}
                 </p>
               )}
+              <label htmlFor="order-note" className={classes.orderNoteLabel}>
+                Order note (optional)
+              </label>
+              <textarea
+                id="order-note"
+                className={classes.orderNote}
+                rows={2}
+                maxLength={ORDER_NOTE_MAX_LENGTH}
+                placeholder="E.g. courier preference, gift packing"
+                value={orderNote}
+                onChange={(e) => setOrderNote(e.target.value)}
+              />
               <hr />
               <div className={`${classes.total}`}>
                 <p className={classes.subtotal}>Total</p>

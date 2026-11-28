@@ -216,3 +216,8 @@
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 }
+
+/* illustrator line sits right under the author */
+.illustrator {
+  margin-top: -0.75rem;
+}

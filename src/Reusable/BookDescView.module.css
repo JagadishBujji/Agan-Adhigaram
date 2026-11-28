@@ -135,6 +135,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.creators {
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+/* arrows to move through the book images */
+.galleryArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(241, 158, 56, 0.9);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.galleryArrow:hover {
+  background: #f19e38;
+}
+
+.galleryArrowLeft {
+  left: 0;
+}
+
+.galleryArrowRight {
+  right: 0;
 }
 
 .imgrow {

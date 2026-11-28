@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./BookGallerySlider.css";
-import { Avatar, AvatarGroup, Button, Modal } from "@mui/material";
+import { Button } from "@mui/material";
 import classes from "./BookDescView.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,10 +18,6 @@ const BookDescView = ({ book }) => {
   const dispatch = useDispatch();
   const { cartItems } = useSelector(selectCartItems);
   const [noOfItems, setNoOfItems] = useState(0);
-  const [onImageClick, setOnImageClick] = useState(false);
-  const [active, setActive] = React.useState(0);
-  const [autoplay, setAutoplay] = React.useState(0);
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const item = cartItems.find((item) => item.id === book.id);
@@ -36,10 +32,6 @@ const BookDescView = ({ book }) => {
     dispatch(addItem(book));
   };
 
-  const handleOnImageClick = (index) => {
-    setOnImageClick(true);
-  };
-
   const handleAddItemQty = () => {
     dispatch(addItemQty(book));
   };
@@ -51,43 +43,38 @@ const BookDescView = ({ book }) => {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
+  // page shows 6 images at a time (2 big, 4 small), the arrows move through all of them
+  const images = (book.images || []).filter(Boolean);
+  const [firstImage, setFirstImage] = useState(0);
+  const indexedImages = images.map((url, index) => ({ url, index }));
+  const visibleImages = [
+    ...indexedImages.slice(firstImage),
+    ...indexedImages.slice(0, firstImage),
+  ].slice(0, 6);
+  const showPrevImage = () =>
+    setFirstImage((i) => (i - 1 + images.length) % images.length);
+  const showNextImage = () => setFirstImage((i) => (i + 1) % images.length);
+
+  useEffect(() => {
+    setFirstImage(0);
+  }, [book.id]);
+
   const handleClick = (item, index) => {
     setCurrentIndex(index);
-    setClickedImg(book.images[index]);
+    setClickedImg(images[index]);
   };
 
+  // big image view: next / previous, going round at the ends
   const handelRotationRight = () => {
-    const totalLength = book.images.length;
-    if (currentIndex + 1 >= totalLength) {
-      setCurrentIndex(0);
-      const newUrl = book.images[0];
-      setClickedImg(newUrl);
-      return;
-    }
-    const newIndex = currentIndex + 1;
-    const newUrl = book.images.filter((item) => {
-      return book.images.indexOf(item) === newIndex;
-    });
-    const newItem = newUrl[0];
-    setClickedImg(newItem);
+    const newIndex = (currentIndex + 1) % images.length;
     setCurrentIndex(newIndex);
+    setClickedImg(images[newIndex]);
   };
 
   const handelRotationLeft = () => {
-    const totalLength = book.images.length;
-    if (currentIndex === 0) {
-      setCurrentIndex(totalLength - 1);
-      const newUrl = book.images[totalLength - 1];
-      setClickedImg(newUrl);
-      return;
-    }
-    const newIndex = currentIndex - 1;
-    const newUrl = book.images.filter((item) => {
-      return book.images.indexOf(item) === newIndex;
-    });
-    const newItem = newUrl[0];
-    setClickedImg(newItem);
+    const newIndex = (currentIndex - 1 + images.length) % images.length;
     setCurrentIndex(newIndex);
+    setClickedImg(images[newIndex]);
   };
 
   return (
@@ -97,13 +84,17 @@ const BookDescView = ({ book }) => {
           <h3 className={classes.bookheading}>
             {book.title}({book.title_tamil})
           </h3>
-          <div className={classes.ramya}>
-            <AvatarGroup max={2}>
-              <Avatar alt="" src="../images/ramya.svg" />
-              <Avatar alt="Travis Howard" src="../images/sethu.svg" />
-            </AvatarGroup>
-
-            <p className={classes.ramyasethuram}>{book.author}</p>
+          <div className={classes.creators}>
+            {book.author && (
+              <p className={classes.ramyasethuram}>
+                Written by <b>{book.author}</b>
+              </p>
+            )}
+            {book.illustrator && (
+              <p className={classes.ramyasethuram}>
+                Illustrated by <b>{book.illustrator}</b>
+              </p>
+            )}
           </div>
           <p className={classes.Vadai}>{book.description}</p>
           <div className={classes.amount}>
@@ -200,44 +191,48 @@ const BookDescView = ({ book }) => {
             <div className={`${classes.bookdescimg1} col-md-6`}></div>
             <div className={`${classes.bookdescimg2} col-md-4`}></div>
           </div> */}
-          <img
-            src={book.images[0]}
-            alt=""
-            className={classes.imgbook}
-            onClick={() => handleClick(book.images[0], 0)}
-          />
-          <img
-            src={book.images[1]}
-            alt=""
-            className={classes.imgbook2}
-            onClick={() => handleClick(book.images[1], 1)}
-          />
-          <div className={classes.imgrow}>
+          {images.length > 1 && (
+            <button
+              type="button"
+              className={`${classes.galleryArrow} ${classes.galleryArrowLeft}`}
+              onClick={showPrevImage}
+              aria-label="Previous image"
+            >
+              <i className="fa-solid fa-chevron-left"></i>
+            </button>
+          )}
+          {visibleImages.slice(0, 2).map(({ url, index }, i) => (
             <img
-              src={book.images[2]}
-              alt=""
-              className={classes.imgrowbook}
-              onClick={() => handleClick(book.images[2], 2)}
+              key={index}
+              src={url}
+              alt={`${book.title} ${index + 1}`}
+              className={i === 0 ? classes.imgbook : classes.imgbook2}
+              onClick={() => handleClick(url, index)}
             />
-            <img
-              src={book.images[3]}
-              alt=""
-              className={classes.imgrowbook}
-              onClick={() => handleClick(book.images[3], 3)}
-            />
-            <img
-              src={book.images[4]}
-              alt=""
-              className={classes.imgrowbook}
-              onClick={() => handleClick(book.images[4], 4)}
-            />
-            <img
-              src={book.images[5]}
-              alt=""
-              className={classes.imgrowbook}
-              onClick={() => handleClick(book.images[5], 5)}
-            />
-          </div>
+          ))}
+          {visibleImages.length > 2 && (
+            <div className={classes.imgrow}>
+              {visibleImages.slice(2).map(({ url, index }) => (
+                <img
+                  key={index}
+                  src={url}
+                  alt={`${book.title} ${index + 1}`}
+                  className={classes.imgrowbook}
+                  onClick={() => handleClick(url, index)}
+                />
+              ))}
+            </div>
+          )}
+          {images.length > 1 && (
+            <button
+              type="button"
+              className={`${classes.galleryArrow} ${classes.galleryArrowRight}`}
+              onClick={showNextImage}
+              aria-label="Next image"
+            >
+              <i className="fa-solid fa-chevron-right"></i>
+            </button>
+          )}
           {/* <BookGallerySlider book={book}  /> */}
           {clickedImg && (
             <BookGallerySlider

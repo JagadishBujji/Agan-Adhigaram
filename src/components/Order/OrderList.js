@@ -222,7 +222,8 @@ const Order = ({ order }) => {
             </p>
             <p className={classes.placed}>
               <b>ORDER ID:</b>
-              <span className={classes.date}>{id}</span>
+              {/* short number for paid orders, older orders only have the long id */}
+              <span className={classes.date}>{order.order_number || id}</span>
             </p>
             <p className={classes.placed}>
               <b>Delivery Charge:</b>
@@ -257,7 +258,27 @@ const Order = ({ order }) => {
                 <b>Courier:</b>
                 <span className={classes.date}>
                   {logistics.name}
-                  {logistics.number && ` - ${logistics.number}`}
+                  {/* without a tracking id the link stays next to the courier */}
+                  {!logistics.number && logistics.trackingUrl && (
+                    <>
+                      {" "}
+                      <a
+                        href={logistics.trackingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Track order
+                      </a>
+                    </>
+                  )}
+                </span>
+              </p>
+            )}
+            {logistics && logistics.number && (
+              <p className={classes.placed}>
+                <b>Tracking ID:</b>
+                <span className={classes.date}>
+                  {logistics.number}
                   {logistics.trackingUrl && (
                     <>
                       {" "}
@@ -271,6 +292,12 @@ const Order = ({ order }) => {
                     </>
                   )}
                 </span>
+              </p>
+            )}
+            {order.order_note && (
+              <p className={classes.placed}>
+                <b>Order Note:</b>
+                <span className={classes.date}>{order.order_note}</span>
               </p>
             )}
           </Stack>
